@@ -71,7 +71,7 @@ Sur le site [data.gouv](https://data.gouv.fr), les données ont des problèmes d
 
 > etc. Trouver tous les caractères de ponctuation potentiellement mal encodés (majuscules comprises) et les remplacer par la suite (Talend).
 
-![encoding](/img/encoding.png)
+![encoding](doc/img/encoding.png)
 
 _Figure 1 : Mauvais encodage._
 
@@ -88,7 +88,7 @@ Volumétrie :
 * declaration_remuneration_2020_09_13_04_00 : `171 Mo` (614 365 lignes)
 * entreprise_2020_09_13_04_00 : `398 Ko` (3316 lignes)
 
-![data](img/initial-data.png)
+![data](doc/img/initial-data.png)
 
 _Figure 2 : Données initiales._
 
@@ -103,7 +103,7 @@ Un classeur Excel (format .xlsx) est également disponible ; il compile sous 4 f
 
 > [Classeur Excel](https://gofile.io/d/loEEoP) (Accessible également sur le drive).
 
-![excel](img/excel.png)
+![excel](doc/img/excel.png)
 
 _Figure 3 : Classeur excel._
 
@@ -121,7 +121,7 @@ __L'ensemble de ces .csv sont [téléchargeables via ce lien gofile](https://gof
 
 ### Entrepôt de données
 
-![DW](img/dw.png)
+![DW](doc/img/dw.png)
 
 _Figure 5 : Data Warehouse_
 
@@ -188,7 +188,7 @@ Un drive dédié au partage des différents documents et données liés au proje
 
 Nous gérons aussi nos tâches via un formalisme simple via Trello, un outil en ligne de collaboration.
 
-![Trello](img/trello.png)
+![Trello](doc/img/trello.png)
 _Figure 5 : Organisation des tâches._
 
 [Il est accessible ici (click me)](https://trello.com/invite/b/9vA5ZWl4/24dd09091eb9ce0a5cb0113a4f49f19e/projet-bi).
