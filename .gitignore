@@ -1,0 +1,6 @@
+# Huge files...
+data/data.gouv/avantages.csv
+data/data.gouv/conventions.csv
+data/data.gouv/remunerations.csv
+data/others/rpps_diplomes.csv
+*.zip
