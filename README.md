@@ -71,7 +71,7 @@ Sur le site [data.gouv](https://data.gouv.fr), les données ont des problèmes d
 
 > etc. Trouver tous les caractères de ponctuation potentiellement mal encodés (majuscules comprises) et les remplacer par la suite (Talend).
 
-![encoding](img/encoding.png)
+![encoding](/img/encoding.png)
 
 _Figure 1 : Mauvais encodage._
 
