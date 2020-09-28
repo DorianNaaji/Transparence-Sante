@@ -97,11 +97,11 @@ C'est pourquoi nous avons créé un jeu données minimisé, chacun gardant uniqu
 
 Ces données minimisées sont accessibles ici :
 
-> [Données minimisées](https://gofile.io/d/QuGYIE) (Accessible également sur le drive).
+> [Données minimisées](https://drive.google.com/drive/u/1/folders/13usR34gBdYmK-vbN75WcTykQwk_k7UNv)
 
 Un classeur Excel (format .xlsx) est également disponible ; il compile sous 4 feuilles l'ensemble des données minimisées, mises en forme de manière plus lisible, avec une page d'informations concernant les données.
 
-> [Classeur Excel](https://gofile.io/d/loEEoP) (Accessible également sur le drive).
+> [Classeur Excel](https://drive.google.com/drive/u/1/folders/1oBV562rBlshWmhQNVUK9Dj7FCexN-Cul) (Accessible également sur le drive).
 
 ![excel](doc/img/excel.png)
 
@@ -116,7 +116,7 @@ D'autres sources de données peuvent nous être utile, notamment, nous avons tro
 * rpps_diplomes.csv : acessible  sur [annuaire.sante.fr](https://annuaire.sante.fr/web/site-pro/extractions-publiques), ce fichier nous permet, à partir d'un code unique attribué à un professionnel de santé (numéro RPPS) de récupérer des informations le concernant. Nous utiliserons un fichier permettant de connaître les études du professionnel de santé, nous permettant d'éventuelles analyses. Cela ne concerne que les bénéficiaires des avantages/conventions/rémunérations.
 
 
-__L'ensemble de ces .csv sont [téléchargeables via ce lien gofile](https://gofile.io/d/o8HKoE)__ (lien disponible également sur le drive).
+__L'ensemble de ces .csv sont [téléchargeables via ce lien](https://drive.google.com/drive/u/1/folders/1vtv_6EpDKFH28VDju73cSLOCoIsbZm8E)__.
 
 
 ### Entrepôt de données
