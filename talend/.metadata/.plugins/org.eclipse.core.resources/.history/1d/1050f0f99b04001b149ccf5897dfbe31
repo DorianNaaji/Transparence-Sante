@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TalendProperties="http://www.talend.org/properties">
+  <TalendProperties:Project xmi:id="_z5gC4QSbEeuli-3nAiOvTg" label="transparence_sante_bi" description="" language="java" technicalLabel="TRANSPARENCE_SANTE_BI" local="true" author="_z6ao4ASbEeuli-3nAiOvTg" productVersion="Talend Open Studio for Data Integration-7.3.1.20200219_1130" itemsRelationVersion="1.3" bigData="false">
+    <migrationTask xmi:id="_z7858ASbEeuli-3nAiOvTg" id="org.talend.repository.model.migration.CheckProductVersionMigrationTask" breaks="7.1.0" version="7.1.1"/>
+  </TalendProperties:Project>
+  <TalendProperties:User xmi:id="_z6ao4ASbEeuli-3nAiOvTg" login="dorian.naaji@gmail.com" password="D41D8CD98F00B204E9800998ECF8427E"/>
+</xmi:XMI>

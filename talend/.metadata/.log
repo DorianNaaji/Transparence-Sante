@@ -1,0 +1,103 @@
+!SESSION 2020-10-02 12:40:40.272 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_241
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data file:/C:/BI/transparence-sante/talend/
+
+!ENTRY org.eclipse.jdt.launching.macosx 4 0 2020-10-02 12:40:41.575
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jdt.launching.macosx [20]
+  Unresolved requirement: Require-Capability: eclipse.platform; filter:="(osgi.os=macosx)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:451)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1783)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1762)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1725)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1656)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:233)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:343)
+
+!ENTRY org.eclipse.jdt.launching.ui.macosx 4 0 2020-10-02 12:40:41.581
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jdt.launching.ui.macosx [21]
+  Unresolved requirement: Require-Capability: eclipse.platform; filter:="(osgi.os=macosx)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:451)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1783)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1762)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1725)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1656)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:233)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:343)
+
+!ENTRY org.talend.platform.logging 1 0 2020-10-02 12:40:43.466
+!MESSAGE 2020-10-02 12:40:43,464 INFO  org.talend.utils.StudioKeysFileCheck  - encryptionKeyFilePath: D:\Programmes\Talend Open Studio\TOS_DI-Win32-20200219_1130-V7.3.1\configuration\studio.keys
+
+
+!ENTRY org.talend.platform.logging 2 0 2020-10-02 12:41:34.317
+!MESSAGE 2020-10-02 12:41:34,316 WARN  org.talend.sdk.component.studio.logging.JULToOsgiHandler  - [org.talend.sdk.component.server.service.ComponentManagerService.init] No system property 'jdk.serialFilter', ensure it is intended
+
+
+!ENTRY org.talend.platform.logging 2 0 2020-10-02 12:41:57.604
+!MESSAGE 2020-10-02 12:41:57,604 WARN  org.talend.commons.exception.CommonExceptionHandler  - Missing module group definition: esb-java-11-group
+
+
+!ENTRY org.talend.platform.logging 2 0 2020-10-02 12:41:57.749
+!MESSAGE 2020-10-02 12:41:57,749 WARN  org.talend.commons.exception.CommonExceptionHandler  - Missing module group definition: esb-java-11-group
+
+
+!ENTRY org.talend.platform.logging 1 0 2020-10-02 12:42:11.488
+!MESSAGE 2020-10-02 12:42:11,488 INFO  org.eclipse.m2e.jdt.internal.AbstractJavaProjectConfigurator  - Adding source folder /TRANSPARENCE_SANTE_BI_ROUTINES/src/main/java
+
+
+!ENTRY org.talend.platform.logging 1 0 2020-10-02 12:42:11.495
+!MESSAGE 2020-10-02 12:42:11,494 INFO  org.eclipse.m2e.jdt.internal.AbstractJavaProjectConfigurator  - Adding resource folder /TRANSPARENCE_SANTE_BI_ROUTINES/src/main/resources
+
+
+!ENTRY org.talend.platform.logging 1 0 2020-10-02 12:42:11.502
+!MESSAGE 2020-10-02 12:42:11,501 INFO  org.eclipse.m2e.jdt.internal.AbstractJavaProjectConfigurator  - Adding source folder /TRANSPARENCE_SANTE_BI_ROUTINES/src/test/java
+
+
+!ENTRY org.talend.platform.logging 1 0 2020-10-02 12:42:11.507
+!MESSAGE 2020-10-02 12:42:11,507 INFO  org.eclipse.m2e.jdt.internal.AbstractJavaProjectConfigurator  - Adding resource folder /TRANSPARENCE_SANTE_BI_ROUTINES/src/test/resources
+
+
+!ENTRY org.talend.platform.logging 1 0 2020-10-02 12:42:14.910
+!MESSAGE 2020-10-02 12:42:14,910 INFO  org.eclipse.m2e.internal.launch.MavenLaunchDelegate  - C:\BI\transparence-sante\talend\TRANSPARENCE_SANTE_BI\poms
+
+
+!ENTRY org.talend.platform.logging 1 0 2020-10-02 12:42:14.915
+!MESSAGE 2020-10-02 12:42:14,915 INFO  org.eclipse.m2e.internal.launch.MavenLaunchDelegate  -  mvn -B -o -s "D:\Programmes\Talend Open Studio\TOS_DI-Win32-20200219_1130-V7.3.1\configuration\maven_user_settings.xml" install -llr -N -Dci.builder.skip=true
+
+
+!ENTRY org.talend.platform.logging 1 0 2020-10-02 12:42:25.824
+!MESSAGE 2020-10-02 12:42:25,823 INFO  org.eclipse.m2e.internal.launch.MavenLaunchDelegate  - C:\BI\transparence-sante\talend\TRANSPARENCE_SANTE_BI\poms\code\routines
+
+
+!ENTRY org.talend.platform.logging 1 0 2020-10-02 12:42:25.830
+!MESSAGE 2020-10-02 12:42:25,830 INFO  org.eclipse.m2e.internal.launch.MavenLaunchDelegate  -  mvn -B -o -s "D:\Programmes\Talend Open Studio\TOS_DI-Win32-20200219_1130-V7.3.1\configuration\maven_user_settings.xml" install -llr -Dmaven.main.skip=true -Dci.builder.skip=true
+
+
+!ENTRY org.talend.platform.logging 1 0 2020-10-02 12:42:30.139
+!MESSAGE 2020-10-02 12:42:30,139 INFO  org.talend.core.repository.model.ProxyRepositoryFactory  - dorian.naaji@gmail.com connecté à transparence_sante_bi
+
+
+!ENTRY org.talend.platform.logging 1 0 2020-10-02 12:42:31.700
+!MESSAGE 2020-10-02 12:42:31,699 INFO  org.talend.core.repository.logintask.ReadOnlyProjectConfirm  - ReadOnly confirm
+
+
+!ENTRY org.talend.platform.logging 2 0 2020-10-02 12:42:32.295
+!MESSAGE 2020-10-02 12:42:32,295 WARN  org.talend.commons.exception.CommonExceptionHandler  - Missing module group definition: esb-java-11-group
+
+
+!ENTRY org.talend.platform.logging 2 0 2020-10-02 12:42:32.312
+!MESSAGE 2020-10-02 12:42:32,311 WARN  org.talend.commons.exception.CommonExceptionHandler  - Missing module group definition: esb-java-11-group
+
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-10-02 12:46:35.961
+!MESSAGE The workspace will exit with unsaved changes in this session.
