@@ -2,3 +2,6 @@
 *.zip
 *.csv
 *.xlsx
+
+talend/.metadata/
+*.log
