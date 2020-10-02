@@ -26,7 +26,39 @@ Pour exécuter ce script, il faut :
 
 ### Ouverture du projet Talend
 
-*à venir...*
+Premièrement, vous devez installer Talend Open Studio for Data Integration, version 2020 7.3.1 :
+
+[Talend releases (download)](https://www.talend.com/fr/products/data-integration-manuals-release-notes/)
+
+![Talend](doc/img/talend-import/0-download.png)
+
+
+Une fois Talend installé et lancé, vous devez ajouter une connexion, via le bouton "Gérer les connexions", situé en bas de l'écran pour le premier lancement ou en haut à droite.
+
+
+![Talend-Menu](doc/img/talend-import/1-open-talend.png)
+
+Dans le menu qui suit, remplacez la connexion existante par la suivante :
+
+
+![Talend-ConnecParams](doc/img/talend-import/2-replace-infos.png)
+
+
+Ensuite, cliquez sur "Importer un projet existant", et sélectionner "TRANSPARENCE_SANTE_BI" dans le dossier talend du repos git.
+
+![Talend-ImportProject](doc/img/talend-import/3-import-project.png)
+
+
+![Talend-SelectFolder](doc/img/talend-import/4-select-folder.png)
+
+
+Vous pouvez ensuite lancer le projet.
+
+Concernant le repos git, Talend va certainement modifier au lancement un certain nombre de fichiers de config ou de propriétés. Vous pouvez commit/push ces changements, mais faites attentions aux fichiers **".project"**, **"talend.project"** et **".classpath"**, nous n'avons pas d'informations sur l'incidence qu'ils auront s'ils sont commit et partagés entre PCs, restez alors vigilants à ces fichiers et à leur contenu lors de chaque commit.
+
+
+![Talend-Git](doc/img/talend-import/5-new-changes-to-commit.png)
+
 
 
 ## Informations supplémentaires
