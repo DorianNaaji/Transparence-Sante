@@ -24,6 +24,10 @@ Pour exécuter ce script, il faut :
 * **Si l'exécution du script est impossible en raison de la politique de sécurité PowerShell de la machine**, il suffit de copier/coller l'ensemble du contenu du sript Powershell dans une fenêtre Powershell.
 * Le téléchargement, la décompression et la supression des .zip se fait ensuite automatiquement.
 
+### Création de l'entrepôt de données
+
+Un [script .sql](script_dw.sql) est fourni à la racine du projet, `script_dw.sql`.
+
 ### Ouverture du projet Talend
 
 Premièrement, vous devez installer Talend Open Studio for Data Integration, version 2020 7.3.1 :
