@@ -10,6 +10,20 @@
   <url>http://www.talend.org/</url>
   <modules>
     <module>code/routines</module>
+    <module>jobs/process/dimensions/adresse_dim_0.1</module>
+    <module>jobs/process/dimensions/beneficiaire_dim_0.1</module>
+    <module>jobs/process/dimensions/categorie_beneficiaire_dim_0.1</module>
+    <module>jobs/process/dimensions/entreprise_dim_0.1</module>
+    <module>jobs/process/facts/avantage_remuneration_fact_0.1</module>
+    <module>jobs/process/facts/convention_fact_0.1</module>
+    <module>jobs/process/dimensions/evenement_convention_dim_0.1</module>
+    <module>jobs/process/dimensions/objet_convention_dim_0.1</module>
+    <module>jobs/process/dimensions/qualite_beneficiaire_dim_0.1</module>
+    <module>jobs/process/dimensions/secteur_activite_entreprise_dim_0.1</module>
+    <module>jobs/process/dimensions/specialite_beneficiaire_dim_0.1</module>
+    <module>jobs/process/dimensions/temps_dim_0.1</module>
+    <module>jobs/process/dimensions/titre_beneficiaire_dim_0.1</module>
+    <module>jobs/process/dimensions/type_avantage_dim_0.1</module>
   </modules>
   <properties>
     <talend.project.name>TRANSPARENCE_SANTE_BI</talend.project.name>
