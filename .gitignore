@@ -4,5 +4,12 @@
 *.xlsx
 
 talend/.metadata/
-.metadata/
-*./metadata
+
+*.class
+**/temp
+**/code/routines/system
+**/sqlPatterns
+**/process/*.screenshot
+talend/.JETEmitters
+talend/.Java
+.git

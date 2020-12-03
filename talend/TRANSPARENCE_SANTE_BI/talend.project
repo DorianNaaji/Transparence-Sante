@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TalendProperties="http://www.talend.org/properties">
-  <TalendProperties:Project xmi:id="_z5gC4QSbEeuli-3nAiOvTg" label="transparence_sante_bi" description="Notre équipe de projet va travailler sur la base de données publique &quot;Transparence santé&quot;.&#xD;&#xA;&#xD;&#xA;Équipe Transparence Santé :&#xD;&#xA;BENALI Myriam&#xD;&#xA;BESSON Cécile&#xD;&#xA;CARDOSO MORENO Ineida&#xD;&#xA;NAAJI Dorian&#xD;&#xA;VIRARAGAVANE Smaïline&#xD;&#xA;&#xD;&#xA;Informations sur le projet :&#xD;&#xA;https://github.com/DorianNaaji/transparence-sante&#xD;&#xA;&#xD;&#xA;Documentation du DW :&#xD;&#xA;https://github.com/DorianNaaji/transparence-sante/blob/master/doc/doc-dw.pdf&#xD;&#xA;&#xD;&#xA;Quelques données extraites du jeu complet de données :&#xD;&#xA;https://github.com/DorianNaaji/transparence-sante/blob/master/data/xlsx/transparence_sante_all.xlsx" language="java" technicalLabel="TRANSPARENCE_SANTE_BI" local="true" author="_z6ao4ASbEeuli-3nAiOvTg" productVersion="Talend Open Studio for Data Integration-7.3.1.20200219_1130" itemsRelationVersion="1.3" bigData="false">
-    <migrationTask xmi:id="_z7858ASbEeuli-3nAiOvTg" id="org.talend.repository.model.migration.CheckProductVersionMigrationTask" breaks="7.1.0" version="7.1.1"/>
-  </TalendProperties:Project>
-  <TalendProperties:User xmi:id="_z6ao4ASbEeuli-3nAiOvTg" login="dorian.naaji@gmail.com" password="D41D8CD98F00B204E9800998ECF8427E"/>
-  <TalendProperties:User xmi:id="_SSIa8ASsEeuN29VuzO4IEg" login="haytham.elghazel@univ-lyon1.fr" password="D41D8CD98F00B204E9800998ECF8427E"/>
-</xmi:XMI>
