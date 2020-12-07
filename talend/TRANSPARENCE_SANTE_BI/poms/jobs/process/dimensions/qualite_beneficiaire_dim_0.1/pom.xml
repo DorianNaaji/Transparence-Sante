@@ -5,13 +5,13 @@
   <parent>
     <groupId>org.example.transparence_sante_bi</groupId>
     <artifactId>code.Master</artifactId>
-    <version>7.3.1</version>
+    <version>7.2.1</version>
     <relativePath>../../../../</relativePath>
   </parent>
   <groupId>org.example.transparence_sante_bi.job</groupId>
   <artifactId>qualite_beneficiaire_dim</artifactId>
   <version>0.1.0</version>
-  <name>TRANSPARENCE_SANTE_BI qualite_beneficiaire_dim-0.1.0 (0.1,Jobs)</name>
+  <name>TRANSPARENCE_SANTE_BI qualite_beneficiaire_dim-0.1.0 (0.1,Job Designs)</name>
   <properties>
     <output.resources.dir>${talend.job.name}/src/main/resources</output.resources.dir>
     <talend.job.applyContextToChildren>false</talend.job.applyContextToChildren>
@@ -28,7 +28,7 @@
     <talend.pigudf.groupid>org.example.transparence_sante_bi.pigudf</talend.pigudf.groupid>
     <talend.routine.groupid>org.example.transparence_sante_bi.code</talend.routine.groupid>
     <current.bundle.resources.dir>${basedir}/src/main/bundle-resources</current.bundle.resources.dir>
-    <talend.job.jvmargs>-Xms256M -Xmx1024M -Dfile.encoding=Cp1252 </talend.job.jvmargs>
+    <talend.job.jvmargs>-Xms256M -Xmx1024M -Dfile.encoding=UTF-8 </talend.job.jvmargs>
     <talend.job.stat>true</talend.job.stat>
     <talend.job.context>Default</talend.job.context>
     <talend.job.date>${maven.build.timestamp}</talend.job.date>
@@ -44,16 +44,6 @@
   <dependencies>
     <dependency>
       <groupId>org.talend.libraries</groupId>
-      <artifactId>advancedPersistentLookupLib-1.2</artifactId>
-      <version>6.0.0</version>
-    </dependency>
-    <dependency>
-      <groupId>commons-collections</groupId>
-      <artifactId>commons-collections</artifactId>
-      <version>3.2.2</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
       <artifactId>crypto-utils</artifactId>
       <version>6.0.0-SNAPSHOT</version>
     </dependency>
@@ -61,16 +51,6 @@
       <groupId>org.dom4j</groupId>
       <artifactId>dom4j</artifactId>
       <version>2.1.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>jboss-serialization</artifactId>
-      <version>6.0.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-1.2-api</artifactId>
-      <version>2.12.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
@@ -108,14 +88,9 @@
       <version>6.0.0</version>
     </dependency>
     <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>trove</artifactId>
-      <version>6.0.0</version>
-    </dependency>
-    <dependency>
       <groupId>org.example.transparence_sante_bi.code</groupId>
       <artifactId>routines</artifactId>
-      <version>7.3.1</version>
+      <version>7.2.1</version>
     </dependency>
   </dependencies>
   <build>

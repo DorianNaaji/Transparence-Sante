@@ -68,6 +68,9 @@ Concernant le repos git, Talend va certainement modifier au lancement un certain
 ### Remarques diverses
 
 - Si vous avez des problèmes de parsing avec avant_montant_ttc, passez le type en String dans vos tMaps.
+- Dans vos tFileInputDelimited, cochez bien la case "SCV Options" et laissez **Escape char** à la valeur **"""**, cela aura pour effet
+d'éviter du _shifting_ de colonnes et par conséquent des erreurs inévitables dans vos jobs.
+![csv-options](doc/img/help/csv-options.png)
 
 
 ## Informations supplémentaires
