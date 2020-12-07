@@ -65,6 +65,9 @@ Concernant le repos git, Talend va certainement modifier au lancement un certain
 
 ![Talend-Git](doc/img/talend-import/5-new-changes-to-commit.png)
 
+### Remarques diverses
+
+- Si vous avez des problèmes de parsing avec avant_montant_ttc, passez le type en String dans vos tMaps.
 
 
 ## Informations supplémentaires
