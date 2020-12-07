@@ -46,8 +46,7 @@ import java.util.Comparator;
 /**
  * Job: qualite_beneficiaire_dim Purpose: Remplir la dimension de qualite des
  * beneficiaires<br>
- * Description: Les bÈnÈficiaires sont liÈs ‡ une qualitÈ. Voir doc
- * https://github.com/DorianNaaji/transparence-sante <br>
+ * Description: Les b√©n√©ficiaires sont li√©s √† une qualit√©. fait par Dorian <br>
  * 
  * @author haytham.elghazel@univ-lyon1.fr
  * @version 7.3.1.20200219_1130
@@ -272,7 +271,17 @@ public class qualite_beneficiaire_dim implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tUniqRow_1_error(Exception exception, String errorComponent,
+	public void tMap_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tFilterRow_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -282,8 +291,8 @@ public class qualite_beneficiaire_dim implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tMap_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
-			throws TalendException {
+	public void tUniqRow_1_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
 
@@ -302,64 +311,14 @@ public class qualite_beneficiaire_dim implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tFileInputDelimited_2_error(Exception exception, String errorComponent,
+	public void tLogRow_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
 
 		status = "failure";
 
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tUniqRow_2_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tFileInputDelimited_3_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tUniqRow_3_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tAdvancedHash_qualites_conventions_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tAdvancedHash_qualites_remunerations_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
 	public void tFileInputDelimited_1_onSubJobError(Exception exception, String errorComponent,
@@ -370,31 +329,9 @@ public class qualite_beneficiaire_dim implements TalendJob {
 
 	}
 
-	public void tFileInputDelimited_2_onSubJobError(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
-				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
-
-	}
-
-	public void tFileInputDelimited_3_onSubJobError(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
-				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
-
-	}
-
-	public static class qualitesStruct implements routines.system.IPersistableRow<qualitesStruct> {
+	public static class row3Struct implements routines.system.IPersistableRow<row3Struct> {
 		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
 		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
-		protected static final int DEFAULT_HASHCODE = 1;
-		protected static final int PRIME = 31;
-		protected int hashCode = DEFAULT_HASHCODE;
-		public boolean hashCodeDirty = true;
-
-		public String loopKey;
 
 		public String qualite_beneficiaire_id;
 
@@ -408,53 +345,394 @@ public class qualite_beneficiaire_dim implements TalendJob {
 			return this.nom_qualite_beneficiaire;
 		}
 
-		@Override
-		public int hashCode() {
-			if (this.hashCodeDirty) {
-				final int prime = PRIME;
-				int result = DEFAULT_HASHCODE;
-
-				result = prime * result
-						+ ((this.qualite_beneficiaire_id == null) ? 0 : this.qualite_beneficiaire_id.hashCode());
-
-				this.hashCode = result;
-				this.hashCodeDirty = false;
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length,
+						utf8Charset);
 			}
-			return this.hashCode;
+			return strReturn;
 		}
 
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			final qualitesStruct other = (qualitesStruct) obj;
-
-			if (this.qualite_beneficiaire_id == null) {
-				if (other.qualite_beneficiaire_id != null)
-					return false;
-
-			} else if (!this.qualite_beneficiaire_id.equals(other.qualite_beneficiaire_id))
-
-				return false;
-
-			return true;
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
 		}
 
-		public void copyDataTo(qualitesStruct other) {
+		public void readData(ObjectInputStream dis) {
 
-			other.qualite_beneficiaire_id = this.qualite_beneficiaire_id;
-			other.nom_qualite_beneficiaire = this.nom_qualite_beneficiaire;
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim) {
+
+				try {
+
+					int length = 0;
+
+					this.qualite_beneficiaire_id = readString(dis);
+
+					this.nom_qualite_beneficiaire = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
 
 		}
 
-		public void copyKeysDataTo(qualitesStruct other) {
+		public void writeData(ObjectOutputStream dos) {
+			try {
 
-			other.qualite_beneficiaire_id = this.qualite_beneficiaire_id;
+				// String
 
+				writeString(this.qualite_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.nom_qualite_beneficiaire, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("qualite_beneficiaire_id=" + qualite_beneficiaire_id);
+			sb.append(",nom_qualite_beneficiaire=" + nom_qualite_beneficiaire);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row3Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row2Struct implements routines.system.IPersistableRow<row2Struct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
+
+		public String qualite_beneficiaire_id;
+
+		public String getQualite_beneficiaire_id() {
+			return this.qualite_beneficiaire_id;
+		}
+
+		public String nom_qualite_beneficiaire;
+
+		public String getNom_qualite_beneficiaire() {
+			return this.nom_qualite_beneficiaire;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length,
+						utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim) {
+
+				try {
+
+					int length = 0;
+
+					this.qualite_beneficiaire_id = readString(dis);
+
+					this.nom_qualite_beneficiaire = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.qualite_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.nom_qualite_beneficiaire, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("qualite_beneficiaire_id=" + qualite_beneficiaire_id);
+			sb.append(",nom_qualite_beneficiaire=" + nom_qualite_beneficiaire);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row2Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row4Struct implements routines.system.IPersistableRow<row4Struct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
+
+		public String qualite_beneficiaire_id;
+
+		public String getQualite_beneficiaire_id() {
+			return this.qualite_beneficiaire_id;
+		}
+
+		public String nom_qualite_beneficiaire;
+
+		public String getNom_qualite_beneficiaire() {
+			return this.nom_qualite_beneficiaire;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length,
+						utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim) {
+
+				try {
+
+					int length = 0;
+
+					this.qualite_beneficiaire_id = readString(dis);
+
+					this.nom_qualite_beneficiaire = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.qualite_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.nom_qualite_beneficiaire, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("qualite_beneficiaire_id=" + qualite_beneficiaire_id);
+			sb.append(",nom_qualite_beneficiaire=" + nom_qualite_beneficiaire);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row4Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class qualitesStruct implements routines.system.IPersistableRow<qualitesStruct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
+
+		public String qualite_beneficiaire_id;
+
+		public String getQualite_beneficiaire_id() {
+			return this.qualite_beneficiaire_id;
+		}
+
+		public String nom_qualite_beneficiaire;
+
+		public String getNom_qualite_beneficiaire() {
+			return this.nom_qualite_beneficiaire;
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -545,11 +823,6 @@ public class qualite_beneficiaire_dim implements TalendJob {
 
 			int returnValue = -1;
 
-			returnValue = checkNullsAndCompare(this.qualite_beneficiaire_id, other.qualite_beneficiaire_id);
-			if (returnValue != 0) {
-				return returnValue;
-			}
-
 			return returnValue;
 		}
 
@@ -576,7 +849,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 
 	}
 
-	public static class qualites_avantagesStruct implements routines.system.IPersistableRow<qualites_avantagesStruct> {
+	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
 		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
 		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
 
@@ -772,9 +1045,9 @@ public class qualite_beneficiaire_dim implements TalendJob {
 			return this.avant_date_signature;
 		}
 
-		public Integer avant_montant_ttc;
+		public String avant_montant_ttc;
 
-		public Integer getAvant_montant_ttc() {
+		public String getAvant_montant_ttc() {
 			return this.avant_montant_ttc;
 		}
 
@@ -824,27 +1097,6 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				byte[] byteArray = str.getBytes(utf8Charset);
 				dos.writeInt(byteArray.length);
 				dos.write(byteArray);
-			}
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
 			}
 		}
 
@@ -925,7 +1177,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 
 					this.avant_date_signature = readString(dis);
 
-					this.avant_montant_ttc = readInteger(dis);
+					this.avant_montant_ttc = readString(dis);
 
 					this.avant_nature = readString(dis);
 
@@ -1078,9 +1330,9 @@ public class qualite_beneficiaire_dim implements TalendJob {
 
 				writeString(this.avant_date_signature, dos);
 
-				// Integer
+				// String
 
-				writeInteger(this.avant_montant_ttc, dos);
+				writeString(this.avant_montant_ttc, dos);
 
 				// String
 
@@ -1137,7 +1389,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 			sb.append(",benef_objet_social=" + benef_objet_social);
 			sb.append(",ligne_type=" + ligne_type);
 			sb.append(",avant_date_signature=" + avant_date_signature);
-			sb.append(",avant_montant_ttc=" + String.valueOf(avant_montant_ttc));
+			sb.append(",avant_montant_ttc=" + avant_montant_ttc);
 			sb.append(",avant_nature=" + avant_nature);
 			sb.append(",avant_convention_lie=" + avant_convention_lie);
 			sb.append(",semestre=" + semestre);
@@ -1149,1214 +1401,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(qualites_avantagesStruct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class avantagesStruct implements routines.system.IPersistableRow<avantagesStruct> {
-		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
-		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
-
-		public String entreprise_identifiant;
-
-		public String getEntreprise_identifiant() {
-			return this.entreprise_identifiant;
-		}
-
-		public String denomination_sociale;
-
-		public String getDenomination_sociale() {
-			return this.denomination_sociale;
-		}
-
-		public String ligne_identifiant;
-
-		public String getLigne_identifiant() {
-			return this.ligne_identifiant;
-		}
-
-		public Character ligne_rectification;
-
-		public Character getLigne_rectification() {
-			return this.ligne_rectification;
-		}
-
-		public String benef_categorie_code;
-
-		public String getBenef_categorie_code() {
-			return this.benef_categorie_code;
-		}
-
-		public String categorie;
-
-		public String getCategorie() {
-			return this.categorie;
-		}
-
-		public String benef_nom;
-
-		public String getBenef_nom() {
-			return this.benef_nom;
-		}
-
-		public String benef_prenom;
-
-		public String getBenef_prenom() {
-			return this.benef_prenom;
-		}
-
-		public String benef_qualite_code;
-
-		public String getBenef_qualite_code() {
-			return this.benef_qualite_code;
-		}
-
-		public String qualite;
-
-		public String getQualite() {
-			return this.qualite;
-		}
-
-		public String benef_adresse1;
-
-		public String getBenef_adresse1() {
-			return this.benef_adresse1;
-		}
-
-		public String benef_adresse2;
-
-		public String getBenef_adresse2() {
-			return this.benef_adresse2;
-		}
-
-		public String benef_adresse3;
-
-		public String getBenef_adresse3() {
-			return this.benef_adresse3;
-		}
-
-		public String benef_adresse4;
-
-		public String getBenef_adresse4() {
-			return this.benef_adresse4;
-		}
-
-		public String benef_codepostal;
-
-		public String getBenef_codepostal() {
-			return this.benef_codepostal;
-		}
-
-		public String benef_ville;
-
-		public String getBenef_ville() {
-			return this.benef_ville;
-		}
-
-		public String benef_pays_code;
-
-		public String getBenef_pays_code() {
-			return this.benef_pays_code;
-		}
-
-		public String pays;
-
-		public String getPays() {
-			return this.pays;
-		}
-
-		public String benef_titre_code;
-
-		public String getBenef_titre_code() {
-			return this.benef_titre_code;
-		}
-
-		public String benef_titre_libelle;
-
-		public String getBenef_titre_libelle() {
-			return this.benef_titre_libelle;
-		}
-
-		public String benef_specialite_code;
-
-		public String getBenef_specialite_code() {
-			return this.benef_specialite_code;
-		}
-
-		public String benef_speicalite_libelle;
-
-		public String getBenef_speicalite_libelle() {
-			return this.benef_speicalite_libelle;
-		}
-
-		public String benef_identifiant_type_code;
-
-		public String getBenef_identifiant_type_code() {
-			return this.benef_identifiant_type_code;
-		}
-
-		public String identifiant_type;
-
-		public String getIdentifiant_type() {
-			return this.identifiant_type;
-		}
-
-		public String benef_identifiant_valeur;
-
-		public String getBenef_identifiant_valeur() {
-			return this.benef_identifiant_valeur;
-		}
-
-		public String benef_etablissement;
-
-		public String getBenef_etablissement() {
-			return this.benef_etablissement;
-		}
-
-		public String benef_etablissement_codepostal;
-
-		public String getBenef_etablissement_codepostal() {
-			return this.benef_etablissement_codepostal;
-		}
-
-		public String benef_etablissement_ville;
-
-		public String getBenef_etablissement_ville() {
-			return this.benef_etablissement_ville;
-		}
-
-		public String benef_denomination_sociale;
-
-		public String getBenef_denomination_sociale() {
-			return this.benef_denomination_sociale;
-		}
-
-		public String benef_objet_social;
-
-		public String getBenef_objet_social() {
-			return this.benef_objet_social;
-		}
-
-		public String ligne_type;
-
-		public String getLigne_type() {
-			return this.ligne_type;
-		}
-
-		public String avant_date_signature;
-
-		public String getAvant_date_signature() {
-			return this.avant_date_signature;
-		}
-
-		public Integer avant_montant_ttc;
-
-		public Integer getAvant_montant_ttc() {
-			return this.avant_montant_ttc;
-		}
-
-		public String avant_nature;
-
-		public String getAvant_nature() {
-			return this.avant_nature;
-		}
-
-		public String avant_convention_lie;
-
-		public String getAvant_convention_lie() {
-			return this.avant_convention_lie;
-		}
-
-		public String semestre;
-
-		public String getSemestre() {
-			return this.semestre;
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length) {
-					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length == 0) {
-						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[1024];
-					} else {
-						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length);
-				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length,
-						utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim) {
-
-				try {
-
-					int length = 0;
-
-					this.entreprise_identifiant = readString(dis);
-
-					this.denomination_sociale = readString(dis);
-
-					this.ligne_identifiant = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.ligne_rectification = null;
-					} else {
-						this.ligne_rectification = dis.readChar();
-					}
-
-					this.benef_categorie_code = readString(dis);
-
-					this.categorie = readString(dis);
-
-					this.benef_nom = readString(dis);
-
-					this.benef_prenom = readString(dis);
-
-					this.benef_qualite_code = readString(dis);
-
-					this.qualite = readString(dis);
-
-					this.benef_adresse1 = readString(dis);
-
-					this.benef_adresse2 = readString(dis);
-
-					this.benef_adresse3 = readString(dis);
-
-					this.benef_adresse4 = readString(dis);
-
-					this.benef_codepostal = readString(dis);
-
-					this.benef_ville = readString(dis);
-
-					this.benef_pays_code = readString(dis);
-
-					this.pays = readString(dis);
-
-					this.benef_titre_code = readString(dis);
-
-					this.benef_titre_libelle = readString(dis);
-
-					this.benef_specialite_code = readString(dis);
-
-					this.benef_speicalite_libelle = readString(dis);
-
-					this.benef_identifiant_type_code = readString(dis);
-
-					this.identifiant_type = readString(dis);
-
-					this.benef_identifiant_valeur = readString(dis);
-
-					this.benef_etablissement = readString(dis);
-
-					this.benef_etablissement_codepostal = readString(dis);
-
-					this.benef_etablissement_ville = readString(dis);
-
-					this.benef_denomination_sociale = readString(dis);
-
-					this.benef_objet_social = readString(dis);
-
-					this.ligne_type = readString(dis);
-
-					this.avant_date_signature = readString(dis);
-
-					this.avant_montant_ttc = readInteger(dis);
-
-					this.avant_nature = readString(dis);
-
-					this.avant_convention_lie = readString(dis);
-
-					this.semestre = readString(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.entreprise_identifiant, dos);
-
-				// String
-
-				writeString(this.denomination_sociale, dos);
-
-				// String
-
-				writeString(this.ligne_identifiant, dos);
-
-				// Character
-
-				if (this.ligne_rectification == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeChar(this.ligne_rectification);
-				}
-
-				// String
-
-				writeString(this.benef_categorie_code, dos);
-
-				// String
-
-				writeString(this.categorie, dos);
-
-				// String
-
-				writeString(this.benef_nom, dos);
-
-				// String
-
-				writeString(this.benef_prenom, dos);
-
-				// String
-
-				writeString(this.benef_qualite_code, dos);
-
-				// String
-
-				writeString(this.qualite, dos);
-
-				// String
-
-				writeString(this.benef_adresse1, dos);
-
-				// String
-
-				writeString(this.benef_adresse2, dos);
-
-				// String
-
-				writeString(this.benef_adresse3, dos);
-
-				// String
-
-				writeString(this.benef_adresse4, dos);
-
-				// String
-
-				writeString(this.benef_codepostal, dos);
-
-				// String
-
-				writeString(this.benef_ville, dos);
-
-				// String
-
-				writeString(this.benef_pays_code, dos);
-
-				// String
-
-				writeString(this.pays, dos);
-
-				// String
-
-				writeString(this.benef_titre_code, dos);
-
-				// String
-
-				writeString(this.benef_titre_libelle, dos);
-
-				// String
-
-				writeString(this.benef_specialite_code, dos);
-
-				// String
-
-				writeString(this.benef_speicalite_libelle, dos);
-
-				// String
-
-				writeString(this.benef_identifiant_type_code, dos);
-
-				// String
-
-				writeString(this.identifiant_type, dos);
-
-				// String
-
-				writeString(this.benef_identifiant_valeur, dos);
-
-				// String
-
-				writeString(this.benef_etablissement, dos);
-
-				// String
-
-				writeString(this.benef_etablissement_codepostal, dos);
-
-				// String
-
-				writeString(this.benef_etablissement_ville, dos);
-
-				// String
-
-				writeString(this.benef_denomination_sociale, dos);
-
-				// String
-
-				writeString(this.benef_objet_social, dos);
-
-				// String
-
-				writeString(this.ligne_type, dos);
-
-				// String
-
-				writeString(this.avant_date_signature, dos);
-
-				// Integer
-
-				writeInteger(this.avant_montant_ttc, dos);
-
-				// String
-
-				writeString(this.avant_nature, dos);
-
-				// String
-
-				writeString(this.avant_convention_lie, dos);
-
-				// String
-
-				writeString(this.semestre, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("entreprise_identifiant=" + entreprise_identifiant);
-			sb.append(",denomination_sociale=" + denomination_sociale);
-			sb.append(",ligne_identifiant=" + ligne_identifiant);
-			sb.append(",ligne_rectification=" + String.valueOf(ligne_rectification));
-			sb.append(",benef_categorie_code=" + benef_categorie_code);
-			sb.append(",categorie=" + categorie);
-			sb.append(",benef_nom=" + benef_nom);
-			sb.append(",benef_prenom=" + benef_prenom);
-			sb.append(",benef_qualite_code=" + benef_qualite_code);
-			sb.append(",qualite=" + qualite);
-			sb.append(",benef_adresse1=" + benef_adresse1);
-			sb.append(",benef_adresse2=" + benef_adresse2);
-			sb.append(",benef_adresse3=" + benef_adresse3);
-			sb.append(",benef_adresse4=" + benef_adresse4);
-			sb.append(",benef_codepostal=" + benef_codepostal);
-			sb.append(",benef_ville=" + benef_ville);
-			sb.append(",benef_pays_code=" + benef_pays_code);
-			sb.append(",pays=" + pays);
-			sb.append(",benef_titre_code=" + benef_titre_code);
-			sb.append(",benef_titre_libelle=" + benef_titre_libelle);
-			sb.append(",benef_specialite_code=" + benef_specialite_code);
-			sb.append(",benef_speicalite_libelle=" + benef_speicalite_libelle);
-			sb.append(",benef_identifiant_type_code=" + benef_identifiant_type_code);
-			sb.append(",identifiant_type=" + identifiant_type);
-			sb.append(",benef_identifiant_valeur=" + benef_identifiant_valeur);
-			sb.append(",benef_etablissement=" + benef_etablissement);
-			sb.append(",benef_etablissement_codepostal=" + benef_etablissement_codepostal);
-			sb.append(",benef_etablissement_ville=" + benef_etablissement_ville);
-			sb.append(",benef_denomination_sociale=" + benef_denomination_sociale);
-			sb.append(",benef_objet_social=" + benef_objet_social);
-			sb.append(",ligne_type=" + ligne_type);
-			sb.append(",avant_date_signature=" + avant_date_signature);
-			sb.append(",avant_montant_ttc=" + String.valueOf(avant_montant_ttc));
-			sb.append(",avant_nature=" + avant_nature);
-			sb.append(",avant_convention_lie=" + avant_convention_lie);
-			sb.append(",semestre=" + semestre);
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(avantagesStruct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class after_tFileInputDelimited_1Struct
-			implements routines.system.IPersistableRow<after_tFileInputDelimited_1Struct> {
-		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
-		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
-
-		public String entreprise_identifiant;
-
-		public String getEntreprise_identifiant() {
-			return this.entreprise_identifiant;
-		}
-
-		public String denomination_sociale;
-
-		public String getDenomination_sociale() {
-			return this.denomination_sociale;
-		}
-
-		public String ligne_identifiant;
-
-		public String getLigne_identifiant() {
-			return this.ligne_identifiant;
-		}
-
-		public Character ligne_rectification;
-
-		public Character getLigne_rectification() {
-			return this.ligne_rectification;
-		}
-
-		public String benef_categorie_code;
-
-		public String getBenef_categorie_code() {
-			return this.benef_categorie_code;
-		}
-
-		public String categorie;
-
-		public String getCategorie() {
-			return this.categorie;
-		}
-
-		public String benef_nom;
-
-		public String getBenef_nom() {
-			return this.benef_nom;
-		}
-
-		public String benef_prenom;
-
-		public String getBenef_prenom() {
-			return this.benef_prenom;
-		}
-
-		public String benef_qualite_code;
-
-		public String getBenef_qualite_code() {
-			return this.benef_qualite_code;
-		}
-
-		public String qualite;
-
-		public String getQualite() {
-			return this.qualite;
-		}
-
-		public String benef_adresse1;
-
-		public String getBenef_adresse1() {
-			return this.benef_adresse1;
-		}
-
-		public String benef_adresse2;
-
-		public String getBenef_adresse2() {
-			return this.benef_adresse2;
-		}
-
-		public String benef_adresse3;
-
-		public String getBenef_adresse3() {
-			return this.benef_adresse3;
-		}
-
-		public String benef_adresse4;
-
-		public String getBenef_adresse4() {
-			return this.benef_adresse4;
-		}
-
-		public String benef_codepostal;
-
-		public String getBenef_codepostal() {
-			return this.benef_codepostal;
-		}
-
-		public String benef_ville;
-
-		public String getBenef_ville() {
-			return this.benef_ville;
-		}
-
-		public String benef_pays_code;
-
-		public String getBenef_pays_code() {
-			return this.benef_pays_code;
-		}
-
-		public String pays;
-
-		public String getPays() {
-			return this.pays;
-		}
-
-		public String benef_titre_code;
-
-		public String getBenef_titre_code() {
-			return this.benef_titre_code;
-		}
-
-		public String benef_titre_libelle;
-
-		public String getBenef_titre_libelle() {
-			return this.benef_titre_libelle;
-		}
-
-		public String benef_specialite_code;
-
-		public String getBenef_specialite_code() {
-			return this.benef_specialite_code;
-		}
-
-		public String benef_speicalite_libelle;
-
-		public String getBenef_speicalite_libelle() {
-			return this.benef_speicalite_libelle;
-		}
-
-		public String benef_identifiant_type_code;
-
-		public String getBenef_identifiant_type_code() {
-			return this.benef_identifiant_type_code;
-		}
-
-		public String identifiant_type;
-
-		public String getIdentifiant_type() {
-			return this.identifiant_type;
-		}
-
-		public String benef_identifiant_valeur;
-
-		public String getBenef_identifiant_valeur() {
-			return this.benef_identifiant_valeur;
-		}
-
-		public String benef_etablissement;
-
-		public String getBenef_etablissement() {
-			return this.benef_etablissement;
-		}
-
-		public String benef_etablissement_codepostal;
-
-		public String getBenef_etablissement_codepostal() {
-			return this.benef_etablissement_codepostal;
-		}
-
-		public String benef_etablissement_ville;
-
-		public String getBenef_etablissement_ville() {
-			return this.benef_etablissement_ville;
-		}
-
-		public String benef_denomination_sociale;
-
-		public String getBenef_denomination_sociale() {
-			return this.benef_denomination_sociale;
-		}
-
-		public String benef_objet_social;
-
-		public String getBenef_objet_social() {
-			return this.benef_objet_social;
-		}
-
-		public String ligne_type;
-
-		public String getLigne_type() {
-			return this.ligne_type;
-		}
-
-		public String avant_date_signature;
-
-		public String getAvant_date_signature() {
-			return this.avant_date_signature;
-		}
-
-		public Integer avant_montant_ttc;
-
-		public Integer getAvant_montant_ttc() {
-			return this.avant_montant_ttc;
-		}
-
-		public String avant_nature;
-
-		public String getAvant_nature() {
-			return this.avant_nature;
-		}
-
-		public String avant_convention_lie;
-
-		public String getAvant_convention_lie() {
-			return this.avant_convention_lie;
-		}
-
-		public String semestre;
-
-		public String getSemestre() {
-			return this.semestre;
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length) {
-					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length == 0) {
-						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[1024];
-					} else {
-						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length);
-				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length,
-						utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim) {
-
-				try {
-
-					int length = 0;
-
-					this.entreprise_identifiant = readString(dis);
-
-					this.denomination_sociale = readString(dis);
-
-					this.ligne_identifiant = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.ligne_rectification = null;
-					} else {
-						this.ligne_rectification = dis.readChar();
-					}
-
-					this.benef_categorie_code = readString(dis);
-
-					this.categorie = readString(dis);
-
-					this.benef_nom = readString(dis);
-
-					this.benef_prenom = readString(dis);
-
-					this.benef_qualite_code = readString(dis);
-
-					this.qualite = readString(dis);
-
-					this.benef_adresse1 = readString(dis);
-
-					this.benef_adresse2 = readString(dis);
-
-					this.benef_adresse3 = readString(dis);
-
-					this.benef_adresse4 = readString(dis);
-
-					this.benef_codepostal = readString(dis);
-
-					this.benef_ville = readString(dis);
-
-					this.benef_pays_code = readString(dis);
-
-					this.pays = readString(dis);
-
-					this.benef_titre_code = readString(dis);
-
-					this.benef_titre_libelle = readString(dis);
-
-					this.benef_specialite_code = readString(dis);
-
-					this.benef_speicalite_libelle = readString(dis);
-
-					this.benef_identifiant_type_code = readString(dis);
-
-					this.identifiant_type = readString(dis);
-
-					this.benef_identifiant_valeur = readString(dis);
-
-					this.benef_etablissement = readString(dis);
-
-					this.benef_etablissement_codepostal = readString(dis);
-
-					this.benef_etablissement_ville = readString(dis);
-
-					this.benef_denomination_sociale = readString(dis);
-
-					this.benef_objet_social = readString(dis);
-
-					this.ligne_type = readString(dis);
-
-					this.avant_date_signature = readString(dis);
-
-					this.avant_montant_ttc = readInteger(dis);
-
-					this.avant_nature = readString(dis);
-
-					this.avant_convention_lie = readString(dis);
-
-					this.semestre = readString(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.entreprise_identifiant, dos);
-
-				// String
-
-				writeString(this.denomination_sociale, dos);
-
-				// String
-
-				writeString(this.ligne_identifiant, dos);
-
-				// Character
-
-				if (this.ligne_rectification == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeChar(this.ligne_rectification);
-				}
-
-				// String
-
-				writeString(this.benef_categorie_code, dos);
-
-				// String
-
-				writeString(this.categorie, dos);
-
-				// String
-
-				writeString(this.benef_nom, dos);
-
-				// String
-
-				writeString(this.benef_prenom, dos);
-
-				// String
-
-				writeString(this.benef_qualite_code, dos);
-
-				// String
-
-				writeString(this.qualite, dos);
-
-				// String
-
-				writeString(this.benef_adresse1, dos);
-
-				// String
-
-				writeString(this.benef_adresse2, dos);
-
-				// String
-
-				writeString(this.benef_adresse3, dos);
-
-				// String
-
-				writeString(this.benef_adresse4, dos);
-
-				// String
-
-				writeString(this.benef_codepostal, dos);
-
-				// String
-
-				writeString(this.benef_ville, dos);
-
-				// String
-
-				writeString(this.benef_pays_code, dos);
-
-				// String
-
-				writeString(this.pays, dos);
-
-				// String
-
-				writeString(this.benef_titre_code, dos);
-
-				// String
-
-				writeString(this.benef_titre_libelle, dos);
-
-				// String
-
-				writeString(this.benef_specialite_code, dos);
-
-				// String
-
-				writeString(this.benef_speicalite_libelle, dos);
-
-				// String
-
-				writeString(this.benef_identifiant_type_code, dos);
-
-				// String
-
-				writeString(this.identifiant_type, dos);
-
-				// String
-
-				writeString(this.benef_identifiant_valeur, dos);
-
-				// String
-
-				writeString(this.benef_etablissement, dos);
-
-				// String
-
-				writeString(this.benef_etablissement_codepostal, dos);
-
-				// String
-
-				writeString(this.benef_etablissement_ville, dos);
-
-				// String
-
-				writeString(this.benef_denomination_sociale, dos);
-
-				// String
-
-				writeString(this.benef_objet_social, dos);
-
-				// String
-
-				writeString(this.ligne_type, dos);
-
-				// String
-
-				writeString(this.avant_date_signature, dos);
-
-				// Integer
-
-				writeInteger(this.avant_montant_ttc, dos);
-
-				// String
-
-				writeString(this.avant_nature, dos);
-
-				// String
-
-				writeString(this.avant_convention_lie, dos);
-
-				// String
-
-				writeString(this.semestre, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("entreprise_identifiant=" + entreprise_identifiant);
-			sb.append(",denomination_sociale=" + denomination_sociale);
-			sb.append(",ligne_identifiant=" + ligne_identifiant);
-			sb.append(",ligne_rectification=" + String.valueOf(ligne_rectification));
-			sb.append(",benef_categorie_code=" + benef_categorie_code);
-			sb.append(",categorie=" + categorie);
-			sb.append(",benef_nom=" + benef_nom);
-			sb.append(",benef_prenom=" + benef_prenom);
-			sb.append(",benef_qualite_code=" + benef_qualite_code);
-			sb.append(",qualite=" + qualite);
-			sb.append(",benef_adresse1=" + benef_adresse1);
-			sb.append(",benef_adresse2=" + benef_adresse2);
-			sb.append(",benef_adresse3=" + benef_adresse3);
-			sb.append(",benef_adresse4=" + benef_adresse4);
-			sb.append(",benef_codepostal=" + benef_codepostal);
-			sb.append(",benef_ville=" + benef_ville);
-			sb.append(",benef_pays_code=" + benef_pays_code);
-			sb.append(",pays=" + pays);
-			sb.append(",benef_titre_code=" + benef_titre_code);
-			sb.append(",benef_titre_libelle=" + benef_titre_libelle);
-			sb.append(",benef_specialite_code=" + benef_specialite_code);
-			sb.append(",benef_speicalite_libelle=" + benef_speicalite_libelle);
-			sb.append(",benef_identifiant_type_code=" + benef_identifiant_type_code);
-			sb.append(",identifiant_type=" + identifiant_type);
-			sb.append(",benef_identifiant_valeur=" + benef_identifiant_valeur);
-			sb.append(",benef_etablissement=" + benef_etablissement);
-			sb.append(",benef_etablissement_codepostal=" + benef_etablissement_codepostal);
-			sb.append(",benef_etablissement_ville=" + benef_etablissement_ville);
-			sb.append(",benef_denomination_sociale=" + benef_denomination_sociale);
-			sb.append(",benef_objet_social=" + benef_objet_social);
-			sb.append(",ligne_type=" + ligne_type);
-			sb.append(",avant_date_signature=" + avant_date_signature);
-			sb.append(",avant_montant_ttc=" + String.valueOf(avant_montant_ttc));
-			sb.append(",avant_nature=" + avant_nature);
-			sb.append(",avant_convention_lie=" + avant_convention_lie);
-			sb.append(",semestre=" + semestre);
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(after_tFileInputDelimited_1Struct other) {
+		public int compareTo(row1Struct other) {
 
 			int returnValue = -1;
 
@@ -2406,12 +1451,146 @@ public class qualite_beneficiaire_dim implements TalendJob {
 			if (resumeIt || globalResumeTicket) { // start the resume
 				globalResumeTicket = true;
 
-				tFileInputDelimited_2Process(globalMap);
-				tFileInputDelimited_3Process(globalMap);
-
-				avantagesStruct avantages = new avantagesStruct();
-				qualites_avantagesStruct qualites_avantages = new qualites_avantagesStruct();
+				row1Struct row1 = new row1Struct();
 				qualitesStruct qualites = new qualitesStruct();
+				row4Struct row4 = new row4Struct();
+				row2Struct row2 = new row2Struct();
+				row3Struct row3 = new row3Struct();
+
+				/**
+				 * [tLogRow_1 begin ] start
+				 */
+
+				ok_Hash.put("tLogRow_1", false);
+				start_Hash.put("tLogRow_1", System.currentTimeMillis());
+
+				currentComponent = "tLogRow_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row3");
+				}
+
+				int tos_count_tLogRow_1 = 0;
+
+				///////////////////////
+
+				class Util_tLogRow_1 {
+
+					String[] des_top = { ".", ".", "-", "+" };
+
+					String[] des_head = { "|=", "=|", "-", "+" };
+
+					String[] des_bottom = { "'", "'", "-", "+" };
+
+					String name = "";
+
+					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
+
+					int[] colLengths = new int[2];
+
+					public void addRow(String[] row) {
+
+						for (int i = 0; i < 2; i++) {
+							if (row[i] != null) {
+								colLengths[i] = Math.max(colLengths[i], row[i].length());
+							}
+						}
+						list.add(row);
+					}
+
+					public void setTableName(String name) {
+
+						this.name = name;
+					}
+
+					public StringBuilder format() {
+
+						StringBuilder sb = new StringBuilder();
+
+						sb.append(print(des_top));
+
+						int totals = 0;
+						for (int i = 0; i < colLengths.length; i++) {
+							totals = totals + colLengths[i];
+						}
+
+						// name
+						sb.append("|");
+						int k = 0;
+						for (k = 0; k < (totals + 1 - name.length()) / 2; k++) {
+							sb.append(' ');
+						}
+						sb.append(name);
+						for (int i = 0; i < totals + 1 - name.length() - k; i++) {
+							sb.append(' ');
+						}
+						sb.append("|\n");
+
+						// head and rows
+						sb.append(print(des_head));
+						for (int i = 0; i < list.size(); i++) {
+
+							String[] row = list.get(i);
+
+							java.util.Formatter formatter = new java.util.Formatter(new StringBuilder());
+
+							StringBuilder sbformat = new StringBuilder();
+							sbformat.append("|%1$-");
+							sbformat.append(colLengths[0]);
+							sbformat.append("s");
+
+							sbformat.append("|%2$-");
+							sbformat.append(colLengths[1]);
+							sbformat.append("s");
+
+							sbformat.append("|\n");
+
+							formatter.format(sbformat.toString(), (Object[]) row);
+
+							sb.append(formatter.toString());
+							if (i == 0)
+								sb.append(print(des_head)); // print the head
+						}
+
+						// end
+						sb.append(print(des_bottom));
+						return sb;
+					}
+
+					private StringBuilder print(String[] fillChars) {
+						StringBuilder sb = new StringBuilder();
+						// first column
+						sb.append(fillChars[0]);
+						for (int i = 0; i < colLengths[0] - fillChars[0].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+
+						// last column
+						for (int i = 0; i < colLengths[1] - fillChars[1].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[1]);
+						sb.append("\n");
+						return sb;
+					}
+
+					public boolean isTableEmpty() {
+						if (list.size() > 1)
+							return false;
+						return true;
+					}
+				}
+				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
+				util_tLogRow_1.setTableName("tLogRow_1");
+				util_tLogRow_1.addRow(new String[] { "qualite_beneficiaire_id", "nom_qualite_beneficiaire", });
+				StringBuilder strBuffer_tLogRow_1 = null;
+				int nb_line_tLogRow_1 = 0;
+///////////////////////    			
+
+				/**
+				 * [tLogRow_1 begin ] stop
+				 */
 
 				/**
 				 * [tDBOutput_1 begin ] start
@@ -2423,7 +1602,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				currentComponent = "tDBOutput_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "qualites");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row2");
 				}
 
 				int tos_count_tDBOutput_1 = 0;
@@ -2470,7 +1649,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				String dbUser_tDBOutput_1 = "root";
 
 				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:LEmJegcPwTvd2CTBimqaYcctfcRtE29BRl3voQ==");
+						.decryptPassword("enc:routine.encryption.key.v1:5glKobECewxNI+fU/n8fZjJLlHWnSKfyavcH5A==");
 
 				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
 				java.lang.Class.forName(driverClass_tDBOutput_1);
@@ -2502,54 +1681,6 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				 */
 
 				/**
-				 * [tMap_1 begin ] start
-				 */
-
-				ok_Hash.put("tMap_1", false);
-				start_Hash.put("tMap_1", System.currentTimeMillis());
-
-				currentComponent = "tMap_1";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "qualites_avantages");
-				}
-
-				int tos_count_tMap_1 = 0;
-
-// ###############################
-// # Lookup's keys initialization
-
-				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<qualites_conventionsStruct> tHash_Lookup_qualites_conventions = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<qualites_conventionsStruct>) ((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<qualites_conventionsStruct>) globalMap
-						.get("tHash_Lookup_qualites_conventions"));
-
-				qualites_conventionsStruct qualites_conventionsHashKey = new qualites_conventionsStruct();
-				qualites_conventionsStruct qualites_conventionsDefault = new qualites_conventionsStruct();
-
-				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<qualites_remunerationsStruct> tHash_Lookup_qualites_remunerations = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<qualites_remunerationsStruct>) ((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<qualites_remunerationsStruct>) globalMap
-						.get("tHash_Lookup_qualites_remunerations"));
-
-				qualites_remunerationsStruct qualites_remunerationsHashKey = new qualites_remunerationsStruct();
-				qualites_remunerationsStruct qualites_remunerationsDefault = new qualites_remunerationsStruct();
-// ###############################        
-
-// ###############################
-// # Vars initialization
-				class Var__tMap_1__Struct {
-					String var1;
-				}
-				Var__tMap_1__Struct Var__tMap_1 = new Var__tMap_1__Struct();
-// ###############################
-
-// ###############################
-// # Outputs initialization
-				qualitesStruct qualites_tmp = new qualitesStruct();
-// ###############################
-
-				/**
-				 * [tMap_1 begin ] stop
-				 */
-
-				/**
 				 * [tUniqRow_1 begin ] start
 				 */
 
@@ -2559,7 +1690,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				currentComponent = "tUniqRow_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "avantages");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row4");
 				}
 
 				int tos_count_tUniqRow_1 = 0;
@@ -2571,12 +1702,8 @@ public class qualite_beneficiaire_dim implements TalendJob {
 					private int hashCode = DEFAULT_HASHCODE;
 					public boolean hashCodeDirty = true;
 
-					String benef_qualite_code;
-					String avant_date_signature;
-					Integer avant_montant_ttc;
-					String avant_nature;
-					String avant_convention_lie;
-					String semestre;
+					String qualite_beneficiaire_id;
+					String nom_qualite_beneficiaire;
 
 					@Override
 					public int hashCode() {
@@ -2584,21 +1711,11 @@ public class qualite_beneficiaire_dim implements TalendJob {
 							final int prime = PRIME;
 							int result = DEFAULT_HASHCODE;
 
-							result = prime * result
-									+ ((this.benef_qualite_code == null) ? 0 : this.benef_qualite_code.hashCode());
+							result = prime * result + ((this.qualite_beneficiaire_id == null) ? 0
+									: this.qualite_beneficiaire_id.hashCode());
 
-							result = prime * result
-									+ ((this.avant_date_signature == null) ? 0 : this.avant_date_signature.hashCode());
-
-							result = prime * result
-									+ ((this.avant_montant_ttc == null) ? 0 : this.avant_montant_ttc.hashCode());
-
-							result = prime * result + ((this.avant_nature == null) ? 0 : this.avant_nature.hashCode());
-
-							result = prime * result
-									+ ((this.avant_convention_lie == null) ? 0 : this.avant_convention_lie.hashCode());
-
-							result = prime * result + ((this.semestre == null) ? 0 : this.semestre.hashCode());
+							result = prime * result + ((this.nom_qualite_beneficiaire == null) ? 0
+									: this.nom_qualite_beneficiaire.hashCode());
 
 							this.hashCode = result;
 							this.hashCodeDirty = false;
@@ -2616,51 +1733,19 @@ public class qualite_beneficiaire_dim implements TalendJob {
 							return false;
 						final KeyStruct_tUniqRow_1 other = (KeyStruct_tUniqRow_1) obj;
 
-						if (this.benef_qualite_code == null) {
-							if (other.benef_qualite_code != null)
+						if (this.qualite_beneficiaire_id == null) {
+							if (other.qualite_beneficiaire_id != null)
 								return false;
 
-						} else if (!this.benef_qualite_code.equals(other.benef_qualite_code))
+						} else if (!this.qualite_beneficiaire_id.equals(other.qualite_beneficiaire_id))
 
 							return false;
 
-						if (this.avant_date_signature == null) {
-							if (other.avant_date_signature != null)
+						if (this.nom_qualite_beneficiaire == null) {
+							if (other.nom_qualite_beneficiaire != null)
 								return false;
 
-						} else if (!this.avant_date_signature.equals(other.avant_date_signature))
-
-							return false;
-
-						if (this.avant_montant_ttc == null) {
-							if (other.avant_montant_ttc != null)
-								return false;
-
-						} else if (!this.avant_montant_ttc.equals(other.avant_montant_ttc))
-
-							return false;
-
-						if (this.avant_nature == null) {
-							if (other.avant_nature != null)
-								return false;
-
-						} else if (!this.avant_nature.equals(other.avant_nature))
-
-							return false;
-
-						if (this.avant_convention_lie == null) {
-							if (other.avant_convention_lie != null)
-								return false;
-
-						} else if (!this.avant_convention_lie.equals(other.avant_convention_lie))
-
-							return false;
-
-						if (this.semestre == null) {
-							if (other.semestre != null)
-								return false;
-
-						} else if (!this.semestre.equals(other.semestre))
+						} else if (!this.nom_qualite_beneficiaire.equals(other.nom_qualite_beneficiaire))
 
 							return false;
 
@@ -2679,6 +1764,102 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				 */
 
 				/**
+				 * [tFilterRow_1 begin ] start
+				 */
+
+				ok_Hash.put("tFilterRow_1", false);
+				start_Hash.put("tFilterRow_1", System.currentTimeMillis());
+
+				currentComponent = "tFilterRow_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "qualites");
+				}
+
+				int tos_count_tFilterRow_1 = 0;
+
+				int nb_line_tFilterRow_1 = 0;
+				int nb_line_ok_tFilterRow_1 = 0;
+				int nb_line_reject_tFilterRow_1 = 0;
+
+				class Operator_tFilterRow_1 {
+					private String sErrorMsg = "";
+					private boolean bMatchFlag = true;
+					private String sUnionFlag = "&&";
+
+					public Operator_tFilterRow_1(String unionFlag) {
+						sUnionFlag = unionFlag;
+						bMatchFlag = "||".equals(unionFlag) ? false : true;
+					}
+
+					public String getErrorMsg() {
+						if (sErrorMsg != null && sErrorMsg.length() > 1)
+							return sErrorMsg.substring(1);
+						else
+							return null;
+					}
+
+					public boolean getMatchFlag() {
+						return bMatchFlag;
+					}
+
+					public void matches(boolean partMatched, String reason) {
+						// no need to care about the next judgement
+						if ("||".equals(sUnionFlag) && bMatchFlag) {
+							return;
+						}
+
+						if (!partMatched) {
+							sErrorMsg += "|" + reason;
+						}
+
+						if ("||".equals(sUnionFlag))
+							bMatchFlag = bMatchFlag || partMatched;
+						else
+							bMatchFlag = bMatchFlag && partMatched;
+					}
+				}
+
+				/**
+				 * [tFilterRow_1 begin ] stop
+				 */
+
+				/**
+				 * [tMap_1 begin ] start
+				 */
+
+				ok_Hash.put("tMap_1", false);
+				start_Hash.put("tMap_1", System.currentTimeMillis());
+
+				currentComponent = "tMap_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row1");
+				}
+
+				int tos_count_tMap_1 = 0;
+
+// ###############################
+// # Lookup's keys initialization
+// ###############################        
+
+// ###############################
+// # Vars initialization
+				class Var__tMap_1__Struct {
+				}
+				Var__tMap_1__Struct Var__tMap_1 = new Var__tMap_1__Struct();
+// ###############################
+
+// ###############################
+// # Outputs initialization
+				qualitesStruct qualites_tmp = new qualitesStruct();
+// ###############################
+
+				/**
+				 * [tMap_1 begin ] stop
+				 */
+
+				/**
 				 * [tFileInputDelimited_1 begin ] start
 				 */
 
@@ -2692,251 +1873,699 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				final routines.system.RowState rowstate_tFileInputDelimited_1 = new routines.system.RowState();
 
 				int nb_line_tFileInputDelimited_1 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
-				int limit_tFileInputDelimited_1 = -1;
+				int footer_tFileInputDelimited_1 = 0;
+				int totalLinetFileInputDelimited_1 = 0;
+				int limittFileInputDelimited_1 = -1;
+				int lastLinetFileInputDelimited_1 = -1;
+
+				char fieldSeparator_tFileInputDelimited_1[] = null;
+
+				// support passing value (property: Field Separator) by 'context.fs' or
+				// 'globalMap.get("fs")'.
+				if (((String) ";").length() > 0) {
+					fieldSeparator_tFileInputDelimited_1 = ((String) ";").toCharArray();
+				} else {
+					throw new IllegalArgumentException("Field Separator must be assigned a char.");
+				}
+
+				char rowSeparator_tFileInputDelimited_1[] = null;
+
+				// support passing value (property: Row Separator) by 'context.rs' or
+				// 'globalMap.get("rs")'.
+				if (((String) "\n").length() > 0) {
+					rowSeparator_tFileInputDelimited_1 = ((String) "\n").toCharArray();
+				} else {
+					throw new IllegalArgumentException("Row Separator must be assigned a char.");
+				}
+
+				Object filename_tFileInputDelimited_1 = /** Start field tFileInputDelimited_1:FILENAME */
+						"C:/BI/transparence-sante/data/data.gouv/avantages.csv"/**
+																				 * End field
+																				 * tFileInputDelimited_1:FILENAME
+																				 */
+				;
+				com.talend.csv.CSVReader csvReadertFileInputDelimited_1 = null;
+
 				try {
 
-					Object filename_tFileInputDelimited_1 = "C:/BI/transparence-sante/data/data.gouv/avantages.csv";
-					if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
+					String[] rowtFileInputDelimited_1 = null;
+					int currentLinetFileInputDelimited_1 = 0;
+					int outputLinetFileInputDelimited_1 = 0;
+					try {// TD110 begin
+						if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
 
-						int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
-						if (footer_value_tFileInputDelimited_1 > 0 || random_value_tFileInputDelimited_1 > 0) {
-							throw new java.lang.Exception(
-									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
+							int footer_value_tFileInputDelimited_1 = 0;
+							if (footer_value_tFileInputDelimited_1 > 0) {
+								throw new java.lang.Exception(
+										"When the input source is a stream,footer shouldn't be bigger than 0.");
+							}
+
+							csvReadertFileInputDelimited_1 = new com.talend.csv.CSVReader(
+									(java.io.InputStream) filename_tFileInputDelimited_1,
+									fieldSeparator_tFileInputDelimited_1[0], "UTF-8");
+						} else {
+							csvReadertFileInputDelimited_1 = new com.talend.csv.CSVReader(
+									new java.io.BufferedReader(new java.io.InputStreamReader(
+											new java.io.FileInputStream(String.valueOf(filename_tFileInputDelimited_1)),
+											"UTF-8")),
+									fieldSeparator_tFileInputDelimited_1[0]);
 						}
 
-					}
-					try {
-						fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/BI/transparence-sante/data/data.gouv/avantages.csv", "UTF-8", ";", "\n", false, 1,
-								0, limit_tFileInputDelimited_1, -1, false);
+						csvReadertFileInputDelimited_1.setTrimWhitespace(false);
+						if ((rowSeparator_tFileInputDelimited_1[0] != '\n')
+								&& (rowSeparator_tFileInputDelimited_1[0] != '\r'))
+							csvReadertFileInputDelimited_1.setLineEnd("" + rowSeparator_tFileInputDelimited_1[0]);
+
+						csvReadertFileInputDelimited_1.setQuoteChar('"');
+
+						csvReadertFileInputDelimited_1.setEscapeChar(csvReadertFileInputDelimited_1.getQuoteChar());
+
+						if (footer_tFileInputDelimited_1 > 0) {
+							for (totalLinetFileInputDelimited_1 = 0; totalLinetFileInputDelimited_1 < 1; totalLinetFileInputDelimited_1++) {
+								csvReadertFileInputDelimited_1.readNext();
+							}
+							csvReadertFileInputDelimited_1.setSkipEmptyRecords(false);
+							while (csvReadertFileInputDelimited_1.readNext()) {
+
+								totalLinetFileInputDelimited_1++;
+
+							}
+							int lastLineTemptFileInputDelimited_1 = totalLinetFileInputDelimited_1
+									- footer_tFileInputDelimited_1 < 0 ? 0
+											: totalLinetFileInputDelimited_1 - footer_tFileInputDelimited_1;
+							if (lastLinetFileInputDelimited_1 > 0) {
+								lastLinetFileInputDelimited_1 = lastLinetFileInputDelimited_1 < lastLineTemptFileInputDelimited_1
+										? lastLinetFileInputDelimited_1
+										: lastLineTemptFileInputDelimited_1;
+							} else {
+								lastLinetFileInputDelimited_1 = lastLineTemptFileInputDelimited_1;
+							}
+
+							csvReadertFileInputDelimited_1.close();
+							if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
+								csvReadertFileInputDelimited_1 = new com.talend.csv.CSVReader(
+										(java.io.InputStream) filename_tFileInputDelimited_1,
+										fieldSeparator_tFileInputDelimited_1[0], "UTF-8");
+							} else {
+								csvReadertFileInputDelimited_1 = new com.talend.csv.CSVReader(
+										new java.io.BufferedReader(
+												new java.io.InputStreamReader(
+														new java.io.FileInputStream(
+																String.valueOf(filename_tFileInputDelimited_1)),
+														"UTF-8")),
+										fieldSeparator_tFileInputDelimited_1[0]);
+							}
+							csvReadertFileInputDelimited_1.setTrimWhitespace(false);
+							if ((rowSeparator_tFileInputDelimited_1[0] != '\n')
+									&& (rowSeparator_tFileInputDelimited_1[0] != '\r'))
+								csvReadertFileInputDelimited_1.setLineEnd("" + rowSeparator_tFileInputDelimited_1[0]);
+
+							csvReadertFileInputDelimited_1.setQuoteChar('"');
+
+							csvReadertFileInputDelimited_1.setEscapeChar(csvReadertFileInputDelimited_1.getQuoteChar());
+
+						}
+
+						if (limittFileInputDelimited_1 != 0) {
+							for (currentLinetFileInputDelimited_1 = 0; currentLinetFileInputDelimited_1 < 1; currentLinetFileInputDelimited_1++) {
+								csvReadertFileInputDelimited_1.readNext();
+							}
+						}
+						csvReadertFileInputDelimited_1.setSkipEmptyRecords(false);
+
 					} catch (java.lang.Exception e) {
 
 						System.err.println(e.getMessage());
 
-					}
+					} // TD110 end
 
-					while (fid_tFileInputDelimited_1 != null && fid_tFileInputDelimited_1.nextRecord()) {
+					while (limittFileInputDelimited_1 != 0 && csvReadertFileInputDelimited_1 != null
+							&& csvReadertFileInputDelimited_1.readNext()) {
 						rowstate_tFileInputDelimited_1.reset();
 
-						avantages = null;
+						rowtFileInputDelimited_1 = csvReadertFileInputDelimited_1.getValues();
+
+						currentLinetFileInputDelimited_1++;
+
+						if (lastLinetFileInputDelimited_1 > -1
+								&& currentLinetFileInputDelimited_1 > lastLinetFileInputDelimited_1) {
+							break;
+						}
+						outputLinetFileInputDelimited_1++;
+						if (limittFileInputDelimited_1 > 0
+								&& outputLinetFileInputDelimited_1 > limittFileInputDelimited_1) {
+							break;
+						}
+
+						row1 = null;
 
 						boolean whetherReject_tFileInputDelimited_1 = false;
-						avantages = new avantagesStruct();
+						row1 = new row1Struct();
 						try {
 
-							int columnIndexWithD_tFileInputDelimited_1 = 0;
+							char fieldSeparator_tFileInputDelimited_1_ListType[] = null;
+							// support passing value (property: Field Separator) by 'context.fs' or
+							// 'globalMap.get("fs")'.
+							if (((String) ";").length() > 0) {
+								fieldSeparator_tFileInputDelimited_1_ListType = ((String) ";").toCharArray();
+							} else {
+								throw new IllegalArgumentException("Field Separator must be assigned a char.");
+							}
+							if (rowtFileInputDelimited_1.length == 1 && ("\015").equals(rowtFileInputDelimited_1[0])) {// empty
+																														// line
+																														// when
+																														// row
+																														// separator
+																														// is
+																														// '\n'
 
-							String temp = "";
+								row1.entreprise_identifiant = null;
 
-							columnIndexWithD_tFileInputDelimited_1 = 0;
+								row1.denomination_sociale = null;
 
-							avantages.entreprise_identifiant = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
+								row1.ligne_identifiant = null;
 
-							columnIndexWithD_tFileInputDelimited_1 = 1;
+								row1.ligne_rectification = null;
 
-							avantages.denomination_sociale = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
+								row1.benef_categorie_code = null;
 
-							columnIndexWithD_tFileInputDelimited_1 = 2;
+								row1.categorie = null;
 
-							avantages.ligne_identifiant = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
+								row1.benef_nom = null;
 
-							columnIndexWithD_tFileInputDelimited_1 = 3;
+								row1.benef_prenom = null;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
+								row1.benef_qualite_code = null;
 
-								try {
+								row1.qualite = null;
 
-									avantages.ligne_rectification = ParserUtils.parseTo_Character(temp);
+								row1.benef_adresse1 = null;
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"ligne_rectification", "avantages", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
+								row1.benef_adresse2 = null;
+
+								row1.benef_adresse3 = null;
+
+								row1.benef_adresse4 = null;
+
+								row1.benef_codepostal = null;
+
+								row1.benef_ville = null;
+
+								row1.benef_pays_code = null;
+
+								row1.pays = null;
+
+								row1.benef_titre_code = null;
+
+								row1.benef_titre_libelle = null;
+
+								row1.benef_specialite_code = null;
+
+								row1.benef_speicalite_libelle = null;
+
+								row1.benef_identifiant_type_code = null;
+
+								row1.identifiant_type = null;
+
+								row1.benef_identifiant_valeur = null;
+
+								row1.benef_etablissement = null;
+
+								row1.benef_etablissement_codepostal = null;
+
+								row1.benef_etablissement_ville = null;
+
+								row1.benef_denomination_sociale = null;
+
+								row1.benef_objet_social = null;
+
+								row1.ligne_type = null;
+
+								row1.avant_date_signature = null;
+
+								row1.avant_montant_ttc = null;
+
+								row1.avant_nature = null;
+
+								row1.avant_convention_lie = null;
+
+								row1.semestre = null;
 
 							} else {
 
-								avantages.ligne_rectification = null;
+								int columnIndexWithD_tFileInputDelimited_1 = 0; // Column Index
 
-							}
+								columnIndexWithD_tFileInputDelimited_1 = 0;
 
-							columnIndexWithD_tFileInputDelimited_1 = 4;
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-							avantages.benef_categorie_code = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
+									row1.entreprise_identifiant = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
-							columnIndexWithD_tFileInputDelimited_1 = 5;
+								} else {
 
-							avantages.categorie = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+									row1.entreprise_identifiant = null;
 
-							columnIndexWithD_tFileInputDelimited_1 = 6;
-
-							avantages.benef_nom = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 7;
-
-							avantages.benef_prenom = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 8;
-
-							avantages.benef_qualite_code = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 9;
-
-							avantages.qualite = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 10;
-
-							avantages.benef_adresse1 = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 11;
-
-							avantages.benef_adresse2 = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 12;
-
-							avantages.benef_adresse3 = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 13;
-
-							avantages.benef_adresse4 = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 14;
-
-							avantages.benef_codepostal = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 15;
-
-							avantages.benef_ville = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 16;
-
-							avantages.benef_pays_code = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 17;
-
-							avantages.pays = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 18;
-
-							avantages.benef_titre_code = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 19;
-
-							avantages.benef_titre_libelle = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 20;
-
-							avantages.benef_specialite_code = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 21;
-
-							avantages.benef_speicalite_libelle = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 22;
-
-							avantages.benef_identifiant_type_code = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 23;
-
-							avantages.identifiant_type = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 24;
-
-							avantages.benef_identifiant_valeur = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 25;
-
-							avantages.benef_etablissement = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 26;
-
-							avantages.benef_etablissement_codepostal = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 27;
-
-							avantages.benef_etablissement_ville = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 28;
-
-							avantages.benef_denomination_sociale = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 29;
-
-							avantages.benef_objet_social = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 30;
-
-							avantages.ligne_type = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 31;
-
-							avantages.avant_date_signature = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 32;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									avantages.avant_montant_ttc = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"avant_montant_ttc", "avantages", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
 								}
 
-							} else {
+								columnIndexWithD_tFileInputDelimited_1 = 1;
 
-								avantages.avant_montant_ttc = null;
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.denomination_sociale = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.denomination_sociale = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 2;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.ligne_identifiant = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.ligne_identifiant = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 3;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									if (rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+
+											row1.ligne_rectification = ParserUtils.parseTo_Character(
+													rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+
+										} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String
+													.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+															"ligne_rectification", "row1",
+															rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1],
+															ex_tFileInputDelimited_1),
+													ex_tFileInputDelimited_1));
+										}
+									} else {
+
+										row1.ligne_rectification = null;
+
+									}
+
+								} else {
+
+									row1.ligne_rectification = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 4;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_categorie_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_categorie_code = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 5;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.categorie = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.categorie = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 6;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_nom = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_nom = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 7;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_prenom = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_prenom = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 8;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_qualite_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_qualite_code = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 9;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.qualite = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.qualite = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 10;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_adresse1 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_adresse1 = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 11;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_adresse2 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_adresse2 = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 12;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_adresse3 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_adresse3 = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 13;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_adresse4 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_adresse4 = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 14;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_codepostal = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_codepostal = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 15;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_ville = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_ville = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 16;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_pays_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_pays_code = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 17;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.pays = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.pays = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 18;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_titre_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_titre_code = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 19;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_titre_libelle = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_titre_libelle = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 20;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_specialite_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_specialite_code = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 21;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_speicalite_libelle = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_speicalite_libelle = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 22;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_identifiant_type_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_identifiant_type_code = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 23;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.identifiant_type = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.identifiant_type = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 24;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_identifiant_valeur = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_identifiant_valeur = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 25;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_etablissement = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_etablissement = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 26;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_etablissement_codepostal = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_etablissement_codepostal = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 27;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_etablissement_ville = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_etablissement_ville = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 28;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_denomination_sociale = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_denomination_sociale = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 29;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.benef_objet_social = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.benef_objet_social = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 30;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.ligne_type = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.ligne_type = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 31;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.avant_date_signature = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.avant_date_signature = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 32;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.avant_montant_ttc = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.avant_montant_ttc = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 33;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.avant_nature = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.avant_nature = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 34;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.avant_convention_lie = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.avant_convention_lie = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 35;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.semestre = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.semestre = null;
+
+								}
 
 							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 33;
-
-							avantages.avant_nature = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 34;
-
-							avantages.avant_convention_lie = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 35;
-
-							avantages.semestre = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
 							if (rowstate_tFileInputDelimited_1.getException() != null) {
 								throw rowstate_tFileInputDelimited_1.getException();
@@ -2946,7 +2575,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 							whetherReject_tFileInputDelimited_1 = true;
 
 							System.err.println(e.getMessage());
-							avantages = null;
+							row1 = null;
 
 						}
 
@@ -2975,428 +2604,389 @@ public class qualite_beneficiaire_dim implements TalendJob {
 						/**
 						 * [tFileInputDelimited_1 process_data_begin ] stop
 						 */
-// Start of branch "avantages"
-						if (avantages != null) {
+// Start of branch "row1"
+						if (row1 != null) {
 
 							/**
-							 * [tUniqRow_1 main ] start
+							 * [tMap_1 main ] start
 							 */
 
-							currentComponent = "tUniqRow_1";
+							currentComponent = "tMap_1";
 
 							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1, "avantages");
+								runStat.updateStatOnConnection(iterateId, 1, 1, "row1");
 							}
 
-							qualites_avantages = null;
-							if (avantages.benef_qualite_code == null) {
-								finder_tUniqRow_1.benef_qualite_code = null;
-							} else {
-								finder_tUniqRow_1.benef_qualite_code = avantages.benef_qualite_code.toLowerCase();
-							}
-							if (avantages.avant_date_signature == null) {
-								finder_tUniqRow_1.avant_date_signature = null;
-							} else {
-								finder_tUniqRow_1.avant_date_signature = avantages.avant_date_signature.toLowerCase();
-							}
-							finder_tUniqRow_1.avant_montant_ttc = avantages.avant_montant_ttc;
-							if (avantages.avant_nature == null) {
-								finder_tUniqRow_1.avant_nature = null;
-							} else {
-								finder_tUniqRow_1.avant_nature = avantages.avant_nature.toLowerCase();
-							}
-							if (avantages.avant_convention_lie == null) {
-								finder_tUniqRow_1.avant_convention_lie = null;
-							} else {
-								finder_tUniqRow_1.avant_convention_lie = avantages.avant_convention_lie.toLowerCase();
-							}
-							if (avantages.semestre == null) {
-								finder_tUniqRow_1.semestre = null;
-							} else {
-								finder_tUniqRow_1.semestre = avantages.semestre.toLowerCase();
-							}
-							finder_tUniqRow_1.hashCodeDirty = true;
-							if (!keystUniqRow_1.contains(finder_tUniqRow_1)) {
-								KeyStruct_tUniqRow_1 new_tUniqRow_1 = new KeyStruct_tUniqRow_1();
+							boolean hasCasePrimitiveKeyWithNull_tMap_1 = false;
 
-								if (avantages.benef_qualite_code == null) {
-									new_tUniqRow_1.benef_qualite_code = null;
-								} else {
-									new_tUniqRow_1.benef_qualite_code = avantages.benef_qualite_code.toLowerCase();
-								}
-								if (avantages.avant_date_signature == null) {
-									new_tUniqRow_1.avant_date_signature = null;
-								} else {
-									new_tUniqRow_1.avant_date_signature = avantages.avant_date_signature.toLowerCase();
-								}
-								new_tUniqRow_1.avant_montant_ttc = avantages.avant_montant_ttc;
-								if (avantages.avant_nature == null) {
-									new_tUniqRow_1.avant_nature = null;
-								} else {
-									new_tUniqRow_1.avant_nature = avantages.avant_nature.toLowerCase();
-								}
-								if (avantages.avant_convention_lie == null) {
-									new_tUniqRow_1.avant_convention_lie = null;
-								} else {
-									new_tUniqRow_1.avant_convention_lie = avantages.avant_convention_lie.toLowerCase();
-								}
-								if (avantages.semestre == null) {
-									new_tUniqRow_1.semestre = null;
-								} else {
-									new_tUniqRow_1.semestre = avantages.semestre.toLowerCase();
-								}
+							// ###############################
+							// # Input tables (lookups)
+							boolean rejectedInnerJoin_tMap_1 = false;
+							boolean mainRowRejected_tMap_1 = false;
 
-								keystUniqRow_1.add(new_tUniqRow_1);
-								if (qualites_avantages == null) {
-
-									qualites_avantages = new qualites_avantagesStruct();
-								}
-								qualites_avantages.entreprise_identifiant = avantages.entreprise_identifiant;
-								qualites_avantages.denomination_sociale = avantages.denomination_sociale;
-								qualites_avantages.ligne_identifiant = avantages.ligne_identifiant;
-								qualites_avantages.ligne_rectification = avantages.ligne_rectification;
-								qualites_avantages.benef_categorie_code = avantages.benef_categorie_code;
-								qualites_avantages.categorie = avantages.categorie;
-								qualites_avantages.benef_nom = avantages.benef_nom;
-								qualites_avantages.benef_prenom = avantages.benef_prenom;
-								qualites_avantages.benef_qualite_code = avantages.benef_qualite_code;
-								qualites_avantages.qualite = avantages.qualite;
-								qualites_avantages.benef_adresse1 = avantages.benef_adresse1;
-								qualites_avantages.benef_adresse2 = avantages.benef_adresse2;
-								qualites_avantages.benef_adresse3 = avantages.benef_adresse3;
-								qualites_avantages.benef_adresse4 = avantages.benef_adresse4;
-								qualites_avantages.benef_codepostal = avantages.benef_codepostal;
-								qualites_avantages.benef_ville = avantages.benef_ville;
-								qualites_avantages.benef_pays_code = avantages.benef_pays_code;
-								qualites_avantages.pays = avantages.pays;
-								qualites_avantages.benef_titre_code = avantages.benef_titre_code;
-								qualites_avantages.benef_titre_libelle = avantages.benef_titre_libelle;
-								qualites_avantages.benef_specialite_code = avantages.benef_specialite_code;
-								qualites_avantages.benef_speicalite_libelle = avantages.benef_speicalite_libelle;
-								qualites_avantages.benef_identifiant_type_code = avantages.benef_identifiant_type_code;
-								qualites_avantages.identifiant_type = avantages.identifiant_type;
-								qualites_avantages.benef_identifiant_valeur = avantages.benef_identifiant_valeur;
-								qualites_avantages.benef_etablissement = avantages.benef_etablissement;
-								qualites_avantages.benef_etablissement_codepostal = avantages.benef_etablissement_codepostal;
-								qualites_avantages.benef_etablissement_ville = avantages.benef_etablissement_ville;
-								qualites_avantages.benef_denomination_sociale = avantages.benef_denomination_sociale;
-								qualites_avantages.benef_objet_social = avantages.benef_objet_social;
-								qualites_avantages.ligne_type = avantages.ligne_type;
-								qualites_avantages.avant_date_signature = avantages.avant_date_signature;
-								qualites_avantages.avant_montant_ttc = avantages.avant_montant_ttc;
-								qualites_avantages.avant_nature = avantages.avant_nature;
-								qualites_avantages.avant_convention_lie = avantages.avant_convention_lie;
-								qualites_avantages.semestre = avantages.semestre;
-								nb_uniques_tUniqRow_1++;
-							} else {
-								nb_duplicates_tUniqRow_1++;
-							}
-
-							tos_count_tUniqRow_1++;
-
-							/**
-							 * [tUniqRow_1 main ] stop
-							 */
-
-							/**
-							 * [tUniqRow_1 process_data_begin ] start
-							 */
-
-							currentComponent = "tUniqRow_1";
-
-							/**
-							 * [tUniqRow_1 process_data_begin ] stop
-							 */
-// Start of branch "qualites_avantages"
-							if (qualites_avantages != null) {
-
-								/**
-								 * [tMap_1 main ] start
-								 */
-
-								currentComponent = "tMap_1";
-
-								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1, "qualites_avantages");
-								}
-
-								boolean hasCasePrimitiveKeyWithNull_tMap_1 = false;
+							// ###############################
+							{ // start of Var scope
 
 								// ###############################
-								// # Input tables (lookups)
-								boolean rejectedInnerJoin_tMap_1 = false;
-								boolean mainRowRejected_tMap_1 = false;
+								// # Vars tables
 
-								///////////////////////////////////////////////
-								// Starting Lookup Table "qualites_conventions"
-								///////////////////////////////////////////////
-
-								boolean forceLoopqualites_conventions = false;
-
-								qualites_conventionsStruct qualites_conventionsObjectFromLookup = null;
-
-								if (!rejectedInnerJoin_tMap_1) { // G_TM_M_020
-
-									hasCasePrimitiveKeyWithNull_tMap_1 = false;
-
-									qualites_conventionsHashKey.benef_qualite_code = qualites_avantages.benef_qualite_code;
-
-									qualites_conventionsHashKey.hashCodeDirty = true;
-
-									tHash_Lookup_qualites_conventions.lookup(qualites_conventionsHashKey);
-
-									if (!tHash_Lookup_qualites_conventions.hasNext()) { // G_TM_M_090
-
-										rejectedInnerJoin_tMap_1 = true;
-
-									} // G_TM_M_090
-
-								} // G_TM_M_020
-
-								if (tHash_Lookup_qualites_conventions != null && tHash_Lookup_qualites_conventions
-										.getCount(qualites_conventionsHashKey) > 1) { // G 071
-
-									// System.out.println("WARNING: UNIQUE MATCH is configured for the lookup
-									// 'qualites_conventions' and it contains more one result from keys :
-									// qualites_conventions.benef_qualite_code = '" +
-									// qualites_conventionsHashKey.benef_qualite_code + "'");
-								} // G 071
-
-								qualites_conventionsStruct qualites_conventions = null;
-
-								qualites_conventionsStruct fromLookup_qualites_conventions = null;
-								qualites_conventions = qualites_conventionsDefault;
-
-								if (tHash_Lookup_qualites_conventions != null
-										&& tHash_Lookup_qualites_conventions.hasNext()) { // G 099
-
-									fromLookup_qualites_conventions = tHash_Lookup_qualites_conventions.next();
-
-								} // G 099
-
-								if (fromLookup_qualites_conventions != null) {
-									qualites_conventions = fromLookup_qualites_conventions;
-								}
-
-								///////////////////////////////////////////////
-								// Starting Lookup Table "qualites_remunerations"
-								///////////////////////////////////////////////
-
-								boolean forceLoopqualites_remunerations = false;
-
-								qualites_remunerationsStruct qualites_remunerationsObjectFromLookup = null;
-
-								if (!rejectedInnerJoin_tMap_1) { // G_TM_M_020
-
-									hasCasePrimitiveKeyWithNull_tMap_1 = false;
-
-									qualites_remunerationsHashKey.benef_qualite_code = qualites_conventions.benef_qualite_code;
-
-									qualites_remunerationsHashKey.hashCodeDirty = true;
-
-									tHash_Lookup_qualites_remunerations.lookup(qualites_remunerationsHashKey);
-
-									if (!tHash_Lookup_qualites_remunerations.hasNext()) { // G_TM_M_090
-
-										rejectedInnerJoin_tMap_1 = true;
-
-									} // G_TM_M_090
-
-								} // G_TM_M_020
-
-								if (tHash_Lookup_qualites_remunerations != null && tHash_Lookup_qualites_remunerations
-										.getCount(qualites_remunerationsHashKey) > 1) { // G 071
-
-									// System.out.println("WARNING: UNIQUE MATCH is configured for the lookup
-									// 'qualites_remunerations' and it contains more one result from keys :
-									// qualites_remunerations.benef_qualite_code = '" +
-									// qualites_remunerationsHashKey.benef_qualite_code + "'");
-								} // G 071
-
-								qualites_remunerationsStruct qualites_remunerations = null;
-
-								qualites_remunerationsStruct fromLookup_qualites_remunerations = null;
-								qualites_remunerations = qualites_remunerationsDefault;
-
-								if (tHash_Lookup_qualites_remunerations != null
-										&& tHash_Lookup_qualites_remunerations.hasNext()) { // G 099
-
-									fromLookup_qualites_remunerations = tHash_Lookup_qualites_remunerations.next();
-
-								} // G 099
-
-								if (fromLookup_qualites_remunerations != null) {
-									qualites_remunerations = fromLookup_qualites_remunerations;
-								}
-
+								Var__tMap_1__Struct Var = Var__tMap_1;// ###############################
 								// ###############################
-								{ // start of Var scope
+								// # Output tables
 
-									// ###############################
-									// # Vars tables
-
-									Var__tMap_1__Struct Var = Var__tMap_1;
-									Var.var1 = null;// ###############################
-									// ###############################
-									// # Output tables
-
-									qualites = null;
-
-									if (!rejectedInnerJoin_tMap_1) {
+								qualites = null;
 
 // # Output table : 'qualites'
-										qualites_tmp.qualite_beneficiaire_id = qualites_remunerations.benef_qualite_code;
-										qualites_tmp.nom_qualite_beneficiaire = qualites_remunerations.qualite;
-										qualites = qualites_tmp;
-									} // closing inner join bracket (2)
+								qualites_tmp.qualite_beneficiaire_id = row1.benef_qualite_code.equals("") ? null
+										: row1.benef_qualite_code;
+								qualites_tmp.nom_qualite_beneficiaire = row1.qualite.equals("") ? null : row1.qualite;
+								qualites = qualites_tmp;
 // ###############################
 
-								} // end of Var scope
+							} // end of Var scope
 
-								rejectedInnerJoin_tMap_1 = false;
+							rejectedInnerJoin_tMap_1 = false;
 
-								tos_count_tMap_1++;
+							tos_count_tMap_1++;
 
-								/**
-								 * [tMap_1 main ] stop
-								 */
+							/**
+							 * [tMap_1 main ] stop
+							 */
 
-								/**
-								 * [tMap_1 process_data_begin ] start
-								 */
+							/**
+							 * [tMap_1 process_data_begin ] start
+							 */
 
-								currentComponent = "tMap_1";
+							currentComponent = "tMap_1";
 
-								/**
-								 * [tMap_1 process_data_begin ] stop
-								 */
+							/**
+							 * [tMap_1 process_data_begin ] stop
+							 */
 // Start of branch "qualites"
-								if (qualites != null) {
+							if (qualites != null) {
+
+								/**
+								 * [tFilterRow_1 main ] start
+								 */
+
+								currentComponent = "tFilterRow_1";
+
+								if (execStat) {
+									runStat.updateStatOnConnection(iterateId, 1, 1, "qualites");
+								}
+
+								row4 = null;
+								Operator_tFilterRow_1 ope_tFilterRow_1 = new Operator_tFilterRow_1("&&");
+								ope_tFilterRow_1.matches((qualites.qualite_beneficiaire_id != null),
+										"qualite_beneficiaire_id!=null failed");
+								ope_tFilterRow_1.matches((qualites.nom_qualite_beneficiaire != null),
+										"nom_qualite_beneficiaire!=null failed");
+
+								if (ope_tFilterRow_1.getMatchFlag()) {
+									if (row4 == null) {
+										row4 = new row4Struct();
+									}
+									row4.qualite_beneficiaire_id = qualites.qualite_beneficiaire_id;
+									row4.nom_qualite_beneficiaire = qualites.nom_qualite_beneficiaire;
+									nb_line_ok_tFilterRow_1++;
+								} else {
+									nb_line_reject_tFilterRow_1++;
+								}
+
+								nb_line_tFilterRow_1++;
+
+								tos_count_tFilterRow_1++;
+
+								/**
+								 * [tFilterRow_1 main ] stop
+								 */
+
+								/**
+								 * [tFilterRow_1 process_data_begin ] start
+								 */
+
+								currentComponent = "tFilterRow_1";
+
+								/**
+								 * [tFilterRow_1 process_data_begin ] stop
+								 */
+// Start of branch "row4"
+								if (row4 != null) {
 
 									/**
-									 * [tDBOutput_1 main ] start
+									 * [tUniqRow_1 main ] start
 									 */
 
-									currentComponent = "tDBOutput_1";
+									currentComponent = "tUniqRow_1";
 
 									if (execStat) {
-										runStat.updateStatOnConnection(iterateId, 1, 1, "qualites");
+										runStat.updateStatOnConnection(iterateId, 1, 1, "row4");
 									}
 
-									whetherReject_tDBOutput_1 = false;
-									if (qualites.qualite_beneficiaire_id == null) {
-										pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
+									row2 = null;
+									if (row4.qualite_beneficiaire_id == null) {
+										finder_tUniqRow_1.qualite_beneficiaire_id = null;
 									} else {
-										pstmt_tDBOutput_1.setString(1, qualites.qualite_beneficiaire_id);
+										finder_tUniqRow_1.qualite_beneficiaire_id = row4.qualite_beneficiaire_id
+												.toLowerCase();
 									}
-
-									if (qualites.nom_qualite_beneficiaire == null) {
-										pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
+									if (row4.nom_qualite_beneficiaire == null) {
+										finder_tUniqRow_1.nom_qualite_beneficiaire = null;
 									} else {
-										pstmt_tDBOutput_1.setString(2, qualites.nom_qualite_beneficiaire);
+										finder_tUniqRow_1.nom_qualite_beneficiaire = row4.nom_qualite_beneficiaire
+												.toLowerCase();
 									}
+									finder_tUniqRow_1.hashCodeDirty = true;
+									if (!keystUniqRow_1.contains(finder_tUniqRow_1)) {
+										KeyStruct_tUniqRow_1 new_tUniqRow_1 = new KeyStruct_tUniqRow_1();
 
-									pstmt_tDBOutput_1.addBatch();
-									nb_line_tDBOutput_1++;
-
-									batchSizeCounter_tDBOutput_1++;
-									if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
-										try {
-											int countSum_tDBOutput_1 = 0;
-											for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
-												countSum_tDBOutput_1 += (countEach_tDBOutput_1 == java.sql.Statement.EXECUTE_FAILED
-														? 0
-														: 1);
-											}
-											insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
-										} catch (java.sql.BatchUpdateException e) {
-											int countSum_tDBOutput_1 = 0;
-											for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
-												countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
-														: countEach_tDBOutput_1);
-											}
-											insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
-											System.err.println(e.getMessage());
+										if (row4.qualite_beneficiaire_id == null) {
+											new_tUniqRow_1.qualite_beneficiaire_id = null;
+										} else {
+											new_tUniqRow_1.qualite_beneficiaire_id = row4.qualite_beneficiaire_id
+													.toLowerCase();
+										}
+										if (row4.nom_qualite_beneficiaire == null) {
+											new_tUniqRow_1.nom_qualite_beneficiaire = null;
+										} else {
+											new_tUniqRow_1.nom_qualite_beneficiaire = row4.nom_qualite_beneficiaire
+													.toLowerCase();
 										}
 
-										batchSizeCounter_tDBOutput_1 = 0;
+										keystUniqRow_1.add(new_tUniqRow_1);
+										if (row2 == null) {
+
+											row2 = new row2Struct();
+										}
+										row2.qualite_beneficiaire_id = row4.qualite_beneficiaire_id;
+										row2.nom_qualite_beneficiaire = row4.nom_qualite_beneficiaire;
+										nb_uniques_tUniqRow_1++;
+									} else {
+										nb_duplicates_tUniqRow_1++;
 									}
-									commitCounter_tDBOutput_1++;
 
-									if (commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
+									tos_count_tUniqRow_1++;
 
-										try {
-											int countSum_tDBOutput_1 = 0;
-											for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
-												countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : 1);
+									/**
+									 * [tUniqRow_1 main ] stop
+									 */
+
+									/**
+									 * [tUniqRow_1 process_data_begin ] start
+									 */
+
+									currentComponent = "tUniqRow_1";
+
+									/**
+									 * [tUniqRow_1 process_data_begin ] stop
+									 */
+// Start of branch "row2"
+									if (row2 != null) {
+
+										/**
+										 * [tDBOutput_1 main ] start
+										 */
+
+										currentComponent = "tDBOutput_1";
+
+										if (execStat) {
+											runStat.updateStatOnConnection(iterateId, 1, 1, "row2");
+										}
+
+										row3 = null;
+										whetherReject_tDBOutput_1 = false;
+										if (row2.qualite_beneficiaire_id == null) {
+											pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
+										} else {
+											pstmt_tDBOutput_1.setString(1, row2.qualite_beneficiaire_id);
+										}
+
+										if (row2.nom_qualite_beneficiaire == null) {
+											pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
+										} else {
+											pstmt_tDBOutput_1.setString(2, row2.nom_qualite_beneficiaire);
+										}
+
+										pstmt_tDBOutput_1.addBatch();
+										nb_line_tDBOutput_1++;
+
+										batchSizeCounter_tDBOutput_1++;
+										if (!whetherReject_tDBOutput_1) {
+											row3 = new row3Struct();
+											row3.qualite_beneficiaire_id = row2.qualite_beneficiaire_id;
+											row3.nom_qualite_beneficiaire = row2.nom_qualite_beneficiaire;
+										}
+										if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
+											try {
+												int countSum_tDBOutput_1 = 0;
+												for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+													countSum_tDBOutput_1 += (countEach_tDBOutput_1 == java.sql.Statement.EXECUTE_FAILED
+															? 0
+															: 1);
+												}
+												insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+											} catch (java.sql.BatchUpdateException e) {
+												int countSum_tDBOutput_1 = 0;
+												for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+													countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
+															: countEach_tDBOutput_1);
+												}
+												insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+												System.err.println(e.getMessage());
 											}
-											insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
-										} catch (java.sql.BatchUpdateException e) {
-											int countSum_tDBOutput_1 = 0;
-											for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
-												countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
-														: countEach_tDBOutput_1);
+
+											batchSizeCounter_tDBOutput_1 = 0;
+										}
+										commitCounter_tDBOutput_1++;
+
+										if (commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
+
+											try {
+												int countSum_tDBOutput_1 = 0;
+												for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+													countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : 1);
+												}
+												insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+											} catch (java.sql.BatchUpdateException e) {
+												int countSum_tDBOutput_1 = 0;
+												for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+													countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
+															: countEach_tDBOutput_1);
+												}
+												insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+												System.err.println(e.getMessage());
+
 											}
-											insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
-											System.err.println(e.getMessage());
+											conn_tDBOutput_1.commit();
+											commitCounter_tDBOutput_1 = 0;
 
 										}
-										conn_tDBOutput_1.commit();
-										commitCounter_tDBOutput_1 = 0;
 
-									}
+										tos_count_tDBOutput_1++;
 
-									tos_count_tDBOutput_1++;
+										/**
+										 * [tDBOutput_1 main ] stop
+										 */
+
+										/**
+										 * [tDBOutput_1 process_data_begin ] start
+										 */
+
+										currentComponent = "tDBOutput_1";
+
+										/**
+										 * [tDBOutput_1 process_data_begin ] stop
+										 */
+// Start of branch "row3"
+										if (row3 != null) {
+
+											/**
+											 * [tLogRow_1 main ] start
+											 */
+
+											currentComponent = "tLogRow_1";
+
+											if (execStat) {
+												runStat.updateStatOnConnection(iterateId, 1, 1, "row3");
+											}
+
+///////////////////////		
+
+											String[] row_tLogRow_1 = new String[2];
+
+											if (row3.qualite_beneficiaire_id != null) { //
+												row_tLogRow_1[0] = String.valueOf(row3.qualite_beneficiaire_id);
+
+											} //
+
+											if (row3.nom_qualite_beneficiaire != null) { //
+												row_tLogRow_1[1] = String.valueOf(row3.nom_qualite_beneficiaire);
+
+											} //
+
+											util_tLogRow_1.addRow(row_tLogRow_1);
+											nb_line_tLogRow_1++;
+//////
+
+//////                    
+
+///////////////////////    			
+
+											tos_count_tLogRow_1++;
+
+											/**
+											 * [tLogRow_1 main ] stop
+											 */
+
+											/**
+											 * [tLogRow_1 process_data_begin ] start
+											 */
+
+											currentComponent = "tLogRow_1";
+
+											/**
+											 * [tLogRow_1 process_data_begin ] stop
+											 */
+
+											/**
+											 * [tLogRow_1 process_data_end ] start
+											 */
+
+											currentComponent = "tLogRow_1";
+
+											/**
+											 * [tLogRow_1 process_data_end ] stop
+											 */
+
+										} // End of branch "row3"
+
+										/**
+										 * [tDBOutput_1 process_data_end ] start
+										 */
+
+										currentComponent = "tDBOutput_1";
+
+										/**
+										 * [tDBOutput_1 process_data_end ] stop
+										 */
+
+									} // End of branch "row2"
 
 									/**
-									 * [tDBOutput_1 main ] stop
+									 * [tUniqRow_1 process_data_end ] start
 									 */
+
+									currentComponent = "tUniqRow_1";
 
 									/**
-									 * [tDBOutput_1 process_data_begin ] start
+									 * [tUniqRow_1 process_data_end ] stop
 									 */
 
-									currentComponent = "tDBOutput_1";
-
-									/**
-									 * [tDBOutput_1 process_data_begin ] stop
-									 */
-
-									/**
-									 * [tDBOutput_1 process_data_end ] start
-									 */
-
-									currentComponent = "tDBOutput_1";
-
-									/**
-									 * [tDBOutput_1 process_data_end ] stop
-									 */
-
-								} // End of branch "qualites"
+								} // End of branch "row4"
 
 								/**
-								 * [tMap_1 process_data_end ] start
+								 * [tFilterRow_1 process_data_end ] start
 								 */
 
-								currentComponent = "tMap_1";
+								currentComponent = "tFilterRow_1";
 
 								/**
-								 * [tMap_1 process_data_end ] stop
+								 * [tFilterRow_1 process_data_end ] stop
 								 */
 
-							} // End of branch "qualites_avantages"
+							} // End of branch "qualites"
 
 							/**
-							 * [tUniqRow_1 process_data_end ] start
+							 * [tMap_1 process_data_end ] start
 							 */
 
-							currentComponent = "tUniqRow_1";
+							currentComponent = "tMap_1";
 
 							/**
-							 * [tUniqRow_1 process_data_end ] stop
+							 * [tMap_1 process_data_end ] stop
 							 */
 
-						} // End of branch "avantages"
+						} // End of branch "row1"
 
 						/**
 						 * [tFileInputDelimited_1 process_data_end ] start
@@ -3414,17 +3004,19 @@ public class qualite_beneficiaire_dim implements TalendJob {
 
 						currentComponent = "tFileInputDelimited_1";
 
+						nb_line_tFileInputDelimited_1++;
 					}
+
 				} finally {
-					if (!((Object) ("C:/BI/transparence-sante/data/data.gouv/avantages.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_1 != null) {
-							fid_tFileInputDelimited_1.close();
+					if (!(filename_tFileInputDelimited_1 instanceof java.io.InputStream)) {
+						if (csvReadertFileInputDelimited_1 != null) {
+							csvReadertFileInputDelimited_1.close();
 						}
 					}
-					if (fid_tFileInputDelimited_1 != null) {
-						globalMap.put("tFileInputDelimited_1_NB_LINE", fid_tFileInputDelimited_1.getRowNumber());
-
+					if (csvReadertFileInputDelimited_1 != null) {
+						globalMap.put("tFileInputDelimited_1_NB_LINE", nb_line_tFileInputDelimited_1);
 					}
+
 				}
 
 				ok_Hash.put("tFileInputDelimited_1", true);
@@ -3432,6 +3024,48 @@ public class qualite_beneficiaire_dim implements TalendJob {
 
 				/**
 				 * [tFileInputDelimited_1 end ] stop
+				 */
+
+				/**
+				 * [tMap_1 end ] start
+				 */
+
+				currentComponent = "tMap_1";
+
+// ###############################
+// # Lookup hashes releasing
+// ###############################      
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row1");
+				}
+
+				ok_Hash.put("tMap_1", true);
+				end_Hash.put("tMap_1", System.currentTimeMillis());
+
+				/**
+				 * [tMap_1 end ] stop
+				 */
+
+				/**
+				 * [tFilterRow_1 end ] start
+				 */
+
+				currentComponent = "tFilterRow_1";
+
+				globalMap.put("tFilterRow_1_NB_LINE", nb_line_tFilterRow_1);
+				globalMap.put("tFilterRow_1_NB_LINE_OK", nb_line_ok_tFilterRow_1);
+				globalMap.put("tFilterRow_1_NB_LINE_REJECT", nb_line_reject_tFilterRow_1);
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "qualites");
+				}
+
+				ok_Hash.put("tFilterRow_1", true);
+				end_Hash.put("tFilterRow_1", System.currentTimeMillis());
+
+				/**
+				 * [tFilterRow_1 end ] stop
 				 */
 
 				/**
@@ -3444,7 +3078,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				globalMap.put("tUniqRow_1_NB_DUPLICATES", nb_duplicates_tUniqRow_1);
 
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "avantages");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row4");
 				}
 
 				ok_Hash.put("tUniqRow_1", true);
@@ -3452,37 +3086,6 @@ public class qualite_beneficiaire_dim implements TalendJob {
 
 				/**
 				 * [tUniqRow_1 end ] stop
-				 */
-
-				/**
-				 * [tMap_1 end ] start
-				 */
-
-				currentComponent = "tMap_1";
-
-// ###############################
-// # Lookup hashes releasing
-				if (tHash_Lookup_qualites_conventions != null) {
-					tHash_Lookup_qualites_conventions.endGet();
-				}
-				globalMap.remove("tHash_Lookup_qualites_conventions");
-
-				if (tHash_Lookup_qualites_remunerations != null) {
-					tHash_Lookup_qualites_remunerations.endGet();
-				}
-				globalMap.remove("tHash_Lookup_qualites_remunerations");
-
-// ###############################      
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "qualites_avantages");
-				}
-
-				ok_Hash.put("tMap_1", true);
-				end_Hash.put("tMap_1", System.currentTimeMillis());
-
-				/**
-				 * [tMap_1 end ] stop
 				 */
 
 				/**
@@ -3548,7 +3151,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				globalMap.put("tDBOutput_1_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_1);
 
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "qualites");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row2");
 				}
 
 				ok_Hash.put("tDBOutput_1", true);
@@ -3556,6 +3159,40 @@ public class qualite_beneficiaire_dim implements TalendJob {
 
 				/**
 				 * [tDBOutput_1 end ] stop
+				 */
+
+				/**
+				 * [tLogRow_1 end ] start
+				 */
+
+				currentComponent = "tLogRow_1";
+
+//////
+
+				java.io.PrintStream consoleOut_tLogRow_1 = null;
+				if (globalMap.get("tLogRow_CONSOLE") != null) {
+					consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
+				} else {
+					consoleOut_tLogRow_1 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
+					globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_1);
+				}
+
+				consoleOut_tLogRow_1.println(util_tLogRow_1.format().toString());
+				consoleOut_tLogRow_1.flush();
+//////
+				globalMap.put("tLogRow_1_NB_LINE", nb_line_tLogRow_1);
+
+///////////////////////    			
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row3");
+				}
+
+				ok_Hash.put("tLogRow_1", true);
+				end_Hash.put("tLogRow_1", System.currentTimeMillis());
+
+				/**
+				 * [tLogRow_1 end ] stop
 				 */
 
 			} // end the resume
@@ -3572,12 +3209,6 @@ public class qualite_beneficiaire_dim implements TalendJob {
 			throw error;
 		} finally {
 
-			// free memory for "tMap_1"
-			globalMap.remove("tHash_Lookup_qualites_conventions");
-
-			// free memory for "tMap_1"
-			globalMap.remove("tHash_Lookup_qualites_remunerations");
-
 			try {
 
 				/**
@@ -3591,16 +3222,6 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				 */
 
 				/**
-				 * [tUniqRow_1 finally ] start
-				 */
-
-				currentComponent = "tUniqRow_1";
-
-				/**
-				 * [tUniqRow_1 finally ] stop
-				 */
-
-				/**
 				 * [tMap_1 finally ] start
 				 */
 
@@ -3608,6 +3229,26 @@ public class qualite_beneficiaire_dim implements TalendJob {
 
 				/**
 				 * [tMap_1 finally ] stop
+				 */
+
+				/**
+				 * [tFilterRow_1 finally ] start
+				 */
+
+				currentComponent = "tFilterRow_1";
+
+				/**
+				 * [tFilterRow_1 finally ] stop
+				 */
+
+				/**
+				 * [tUniqRow_1 finally ] start
+				 */
+
+				currentComponent = "tUniqRow_1";
+
+				/**
+				 * [tUniqRow_1 finally ] stop
 				 */
 
 				/**
@@ -3643,6 +3284,16 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				 * [tDBOutput_1 finally ] stop
 				 */
 
+				/**
+				 * [tLogRow_1 finally ] start
+				 */
+
+				currentComponent = "tLogRow_1";
+
+				/**
+				 * [tLogRow_1 finally ] stop
+				 */
+
 			} catch (java.lang.Exception e) {
 				// ignore
 			} catch (java.lang.Error error) {
@@ -3652,4220 +3303,6 @@ public class qualite_beneficiaire_dim implements TalendJob {
 		}
 
 		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 1);
-	}
-
-	public static class qualites_conventionsStruct
-			implements routines.system.IPersistableComparableLookupRow<qualites_conventionsStruct> {
-		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
-		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
-		protected static final int DEFAULT_HASHCODE = 1;
-		protected static final int PRIME = 31;
-		protected int hashCode = DEFAULT_HASHCODE;
-		public boolean hashCodeDirty = true;
-
-		public String loopKey;
-
-		public String entreprise_identifiant;
-
-		public String getEntreprise_identifiant() {
-			return this.entreprise_identifiant;
-		}
-
-		public String denomination_sociale;
-
-		public String getDenomination_sociale() {
-			return this.denomination_sociale;
-		}
-
-		public String ligne_identifiant;
-
-		public String getLigne_identifiant() {
-			return this.ligne_identifiant;
-		}
-
-		public Character ligne_rectification;
-
-		public Character getLigne_rectification() {
-			return this.ligne_rectification;
-		}
-
-		public String benef_categorie_code;
-
-		public String getBenef_categorie_code() {
-			return this.benef_categorie_code;
-		}
-
-		public String categorie;
-
-		public String getCategorie() {
-			return this.categorie;
-		}
-
-		public String benef_nom;
-
-		public String getBenef_nom() {
-			return this.benef_nom;
-		}
-
-		public String benef_prenom;
-
-		public String getBenef_prenom() {
-			return this.benef_prenom;
-		}
-
-		public String benef_qualite_code;
-
-		public String getBenef_qualite_code() {
-			return this.benef_qualite_code;
-		}
-
-		public String qualite;
-
-		public String getQualite() {
-			return this.qualite;
-		}
-
-		public String benef_adresse1;
-
-		public String getBenef_adresse1() {
-			return this.benef_adresse1;
-		}
-
-		public String benef_adresse2;
-
-		public String getBenef_adresse2() {
-			return this.benef_adresse2;
-		}
-
-		public String benef_adresse3;
-
-		public String getBenef_adresse3() {
-			return this.benef_adresse3;
-		}
-
-		public String benef_adresse4;
-
-		public String getBenef_adresse4() {
-			return this.benef_adresse4;
-		}
-
-		public String benef_codepostal;
-
-		public String getBenef_codepostal() {
-			return this.benef_codepostal;
-		}
-
-		public String benef_ville;
-
-		public String getBenef_ville() {
-			return this.benef_ville;
-		}
-
-		public String benef_pays_code;
-
-		public String getBenef_pays_code() {
-			return this.benef_pays_code;
-		}
-
-		public String pays;
-
-		public String getPays() {
-			return this.pays;
-		}
-
-		public String benef_titre_code;
-
-		public String getBenef_titre_code() {
-			return this.benef_titre_code;
-		}
-
-		public String benef_titre_libelle;
-
-		public String getBenef_titre_libelle() {
-			return this.benef_titre_libelle;
-		}
-
-		public String benef_specialite_code;
-
-		public String getBenef_specialite_code() {
-			return this.benef_specialite_code;
-		}
-
-		public String benef_speicalite_libelle;
-
-		public String getBenef_speicalite_libelle() {
-			return this.benef_speicalite_libelle;
-		}
-
-		public String benef_identifiant_type_code;
-
-		public String getBenef_identifiant_type_code() {
-			return this.benef_identifiant_type_code;
-		}
-
-		public String identifiant_type;
-
-		public String getIdentifiant_type() {
-			return this.identifiant_type;
-		}
-
-		public String benef_identifiant_valeur;
-
-		public String getBenef_identifiant_valeur() {
-			return this.benef_identifiant_valeur;
-		}
-
-		public String benef_etablissement;
-
-		public String getBenef_etablissement() {
-			return this.benef_etablissement;
-		}
-
-		public String benef_etablissement_codepostal;
-
-		public String getBenef_etablissement_codepostal() {
-			return this.benef_etablissement_codepostal;
-		}
-
-		public String benef_etablissement_ville;
-
-		public String getBenef_etablissement_ville() {
-			return this.benef_etablissement_ville;
-		}
-
-		public String benef_denomination_sociale;
-
-		public String getBenef_denomination_sociale() {
-			return this.benef_denomination_sociale;
-		}
-
-		public String benef_objet_social;
-
-		public String getBenef_objet_social() {
-			return this.benef_objet_social;
-		}
-
-		public String ligne_type;
-
-		public String getLigne_type() {
-			return this.ligne_type;
-		}
-
-		public String conv_date_signature;
-
-		public String getConv_date_signature() {
-			return this.conv_date_signature;
-		}
-
-		public String conv_objet;
-
-		public String getConv_objet() {
-			return this.conv_objet;
-		}
-
-		public String conv_objet_autre;
-
-		public String getConv_objet_autre() {
-			return this.conv_objet_autre;
-		}
-
-		public String conv_date_debut;
-
-		public String getConv_date_debut() {
-			return this.conv_date_debut;
-		}
-
-		public String conv_date_fin;
-
-		public String getConv_date_fin() {
-			return this.conv_date_fin;
-		}
-
-		public String conv_montant_ttc;
-
-		public String getConv_montant_ttc() {
-			return this.conv_montant_ttc;
-		}
-
-		public String conv_manifestation_date;
-
-		public String getConv_manifestation_date() {
-			return this.conv_manifestation_date;
-		}
-
-		public String conv_manifestation_nom;
-
-		public String getConv_manifestation_nom() {
-			return this.conv_manifestation_nom;
-		}
-
-		public String conv_manifestation_lieu;
-
-		public String getConv_manifestation_lieu() {
-			return this.conv_manifestation_lieu;
-		}
-
-		public String conv_manifestation_organisateur;
-
-		public String getConv_manifestation_organisateur() {
-			return this.conv_manifestation_organisateur;
-		}
-
-		@Override
-		public int hashCode() {
-			if (this.hashCodeDirty) {
-				final int prime = PRIME;
-				int result = DEFAULT_HASHCODE;
-
-				result = prime * result + ((this.benef_qualite_code == null) ? 0 : this.benef_qualite_code.hashCode());
-
-				this.hashCode = result;
-				this.hashCodeDirty = false;
-			}
-			return this.hashCode;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			final qualites_conventionsStruct other = (qualites_conventionsStruct) obj;
-
-			if (this.benef_qualite_code == null) {
-				if (other.benef_qualite_code != null)
-					return false;
-
-			} else if (!this.benef_qualite_code.equals(other.benef_qualite_code))
-
-				return false;
-
-			return true;
-		}
-
-		public void copyDataTo(qualites_conventionsStruct other) {
-
-			other.entreprise_identifiant = this.entreprise_identifiant;
-			other.denomination_sociale = this.denomination_sociale;
-			other.ligne_identifiant = this.ligne_identifiant;
-			other.ligne_rectification = this.ligne_rectification;
-			other.benef_categorie_code = this.benef_categorie_code;
-			other.categorie = this.categorie;
-			other.benef_nom = this.benef_nom;
-			other.benef_prenom = this.benef_prenom;
-			other.benef_qualite_code = this.benef_qualite_code;
-			other.qualite = this.qualite;
-			other.benef_adresse1 = this.benef_adresse1;
-			other.benef_adresse2 = this.benef_adresse2;
-			other.benef_adresse3 = this.benef_adresse3;
-			other.benef_adresse4 = this.benef_adresse4;
-			other.benef_codepostal = this.benef_codepostal;
-			other.benef_ville = this.benef_ville;
-			other.benef_pays_code = this.benef_pays_code;
-			other.pays = this.pays;
-			other.benef_titre_code = this.benef_titre_code;
-			other.benef_titre_libelle = this.benef_titre_libelle;
-			other.benef_specialite_code = this.benef_specialite_code;
-			other.benef_speicalite_libelle = this.benef_speicalite_libelle;
-			other.benef_identifiant_type_code = this.benef_identifiant_type_code;
-			other.identifiant_type = this.identifiant_type;
-			other.benef_identifiant_valeur = this.benef_identifiant_valeur;
-			other.benef_etablissement = this.benef_etablissement;
-			other.benef_etablissement_codepostal = this.benef_etablissement_codepostal;
-			other.benef_etablissement_ville = this.benef_etablissement_ville;
-			other.benef_denomination_sociale = this.benef_denomination_sociale;
-			other.benef_objet_social = this.benef_objet_social;
-			other.ligne_type = this.ligne_type;
-			other.conv_date_signature = this.conv_date_signature;
-			other.conv_objet = this.conv_objet;
-			other.conv_objet_autre = this.conv_objet_autre;
-			other.conv_date_debut = this.conv_date_debut;
-			other.conv_date_fin = this.conv_date_fin;
-			other.conv_montant_ttc = this.conv_montant_ttc;
-			other.conv_manifestation_date = this.conv_manifestation_date;
-			other.conv_manifestation_nom = this.conv_manifestation_nom;
-			other.conv_manifestation_lieu = this.conv_manifestation_lieu;
-			other.conv_manifestation_organisateur = this.conv_manifestation_organisateur;
-
-		}
-
-		public void copyKeysDataTo(qualites_conventionsStruct other) {
-
-			other.benef_qualite_code = this.benef_qualite_code;
-
-		}
-
-		private String readString(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				byte[] byteArray = new byte[length];
-				dis.read(byteArray);
-				strReturn = new String(byteArray, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length) {
-					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length == 0) {
-						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[1024];
-					} else {
-						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length);
-				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length,
-						utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		public void readKeysData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim) {
-
-				try {
-
-					int length = 0;
-
-					this.benef_qualite_code = readString(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeKeysData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.benef_qualite_code, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		/**
-		 * Fill Values data by reading ObjectInputStream.
-		 */
-		public void readValuesData(DataInputStream dis, ObjectInputStream ois) {
-			try {
-
-				int length = 0;
-
-				this.entreprise_identifiant = readString(dis, ois);
-
-				this.denomination_sociale = readString(dis, ois);
-
-				this.ligne_identifiant = readString(dis, ois);
-
-				length = dis.readByte();
-				if (length == -1) {
-					this.ligne_rectification = null;
-				} else {
-					this.ligne_rectification = dis.readChar();
-				}
-
-				this.benef_categorie_code = readString(dis, ois);
-
-				this.categorie = readString(dis, ois);
-
-				this.benef_nom = readString(dis, ois);
-
-				this.benef_prenom = readString(dis, ois);
-
-				this.qualite = readString(dis, ois);
-
-				this.benef_adresse1 = readString(dis, ois);
-
-				this.benef_adresse2 = readString(dis, ois);
-
-				this.benef_adresse3 = readString(dis, ois);
-
-				this.benef_adresse4 = readString(dis, ois);
-
-				this.benef_codepostal = readString(dis, ois);
-
-				this.benef_ville = readString(dis, ois);
-
-				this.benef_pays_code = readString(dis, ois);
-
-				this.pays = readString(dis, ois);
-
-				this.benef_titre_code = readString(dis, ois);
-
-				this.benef_titre_libelle = readString(dis, ois);
-
-				this.benef_specialite_code = readString(dis, ois);
-
-				this.benef_speicalite_libelle = readString(dis, ois);
-
-				this.benef_identifiant_type_code = readString(dis, ois);
-
-				this.identifiant_type = readString(dis, ois);
-
-				this.benef_identifiant_valeur = readString(dis, ois);
-
-				this.benef_etablissement = readString(dis, ois);
-
-				this.benef_etablissement_codepostal = readString(dis, ois);
-
-				this.benef_etablissement_ville = readString(dis, ois);
-
-				this.benef_denomination_sociale = readString(dis, ois);
-
-				this.benef_objet_social = readString(dis, ois);
-
-				this.ligne_type = readString(dis, ois);
-
-				this.conv_date_signature = readString(dis, ois);
-
-				this.conv_objet = readString(dis, ois);
-
-				this.conv_objet_autre = readString(dis, ois);
-
-				this.conv_date_debut = readString(dis, ois);
-
-				this.conv_date_fin = readString(dis, ois);
-
-				this.conv_montant_ttc = readString(dis, ois);
-
-				this.conv_manifestation_date = readString(dis, ois);
-
-				this.conv_manifestation_nom = readString(dis, ois);
-
-				this.conv_manifestation_lieu = readString(dis, ois);
-
-				this.conv_manifestation_organisateur = readString(dis, ois);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-
-			}
-
-		}
-
-		/**
-		 * Return a byte array which represents Values data.
-		 */
-		public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
-			try {
-
-				writeString(this.entreprise_identifiant, dos, oos);
-
-				writeString(this.denomination_sociale, dos, oos);
-
-				writeString(this.ligne_identifiant, dos, oos);
-
-				if (this.ligne_rectification == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeChar(this.ligne_rectification);
-				}
-
-				writeString(this.benef_categorie_code, dos, oos);
-
-				writeString(this.categorie, dos, oos);
-
-				writeString(this.benef_nom, dos, oos);
-
-				writeString(this.benef_prenom, dos, oos);
-
-				writeString(this.qualite, dos, oos);
-
-				writeString(this.benef_adresse1, dos, oos);
-
-				writeString(this.benef_adresse2, dos, oos);
-
-				writeString(this.benef_adresse3, dos, oos);
-
-				writeString(this.benef_adresse4, dos, oos);
-
-				writeString(this.benef_codepostal, dos, oos);
-
-				writeString(this.benef_ville, dos, oos);
-
-				writeString(this.benef_pays_code, dos, oos);
-
-				writeString(this.pays, dos, oos);
-
-				writeString(this.benef_titre_code, dos, oos);
-
-				writeString(this.benef_titre_libelle, dos, oos);
-
-				writeString(this.benef_specialite_code, dos, oos);
-
-				writeString(this.benef_speicalite_libelle, dos, oos);
-
-				writeString(this.benef_identifiant_type_code, dos, oos);
-
-				writeString(this.identifiant_type, dos, oos);
-
-				writeString(this.benef_identifiant_valeur, dos, oos);
-
-				writeString(this.benef_etablissement, dos, oos);
-
-				writeString(this.benef_etablissement_codepostal, dos, oos);
-
-				writeString(this.benef_etablissement_ville, dos, oos);
-
-				writeString(this.benef_denomination_sociale, dos, oos);
-
-				writeString(this.benef_objet_social, dos, oos);
-
-				writeString(this.ligne_type, dos, oos);
-
-				writeString(this.conv_date_signature, dos, oos);
-
-				writeString(this.conv_objet, dos, oos);
-
-				writeString(this.conv_objet_autre, dos, oos);
-
-				writeString(this.conv_date_debut, dos, oos);
-
-				writeString(this.conv_date_fin, dos, oos);
-
-				writeString(this.conv_montant_ttc, dos, oos);
-
-				writeString(this.conv_manifestation_date, dos, oos);
-
-				writeString(this.conv_manifestation_nom, dos, oos);
-
-				writeString(this.conv_manifestation_lieu, dos, oos);
-
-				writeString(this.conv_manifestation_organisateur, dos, oos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("entreprise_identifiant=" + entreprise_identifiant);
-			sb.append(",denomination_sociale=" + denomination_sociale);
-			sb.append(",ligne_identifiant=" + ligne_identifiant);
-			sb.append(",ligne_rectification=" + String.valueOf(ligne_rectification));
-			sb.append(",benef_categorie_code=" + benef_categorie_code);
-			sb.append(",categorie=" + categorie);
-			sb.append(",benef_nom=" + benef_nom);
-			sb.append(",benef_prenom=" + benef_prenom);
-			sb.append(",benef_qualite_code=" + benef_qualite_code);
-			sb.append(",qualite=" + qualite);
-			sb.append(",benef_adresse1=" + benef_adresse1);
-			sb.append(",benef_adresse2=" + benef_adresse2);
-			sb.append(",benef_adresse3=" + benef_adresse3);
-			sb.append(",benef_adresse4=" + benef_adresse4);
-			sb.append(",benef_codepostal=" + benef_codepostal);
-			sb.append(",benef_ville=" + benef_ville);
-			sb.append(",benef_pays_code=" + benef_pays_code);
-			sb.append(",pays=" + pays);
-			sb.append(",benef_titre_code=" + benef_titre_code);
-			sb.append(",benef_titre_libelle=" + benef_titre_libelle);
-			sb.append(",benef_specialite_code=" + benef_specialite_code);
-			sb.append(",benef_speicalite_libelle=" + benef_speicalite_libelle);
-			sb.append(",benef_identifiant_type_code=" + benef_identifiant_type_code);
-			sb.append(",identifiant_type=" + identifiant_type);
-			sb.append(",benef_identifiant_valeur=" + benef_identifiant_valeur);
-			sb.append(",benef_etablissement=" + benef_etablissement);
-			sb.append(",benef_etablissement_codepostal=" + benef_etablissement_codepostal);
-			sb.append(",benef_etablissement_ville=" + benef_etablissement_ville);
-			sb.append(",benef_denomination_sociale=" + benef_denomination_sociale);
-			sb.append(",benef_objet_social=" + benef_objet_social);
-			sb.append(",ligne_type=" + ligne_type);
-			sb.append(",conv_date_signature=" + conv_date_signature);
-			sb.append(",conv_objet=" + conv_objet);
-			sb.append(",conv_objet_autre=" + conv_objet_autre);
-			sb.append(",conv_date_debut=" + conv_date_debut);
-			sb.append(",conv_date_fin=" + conv_date_fin);
-			sb.append(",conv_montant_ttc=" + conv_montant_ttc);
-			sb.append(",conv_manifestation_date=" + conv_manifestation_date);
-			sb.append(",conv_manifestation_nom=" + conv_manifestation_nom);
-			sb.append(",conv_manifestation_lieu=" + conv_manifestation_lieu);
-			sb.append(",conv_manifestation_organisateur=" + conv_manifestation_organisateur);
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(qualites_conventionsStruct other) {
-
-			int returnValue = -1;
-
-			returnValue = checkNullsAndCompare(this.benef_qualite_code, other.benef_qualite_code);
-			if (returnValue != 0) {
-				return returnValue;
-			}
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class conventionsStruct implements routines.system.IPersistableRow<conventionsStruct> {
-		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
-		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
-
-		public String entreprise_identifiant;
-
-		public String getEntreprise_identifiant() {
-			return this.entreprise_identifiant;
-		}
-
-		public String denomination_sociale;
-
-		public String getDenomination_sociale() {
-			return this.denomination_sociale;
-		}
-
-		public String ligne_identifiant;
-
-		public String getLigne_identifiant() {
-			return this.ligne_identifiant;
-		}
-
-		public Character ligne_rectification;
-
-		public Character getLigne_rectification() {
-			return this.ligne_rectification;
-		}
-
-		public String benef_categorie_code;
-
-		public String getBenef_categorie_code() {
-			return this.benef_categorie_code;
-		}
-
-		public String categorie;
-
-		public String getCategorie() {
-			return this.categorie;
-		}
-
-		public String benef_nom;
-
-		public String getBenef_nom() {
-			return this.benef_nom;
-		}
-
-		public String benef_prenom;
-
-		public String getBenef_prenom() {
-			return this.benef_prenom;
-		}
-
-		public String benef_qualite_code;
-
-		public String getBenef_qualite_code() {
-			return this.benef_qualite_code;
-		}
-
-		public String qualite;
-
-		public String getQualite() {
-			return this.qualite;
-		}
-
-		public String benef_adresse1;
-
-		public String getBenef_adresse1() {
-			return this.benef_adresse1;
-		}
-
-		public String benef_adresse2;
-
-		public String getBenef_adresse2() {
-			return this.benef_adresse2;
-		}
-
-		public String benef_adresse3;
-
-		public String getBenef_adresse3() {
-			return this.benef_adresse3;
-		}
-
-		public String benef_adresse4;
-
-		public String getBenef_adresse4() {
-			return this.benef_adresse4;
-		}
-
-		public String benef_codepostal;
-
-		public String getBenef_codepostal() {
-			return this.benef_codepostal;
-		}
-
-		public String benef_ville;
-
-		public String getBenef_ville() {
-			return this.benef_ville;
-		}
-
-		public String benef_pays_code;
-
-		public String getBenef_pays_code() {
-			return this.benef_pays_code;
-		}
-
-		public String pays;
-
-		public String getPays() {
-			return this.pays;
-		}
-
-		public String benef_titre_code;
-
-		public String getBenef_titre_code() {
-			return this.benef_titre_code;
-		}
-
-		public String benef_titre_libelle;
-
-		public String getBenef_titre_libelle() {
-			return this.benef_titre_libelle;
-		}
-
-		public String benef_specialite_code;
-
-		public String getBenef_specialite_code() {
-			return this.benef_specialite_code;
-		}
-
-		public String benef_speicalite_libelle;
-
-		public String getBenef_speicalite_libelle() {
-			return this.benef_speicalite_libelle;
-		}
-
-		public String benef_identifiant_type_code;
-
-		public String getBenef_identifiant_type_code() {
-			return this.benef_identifiant_type_code;
-		}
-
-		public String identifiant_type;
-
-		public String getIdentifiant_type() {
-			return this.identifiant_type;
-		}
-
-		public String benef_identifiant_valeur;
-
-		public String getBenef_identifiant_valeur() {
-			return this.benef_identifiant_valeur;
-		}
-
-		public String benef_etablissement;
-
-		public String getBenef_etablissement() {
-			return this.benef_etablissement;
-		}
-
-		public String benef_etablissement_codepostal;
-
-		public String getBenef_etablissement_codepostal() {
-			return this.benef_etablissement_codepostal;
-		}
-
-		public String benef_etablissement_ville;
-
-		public String getBenef_etablissement_ville() {
-			return this.benef_etablissement_ville;
-		}
-
-		public String benef_denomination_sociale;
-
-		public String getBenef_denomination_sociale() {
-			return this.benef_denomination_sociale;
-		}
-
-		public String benef_objet_social;
-
-		public String getBenef_objet_social() {
-			return this.benef_objet_social;
-		}
-
-		public String ligne_type;
-
-		public String getLigne_type() {
-			return this.ligne_type;
-		}
-
-		public String conv_date_signature;
-
-		public String getConv_date_signature() {
-			return this.conv_date_signature;
-		}
-
-		public String conv_objet;
-
-		public String getConv_objet() {
-			return this.conv_objet;
-		}
-
-		public String conv_objet_autre;
-
-		public String getConv_objet_autre() {
-			return this.conv_objet_autre;
-		}
-
-		public String conv_date_debut;
-
-		public String getConv_date_debut() {
-			return this.conv_date_debut;
-		}
-
-		public String conv_date_fin;
-
-		public String getConv_date_fin() {
-			return this.conv_date_fin;
-		}
-
-		public String conv_montant_ttc;
-
-		public String getConv_montant_ttc() {
-			return this.conv_montant_ttc;
-		}
-
-		public String conv_manifestation_date;
-
-		public String getConv_manifestation_date() {
-			return this.conv_manifestation_date;
-		}
-
-		public String conv_manifestation_nom;
-
-		public String getConv_manifestation_nom() {
-			return this.conv_manifestation_nom;
-		}
-
-		public String conv_manifestation_lieu;
-
-		public String getConv_manifestation_lieu() {
-			return this.conv_manifestation_lieu;
-		}
-
-		public String conv_manifestation_organisateur;
-
-		public String getConv_manifestation_organisateur() {
-			return this.conv_manifestation_organisateur;
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length) {
-					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length == 0) {
-						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[1024];
-					} else {
-						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length);
-				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length,
-						utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim) {
-
-				try {
-
-					int length = 0;
-
-					this.entreprise_identifiant = readString(dis);
-
-					this.denomination_sociale = readString(dis);
-
-					this.ligne_identifiant = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.ligne_rectification = null;
-					} else {
-						this.ligne_rectification = dis.readChar();
-					}
-
-					this.benef_categorie_code = readString(dis);
-
-					this.categorie = readString(dis);
-
-					this.benef_nom = readString(dis);
-
-					this.benef_prenom = readString(dis);
-
-					this.benef_qualite_code = readString(dis);
-
-					this.qualite = readString(dis);
-
-					this.benef_adresse1 = readString(dis);
-
-					this.benef_adresse2 = readString(dis);
-
-					this.benef_adresse3 = readString(dis);
-
-					this.benef_adresse4 = readString(dis);
-
-					this.benef_codepostal = readString(dis);
-
-					this.benef_ville = readString(dis);
-
-					this.benef_pays_code = readString(dis);
-
-					this.pays = readString(dis);
-
-					this.benef_titre_code = readString(dis);
-
-					this.benef_titre_libelle = readString(dis);
-
-					this.benef_specialite_code = readString(dis);
-
-					this.benef_speicalite_libelle = readString(dis);
-
-					this.benef_identifiant_type_code = readString(dis);
-
-					this.identifiant_type = readString(dis);
-
-					this.benef_identifiant_valeur = readString(dis);
-
-					this.benef_etablissement = readString(dis);
-
-					this.benef_etablissement_codepostal = readString(dis);
-
-					this.benef_etablissement_ville = readString(dis);
-
-					this.benef_denomination_sociale = readString(dis);
-
-					this.benef_objet_social = readString(dis);
-
-					this.ligne_type = readString(dis);
-
-					this.conv_date_signature = readString(dis);
-
-					this.conv_objet = readString(dis);
-
-					this.conv_objet_autre = readString(dis);
-
-					this.conv_date_debut = readString(dis);
-
-					this.conv_date_fin = readString(dis);
-
-					this.conv_montant_ttc = readString(dis);
-
-					this.conv_manifestation_date = readString(dis);
-
-					this.conv_manifestation_nom = readString(dis);
-
-					this.conv_manifestation_lieu = readString(dis);
-
-					this.conv_manifestation_organisateur = readString(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.entreprise_identifiant, dos);
-
-				// String
-
-				writeString(this.denomination_sociale, dos);
-
-				// String
-
-				writeString(this.ligne_identifiant, dos);
-
-				// Character
-
-				if (this.ligne_rectification == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeChar(this.ligne_rectification);
-				}
-
-				// String
-
-				writeString(this.benef_categorie_code, dos);
-
-				// String
-
-				writeString(this.categorie, dos);
-
-				// String
-
-				writeString(this.benef_nom, dos);
-
-				// String
-
-				writeString(this.benef_prenom, dos);
-
-				// String
-
-				writeString(this.benef_qualite_code, dos);
-
-				// String
-
-				writeString(this.qualite, dos);
-
-				// String
-
-				writeString(this.benef_adresse1, dos);
-
-				// String
-
-				writeString(this.benef_adresse2, dos);
-
-				// String
-
-				writeString(this.benef_adresse3, dos);
-
-				// String
-
-				writeString(this.benef_adresse4, dos);
-
-				// String
-
-				writeString(this.benef_codepostal, dos);
-
-				// String
-
-				writeString(this.benef_ville, dos);
-
-				// String
-
-				writeString(this.benef_pays_code, dos);
-
-				// String
-
-				writeString(this.pays, dos);
-
-				// String
-
-				writeString(this.benef_titre_code, dos);
-
-				// String
-
-				writeString(this.benef_titre_libelle, dos);
-
-				// String
-
-				writeString(this.benef_specialite_code, dos);
-
-				// String
-
-				writeString(this.benef_speicalite_libelle, dos);
-
-				// String
-
-				writeString(this.benef_identifiant_type_code, dos);
-
-				// String
-
-				writeString(this.identifiant_type, dos);
-
-				// String
-
-				writeString(this.benef_identifiant_valeur, dos);
-
-				// String
-
-				writeString(this.benef_etablissement, dos);
-
-				// String
-
-				writeString(this.benef_etablissement_codepostal, dos);
-
-				// String
-
-				writeString(this.benef_etablissement_ville, dos);
-
-				// String
-
-				writeString(this.benef_denomination_sociale, dos);
-
-				// String
-
-				writeString(this.benef_objet_social, dos);
-
-				// String
-
-				writeString(this.ligne_type, dos);
-
-				// String
-
-				writeString(this.conv_date_signature, dos);
-
-				// String
-
-				writeString(this.conv_objet, dos);
-
-				// String
-
-				writeString(this.conv_objet_autre, dos);
-
-				// String
-
-				writeString(this.conv_date_debut, dos);
-
-				// String
-
-				writeString(this.conv_date_fin, dos);
-
-				// String
-
-				writeString(this.conv_montant_ttc, dos);
-
-				// String
-
-				writeString(this.conv_manifestation_date, dos);
-
-				// String
-
-				writeString(this.conv_manifestation_nom, dos);
-
-				// String
-
-				writeString(this.conv_manifestation_lieu, dos);
-
-				// String
-
-				writeString(this.conv_manifestation_organisateur, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("entreprise_identifiant=" + entreprise_identifiant);
-			sb.append(",denomination_sociale=" + denomination_sociale);
-			sb.append(",ligne_identifiant=" + ligne_identifiant);
-			sb.append(",ligne_rectification=" + String.valueOf(ligne_rectification));
-			sb.append(",benef_categorie_code=" + benef_categorie_code);
-			sb.append(",categorie=" + categorie);
-			sb.append(",benef_nom=" + benef_nom);
-			sb.append(",benef_prenom=" + benef_prenom);
-			sb.append(",benef_qualite_code=" + benef_qualite_code);
-			sb.append(",qualite=" + qualite);
-			sb.append(",benef_adresse1=" + benef_adresse1);
-			sb.append(",benef_adresse2=" + benef_adresse2);
-			sb.append(",benef_adresse3=" + benef_adresse3);
-			sb.append(",benef_adresse4=" + benef_adresse4);
-			sb.append(",benef_codepostal=" + benef_codepostal);
-			sb.append(",benef_ville=" + benef_ville);
-			sb.append(",benef_pays_code=" + benef_pays_code);
-			sb.append(",pays=" + pays);
-			sb.append(",benef_titre_code=" + benef_titre_code);
-			sb.append(",benef_titre_libelle=" + benef_titre_libelle);
-			sb.append(",benef_specialite_code=" + benef_specialite_code);
-			sb.append(",benef_speicalite_libelle=" + benef_speicalite_libelle);
-			sb.append(",benef_identifiant_type_code=" + benef_identifiant_type_code);
-			sb.append(",identifiant_type=" + identifiant_type);
-			sb.append(",benef_identifiant_valeur=" + benef_identifiant_valeur);
-			sb.append(",benef_etablissement=" + benef_etablissement);
-			sb.append(",benef_etablissement_codepostal=" + benef_etablissement_codepostal);
-			sb.append(",benef_etablissement_ville=" + benef_etablissement_ville);
-			sb.append(",benef_denomination_sociale=" + benef_denomination_sociale);
-			sb.append(",benef_objet_social=" + benef_objet_social);
-			sb.append(",ligne_type=" + ligne_type);
-			sb.append(",conv_date_signature=" + conv_date_signature);
-			sb.append(",conv_objet=" + conv_objet);
-			sb.append(",conv_objet_autre=" + conv_objet_autre);
-			sb.append(",conv_date_debut=" + conv_date_debut);
-			sb.append(",conv_date_fin=" + conv_date_fin);
-			sb.append(",conv_montant_ttc=" + conv_montant_ttc);
-			sb.append(",conv_manifestation_date=" + conv_manifestation_date);
-			sb.append(",conv_manifestation_nom=" + conv_manifestation_nom);
-			sb.append(",conv_manifestation_lieu=" + conv_manifestation_lieu);
-			sb.append(",conv_manifestation_organisateur=" + conv_manifestation_organisateur);
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(conventionsStruct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public void tFileInputDelimited_2Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-			// TDI-39566 avoid throwing an useless Exception
-			boolean resumeIt = true;
-			if (globalResumeTicket == false && resumeEntryMethodName != null) {
-				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-				resumeIt = resumeEntryMethodName.equals(currentMethodName);
-			}
-			if (resumeIt || globalResumeTicket) { // start the resume
-				globalResumeTicket = true;
-
-				conventionsStruct conventions = new conventionsStruct();
-				qualites_conventionsStruct qualites_conventions = new qualites_conventionsStruct();
-
-				/**
-				 * [tAdvancedHash_qualites_conventions begin ] start
-				 */
-
-				ok_Hash.put("tAdvancedHash_qualites_conventions", false);
-				start_Hash.put("tAdvancedHash_qualites_conventions", System.currentTimeMillis());
-
-				currentComponent = "tAdvancedHash_qualites_conventions";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "qualites_conventions");
-				}
-
-				int tos_count_tAdvancedHash_qualites_conventions = 0;
-
-				// connection name:qualites_conventions
-				// source node:tUniqRow_2 - inputs:(conventions)
-				// outputs:(qualites_conventions,qualites_conventions) | target
-				// node:tAdvancedHash_qualites_conventions - inputs:(qualites_conventions)
-				// outputs:()
-				// linked node: tMap_1 -
-				// inputs:(qualites_avantages,qualites_conventions,qualites_remunerations)
-				// outputs:(qualites)
-
-				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_qualites_conventions = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
-
-				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<qualites_conventionsStruct> tHash_Lookup_qualites_conventions = org.talend.designer.components.lookup.memory.AdvancedMemoryLookup
-						.<qualites_conventionsStruct>getLookup(matchingModeEnum_qualites_conventions);
-
-				globalMap.put("tHash_Lookup_qualites_conventions", tHash_Lookup_qualites_conventions);
-
-				/**
-				 * [tAdvancedHash_qualites_conventions begin ] stop
-				 */
-
-				/**
-				 * [tUniqRow_2 begin ] start
-				 */
-
-				ok_Hash.put("tUniqRow_2", false);
-				start_Hash.put("tUniqRow_2", System.currentTimeMillis());
-
-				currentComponent = "tUniqRow_2";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "conventions");
-				}
-
-				int tos_count_tUniqRow_2 = 0;
-
-				class KeyStruct_tUniqRow_2 {
-
-					private static final int DEFAULT_HASHCODE = 1;
-					private static final int PRIME = 31;
-					private int hashCode = DEFAULT_HASHCODE;
-					public boolean hashCodeDirty = true;
-
-					String benef_qualite_code;
-
-					@Override
-					public int hashCode() {
-						if (this.hashCodeDirty) {
-							final int prime = PRIME;
-							int result = DEFAULT_HASHCODE;
-
-							result = prime * result
-									+ ((this.benef_qualite_code == null) ? 0 : this.benef_qualite_code.hashCode());
-
-							this.hashCode = result;
-							this.hashCodeDirty = false;
-						}
-						return this.hashCode;
-					}
-
-					@Override
-					public boolean equals(Object obj) {
-						if (this == obj)
-							return true;
-						if (obj == null)
-							return false;
-						if (getClass() != obj.getClass())
-							return false;
-						final KeyStruct_tUniqRow_2 other = (KeyStruct_tUniqRow_2) obj;
-
-						if (this.benef_qualite_code == null) {
-							if (other.benef_qualite_code != null)
-								return false;
-
-						} else if (!this.benef_qualite_code.equals(other.benef_qualite_code))
-
-							return false;
-
-						return true;
-					}
-
-				}
-
-				int nb_uniques_tUniqRow_2 = 0;
-				int nb_duplicates_tUniqRow_2 = 0;
-				KeyStruct_tUniqRow_2 finder_tUniqRow_2 = new KeyStruct_tUniqRow_2();
-				java.util.Set<KeyStruct_tUniqRow_2> keystUniqRow_2 = new java.util.HashSet<KeyStruct_tUniqRow_2>();
-
-				/**
-				 * [tUniqRow_2 begin ] stop
-				 */
-
-				/**
-				 * [tFileInputDelimited_2 begin ] start
-				 */
-
-				ok_Hash.put("tFileInputDelimited_2", false);
-				start_Hash.put("tFileInputDelimited_2", System.currentTimeMillis());
-
-				currentComponent = "tFileInputDelimited_2";
-
-				int tos_count_tFileInputDelimited_2 = 0;
-
-				final routines.system.RowState rowstate_tFileInputDelimited_2 = new routines.system.RowState();
-
-				int nb_line_tFileInputDelimited_2 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_2 = null;
-				int limit_tFileInputDelimited_2 = -1;
-				try {
-
-					Object filename_tFileInputDelimited_2 = "C:/BI/transparence-sante/data/data.gouv/conventions.csv";
-					if (filename_tFileInputDelimited_2 instanceof java.io.InputStream) {
-
-						int footer_value_tFileInputDelimited_2 = 0, random_value_tFileInputDelimited_2 = -1;
-						if (footer_value_tFileInputDelimited_2 > 0 || random_value_tFileInputDelimited_2 > 0) {
-							throw new java.lang.Exception(
-									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
-						}
-
-					}
-					try {
-						fid_tFileInputDelimited_2 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/BI/transparence-sante/data/data.gouv/conventions.csv", "UTF-8", ";", "\n", false, 1,
-								0, limit_tFileInputDelimited_2, -1, false);
-					} catch (java.lang.Exception e) {
-
-						System.err.println(e.getMessage());
-
-					}
-
-					while (fid_tFileInputDelimited_2 != null && fid_tFileInputDelimited_2.nextRecord()) {
-						rowstate_tFileInputDelimited_2.reset();
-
-						conventions = null;
-
-						boolean whetherReject_tFileInputDelimited_2 = false;
-						conventions = new conventionsStruct();
-						try {
-
-							int columnIndexWithD_tFileInputDelimited_2 = 0;
-
-							String temp = "";
-
-							columnIndexWithD_tFileInputDelimited_2 = 0;
-
-							conventions.entreprise_identifiant = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 1;
-
-							conventions.denomination_sociale = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 2;
-
-							conventions.ligne_identifiant = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 3;
-
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-							if (temp.length() > 0) {
-
-								try {
-
-									conventions.ligne_rectification = ParserUtils.parseTo_Character(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"ligne_rectification", "conventions", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
-								}
-
-							} else {
-
-								conventions.ligne_rectification = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_2 = 4;
-
-							conventions.benef_categorie_code = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 5;
-
-							conventions.categorie = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 6;
-
-							conventions.benef_nom = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 7;
-
-							conventions.benef_prenom = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 8;
-
-							conventions.benef_qualite_code = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 9;
-
-							conventions.qualite = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 10;
-
-							conventions.benef_adresse1 = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 11;
-
-							conventions.benef_adresse2 = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 12;
-
-							conventions.benef_adresse3 = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 13;
-
-							conventions.benef_adresse4 = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 14;
-
-							conventions.benef_codepostal = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 15;
-
-							conventions.benef_ville = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 16;
-
-							conventions.benef_pays_code = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 17;
-
-							conventions.pays = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 18;
-
-							conventions.benef_titre_code = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 19;
-
-							conventions.benef_titre_libelle = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 20;
-
-							conventions.benef_specialite_code = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 21;
-
-							conventions.benef_speicalite_libelle = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 22;
-
-							conventions.benef_identifiant_type_code = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 23;
-
-							conventions.identifiant_type = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 24;
-
-							conventions.benef_identifiant_valeur = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 25;
-
-							conventions.benef_etablissement = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 26;
-
-							conventions.benef_etablissement_codepostal = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 27;
-
-							conventions.benef_etablissement_ville = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 28;
-
-							conventions.benef_denomination_sociale = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 29;
-
-							conventions.benef_objet_social = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 30;
-
-							conventions.ligne_type = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 31;
-
-							conventions.conv_date_signature = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 32;
-
-							conventions.conv_objet = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 33;
-
-							conventions.conv_objet_autre = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 34;
-
-							conventions.conv_date_debut = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 35;
-
-							conventions.conv_date_fin = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 36;
-
-							conventions.conv_montant_ttc = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 37;
-
-							conventions.conv_manifestation_date = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 38;
-
-							conventions.conv_manifestation_nom = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 39;
-
-							conventions.conv_manifestation_lieu = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 40;
-
-							conventions.conv_manifestation_organisateur = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							if (rowstate_tFileInputDelimited_2.getException() != null) {
-								throw rowstate_tFileInputDelimited_2.getException();
-							}
-
-						} catch (java.lang.Exception e) {
-							whetherReject_tFileInputDelimited_2 = true;
-
-							System.err.println(e.getMessage());
-							conventions = null;
-
-						}
-
-						/**
-						 * [tFileInputDelimited_2 begin ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_2 main ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_2";
-
-						tos_count_tFileInputDelimited_2++;
-
-						/**
-						 * [tFileInputDelimited_2 main ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_2 process_data_begin ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_2";
-
-						/**
-						 * [tFileInputDelimited_2 process_data_begin ] stop
-						 */
-// Start of branch "conventions"
-						if (conventions != null) {
-
-							/**
-							 * [tUniqRow_2 main ] start
-							 */
-
-							currentComponent = "tUniqRow_2";
-
-							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1, "conventions");
-							}
-
-							qualites_conventions = null;
-							qualites_conventions = null;
-							if (conventions.benef_qualite_code == null) {
-								finder_tUniqRow_2.benef_qualite_code = null;
-							} else {
-								finder_tUniqRow_2.benef_qualite_code = conventions.benef_qualite_code.toLowerCase();
-							}
-							finder_tUniqRow_2.hashCodeDirty = true;
-							if (!keystUniqRow_2.contains(finder_tUniqRow_2)) {
-								KeyStruct_tUniqRow_2 new_tUniqRow_2 = new KeyStruct_tUniqRow_2();
-
-								if (conventions.benef_qualite_code == null) {
-									new_tUniqRow_2.benef_qualite_code = null;
-								} else {
-									new_tUniqRow_2.benef_qualite_code = conventions.benef_qualite_code.toLowerCase();
-								}
-
-								keystUniqRow_2.add(new_tUniqRow_2);
-								if (qualites_conventions == null) {
-
-									qualites_conventions = new qualites_conventionsStruct();
-								}
-								qualites_conventions.entreprise_identifiant = conventions.entreprise_identifiant;
-								qualites_conventions.denomination_sociale = conventions.denomination_sociale;
-								qualites_conventions.ligne_identifiant = conventions.ligne_identifiant;
-								qualites_conventions.ligne_rectification = conventions.ligne_rectification;
-								qualites_conventions.benef_categorie_code = conventions.benef_categorie_code;
-								qualites_conventions.categorie = conventions.categorie;
-								qualites_conventions.benef_nom = conventions.benef_nom;
-								qualites_conventions.benef_prenom = conventions.benef_prenom;
-								qualites_conventions.benef_qualite_code = conventions.benef_qualite_code;
-								qualites_conventions.qualite = conventions.qualite;
-								qualites_conventions.benef_adresse1 = conventions.benef_adresse1;
-								qualites_conventions.benef_adresse2 = conventions.benef_adresse2;
-								qualites_conventions.benef_adresse3 = conventions.benef_adresse3;
-								qualites_conventions.benef_adresse4 = conventions.benef_adresse4;
-								qualites_conventions.benef_codepostal = conventions.benef_codepostal;
-								qualites_conventions.benef_ville = conventions.benef_ville;
-								qualites_conventions.benef_pays_code = conventions.benef_pays_code;
-								qualites_conventions.pays = conventions.pays;
-								qualites_conventions.benef_titre_code = conventions.benef_titre_code;
-								qualites_conventions.benef_titre_libelle = conventions.benef_titre_libelle;
-								qualites_conventions.benef_specialite_code = conventions.benef_specialite_code;
-								qualites_conventions.benef_speicalite_libelle = conventions.benef_speicalite_libelle;
-								qualites_conventions.benef_identifiant_type_code = conventions.benef_identifiant_type_code;
-								qualites_conventions.identifiant_type = conventions.identifiant_type;
-								qualites_conventions.benef_identifiant_valeur = conventions.benef_identifiant_valeur;
-								qualites_conventions.benef_etablissement = conventions.benef_etablissement;
-								qualites_conventions.benef_etablissement_codepostal = conventions.benef_etablissement_codepostal;
-								qualites_conventions.benef_etablissement_ville = conventions.benef_etablissement_ville;
-								qualites_conventions.benef_denomination_sociale = conventions.benef_denomination_sociale;
-								qualites_conventions.benef_objet_social = conventions.benef_objet_social;
-								qualites_conventions.ligne_type = conventions.ligne_type;
-								qualites_conventions.conv_date_signature = conventions.conv_date_signature;
-								qualites_conventions.conv_objet = conventions.conv_objet;
-								qualites_conventions.conv_objet_autre = conventions.conv_objet_autre;
-								qualites_conventions.conv_date_debut = conventions.conv_date_debut;
-								qualites_conventions.conv_date_fin = conventions.conv_date_fin;
-								qualites_conventions.conv_montant_ttc = conventions.conv_montant_ttc;
-								qualites_conventions.conv_manifestation_date = conventions.conv_manifestation_date;
-								qualites_conventions.conv_manifestation_nom = conventions.conv_manifestation_nom;
-								qualites_conventions.conv_manifestation_lieu = conventions.conv_manifestation_lieu;
-								qualites_conventions.conv_manifestation_organisateur = conventions.conv_manifestation_organisateur;
-								if (qualites_conventions == null) {
-
-									qualites_conventions = new qualites_conventionsStruct();
-								}
-								qualites_conventions.entreprise_identifiant = conventions.entreprise_identifiant;
-								qualites_conventions.denomination_sociale = conventions.denomination_sociale;
-								qualites_conventions.ligne_identifiant = conventions.ligne_identifiant;
-								qualites_conventions.ligne_rectification = conventions.ligne_rectification;
-								qualites_conventions.benef_categorie_code = conventions.benef_categorie_code;
-								qualites_conventions.categorie = conventions.categorie;
-								qualites_conventions.benef_nom = conventions.benef_nom;
-								qualites_conventions.benef_prenom = conventions.benef_prenom;
-								qualites_conventions.benef_qualite_code = conventions.benef_qualite_code;
-								qualites_conventions.qualite = conventions.qualite;
-								qualites_conventions.benef_adresse1 = conventions.benef_adresse1;
-								qualites_conventions.benef_adresse2 = conventions.benef_adresse2;
-								qualites_conventions.benef_adresse3 = conventions.benef_adresse3;
-								qualites_conventions.benef_adresse4 = conventions.benef_adresse4;
-								qualites_conventions.benef_codepostal = conventions.benef_codepostal;
-								qualites_conventions.benef_ville = conventions.benef_ville;
-								qualites_conventions.benef_pays_code = conventions.benef_pays_code;
-								qualites_conventions.pays = conventions.pays;
-								qualites_conventions.benef_titre_code = conventions.benef_titre_code;
-								qualites_conventions.benef_titre_libelle = conventions.benef_titre_libelle;
-								qualites_conventions.benef_specialite_code = conventions.benef_specialite_code;
-								qualites_conventions.benef_speicalite_libelle = conventions.benef_speicalite_libelle;
-								qualites_conventions.benef_identifiant_type_code = conventions.benef_identifiant_type_code;
-								qualites_conventions.identifiant_type = conventions.identifiant_type;
-								qualites_conventions.benef_identifiant_valeur = conventions.benef_identifiant_valeur;
-								qualites_conventions.benef_etablissement = conventions.benef_etablissement;
-								qualites_conventions.benef_etablissement_codepostal = conventions.benef_etablissement_codepostal;
-								qualites_conventions.benef_etablissement_ville = conventions.benef_etablissement_ville;
-								qualites_conventions.benef_denomination_sociale = conventions.benef_denomination_sociale;
-								qualites_conventions.benef_objet_social = conventions.benef_objet_social;
-								qualites_conventions.ligne_type = conventions.ligne_type;
-								qualites_conventions.conv_date_signature = conventions.conv_date_signature;
-								qualites_conventions.conv_objet = conventions.conv_objet;
-								qualites_conventions.conv_objet_autre = conventions.conv_objet_autre;
-								qualites_conventions.conv_date_debut = conventions.conv_date_debut;
-								qualites_conventions.conv_date_fin = conventions.conv_date_fin;
-								qualites_conventions.conv_montant_ttc = conventions.conv_montant_ttc;
-								qualites_conventions.conv_manifestation_date = conventions.conv_manifestation_date;
-								qualites_conventions.conv_manifestation_nom = conventions.conv_manifestation_nom;
-								qualites_conventions.conv_manifestation_lieu = conventions.conv_manifestation_lieu;
-								qualites_conventions.conv_manifestation_organisateur = conventions.conv_manifestation_organisateur;
-								nb_uniques_tUniqRow_2++;
-							} else {
-								nb_duplicates_tUniqRow_2++;
-							}
-
-							tos_count_tUniqRow_2++;
-
-							/**
-							 * [tUniqRow_2 main ] stop
-							 */
-
-							/**
-							 * [tUniqRow_2 process_data_begin ] start
-							 */
-
-							currentComponent = "tUniqRow_2";
-
-							/**
-							 * [tUniqRow_2 process_data_begin ] stop
-							 */
-// Start of branch "qualites_conventions"
-							if (qualites_conventions != null) {
-
-								/**
-								 * [tAdvancedHash_qualites_conventions main ] start
-								 */
-
-								currentComponent = "tAdvancedHash_qualites_conventions";
-
-								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1, "qualites_conventions");
-								}
-
-								qualites_conventionsStruct qualites_conventions_HashRow = new qualites_conventionsStruct();
-
-								qualites_conventions_HashRow.entreprise_identifiant = qualites_conventions.entreprise_identifiant;
-
-								qualites_conventions_HashRow.denomination_sociale = qualites_conventions.denomination_sociale;
-
-								qualites_conventions_HashRow.ligne_identifiant = qualites_conventions.ligne_identifiant;
-
-								qualites_conventions_HashRow.ligne_rectification = qualites_conventions.ligne_rectification;
-
-								qualites_conventions_HashRow.benef_categorie_code = qualites_conventions.benef_categorie_code;
-
-								qualites_conventions_HashRow.categorie = qualites_conventions.categorie;
-
-								qualites_conventions_HashRow.benef_nom = qualites_conventions.benef_nom;
-
-								qualites_conventions_HashRow.benef_prenom = qualites_conventions.benef_prenom;
-
-								qualites_conventions_HashRow.benef_qualite_code = qualites_conventions.benef_qualite_code;
-
-								qualites_conventions_HashRow.qualite = qualites_conventions.qualite;
-
-								qualites_conventions_HashRow.benef_adresse1 = qualites_conventions.benef_adresse1;
-
-								qualites_conventions_HashRow.benef_adresse2 = qualites_conventions.benef_adresse2;
-
-								qualites_conventions_HashRow.benef_adresse3 = qualites_conventions.benef_adresse3;
-
-								qualites_conventions_HashRow.benef_adresse4 = qualites_conventions.benef_adresse4;
-
-								qualites_conventions_HashRow.benef_codepostal = qualites_conventions.benef_codepostal;
-
-								qualites_conventions_HashRow.benef_ville = qualites_conventions.benef_ville;
-
-								qualites_conventions_HashRow.benef_pays_code = qualites_conventions.benef_pays_code;
-
-								qualites_conventions_HashRow.pays = qualites_conventions.pays;
-
-								qualites_conventions_HashRow.benef_titre_code = qualites_conventions.benef_titre_code;
-
-								qualites_conventions_HashRow.benef_titre_libelle = qualites_conventions.benef_titre_libelle;
-
-								qualites_conventions_HashRow.benef_specialite_code = qualites_conventions.benef_specialite_code;
-
-								qualites_conventions_HashRow.benef_speicalite_libelle = qualites_conventions.benef_speicalite_libelle;
-
-								qualites_conventions_HashRow.benef_identifiant_type_code = qualites_conventions.benef_identifiant_type_code;
-
-								qualites_conventions_HashRow.identifiant_type = qualites_conventions.identifiant_type;
-
-								qualites_conventions_HashRow.benef_identifiant_valeur = qualites_conventions.benef_identifiant_valeur;
-
-								qualites_conventions_HashRow.benef_etablissement = qualites_conventions.benef_etablissement;
-
-								qualites_conventions_HashRow.benef_etablissement_codepostal = qualites_conventions.benef_etablissement_codepostal;
-
-								qualites_conventions_HashRow.benef_etablissement_ville = qualites_conventions.benef_etablissement_ville;
-
-								qualites_conventions_HashRow.benef_denomination_sociale = qualites_conventions.benef_denomination_sociale;
-
-								qualites_conventions_HashRow.benef_objet_social = qualites_conventions.benef_objet_social;
-
-								qualites_conventions_HashRow.ligne_type = qualites_conventions.ligne_type;
-
-								qualites_conventions_HashRow.conv_date_signature = qualites_conventions.conv_date_signature;
-
-								qualites_conventions_HashRow.conv_objet = qualites_conventions.conv_objet;
-
-								qualites_conventions_HashRow.conv_objet_autre = qualites_conventions.conv_objet_autre;
-
-								qualites_conventions_HashRow.conv_date_debut = qualites_conventions.conv_date_debut;
-
-								qualites_conventions_HashRow.conv_date_fin = qualites_conventions.conv_date_fin;
-
-								qualites_conventions_HashRow.conv_montant_ttc = qualites_conventions.conv_montant_ttc;
-
-								qualites_conventions_HashRow.conv_manifestation_date = qualites_conventions.conv_manifestation_date;
-
-								qualites_conventions_HashRow.conv_manifestation_nom = qualites_conventions.conv_manifestation_nom;
-
-								qualites_conventions_HashRow.conv_manifestation_lieu = qualites_conventions.conv_manifestation_lieu;
-
-								qualites_conventions_HashRow.conv_manifestation_organisateur = qualites_conventions.conv_manifestation_organisateur;
-
-								tHash_Lookup_qualites_conventions.put(qualites_conventions_HashRow);
-
-								tos_count_tAdvancedHash_qualites_conventions++;
-
-								/**
-								 * [tAdvancedHash_qualites_conventions main ] stop
-								 */
-
-								/**
-								 * [tAdvancedHash_qualites_conventions process_data_begin ] start
-								 */
-
-								currentComponent = "tAdvancedHash_qualites_conventions";
-
-								/**
-								 * [tAdvancedHash_qualites_conventions process_data_begin ] stop
-								 */
-
-								/**
-								 * [tAdvancedHash_qualites_conventions process_data_end ] start
-								 */
-
-								currentComponent = "tAdvancedHash_qualites_conventions";
-
-								/**
-								 * [tAdvancedHash_qualites_conventions process_data_end ] stop
-								 */
-
-							} // End of branch "qualites_conventions"
-
-							/**
-							 * [tUniqRow_2 process_data_end ] start
-							 */
-
-							currentComponent = "tUniqRow_2";
-
-							/**
-							 * [tUniqRow_2 process_data_end ] stop
-							 */
-
-						} // End of branch "conventions"
-
-						/**
-						 * [tFileInputDelimited_2 process_data_end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_2";
-
-						/**
-						 * [tFileInputDelimited_2 process_data_end ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_2 end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_2";
-
-					}
-				} finally {
-					if (!((Object) ("C:/BI/transparence-sante/data/data.gouv/conventions.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_2 != null) {
-							fid_tFileInputDelimited_2.close();
-						}
-					}
-					if (fid_tFileInputDelimited_2 != null) {
-						globalMap.put("tFileInputDelimited_2_NB_LINE", fid_tFileInputDelimited_2.getRowNumber());
-
-					}
-				}
-
-				ok_Hash.put("tFileInputDelimited_2", true);
-				end_Hash.put("tFileInputDelimited_2", System.currentTimeMillis());
-
-				/**
-				 * [tFileInputDelimited_2 end ] stop
-				 */
-
-				/**
-				 * [tUniqRow_2 end ] start
-				 */
-
-				currentComponent = "tUniqRow_2";
-
-				globalMap.put("tUniqRow_2_NB_UNIQUES", nb_uniques_tUniqRow_2);
-				globalMap.put("tUniqRow_2_NB_DUPLICATES", nb_duplicates_tUniqRow_2);
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "conventions");
-				}
-
-				ok_Hash.put("tUniqRow_2", true);
-				end_Hash.put("tUniqRow_2", System.currentTimeMillis());
-
-				/**
-				 * [tUniqRow_2 end ] stop
-				 */
-
-				/**
-				 * [tAdvancedHash_qualites_conventions end ] start
-				 */
-
-				currentComponent = "tAdvancedHash_qualites_conventions";
-
-				tHash_Lookup_qualites_conventions.endPut();
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "qualites_conventions");
-				}
-
-				ok_Hash.put("tAdvancedHash_qualites_conventions", true);
-				end_Hash.put("tAdvancedHash_qualites_conventions", System.currentTimeMillis());
-
-				/**
-				 * [tAdvancedHash_qualites_conventions end ] stop
-				 */
-
-			} // end the resume
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent, globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			runStat.stopThreadStat();
-
-			throw error;
-		} finally {
-
-			try {
-
-				/**
-				 * [tFileInputDelimited_2 finally ] start
-				 */
-
-				currentComponent = "tFileInputDelimited_2";
-
-				/**
-				 * [tFileInputDelimited_2 finally ] stop
-				 */
-
-				/**
-				 * [tUniqRow_2 finally ] start
-				 */
-
-				currentComponent = "tUniqRow_2";
-
-				/**
-				 * [tUniqRow_2 finally ] stop
-				 */
-
-				/**
-				 * [tAdvancedHash_qualites_conventions finally ] start
-				 */
-
-				currentComponent = "tAdvancedHash_qualites_conventions";
-
-				/**
-				 * [tAdvancedHash_qualites_conventions finally ] stop
-				 */
-
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
-		}
-
-		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 1);
-	}
-
-	public static class qualites_remunerationsStruct
-			implements routines.system.IPersistableComparableLookupRow<qualites_remunerationsStruct> {
-		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
-		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
-		protected static final int DEFAULT_HASHCODE = 1;
-		protected static final int PRIME = 31;
-		protected int hashCode = DEFAULT_HASHCODE;
-		public boolean hashCodeDirty = true;
-
-		public String loopKey;
-
-		public String entreprise_identifiant;
-
-		public String getEntreprise_identifiant() {
-			return this.entreprise_identifiant;
-		}
-
-		public String denomination_sociale;
-
-		public String getDenomination_sociale() {
-			return this.denomination_sociale;
-		}
-
-		public String ligne_identifiant;
-
-		public String getLigne_identifiant() {
-			return this.ligne_identifiant;
-		}
-
-		public Character ligne_rectification;
-
-		public Character getLigne_rectification() {
-			return this.ligne_rectification;
-		}
-
-		public String benef_categorie_code;
-
-		public String getBenef_categorie_code() {
-			return this.benef_categorie_code;
-		}
-
-		public String categorie;
-
-		public String getCategorie() {
-			return this.categorie;
-		}
-
-		public String benef_nom;
-
-		public String getBenef_nom() {
-			return this.benef_nom;
-		}
-
-		public String benef_prenom;
-
-		public String getBenef_prenom() {
-			return this.benef_prenom;
-		}
-
-		public String benef_qualite_code;
-
-		public String getBenef_qualite_code() {
-			return this.benef_qualite_code;
-		}
-
-		public String qualite;
-
-		public String getQualite() {
-			return this.qualite;
-		}
-
-		public String benef_adresse1;
-
-		public String getBenef_adresse1() {
-			return this.benef_adresse1;
-		}
-
-		public String benef_adresse2;
-
-		public String getBenef_adresse2() {
-			return this.benef_adresse2;
-		}
-
-		public String benef_adresse3;
-
-		public String getBenef_adresse3() {
-			return this.benef_adresse3;
-		}
-
-		public String benef_adresse4;
-
-		public String getBenef_adresse4() {
-			return this.benef_adresse4;
-		}
-
-		public String benef_codepostal;
-
-		public String getBenef_codepostal() {
-			return this.benef_codepostal;
-		}
-
-		public String benef_ville;
-
-		public String getBenef_ville() {
-			return this.benef_ville;
-		}
-
-		public String benef_pays_code;
-
-		public String getBenef_pays_code() {
-			return this.benef_pays_code;
-		}
-
-		public String pays;
-
-		public String getPays() {
-			return this.pays;
-		}
-
-		public String benef_titre_code;
-
-		public String getBenef_titre_code() {
-			return this.benef_titre_code;
-		}
-
-		public String benef_titre_libelle;
-
-		public String getBenef_titre_libelle() {
-			return this.benef_titre_libelle;
-		}
-
-		public String benef_specialite_code;
-
-		public String getBenef_specialite_code() {
-			return this.benef_specialite_code;
-		}
-
-		public String benef_speicalite_libelle;
-
-		public String getBenef_speicalite_libelle() {
-			return this.benef_speicalite_libelle;
-		}
-
-		public String benef_identifiant_type_code;
-
-		public String getBenef_identifiant_type_code() {
-			return this.benef_identifiant_type_code;
-		}
-
-		public String identifiant_type;
-
-		public String getIdentifiant_type() {
-			return this.identifiant_type;
-		}
-
-		public String benef_identifiant_valeur;
-
-		public String getBenef_identifiant_valeur() {
-			return this.benef_identifiant_valeur;
-		}
-
-		public String benef_etablissement;
-
-		public String getBenef_etablissement() {
-			return this.benef_etablissement;
-		}
-
-		public String benef_etablissement_codepostal;
-
-		public String getBenef_etablissement_codepostal() {
-			return this.benef_etablissement_codepostal;
-		}
-
-		public String benef_etablissement_ville;
-
-		public String getBenef_etablissement_ville() {
-			return this.benef_etablissement_ville;
-		}
-
-		public String benef_denomination_sociale;
-
-		public String getBenef_denomination_sociale() {
-			return this.benef_denomination_sociale;
-		}
-
-		public String benef_objet_social;
-
-		public String getBenef_objet_social() {
-			return this.benef_objet_social;
-		}
-
-		public String ligne_type;
-
-		public String getLigne_type() {
-			return this.ligne_type;
-		}
-
-		public String remu_date;
-
-		public String getRemu_date() {
-			return this.remu_date;
-		}
-
-		public Integer remu_montant_ttc;
-
-		public Integer getRemu_montant_ttc() {
-			return this.remu_montant_ttc;
-		}
-
-		@Override
-		public int hashCode() {
-			if (this.hashCodeDirty) {
-				final int prime = PRIME;
-				int result = DEFAULT_HASHCODE;
-
-				result = prime * result + ((this.benef_qualite_code == null) ? 0 : this.benef_qualite_code.hashCode());
-
-				this.hashCode = result;
-				this.hashCodeDirty = false;
-			}
-			return this.hashCode;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			final qualites_remunerationsStruct other = (qualites_remunerationsStruct) obj;
-
-			if (this.benef_qualite_code == null) {
-				if (other.benef_qualite_code != null)
-					return false;
-
-			} else if (!this.benef_qualite_code.equals(other.benef_qualite_code))
-
-				return false;
-
-			return true;
-		}
-
-		public void copyDataTo(qualites_remunerationsStruct other) {
-
-			other.entreprise_identifiant = this.entreprise_identifiant;
-			other.denomination_sociale = this.denomination_sociale;
-			other.ligne_identifiant = this.ligne_identifiant;
-			other.ligne_rectification = this.ligne_rectification;
-			other.benef_categorie_code = this.benef_categorie_code;
-			other.categorie = this.categorie;
-			other.benef_nom = this.benef_nom;
-			other.benef_prenom = this.benef_prenom;
-			other.benef_qualite_code = this.benef_qualite_code;
-			other.qualite = this.qualite;
-			other.benef_adresse1 = this.benef_adresse1;
-			other.benef_adresse2 = this.benef_adresse2;
-			other.benef_adresse3 = this.benef_adresse3;
-			other.benef_adresse4 = this.benef_adresse4;
-			other.benef_codepostal = this.benef_codepostal;
-			other.benef_ville = this.benef_ville;
-			other.benef_pays_code = this.benef_pays_code;
-			other.pays = this.pays;
-			other.benef_titre_code = this.benef_titre_code;
-			other.benef_titre_libelle = this.benef_titre_libelle;
-			other.benef_specialite_code = this.benef_specialite_code;
-			other.benef_speicalite_libelle = this.benef_speicalite_libelle;
-			other.benef_identifiant_type_code = this.benef_identifiant_type_code;
-			other.identifiant_type = this.identifiant_type;
-			other.benef_identifiant_valeur = this.benef_identifiant_valeur;
-			other.benef_etablissement = this.benef_etablissement;
-			other.benef_etablissement_codepostal = this.benef_etablissement_codepostal;
-			other.benef_etablissement_ville = this.benef_etablissement_ville;
-			other.benef_denomination_sociale = this.benef_denomination_sociale;
-			other.benef_objet_social = this.benef_objet_social;
-			other.ligne_type = this.ligne_type;
-			other.remu_date = this.remu_date;
-			other.remu_montant_ttc = this.remu_montant_ttc;
-
-		}
-
-		public void copyKeysDataTo(qualites_remunerationsStruct other) {
-
-			other.benef_qualite_code = this.benef_qualite_code;
-
-		}
-
-		private String readString(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				byte[] byteArray = new byte[length];
-				dis.read(byteArray);
-				strReturn = new String(byteArray, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length) {
-					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length == 0) {
-						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[1024];
-					} else {
-						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length);
-				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length,
-						utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private Integer readInteger(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		public void readKeysData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim) {
-
-				try {
-
-					int length = 0;
-
-					this.benef_qualite_code = readString(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeKeysData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.benef_qualite_code, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		/**
-		 * Fill Values data by reading ObjectInputStream.
-		 */
-		public void readValuesData(DataInputStream dis, ObjectInputStream ois) {
-			try {
-
-				int length = 0;
-
-				this.entreprise_identifiant = readString(dis, ois);
-
-				this.denomination_sociale = readString(dis, ois);
-
-				this.ligne_identifiant = readString(dis, ois);
-
-				length = dis.readByte();
-				if (length == -1) {
-					this.ligne_rectification = null;
-				} else {
-					this.ligne_rectification = dis.readChar();
-				}
-
-				this.benef_categorie_code = readString(dis, ois);
-
-				this.categorie = readString(dis, ois);
-
-				this.benef_nom = readString(dis, ois);
-
-				this.benef_prenom = readString(dis, ois);
-
-				this.qualite = readString(dis, ois);
-
-				this.benef_adresse1 = readString(dis, ois);
-
-				this.benef_adresse2 = readString(dis, ois);
-
-				this.benef_adresse3 = readString(dis, ois);
-
-				this.benef_adresse4 = readString(dis, ois);
-
-				this.benef_codepostal = readString(dis, ois);
-
-				this.benef_ville = readString(dis, ois);
-
-				this.benef_pays_code = readString(dis, ois);
-
-				this.pays = readString(dis, ois);
-
-				this.benef_titre_code = readString(dis, ois);
-
-				this.benef_titre_libelle = readString(dis, ois);
-
-				this.benef_specialite_code = readString(dis, ois);
-
-				this.benef_speicalite_libelle = readString(dis, ois);
-
-				this.benef_identifiant_type_code = readString(dis, ois);
-
-				this.identifiant_type = readString(dis, ois);
-
-				this.benef_identifiant_valeur = readString(dis, ois);
-
-				this.benef_etablissement = readString(dis, ois);
-
-				this.benef_etablissement_codepostal = readString(dis, ois);
-
-				this.benef_etablissement_ville = readString(dis, ois);
-
-				this.benef_denomination_sociale = readString(dis, ois);
-
-				this.benef_objet_social = readString(dis, ois);
-
-				this.ligne_type = readString(dis, ois);
-
-				this.remu_date = readString(dis, ois);
-
-				this.remu_montant_ttc = readInteger(dis, ois);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-
-			}
-
-		}
-
-		/**
-		 * Return a byte array which represents Values data.
-		 */
-		public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
-			try {
-
-				writeString(this.entreprise_identifiant, dos, oos);
-
-				writeString(this.denomination_sociale, dos, oos);
-
-				writeString(this.ligne_identifiant, dos, oos);
-
-				if (this.ligne_rectification == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeChar(this.ligne_rectification);
-				}
-
-				writeString(this.benef_categorie_code, dos, oos);
-
-				writeString(this.categorie, dos, oos);
-
-				writeString(this.benef_nom, dos, oos);
-
-				writeString(this.benef_prenom, dos, oos);
-
-				writeString(this.qualite, dos, oos);
-
-				writeString(this.benef_adresse1, dos, oos);
-
-				writeString(this.benef_adresse2, dos, oos);
-
-				writeString(this.benef_adresse3, dos, oos);
-
-				writeString(this.benef_adresse4, dos, oos);
-
-				writeString(this.benef_codepostal, dos, oos);
-
-				writeString(this.benef_ville, dos, oos);
-
-				writeString(this.benef_pays_code, dos, oos);
-
-				writeString(this.pays, dos, oos);
-
-				writeString(this.benef_titre_code, dos, oos);
-
-				writeString(this.benef_titre_libelle, dos, oos);
-
-				writeString(this.benef_specialite_code, dos, oos);
-
-				writeString(this.benef_speicalite_libelle, dos, oos);
-
-				writeString(this.benef_identifiant_type_code, dos, oos);
-
-				writeString(this.identifiant_type, dos, oos);
-
-				writeString(this.benef_identifiant_valeur, dos, oos);
-
-				writeString(this.benef_etablissement, dos, oos);
-
-				writeString(this.benef_etablissement_codepostal, dos, oos);
-
-				writeString(this.benef_etablissement_ville, dos, oos);
-
-				writeString(this.benef_denomination_sociale, dos, oos);
-
-				writeString(this.benef_objet_social, dos, oos);
-
-				writeString(this.ligne_type, dos, oos);
-
-				writeString(this.remu_date, dos, oos);
-
-				writeInteger(this.remu_montant_ttc, dos, oos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("entreprise_identifiant=" + entreprise_identifiant);
-			sb.append(",denomination_sociale=" + denomination_sociale);
-			sb.append(",ligne_identifiant=" + ligne_identifiant);
-			sb.append(",ligne_rectification=" + String.valueOf(ligne_rectification));
-			sb.append(",benef_categorie_code=" + benef_categorie_code);
-			sb.append(",categorie=" + categorie);
-			sb.append(",benef_nom=" + benef_nom);
-			sb.append(",benef_prenom=" + benef_prenom);
-			sb.append(",benef_qualite_code=" + benef_qualite_code);
-			sb.append(",qualite=" + qualite);
-			sb.append(",benef_adresse1=" + benef_adresse1);
-			sb.append(",benef_adresse2=" + benef_adresse2);
-			sb.append(",benef_adresse3=" + benef_adresse3);
-			sb.append(",benef_adresse4=" + benef_adresse4);
-			sb.append(",benef_codepostal=" + benef_codepostal);
-			sb.append(",benef_ville=" + benef_ville);
-			sb.append(",benef_pays_code=" + benef_pays_code);
-			sb.append(",pays=" + pays);
-			sb.append(",benef_titre_code=" + benef_titre_code);
-			sb.append(",benef_titre_libelle=" + benef_titre_libelle);
-			sb.append(",benef_specialite_code=" + benef_specialite_code);
-			sb.append(",benef_speicalite_libelle=" + benef_speicalite_libelle);
-			sb.append(",benef_identifiant_type_code=" + benef_identifiant_type_code);
-			sb.append(",identifiant_type=" + identifiant_type);
-			sb.append(",benef_identifiant_valeur=" + benef_identifiant_valeur);
-			sb.append(",benef_etablissement=" + benef_etablissement);
-			sb.append(",benef_etablissement_codepostal=" + benef_etablissement_codepostal);
-			sb.append(",benef_etablissement_ville=" + benef_etablissement_ville);
-			sb.append(",benef_denomination_sociale=" + benef_denomination_sociale);
-			sb.append(",benef_objet_social=" + benef_objet_social);
-			sb.append(",ligne_type=" + ligne_type);
-			sb.append(",remu_date=" + remu_date);
-			sb.append(",remu_montant_ttc=" + String.valueOf(remu_montant_ttc));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(qualites_remunerationsStruct other) {
-
-			int returnValue = -1;
-
-			returnValue = checkNullsAndCompare(this.benef_qualite_code, other.benef_qualite_code);
-			if (returnValue != 0) {
-				return returnValue;
-			}
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class remunerationsStruct implements routines.system.IPersistableRow<remunerationsStruct> {
-		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
-		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
-
-		public String entreprise_identifiant;
-
-		public String getEntreprise_identifiant() {
-			return this.entreprise_identifiant;
-		}
-
-		public String denomination_sociale;
-
-		public String getDenomination_sociale() {
-			return this.denomination_sociale;
-		}
-
-		public String ligne_identifiant;
-
-		public String getLigne_identifiant() {
-			return this.ligne_identifiant;
-		}
-
-		public Character ligne_rectification;
-
-		public Character getLigne_rectification() {
-			return this.ligne_rectification;
-		}
-
-		public String benef_categorie_code;
-
-		public String getBenef_categorie_code() {
-			return this.benef_categorie_code;
-		}
-
-		public String categorie;
-
-		public String getCategorie() {
-			return this.categorie;
-		}
-
-		public String benef_nom;
-
-		public String getBenef_nom() {
-			return this.benef_nom;
-		}
-
-		public String benef_prenom;
-
-		public String getBenef_prenom() {
-			return this.benef_prenom;
-		}
-
-		public String benef_qualite_code;
-
-		public String getBenef_qualite_code() {
-			return this.benef_qualite_code;
-		}
-
-		public String qualite;
-
-		public String getQualite() {
-			return this.qualite;
-		}
-
-		public String benef_adresse1;
-
-		public String getBenef_adresse1() {
-			return this.benef_adresse1;
-		}
-
-		public String benef_adresse2;
-
-		public String getBenef_adresse2() {
-			return this.benef_adresse2;
-		}
-
-		public String benef_adresse3;
-
-		public String getBenef_adresse3() {
-			return this.benef_adresse3;
-		}
-
-		public String benef_adresse4;
-
-		public String getBenef_adresse4() {
-			return this.benef_adresse4;
-		}
-
-		public String benef_codepostal;
-
-		public String getBenef_codepostal() {
-			return this.benef_codepostal;
-		}
-
-		public String benef_ville;
-
-		public String getBenef_ville() {
-			return this.benef_ville;
-		}
-
-		public String benef_pays_code;
-
-		public String getBenef_pays_code() {
-			return this.benef_pays_code;
-		}
-
-		public String pays;
-
-		public String getPays() {
-			return this.pays;
-		}
-
-		public String benef_titre_code;
-
-		public String getBenef_titre_code() {
-			return this.benef_titre_code;
-		}
-
-		public String benef_titre_libelle;
-
-		public String getBenef_titre_libelle() {
-			return this.benef_titre_libelle;
-		}
-
-		public String benef_specialite_code;
-
-		public String getBenef_specialite_code() {
-			return this.benef_specialite_code;
-		}
-
-		public String benef_speicalite_libelle;
-
-		public String getBenef_speicalite_libelle() {
-			return this.benef_speicalite_libelle;
-		}
-
-		public String benef_identifiant_type_code;
-
-		public String getBenef_identifiant_type_code() {
-			return this.benef_identifiant_type_code;
-		}
-
-		public String identifiant_type;
-
-		public String getIdentifiant_type() {
-			return this.identifiant_type;
-		}
-
-		public String benef_identifiant_valeur;
-
-		public String getBenef_identifiant_valeur() {
-			return this.benef_identifiant_valeur;
-		}
-
-		public String benef_etablissement;
-
-		public String getBenef_etablissement() {
-			return this.benef_etablissement;
-		}
-
-		public String benef_etablissement_codepostal;
-
-		public String getBenef_etablissement_codepostal() {
-			return this.benef_etablissement_codepostal;
-		}
-
-		public String benef_etablissement_ville;
-
-		public String getBenef_etablissement_ville() {
-			return this.benef_etablissement_ville;
-		}
-
-		public String benef_denomination_sociale;
-
-		public String getBenef_denomination_sociale() {
-			return this.benef_denomination_sociale;
-		}
-
-		public String benef_objet_social;
-
-		public String getBenef_objet_social() {
-			return this.benef_objet_social;
-		}
-
-		public String ligne_type;
-
-		public String getLigne_type() {
-			return this.ligne_type;
-		}
-
-		public String remu_date;
-
-		public String getRemu_date() {
-			return this.remu_date;
-		}
-
-		public Integer remu_montant_ttc;
-
-		public Integer getRemu_montant_ttc() {
-			return this.remu_montant_ttc;
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length) {
-					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim.length == 0) {
-						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[1024];
-					} else {
-						commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length);
-				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim, 0, length,
-						utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim) {
-
-				try {
-
-					int length = 0;
-
-					this.entreprise_identifiant = readString(dis);
-
-					this.denomination_sociale = readString(dis);
-
-					this.ligne_identifiant = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.ligne_rectification = null;
-					} else {
-						this.ligne_rectification = dis.readChar();
-					}
-
-					this.benef_categorie_code = readString(dis);
-
-					this.categorie = readString(dis);
-
-					this.benef_nom = readString(dis);
-
-					this.benef_prenom = readString(dis);
-
-					this.benef_qualite_code = readString(dis);
-
-					this.qualite = readString(dis);
-
-					this.benef_adresse1 = readString(dis);
-
-					this.benef_adresse2 = readString(dis);
-
-					this.benef_adresse3 = readString(dis);
-
-					this.benef_adresse4 = readString(dis);
-
-					this.benef_codepostal = readString(dis);
-
-					this.benef_ville = readString(dis);
-
-					this.benef_pays_code = readString(dis);
-
-					this.pays = readString(dis);
-
-					this.benef_titre_code = readString(dis);
-
-					this.benef_titre_libelle = readString(dis);
-
-					this.benef_specialite_code = readString(dis);
-
-					this.benef_speicalite_libelle = readString(dis);
-
-					this.benef_identifiant_type_code = readString(dis);
-
-					this.identifiant_type = readString(dis);
-
-					this.benef_identifiant_valeur = readString(dis);
-
-					this.benef_etablissement = readString(dis);
-
-					this.benef_etablissement_codepostal = readString(dis);
-
-					this.benef_etablissement_ville = readString(dis);
-
-					this.benef_denomination_sociale = readString(dis);
-
-					this.benef_objet_social = readString(dis);
-
-					this.ligne_type = readString(dis);
-
-					this.remu_date = readString(dis);
-
-					this.remu_montant_ttc = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.entreprise_identifiant, dos);
-
-				// String
-
-				writeString(this.denomination_sociale, dos);
-
-				// String
-
-				writeString(this.ligne_identifiant, dos);
-
-				// Character
-
-				if (this.ligne_rectification == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeChar(this.ligne_rectification);
-				}
-
-				// String
-
-				writeString(this.benef_categorie_code, dos);
-
-				// String
-
-				writeString(this.categorie, dos);
-
-				// String
-
-				writeString(this.benef_nom, dos);
-
-				// String
-
-				writeString(this.benef_prenom, dos);
-
-				// String
-
-				writeString(this.benef_qualite_code, dos);
-
-				// String
-
-				writeString(this.qualite, dos);
-
-				// String
-
-				writeString(this.benef_adresse1, dos);
-
-				// String
-
-				writeString(this.benef_adresse2, dos);
-
-				// String
-
-				writeString(this.benef_adresse3, dos);
-
-				// String
-
-				writeString(this.benef_adresse4, dos);
-
-				// String
-
-				writeString(this.benef_codepostal, dos);
-
-				// String
-
-				writeString(this.benef_ville, dos);
-
-				// String
-
-				writeString(this.benef_pays_code, dos);
-
-				// String
-
-				writeString(this.pays, dos);
-
-				// String
-
-				writeString(this.benef_titre_code, dos);
-
-				// String
-
-				writeString(this.benef_titre_libelle, dos);
-
-				// String
-
-				writeString(this.benef_specialite_code, dos);
-
-				// String
-
-				writeString(this.benef_speicalite_libelle, dos);
-
-				// String
-
-				writeString(this.benef_identifiant_type_code, dos);
-
-				// String
-
-				writeString(this.identifiant_type, dos);
-
-				// String
-
-				writeString(this.benef_identifiant_valeur, dos);
-
-				// String
-
-				writeString(this.benef_etablissement, dos);
-
-				// String
-
-				writeString(this.benef_etablissement_codepostal, dos);
-
-				// String
-
-				writeString(this.benef_etablissement_ville, dos);
-
-				// String
-
-				writeString(this.benef_denomination_sociale, dos);
-
-				// String
-
-				writeString(this.benef_objet_social, dos);
-
-				// String
-
-				writeString(this.ligne_type, dos);
-
-				// String
-
-				writeString(this.remu_date, dos);
-
-				// Integer
-
-				writeInteger(this.remu_montant_ttc, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("entreprise_identifiant=" + entreprise_identifiant);
-			sb.append(",denomination_sociale=" + denomination_sociale);
-			sb.append(",ligne_identifiant=" + ligne_identifiant);
-			sb.append(",ligne_rectification=" + String.valueOf(ligne_rectification));
-			sb.append(",benef_categorie_code=" + benef_categorie_code);
-			sb.append(",categorie=" + categorie);
-			sb.append(",benef_nom=" + benef_nom);
-			sb.append(",benef_prenom=" + benef_prenom);
-			sb.append(",benef_qualite_code=" + benef_qualite_code);
-			sb.append(",qualite=" + qualite);
-			sb.append(",benef_adresse1=" + benef_adresse1);
-			sb.append(",benef_adresse2=" + benef_adresse2);
-			sb.append(",benef_adresse3=" + benef_adresse3);
-			sb.append(",benef_adresse4=" + benef_adresse4);
-			sb.append(",benef_codepostal=" + benef_codepostal);
-			sb.append(",benef_ville=" + benef_ville);
-			sb.append(",benef_pays_code=" + benef_pays_code);
-			sb.append(",pays=" + pays);
-			sb.append(",benef_titre_code=" + benef_titre_code);
-			sb.append(",benef_titre_libelle=" + benef_titre_libelle);
-			sb.append(",benef_specialite_code=" + benef_specialite_code);
-			sb.append(",benef_speicalite_libelle=" + benef_speicalite_libelle);
-			sb.append(",benef_identifiant_type_code=" + benef_identifiant_type_code);
-			sb.append(",identifiant_type=" + identifiant_type);
-			sb.append(",benef_identifiant_valeur=" + benef_identifiant_valeur);
-			sb.append(",benef_etablissement=" + benef_etablissement);
-			sb.append(",benef_etablissement_codepostal=" + benef_etablissement_codepostal);
-			sb.append(",benef_etablissement_ville=" + benef_etablissement_ville);
-			sb.append(",benef_denomination_sociale=" + benef_denomination_sociale);
-			sb.append(",benef_objet_social=" + benef_objet_social);
-			sb.append(",ligne_type=" + ligne_type);
-			sb.append(",remu_date=" + remu_date);
-			sb.append(",remu_montant_ttc=" + String.valueOf(remu_montant_ttc));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(remunerationsStruct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public void tFileInputDelimited_3Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-			// TDI-39566 avoid throwing an useless Exception
-			boolean resumeIt = true;
-			if (globalResumeTicket == false && resumeEntryMethodName != null) {
-				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-				resumeIt = resumeEntryMethodName.equals(currentMethodName);
-			}
-			if (resumeIt || globalResumeTicket) { // start the resume
-				globalResumeTicket = true;
-
-				remunerationsStruct remunerations = new remunerationsStruct();
-				qualites_remunerationsStruct qualites_remunerations = new qualites_remunerationsStruct();
-
-				/**
-				 * [tAdvancedHash_qualites_remunerations begin ] start
-				 */
-
-				ok_Hash.put("tAdvancedHash_qualites_remunerations", false);
-				start_Hash.put("tAdvancedHash_qualites_remunerations", System.currentTimeMillis());
-
-				currentComponent = "tAdvancedHash_qualites_remunerations";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "qualites_remunerations");
-				}
-
-				int tos_count_tAdvancedHash_qualites_remunerations = 0;
-
-				// connection name:qualites_remunerations
-				// source node:tUniqRow_3 - inputs:(remunerations)
-				// outputs:(qualites_remunerations,qualites_remunerations) | target
-				// node:tAdvancedHash_qualites_remunerations - inputs:(qualites_remunerations)
-				// outputs:()
-				// linked node: tMap_1 -
-				// inputs:(qualites_avantages,qualites_conventions,qualites_remunerations)
-				// outputs:(qualites)
-
-				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_qualites_remunerations = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
-
-				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<qualites_remunerationsStruct> tHash_Lookup_qualites_remunerations = org.talend.designer.components.lookup.memory.AdvancedMemoryLookup
-						.<qualites_remunerationsStruct>getLookup(matchingModeEnum_qualites_remunerations);
-
-				globalMap.put("tHash_Lookup_qualites_remunerations", tHash_Lookup_qualites_remunerations);
-
-				/**
-				 * [tAdvancedHash_qualites_remunerations begin ] stop
-				 */
-
-				/**
-				 * [tUniqRow_3 begin ] start
-				 */
-
-				ok_Hash.put("tUniqRow_3", false);
-				start_Hash.put("tUniqRow_3", System.currentTimeMillis());
-
-				currentComponent = "tUniqRow_3";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "remunerations");
-				}
-
-				int tos_count_tUniqRow_3 = 0;
-
-				class KeyStruct_tUniqRow_3 {
-
-					private static final int DEFAULT_HASHCODE = 1;
-					private static final int PRIME = 31;
-					private int hashCode = DEFAULT_HASHCODE;
-					public boolean hashCodeDirty = true;
-
-					String benef_qualite_code;
-
-					@Override
-					public int hashCode() {
-						if (this.hashCodeDirty) {
-							final int prime = PRIME;
-							int result = DEFAULT_HASHCODE;
-
-							result = prime * result
-									+ ((this.benef_qualite_code == null) ? 0 : this.benef_qualite_code.hashCode());
-
-							this.hashCode = result;
-							this.hashCodeDirty = false;
-						}
-						return this.hashCode;
-					}
-
-					@Override
-					public boolean equals(Object obj) {
-						if (this == obj)
-							return true;
-						if (obj == null)
-							return false;
-						if (getClass() != obj.getClass())
-							return false;
-						final KeyStruct_tUniqRow_3 other = (KeyStruct_tUniqRow_3) obj;
-
-						if (this.benef_qualite_code == null) {
-							if (other.benef_qualite_code != null)
-								return false;
-
-						} else if (!this.benef_qualite_code.equals(other.benef_qualite_code))
-
-							return false;
-
-						return true;
-					}
-
-				}
-
-				int nb_uniques_tUniqRow_3 = 0;
-				int nb_duplicates_tUniqRow_3 = 0;
-				KeyStruct_tUniqRow_3 finder_tUniqRow_3 = new KeyStruct_tUniqRow_3();
-				java.util.Set<KeyStruct_tUniqRow_3> keystUniqRow_3 = new java.util.HashSet<KeyStruct_tUniqRow_3>();
-
-				/**
-				 * [tUniqRow_3 begin ] stop
-				 */
-
-				/**
-				 * [tFileInputDelimited_3 begin ] start
-				 */
-
-				ok_Hash.put("tFileInputDelimited_3", false);
-				start_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
-
-				currentComponent = "tFileInputDelimited_3";
-
-				int tos_count_tFileInputDelimited_3 = 0;
-
-				final routines.system.RowState rowstate_tFileInputDelimited_3 = new routines.system.RowState();
-
-				int nb_line_tFileInputDelimited_3 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_3 = null;
-				int limit_tFileInputDelimited_3 = -1;
-				try {
-
-					Object filename_tFileInputDelimited_3 = "C:/BI/transparence-sante/data/data.gouv/remunerations.csv";
-					if (filename_tFileInputDelimited_3 instanceof java.io.InputStream) {
-
-						int footer_value_tFileInputDelimited_3 = 0, random_value_tFileInputDelimited_3 = -1;
-						if (footer_value_tFileInputDelimited_3 > 0 || random_value_tFileInputDelimited_3 > 0) {
-							throw new java.lang.Exception(
-									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
-						}
-
-					}
-					try {
-						fid_tFileInputDelimited_3 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/BI/transparence-sante/data/data.gouv/remunerations.csv", "UTF-8", ";", "\n", false,
-								1, 0, limit_tFileInputDelimited_3, -1, false);
-					} catch (java.lang.Exception e) {
-
-						System.err.println(e.getMessage());
-
-					}
-
-					while (fid_tFileInputDelimited_3 != null && fid_tFileInputDelimited_3.nextRecord()) {
-						rowstate_tFileInputDelimited_3.reset();
-
-						remunerations = null;
-
-						boolean whetherReject_tFileInputDelimited_3 = false;
-						remunerations = new remunerationsStruct();
-						try {
-
-							int columnIndexWithD_tFileInputDelimited_3 = 0;
-
-							String temp = "";
-
-							columnIndexWithD_tFileInputDelimited_3 = 0;
-
-							remunerations.entreprise_identifiant = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 1;
-
-							remunerations.denomination_sociale = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 2;
-
-							remunerations.ligne_identifiant = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 3;
-
-							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-							if (temp.length() > 0) {
-
-								try {
-
-									remunerations.ligne_rectification = ParserUtils.parseTo_Character(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"ligne_rectification", "remunerations", temp, ex_tFileInputDelimited_3),
-											ex_tFileInputDelimited_3));
-								}
-
-							} else {
-
-								remunerations.ligne_rectification = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_3 = 4;
-
-							remunerations.benef_categorie_code = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 5;
-
-							remunerations.categorie = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 6;
-
-							remunerations.benef_nom = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 7;
-
-							remunerations.benef_prenom = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 8;
-
-							remunerations.benef_qualite_code = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 9;
-
-							remunerations.qualite = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 10;
-
-							remunerations.benef_adresse1 = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 11;
-
-							remunerations.benef_adresse2 = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 12;
-
-							remunerations.benef_adresse3 = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 13;
-
-							remunerations.benef_adresse4 = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 14;
-
-							remunerations.benef_codepostal = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 15;
-
-							remunerations.benef_ville = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 16;
-
-							remunerations.benef_pays_code = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 17;
-
-							remunerations.pays = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 18;
-
-							remunerations.benef_titre_code = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 19;
-
-							remunerations.benef_titre_libelle = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 20;
-
-							remunerations.benef_specialite_code = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 21;
-
-							remunerations.benef_speicalite_libelle = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 22;
-
-							remunerations.benef_identifiant_type_code = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 23;
-
-							remunerations.identifiant_type = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 24;
-
-							remunerations.benef_identifiant_valeur = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 25;
-
-							remunerations.benef_etablissement = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 26;
-
-							remunerations.benef_etablissement_codepostal = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 27;
-
-							remunerations.benef_etablissement_ville = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 28;
-
-							remunerations.benef_denomination_sociale = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 29;
-
-							remunerations.benef_objet_social = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 30;
-
-							remunerations.ligne_type = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 31;
-
-							remunerations.remu_date = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 32;
-
-							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-							if (temp.length() > 0) {
-
-								try {
-
-									remunerations.remu_montant_ttc = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"remu_montant_ttc", "remunerations", temp, ex_tFileInputDelimited_3),
-											ex_tFileInputDelimited_3));
-								}
-
-							} else {
-
-								remunerations.remu_montant_ttc = null;
-
-							}
-
-							if (rowstate_tFileInputDelimited_3.getException() != null) {
-								throw rowstate_tFileInputDelimited_3.getException();
-							}
-
-						} catch (java.lang.Exception e) {
-							whetherReject_tFileInputDelimited_3 = true;
-
-							System.err.println(e.getMessage());
-							remunerations = null;
-
-						}
-
-						/**
-						 * [tFileInputDelimited_3 begin ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_3 main ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_3";
-
-						tos_count_tFileInputDelimited_3++;
-
-						/**
-						 * [tFileInputDelimited_3 main ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_3 process_data_begin ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_3";
-
-						/**
-						 * [tFileInputDelimited_3 process_data_begin ] stop
-						 */
-// Start of branch "remunerations"
-						if (remunerations != null) {
-
-							/**
-							 * [tUniqRow_3 main ] start
-							 */
-
-							currentComponent = "tUniqRow_3";
-
-							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1, "remunerations");
-							}
-
-							qualites_remunerations = null;
-							qualites_remunerations = null;
-							if (remunerations.benef_qualite_code == null) {
-								finder_tUniqRow_3.benef_qualite_code = null;
-							} else {
-								finder_tUniqRow_3.benef_qualite_code = remunerations.benef_qualite_code.toLowerCase();
-							}
-							finder_tUniqRow_3.hashCodeDirty = true;
-							if (!keystUniqRow_3.contains(finder_tUniqRow_3)) {
-								KeyStruct_tUniqRow_3 new_tUniqRow_3 = new KeyStruct_tUniqRow_3();
-
-								if (remunerations.benef_qualite_code == null) {
-									new_tUniqRow_3.benef_qualite_code = null;
-								} else {
-									new_tUniqRow_3.benef_qualite_code = remunerations.benef_qualite_code.toLowerCase();
-								}
-
-								keystUniqRow_3.add(new_tUniqRow_3);
-								if (qualites_remunerations == null) {
-
-									qualites_remunerations = new qualites_remunerationsStruct();
-								}
-								qualites_remunerations.entreprise_identifiant = remunerations.entreprise_identifiant;
-								qualites_remunerations.denomination_sociale = remunerations.denomination_sociale;
-								qualites_remunerations.ligne_identifiant = remunerations.ligne_identifiant;
-								qualites_remunerations.ligne_rectification = remunerations.ligne_rectification;
-								qualites_remunerations.benef_categorie_code = remunerations.benef_categorie_code;
-								qualites_remunerations.categorie = remunerations.categorie;
-								qualites_remunerations.benef_nom = remunerations.benef_nom;
-								qualites_remunerations.benef_prenom = remunerations.benef_prenom;
-								qualites_remunerations.benef_qualite_code = remunerations.benef_qualite_code;
-								qualites_remunerations.qualite = remunerations.qualite;
-								qualites_remunerations.benef_adresse1 = remunerations.benef_adresse1;
-								qualites_remunerations.benef_adresse2 = remunerations.benef_adresse2;
-								qualites_remunerations.benef_adresse3 = remunerations.benef_adresse3;
-								qualites_remunerations.benef_adresse4 = remunerations.benef_adresse4;
-								qualites_remunerations.benef_codepostal = remunerations.benef_codepostal;
-								qualites_remunerations.benef_ville = remunerations.benef_ville;
-								qualites_remunerations.benef_pays_code = remunerations.benef_pays_code;
-								qualites_remunerations.pays = remunerations.pays;
-								qualites_remunerations.benef_titre_code = remunerations.benef_titre_code;
-								qualites_remunerations.benef_titre_libelle = remunerations.benef_titre_libelle;
-								qualites_remunerations.benef_specialite_code = remunerations.benef_specialite_code;
-								qualites_remunerations.benef_speicalite_libelle = remunerations.benef_speicalite_libelle;
-								qualites_remunerations.benef_identifiant_type_code = remunerations.benef_identifiant_type_code;
-								qualites_remunerations.identifiant_type = remunerations.identifiant_type;
-								qualites_remunerations.benef_identifiant_valeur = remunerations.benef_identifiant_valeur;
-								qualites_remunerations.benef_etablissement = remunerations.benef_etablissement;
-								qualites_remunerations.benef_etablissement_codepostal = remunerations.benef_etablissement_codepostal;
-								qualites_remunerations.benef_etablissement_ville = remunerations.benef_etablissement_ville;
-								qualites_remunerations.benef_denomination_sociale = remunerations.benef_denomination_sociale;
-								qualites_remunerations.benef_objet_social = remunerations.benef_objet_social;
-								qualites_remunerations.ligne_type = remunerations.ligne_type;
-								qualites_remunerations.remu_date = remunerations.remu_date;
-								qualites_remunerations.remu_montant_ttc = remunerations.remu_montant_ttc;
-								if (qualites_remunerations == null) {
-
-									qualites_remunerations = new qualites_remunerationsStruct();
-								}
-								qualites_remunerations.entreprise_identifiant = remunerations.entreprise_identifiant;
-								qualites_remunerations.denomination_sociale = remunerations.denomination_sociale;
-								qualites_remunerations.ligne_identifiant = remunerations.ligne_identifiant;
-								qualites_remunerations.ligne_rectification = remunerations.ligne_rectification;
-								qualites_remunerations.benef_categorie_code = remunerations.benef_categorie_code;
-								qualites_remunerations.categorie = remunerations.categorie;
-								qualites_remunerations.benef_nom = remunerations.benef_nom;
-								qualites_remunerations.benef_prenom = remunerations.benef_prenom;
-								qualites_remunerations.benef_qualite_code = remunerations.benef_qualite_code;
-								qualites_remunerations.qualite = remunerations.qualite;
-								qualites_remunerations.benef_adresse1 = remunerations.benef_adresse1;
-								qualites_remunerations.benef_adresse2 = remunerations.benef_adresse2;
-								qualites_remunerations.benef_adresse3 = remunerations.benef_adresse3;
-								qualites_remunerations.benef_adresse4 = remunerations.benef_adresse4;
-								qualites_remunerations.benef_codepostal = remunerations.benef_codepostal;
-								qualites_remunerations.benef_ville = remunerations.benef_ville;
-								qualites_remunerations.benef_pays_code = remunerations.benef_pays_code;
-								qualites_remunerations.pays = remunerations.pays;
-								qualites_remunerations.benef_titre_code = remunerations.benef_titre_code;
-								qualites_remunerations.benef_titre_libelle = remunerations.benef_titre_libelle;
-								qualites_remunerations.benef_specialite_code = remunerations.benef_specialite_code;
-								qualites_remunerations.benef_speicalite_libelle = remunerations.benef_speicalite_libelle;
-								qualites_remunerations.benef_identifiant_type_code = remunerations.benef_identifiant_type_code;
-								qualites_remunerations.identifiant_type = remunerations.identifiant_type;
-								qualites_remunerations.benef_identifiant_valeur = remunerations.benef_identifiant_valeur;
-								qualites_remunerations.benef_etablissement = remunerations.benef_etablissement;
-								qualites_remunerations.benef_etablissement_codepostal = remunerations.benef_etablissement_codepostal;
-								qualites_remunerations.benef_etablissement_ville = remunerations.benef_etablissement_ville;
-								qualites_remunerations.benef_denomination_sociale = remunerations.benef_denomination_sociale;
-								qualites_remunerations.benef_objet_social = remunerations.benef_objet_social;
-								qualites_remunerations.ligne_type = remunerations.ligne_type;
-								qualites_remunerations.remu_date = remunerations.remu_date;
-								qualites_remunerations.remu_montant_ttc = remunerations.remu_montant_ttc;
-								nb_uniques_tUniqRow_3++;
-							} else {
-								nb_duplicates_tUniqRow_3++;
-							}
-
-							tos_count_tUniqRow_3++;
-
-							/**
-							 * [tUniqRow_3 main ] stop
-							 */
-
-							/**
-							 * [tUniqRow_3 process_data_begin ] start
-							 */
-
-							currentComponent = "tUniqRow_3";
-
-							/**
-							 * [tUniqRow_3 process_data_begin ] stop
-							 */
-// Start of branch "qualites_remunerations"
-							if (qualites_remunerations != null) {
-
-								/**
-								 * [tAdvancedHash_qualites_remunerations main ] start
-								 */
-
-								currentComponent = "tAdvancedHash_qualites_remunerations";
-
-								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1, "qualites_remunerations");
-								}
-
-								qualites_remunerationsStruct qualites_remunerations_HashRow = new qualites_remunerationsStruct();
-
-								qualites_remunerations_HashRow.entreprise_identifiant = qualites_remunerations.entreprise_identifiant;
-
-								qualites_remunerations_HashRow.denomination_sociale = qualites_remunerations.denomination_sociale;
-
-								qualites_remunerations_HashRow.ligne_identifiant = qualites_remunerations.ligne_identifiant;
-
-								qualites_remunerations_HashRow.ligne_rectification = qualites_remunerations.ligne_rectification;
-
-								qualites_remunerations_HashRow.benef_categorie_code = qualites_remunerations.benef_categorie_code;
-
-								qualites_remunerations_HashRow.categorie = qualites_remunerations.categorie;
-
-								qualites_remunerations_HashRow.benef_nom = qualites_remunerations.benef_nom;
-
-								qualites_remunerations_HashRow.benef_prenom = qualites_remunerations.benef_prenom;
-
-								qualites_remunerations_HashRow.benef_qualite_code = qualites_remunerations.benef_qualite_code;
-
-								qualites_remunerations_HashRow.qualite = qualites_remunerations.qualite;
-
-								qualites_remunerations_HashRow.benef_adresse1 = qualites_remunerations.benef_adresse1;
-
-								qualites_remunerations_HashRow.benef_adresse2 = qualites_remunerations.benef_adresse2;
-
-								qualites_remunerations_HashRow.benef_adresse3 = qualites_remunerations.benef_adresse3;
-
-								qualites_remunerations_HashRow.benef_adresse4 = qualites_remunerations.benef_adresse4;
-
-								qualites_remunerations_HashRow.benef_codepostal = qualites_remunerations.benef_codepostal;
-
-								qualites_remunerations_HashRow.benef_ville = qualites_remunerations.benef_ville;
-
-								qualites_remunerations_HashRow.benef_pays_code = qualites_remunerations.benef_pays_code;
-
-								qualites_remunerations_HashRow.pays = qualites_remunerations.pays;
-
-								qualites_remunerations_HashRow.benef_titre_code = qualites_remunerations.benef_titre_code;
-
-								qualites_remunerations_HashRow.benef_titre_libelle = qualites_remunerations.benef_titre_libelle;
-
-								qualites_remunerations_HashRow.benef_specialite_code = qualites_remunerations.benef_specialite_code;
-
-								qualites_remunerations_HashRow.benef_speicalite_libelle = qualites_remunerations.benef_speicalite_libelle;
-
-								qualites_remunerations_HashRow.benef_identifiant_type_code = qualites_remunerations.benef_identifiant_type_code;
-
-								qualites_remunerations_HashRow.identifiant_type = qualites_remunerations.identifiant_type;
-
-								qualites_remunerations_HashRow.benef_identifiant_valeur = qualites_remunerations.benef_identifiant_valeur;
-
-								qualites_remunerations_HashRow.benef_etablissement = qualites_remunerations.benef_etablissement;
-
-								qualites_remunerations_HashRow.benef_etablissement_codepostal = qualites_remunerations.benef_etablissement_codepostal;
-
-								qualites_remunerations_HashRow.benef_etablissement_ville = qualites_remunerations.benef_etablissement_ville;
-
-								qualites_remunerations_HashRow.benef_denomination_sociale = qualites_remunerations.benef_denomination_sociale;
-
-								qualites_remunerations_HashRow.benef_objet_social = qualites_remunerations.benef_objet_social;
-
-								qualites_remunerations_HashRow.ligne_type = qualites_remunerations.ligne_type;
-
-								qualites_remunerations_HashRow.remu_date = qualites_remunerations.remu_date;
-
-								qualites_remunerations_HashRow.remu_montant_ttc = qualites_remunerations.remu_montant_ttc;
-
-								tHash_Lookup_qualites_remunerations.put(qualites_remunerations_HashRow);
-
-								tos_count_tAdvancedHash_qualites_remunerations++;
-
-								/**
-								 * [tAdvancedHash_qualites_remunerations main ] stop
-								 */
-
-								/**
-								 * [tAdvancedHash_qualites_remunerations process_data_begin ] start
-								 */
-
-								currentComponent = "tAdvancedHash_qualites_remunerations";
-
-								/**
-								 * [tAdvancedHash_qualites_remunerations process_data_begin ] stop
-								 */
-
-								/**
-								 * [tAdvancedHash_qualites_remunerations process_data_end ] start
-								 */
-
-								currentComponent = "tAdvancedHash_qualites_remunerations";
-
-								/**
-								 * [tAdvancedHash_qualites_remunerations process_data_end ] stop
-								 */
-
-							} // End of branch "qualites_remunerations"
-
-							/**
-							 * [tUniqRow_3 process_data_end ] start
-							 */
-
-							currentComponent = "tUniqRow_3";
-
-							/**
-							 * [tUniqRow_3 process_data_end ] stop
-							 */
-
-						} // End of branch "remunerations"
-
-						/**
-						 * [tFileInputDelimited_3 process_data_end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_3";
-
-						/**
-						 * [tFileInputDelimited_3 process_data_end ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_3 end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_3";
-
-					}
-				} finally {
-					if (!((Object) ("C:/BI/transparence-sante/data/data.gouv/remunerations.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_3 != null) {
-							fid_tFileInputDelimited_3.close();
-						}
-					}
-					if (fid_tFileInputDelimited_3 != null) {
-						globalMap.put("tFileInputDelimited_3_NB_LINE", fid_tFileInputDelimited_3.getRowNumber());
-
-					}
-				}
-
-				ok_Hash.put("tFileInputDelimited_3", true);
-				end_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
-
-				/**
-				 * [tFileInputDelimited_3 end ] stop
-				 */
-
-				/**
-				 * [tUniqRow_3 end ] start
-				 */
-
-				currentComponent = "tUniqRow_3";
-
-				globalMap.put("tUniqRow_3_NB_UNIQUES", nb_uniques_tUniqRow_3);
-				globalMap.put("tUniqRow_3_NB_DUPLICATES", nb_duplicates_tUniqRow_3);
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "remunerations");
-				}
-
-				ok_Hash.put("tUniqRow_3", true);
-				end_Hash.put("tUniqRow_3", System.currentTimeMillis());
-
-				/**
-				 * [tUniqRow_3 end ] stop
-				 */
-
-				/**
-				 * [tAdvancedHash_qualites_remunerations end ] start
-				 */
-
-				currentComponent = "tAdvancedHash_qualites_remunerations";
-
-				tHash_Lookup_qualites_remunerations.endPut();
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "qualites_remunerations");
-				}
-
-				ok_Hash.put("tAdvancedHash_qualites_remunerations", true);
-				end_Hash.put("tAdvancedHash_qualites_remunerations", System.currentTimeMillis());
-
-				/**
-				 * [tAdvancedHash_qualites_remunerations end ] stop
-				 */
-
-			} // end the resume
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent, globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			runStat.stopThreadStat();
-
-			throw error;
-		} finally {
-
-			try {
-
-				/**
-				 * [tFileInputDelimited_3 finally ] start
-				 */
-
-				currentComponent = "tFileInputDelimited_3";
-
-				/**
-				 * [tFileInputDelimited_3 finally ] stop
-				 */
-
-				/**
-				 * [tUniqRow_3 finally ] start
-				 */
-
-				currentComponent = "tUniqRow_3";
-
-				/**
-				 * [tUniqRow_3 finally ] stop
-				 */
-
-				/**
-				 * [tAdvancedHash_qualites_remunerations finally ] start
-				 */
-
-				currentComponent = "tAdvancedHash_qualites_remunerations";
-
-				/**
-				 * [tAdvancedHash_qualites_remunerations finally ] stop
-				 */
-
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
-		}
-
-		globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", 1);
 	}
 
 	public String resuming_logs_dir_path = null;
@@ -8224,6 +3661,6 @@ public class qualite_beneficiaire_dim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 257853 characters generated by Talend Open Studio for Data Integration on the
- * 16 octobre 2020 12:48:05 CEST
+ * 114073 characters generated by Talend Open Studio for Data Integration on the
+ * 7 d√©cembre 2020 03:14:53 CET
  ************************************************************************************************/

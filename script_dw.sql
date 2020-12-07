@@ -48,7 +48,7 @@ CREATE TABLE `objet_convention_dim` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `qualite_beneficiaire_dim` (
-  `qualite_beneficiaire_id` varchar(5) NOT NULL,
+  `qualite_beneficiaire_id` varchar(10) NOT NULL,
   `nom_qualite_beneficiaire` varchar(200) NOT NULL,
   PRIMARY KEY (`qualite_beneficiaire_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -103,7 +103,7 @@ CREATE TABLE `avantage_remuneration_fact` (
   `type_avantage_id` varchar(30) NOT NULL,
   `date_id` date NOT NULL,
   `is_avantage` BOOLEAN NOT NULL,
-  `montant_ttc` decimal(2,2) NOT NULL,
+  `montant_ttc`  DECIMAL NULL,
   PRIMARY KEY (`ligne_id`, `entreprise_id`),
   CONSTRAINT `fk1_entreprise_id` FOREIGN KEY(`entreprise_id`) REFERENCES `entreprise_dim`(`entreprise_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk1_beneficiaire_id` FOREIGN KEY(`beneficiaire_id`) REFERENCES `beneficiaire_dim`(`beneficiaire_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,

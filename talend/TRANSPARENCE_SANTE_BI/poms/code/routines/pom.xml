@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.example.transparence_sante_bi</groupId>
     <artifactId>code.Master</artifactId>
-    <version>7.3.1</version>
+    <version>7.2.1</version>
     <relativePath>../../</relativePath>
   </parent>
   <groupId>org.example.transparence_sante_bi.code</groupId>
   <artifactId>routines</artifactId>
-  <version>7.3.1</version>
+  <version>7.2.1</version>
   <name>TRANSPARENCE_SANTE_BI Routines</name>
   <properties>
     <talend.codes.package>routines</talend.codes.package>

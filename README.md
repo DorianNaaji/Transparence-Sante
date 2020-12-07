@@ -36,6 +36,8 @@ Premièrement, vous devez installer Talend Open Studio for Data Integration, ver
 
 ![Talend](doc/img/talend-import/0-download.png)
 
+**⚠ Le .zip contient la v. 64 bits, à prendre de préférence**
+
 
 Une fois Talend installé et lancé, vous devez ajouter une connexion, via le bouton "Gérer les connexions", situé en bas de l'écran pour le premier lancement ou en haut à droite.
 
@@ -63,6 +65,12 @@ Concernant le repos git, Talend va certainement modifier au lancement un certain
 
 ![Talend-Git](doc/img/talend-import/5-new-changes-to-commit.png)
 
+### Remarques diverses
+
+- Si vous avez des problèmes de parsing avec avant_montant_ttc, passez le type en String dans vos tMaps.
+- Dans vos tFileInputDelimited, cochez bien la case "SCV Options" et laissez **Escape char** à la valeur **"""**, cela aura pour effet
+d'éviter du _shifting_ de colonnes et par conséquent des erreurs inévitables dans vos jobs.
+![csv-options](doc/img/help/csv-options.png)
 
 
 ## Informations supplémentaires
@@ -85,35 +93,7 @@ Plus d'informations ici :
 
 > [Téléchargement des données](https://www.data.gouv.fr/fr/datasets/transparence-sante-1/#)
 
-### Encodage erroné des données et minimisation
-
-#### Encodage
-
-Sur le site [data.gouv](https://data.gouv.fr), les données ont des problèmes d'encodages et les accents sont mal interprétés. L'ensemble des données devra être "nettoyé", via des routines basiques au sein de Talend afin de par exemple remplacer les caractères du genre :
-
-> é = Ã©
-
-> è = Ã¨
-
-> à = Ã
-
-> Ã‰, Ã%, Ãƒâ?° = É
-
-> â? = '
-
-> Å' = Œ
-
-> Ã^, ÃƒË┼ = È
-
-> etc. Trouver tous les caractères de ponctuation potentiellement mal encodés (majuscules comprises) et les remplacer par la suite (Talend).
-
-![encoding](doc/img/encoding.png)
-
-_Figure 1 : Mauvais encodage._
-
-_Voir : [Tableau de correspondance de caractères "wrongly-encoded"](https://mozartsduweb.com/blog/outils/correspondance-encodages-utf8-iso-8859-1/)_
-
-#### Minimisation
+### Minimisation
 
 Le jeu de données fourni par [data.gouv](https://www.data.gouv.fr/fr/datasets/transparence-sante-1/#) est très volumineux, d'autant plus une fois décompressé.
 
