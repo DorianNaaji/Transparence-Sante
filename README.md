@@ -87,35 +87,7 @@ Plus d'informations ici :
 
 > [Téléchargement des données](https://www.data.gouv.fr/fr/datasets/transparence-sante-1/#)
 
-### Encodage erroné des données et minimisation
-
-#### Encodage
-
-Sur le site [data.gouv](https://data.gouv.fr), les données ont des problèmes d'encodages et les accents sont mal interprétés. L'ensemble des données devra être "nettoyé", via des routines basiques au sein de Talend afin de par exemple remplacer les caractères du genre :
-
-> é = Ã©
-
-> è = Ã¨
-
-> à = Ã
-
-> Ã‰, Ã%, Ãƒâ?° = É
-
-> â? = '
-
-> Å' = Œ
-
-> Ã^, ÃƒË┼ = È
-
-> etc. Trouver tous les caractères de ponctuation potentiellement mal encodés (majuscules comprises) et les remplacer par la suite (Talend).
-
-![encoding](doc/img/encoding.png)
-
-_Figure 1 : Mauvais encodage._
-
-_Voir : [Tableau de correspondance de caractères "wrongly-encoded"](https://mozartsduweb.com/blog/outils/correspondance-encodages-utf8-iso-8859-1/)_
-
-#### Minimisation
+### Minimisation
 
 Le jeu de données fourni par [data.gouv](https://www.data.gouv.fr/fr/datasets/transparence-sante-1/#) est très volumineux, d'autant plus une fois décompressé.
 
