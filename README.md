@@ -60,10 +60,7 @@ Ensuite, cliquez sur "Importer un projet existant", et sélectionner "TRANSPAREN
 
 Vous pouvez ensuite lancer le projet.
 
-Concernant le repos git, Talend va certainement modifier au lancement un certain nombre de fichiers de config ou de propriétés. Vous pouvez commit/push ces changements, mais faites attentions aux fichiers **".project"**, **"talend.project"** et **".classpath"**, nous n'avons pas d'informations sur l'incidence qu'ils auront s'ils sont commit et partagés entre PCs, restez alors vigilants à ces fichiers et à leur contenu lors de chaque commit.
-
-
-![Talend-Git](doc/img/talend-import/5-new-changes-to-commit.png)
+Concernant GIT, travaillez bien sur vos jobs respectifs et il ne devrait pas y avoir de conflits.
 
 ### Remarques diverses
 
