@@ -36,6 +36,8 @@ Premièrement, vous devez installer Talend Open Studio for Data Integration, ver
 
 ![Talend](doc/img/talend-import/0-download.png)
 
+**⚠ Le .zip contient la v. 64 bits, à prendre de préférence**
+
 
 Une fois Talend installé et lancé, vous devez ajouter une connexion, via le bouton "Gérer les connexions", situé en bas de l'écran pour le premier lancement ou en haut à droite.
 
