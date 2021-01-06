@@ -42,7 +42,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:m5wp74G/iFoFKlWG2w8P0cBkBlSzL94GmJIFAeMG" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:JqMsAhyNk/d8D6hGmuhs/o6Yobrv+8KMmmkCYPDX" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -77,7 +77,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:iYlsdHExMd5bsIclSoUvZNtAjH4n+NHmVfn53MKg" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:WdwEulPDdWcQhsKL3GoPzFIiOidkD1WiMu5k/iky" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -371,7 +371,7 @@
       <column comment="" key="false" length="29" name="nom_qualite_beneficiaire" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="qualites_remunerations">
         <mapperTableEntries name="qualite_beneficiaire_id" expression="remunerations.benef_qualite_code.equals(&quot;&quot;) ? null : remunerations.benef_qualite_code " type="id_String" nullable="true"/>
@@ -441,7 +441,7 @@
       <column comment="" key="false" length="29" name="nom_qualite_beneficiaire" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="qualites_avantages">
         <mapperTableEntries name="qualite_beneficiaire_id" expression="avantages.benef_qualite_code.equals(&quot;&quot;) ? null : avantages.benef_qualite_code " type="id_String" nullable="true"/>
@@ -509,7 +509,7 @@
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="qualites_conventions">
-        <mapperTableEntries name="qualite_beneficiaire_id" expression="conventions.benef_qualite_code.equals(&quot;&quot;) ? null : &#xD;&#xA;conventions.benef_qualite_code.charAt(0) == '[' ?conventions.benef_qualite_code : null " type="id_String" nullable="true"/>
+        <mapperTableEntries name="qualite_beneficiaire_id" expression="// qualite code starts with a '['. Always.&#xD;&#xA;// the code is enclosed between braces like so : [CODE]&#xD;&#xA;conventions.benef_qualite_code.equals(&quot;&quot;) ? null : &#xD;&#xD;&#xA;conventions.benef_qualite_code.charAt(0) == '[' ?conventions.benef_qualite_code : null " type="id_String" nullable="true"/>
         <mapperTableEntries name="nom_qualite_beneficiaire" expression="conventions.qualite.equals(&quot;&quot;) ? null : conventions.qualite " type="id_String" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="conventions" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
@@ -1192,7 +1192,7 @@
     <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;"/>
     <elementParameter field="TEXT" name="DBNAME" value="&quot;transparence_sante_bi&quot;"/>
     <elementParameter field="TEXT" name="USER" value="&quot;root&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:+a/GrvMXhi6UsYGZrOjabNbyaAVDFnlasMF9HxhF"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:vaOJfRojiYdM3q9kgfbisBwOhGjSA/tq9y5ldjvi"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;qualite_beneficiaire_dim&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CLEAR"/>
     <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
@@ -1278,12 +1278,17 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="remunerations" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="qualites_remunerations" lineStyle="10" mergeOrder="1" metaname="qualites_remunerations" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tUnite_1">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="categorie_beneficiaire_id"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="qualites_remunerations" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tUnite_1" offsetLabelX="0" offsetLabelY="0" source="tUnite_1" target="tFilterRow_1">
+  <connection connectorName="FLOW" label="merged" lineStyle="0" metaname="tUnite_1" offsetLabelX="0" offsetLabelY="0" source="tUnite_1" target="tFilterRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row1" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="merged" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="qualites_avantages" lineStyle="10" mergeOrder="2" metaname="qualites_avantages" offsetLabelX="0" offsetLabelY="0" source="tMap_2" target="tUnite_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
@@ -1301,18 +1306,19 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="avantages" show="false"/>
   </connection>
-  <connection connectorName="FILTER" label="row4" lineStyle="0" metaname="FILTER" offsetLabelX="0" offsetLabelY="0" source="tFilterRow_1" target="tUniqRow_1">
+  <connection connectorName="FILTER" label="filtered" lineStyle="0" metaname="FILTER" offsetLabelX="0" offsetLabelY="0" source="tFilterRow_1" target="tUniqRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row4" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="filtered" show="false"/>
   </connection>
-  <connection connectorName="UNIQUE" label="row2" lineStyle="0" metaname="UNIQUE" offsetLabelX="0" offsetLabelY="0" source="tUniqRow_1" target="tDBOutput_1">
+  <connection connectorName="UNIQUE" label="qualites" lineStyle="0" metaname="UNIQUE" offsetLabelX="0" offsetLabelY="0" source="tUniqRow_1" target="tDBOutput_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row2" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="qualites" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="row3" lineStyle="0" metaname="tDBOutput_1" offsetLabelX="0" offsetLabelY="0" source="tDBOutput_1" target="tLogRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row3" show="false"/>
   </connection>
+  <note opaque="true" posX="96" posY="416" sizeHeight="64" sizeWidth="737" text="récupère les qualites dans chacun des fichiers (&quot;cross join&quot; en quelque sorte) puis on merge et insère en BD&#xD;&#xA;"/>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileInputDelimited_3" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
