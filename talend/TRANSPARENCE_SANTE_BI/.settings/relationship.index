@@ -5,7 +5,15 @@
     "type" : "job"
   },
   "relatedItems" : [ {
+    "id" : "_3DAaYAmREeuo66iw6Iwaqw",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
     "id" : "_DwsqEAlHEeuvUZ6jv3Exkw",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_suYI4AmREeuo66iw6Iwaqw",
     "version" : "Latest",
     "type" : "property"
   }, {
@@ -45,7 +53,15 @@
     "version" : "Latest",
     "type" : "routine"
   }, {
+    "id" : "_3DAaYAmREeuo66iw6Iwaqw - conventions",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
     "id" : "_BpnMsAmSEeuo66iw6Iwaqw - avantages",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_suYI4AmREeuo66iw6Iwaqw - remunerations",
     "version" : "Latest",
     "type" : "schema"
   } ]
