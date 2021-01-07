@@ -825,7 +825,7 @@ public class entreprise_dim implements TalendJob {
 				String dbUser_tDBOutput_1 = "root";
 
 				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:pNElaYBkNzO7+QvfgiOdKqN3xIBeEAhWZcfVYw==");
+						.decryptPassword("enc:routine.encryption.key.v1:5TJJflc3QuBQivcAHR7ReT0oA45Wq5LPqQer3g==");
 
 				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
 				java.lang.Class.forName(driverClass_tDBOutput_1);
@@ -905,32 +905,149 @@ public class entreprise_dim implements TalendJob {
 				final routines.system.RowState rowstate_tFileInputDelimited_1 = new routines.system.RowState();
 
 				int nb_line_tFileInputDelimited_1 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
-				int limit_tFileInputDelimited_1 = -1;
+				int footer_tFileInputDelimited_1 = 0;
+				int totalLinetFileInputDelimited_1 = 0;
+				int limittFileInputDelimited_1 = -1;
+				int lastLinetFileInputDelimited_1 = -1;
+
+				char fieldSeparator_tFileInputDelimited_1[] = null;
+
+				// support passing value (property: Field Separator) by 'context.fs' or
+				// 'globalMap.get("fs")'.
+				if (((String) ",").length() > 0) {
+					fieldSeparator_tFileInputDelimited_1 = ((String) ",").toCharArray();
+				} else {
+					throw new IllegalArgumentException("Field Separator must be assigned a char.");
+				}
+
+				char rowSeparator_tFileInputDelimited_1[] = null;
+
+				// support passing value (property: Row Separator) by 'context.rs' or
+				// 'globalMap.get("rs")'.
+				if (((String) "\n").length() > 0) {
+					rowSeparator_tFileInputDelimited_1 = ((String) "\n").toCharArray();
+				} else {
+					throw new IllegalArgumentException("Row Separator must be assigned a char.");
+				}
+
+				Object filename_tFileInputDelimited_1 = /** Start field tFileInputDelimited_1:FILENAME */
+						"C:/BI/transparence-sante/data/data.gouv/entreprises.csv"/**
+																					 * End field
+																					 * tFileInputDelimited_1:FILENAME
+																					 */
+				;
+				com.talend.csv.CSVReader csvReadertFileInputDelimited_1 = null;
+
 				try {
 
-					Object filename_tFileInputDelimited_1 = "C:/BI/transparence-sante/data/data.gouv/entreprises.csv";
-					if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
+					String[] rowtFileInputDelimited_1 = null;
+					int currentLinetFileInputDelimited_1 = 0;
+					int outputLinetFileInputDelimited_1 = 0;
+					try {// TD110 begin
+						if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
 
-						int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
-						if (footer_value_tFileInputDelimited_1 > 0 || random_value_tFileInputDelimited_1 > 0) {
-							throw new java.lang.Exception(
-									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
+							int footer_value_tFileInputDelimited_1 = 0;
+							if (footer_value_tFileInputDelimited_1 > 0) {
+								throw new java.lang.Exception(
+										"When the input source is a stream,footer shouldn't be bigger than 0.");
+							}
+
+							csvReadertFileInputDelimited_1 = new com.talend.csv.CSVReader(
+									(java.io.InputStream) filename_tFileInputDelimited_1,
+									fieldSeparator_tFileInputDelimited_1[0], "UTF-8");
+						} else {
+							csvReadertFileInputDelimited_1 = new com.talend.csv.CSVReader(
+									new java.io.BufferedReader(new java.io.InputStreamReader(
+											new java.io.FileInputStream(String.valueOf(filename_tFileInputDelimited_1)),
+											"UTF-8")),
+									fieldSeparator_tFileInputDelimited_1[0]);
 						}
 
-					}
-					try {
-						fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/BI/transparence-sante/data/data.gouv/entreprises.csv", "UTF-8", ",", "\n", false, 1,
-								0, limit_tFileInputDelimited_1, -1, false);
+						csvReadertFileInputDelimited_1.setTrimWhitespace(false);
+						if ((rowSeparator_tFileInputDelimited_1[0] != '\n')
+								&& (rowSeparator_tFileInputDelimited_1[0] != '\r'))
+							csvReadertFileInputDelimited_1.setLineEnd("" + rowSeparator_tFileInputDelimited_1[0]);
+
+						csvReadertFileInputDelimited_1.setQuoteChar('"');
+
+						csvReadertFileInputDelimited_1.setEscapeChar(csvReadertFileInputDelimited_1.getQuoteChar());
+
+						if (footer_tFileInputDelimited_1 > 0) {
+							for (totalLinetFileInputDelimited_1 = 0; totalLinetFileInputDelimited_1 < 1; totalLinetFileInputDelimited_1++) {
+								csvReadertFileInputDelimited_1.readNext();
+							}
+							csvReadertFileInputDelimited_1.setSkipEmptyRecords(false);
+							while (csvReadertFileInputDelimited_1.readNext()) {
+
+								totalLinetFileInputDelimited_1++;
+
+							}
+							int lastLineTemptFileInputDelimited_1 = totalLinetFileInputDelimited_1
+									- footer_tFileInputDelimited_1 < 0 ? 0
+											: totalLinetFileInputDelimited_1 - footer_tFileInputDelimited_1;
+							if (lastLinetFileInputDelimited_1 > 0) {
+								lastLinetFileInputDelimited_1 = lastLinetFileInputDelimited_1 < lastLineTemptFileInputDelimited_1
+										? lastLinetFileInputDelimited_1
+										: lastLineTemptFileInputDelimited_1;
+							} else {
+								lastLinetFileInputDelimited_1 = lastLineTemptFileInputDelimited_1;
+							}
+
+							csvReadertFileInputDelimited_1.close();
+							if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
+								csvReadertFileInputDelimited_1 = new com.talend.csv.CSVReader(
+										(java.io.InputStream) filename_tFileInputDelimited_1,
+										fieldSeparator_tFileInputDelimited_1[0], "UTF-8");
+							} else {
+								csvReadertFileInputDelimited_1 = new com.talend.csv.CSVReader(
+										new java.io.BufferedReader(
+												new java.io.InputStreamReader(
+														new java.io.FileInputStream(
+																String.valueOf(filename_tFileInputDelimited_1)),
+														"UTF-8")),
+										fieldSeparator_tFileInputDelimited_1[0]);
+							}
+							csvReadertFileInputDelimited_1.setTrimWhitespace(false);
+							if ((rowSeparator_tFileInputDelimited_1[0] != '\n')
+									&& (rowSeparator_tFileInputDelimited_1[0] != '\r'))
+								csvReadertFileInputDelimited_1.setLineEnd("" + rowSeparator_tFileInputDelimited_1[0]);
+
+							csvReadertFileInputDelimited_1.setQuoteChar('"');
+
+							csvReadertFileInputDelimited_1.setEscapeChar(csvReadertFileInputDelimited_1.getQuoteChar());
+
+						}
+
+						if (limittFileInputDelimited_1 != 0) {
+							for (currentLinetFileInputDelimited_1 = 0; currentLinetFileInputDelimited_1 < 1; currentLinetFileInputDelimited_1++) {
+								csvReadertFileInputDelimited_1.readNext();
+							}
+						}
+						csvReadertFileInputDelimited_1.setSkipEmptyRecords(false);
+
 					} catch (java.lang.Exception e) {
 
 						System.err.println(e.getMessage());
 
-					}
+					} // TD110 end
 
-					while (fid_tFileInputDelimited_1 != null && fid_tFileInputDelimited_1.nextRecord()) {
+					while (limittFileInputDelimited_1 != 0 && csvReadertFileInputDelimited_1 != null
+							&& csvReadertFileInputDelimited_1.readNext()) {
 						rowstate_tFileInputDelimited_1.reset();
+
+						rowtFileInputDelimited_1 = csvReadertFileInputDelimited_1.getValues();
+
+						currentLinetFileInputDelimited_1++;
+
+						if (lastLinetFileInputDelimited_1 > -1
+								&& currentLinetFileInputDelimited_1 > lastLinetFileInputDelimited_1) {
+							break;
+						}
+						outputLinetFileInputDelimited_1++;
+						if (limittFileInputDelimited_1 > 0
+								&& outputLinetFileInputDelimited_1 > limittFileInputDelimited_1) {
+							break;
+						}
 
 						row1 = null;
 
@@ -938,57 +1055,195 @@ public class entreprise_dim implements TalendJob {
 						row1 = new row1Struct();
 						try {
 
-							int columnIndexWithD_tFileInputDelimited_1 = 0;
+							char fieldSeparator_tFileInputDelimited_1_ListType[] = null;
+							// support passing value (property: Field Separator) by 'context.fs' or
+							// 'globalMap.get("fs")'.
+							if (((String) ",").length() > 0) {
+								fieldSeparator_tFileInputDelimited_1_ListType = ((String) ",").toCharArray();
+							} else {
+								throw new IllegalArgumentException("Field Separator must be assigned a char.");
+							}
+							if (rowtFileInputDelimited_1.length == 1 && ("\015").equals(rowtFileInputDelimited_1[0])) {// empty
+																														// line
+																														// when
+																														// row
+																														// separator
+																														// is
+																														// '\n'
 
-							columnIndexWithD_tFileInputDelimited_1 = 0;
+								row1.identifiant = null;
 
-							row1.identifiant = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+								row1.pays_code = null;
 
-							columnIndexWithD_tFileInputDelimited_1 = 1;
+								row1.pays = null;
 
-							row1.pays_code = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+								row1.secteur_activite_code = null;
 
-							columnIndexWithD_tFileInputDelimited_1 = 2;
+								row1.secteur = null;
 
-							row1.pays = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+								row1.denomination_sociale = null;
 
-							columnIndexWithD_tFileInputDelimited_1 = 3;
+								row1.adresse_1 = null;
 
-							row1.secteur_activite_code = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
+								row1.adresse_2 = null;
 
-							columnIndexWithD_tFileInputDelimited_1 = 4;
+								row1.adresse_3 = null;
 
-							row1.secteur = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+								row1.adresse_4 = null;
 
-							columnIndexWithD_tFileInputDelimited_1 = 5;
+								row1.code_postal = null;
 
-							row1.denomination_sociale = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
+								row1.ville = null;
 
-							columnIndexWithD_tFileInputDelimited_1 = 6;
+							} else {
 
-							row1.adresse_1 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+								int columnIndexWithD_tFileInputDelimited_1 = 0; // Column Index
 
-							columnIndexWithD_tFileInputDelimited_1 = 7;
+								columnIndexWithD_tFileInputDelimited_1 = 0;
 
-							row1.adresse_2 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-							columnIndexWithD_tFileInputDelimited_1 = 8;
+									row1.identifiant = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
-							row1.adresse_3 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+								} else {
 
-							columnIndexWithD_tFileInputDelimited_1 = 9;
+									row1.identifiant = null;
 
-							row1.adresse_4 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+								}
 
-							columnIndexWithD_tFileInputDelimited_1 = 10;
+								columnIndexWithD_tFileInputDelimited_1 = 1;
 
-							row1.code_postal = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-							columnIndexWithD_tFileInputDelimited_1 = 11;
+									row1.pays_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
-							row1.ville = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+								} else {
+
+									row1.pays_code = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 2;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.pays = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.pays = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 3;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.secteur_activite_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.secteur_activite_code = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 4;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.secteur = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.secteur = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 5;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.denomination_sociale = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.denomination_sociale = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 6;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.adresse_1 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.adresse_1 = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 7;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.adresse_2 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.adresse_2 = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 8;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.adresse_3 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.adresse_3 = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 9;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.adresse_4 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.adresse_4 = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 10;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.code_postal = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.code_postal = null;
+
+								}
+
+								columnIndexWithD_tFileInputDelimited_1 = 11;
+
+								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+
+									row1.ville = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+
+								} else {
+
+									row1.ville = null;
+
+								}
+
+							}
 
 							if (rowstate_tFileInputDelimited_1.getException() != null) {
 								throw rowstate_tFileInputDelimited_1.getException();
@@ -1216,17 +1471,19 @@ public class entreprise_dim implements TalendJob {
 
 						currentComponent = "tFileInputDelimited_1";
 
+						nb_line_tFileInputDelimited_1++;
 					}
+
 				} finally {
-					if (!((Object) ("C:/BI/transparence-sante/data/data.gouv/entreprises.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_1 != null) {
-							fid_tFileInputDelimited_1.close();
+					if (!(filename_tFileInputDelimited_1 instanceof java.io.InputStream)) {
+						if (csvReadertFileInputDelimited_1 != null) {
+							csvReadertFileInputDelimited_1.close();
 						}
 					}
-					if (fid_tFileInputDelimited_1 != null) {
-						globalMap.put("tFileInputDelimited_1_NB_LINE", fid_tFileInputDelimited_1.getRowNumber());
-
+					if (csvReadertFileInputDelimited_1 != null) {
+						globalMap.put("tFileInputDelimited_1_NB_LINE", nb_line_tFileInputDelimited_1);
 					}
+
 				}
 
 				ok_Hash.put("tFileInputDelimited_1", true);
@@ -1766,6 +2023,6 @@ public class entreprise_dim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 55732 characters generated by Talend Open Studio for Data Integration on the
- * 7 janvier 2021 02:52:02 CET
+ * 64782 characters generated by Talend Open Studio for Data Integration on the
+ * 7 janvier 2021 03:45:41 CET
  ************************************************************************************************/

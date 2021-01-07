@@ -42,7 +42,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:JqMsAhyNk/d8D6hGmuhs/o6Yobrv+8KMmmkCYPDX" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:PMlVOUFDsnO1fPb3tIj54Nk9g8WuDK1/fMqivicZ" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -77,7 +77,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:WdwEulPDdWcQhsKL3GoPzFIiOidkD1WiMu5k/iky" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:+2/UII77VpzCA0irVhvPfAMyBs8jA+einUTQ4KDL" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -371,7 +371,7 @@
       <column comment="" key="false" length="29" name="nom_qualite_beneficiaire" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="qualites_remunerations">
         <mapperTableEntries name="qualite_beneficiaire_id" expression="remunerations.benef_qualite_code.equals(&quot;&quot;) ? null : remunerations.benef_qualite_code " type="id_String" nullable="true"/>
@@ -506,7 +506,7 @@
       <column comment="" key="false" length="29" name="nom_qualite_beneficiaire" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="qualites_conventions">
         <mapperTableEntries name="qualite_beneficiaire_id" expression="// qualite code starts with a '['. Always.&#xD;&#xA;// the code is enclosed between braces like so : [CODE]&#xD;&#xA;conventions.benef_qualite_code.equals(&quot;&quot;) ? null : &#xD;&#xD;&#xA;conventions.benef_qualite_code.charAt(0) == '[' ?conventions.benef_qualite_code : null " type="id_String" nullable="true"/>
@@ -1192,7 +1192,7 @@
     <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;"/>
     <elementParameter field="TEXT" name="DBNAME" value="&quot;transparence_sante_bi&quot;"/>
     <elementParameter field="TEXT" name="USER" value="&quot;root&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:vaOJfRojiYdM3q9kgfbisBwOhGjSA/tq9y5ldjvi"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:ApRbGPlaaECJ6R4ZoP1YEjd+N4drH+goPwMUV/94"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;qualite_beneficiaire_dim&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CLEAR"/>
     <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
