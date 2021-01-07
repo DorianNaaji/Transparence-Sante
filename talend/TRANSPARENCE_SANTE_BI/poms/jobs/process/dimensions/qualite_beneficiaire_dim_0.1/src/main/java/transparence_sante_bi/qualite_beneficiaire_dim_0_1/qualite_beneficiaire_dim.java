@@ -509,7 +509,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 
 	}
 
-	public static class row2Struct implements routines.system.IPersistableRow<row2Struct> {
+	public static class qualitesStruct implements routines.system.IPersistableRow<qualitesStruct> {
 		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
 		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
 
@@ -609,7 +609,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(row2Struct other) {
+		public int compareTo(qualitesStruct other) {
 
 			int returnValue = -1;
 
@@ -639,7 +639,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 
 	}
 
-	public static class row4Struct implements routines.system.IPersistableRow<row4Struct> {
+	public static class filteredStruct implements routines.system.IPersistableRow<filteredStruct> {
 		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
 		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
 
@@ -739,7 +739,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(row4Struct other) {
+		public int compareTo(filteredStruct other) {
 
 			int returnValue = -1;
 
@@ -769,7 +769,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 
 	}
 
-	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
+	public static class mergedStruct implements routines.system.IPersistableRow<mergedStruct> {
 		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
 		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_qualite_beneficiaire_dim = new byte[0];
 
@@ -869,7 +869,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(row1Struct other) {
+		public int compareTo(mergedStruct other) {
 
 			int returnValue = -1;
 
@@ -3092,9 +3092,9 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				conventionsStruct conventions = new conventionsStruct();
 				qualites_conventionsStruct qualites_conventions = new qualites_conventionsStruct();
 
-				row1Struct row1 = new row1Struct();
-				row4Struct row4 = new row4Struct();
-				row2Struct row2 = new row2Struct();
+				mergedStruct merged = new mergedStruct();
+				filteredStruct filtered = new filteredStruct();
+				qualitesStruct qualites = new qualitesStruct();
 				row3Struct row3 = new row3Struct();
 
 				/**
@@ -3242,7 +3242,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				currentComponent = "tDBOutput_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row2");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "qualites");
 				}
 
 				int tos_count_tDBOutput_1 = 0;
@@ -3289,7 +3289,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				String dbUser_tDBOutput_1 = "root";
 
 				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:ucbEe6QV0t2+Qe9w9WfqSwf6K+8ogG6H4ZrSCg==");
+						.decryptPassword("enc:routine.encryption.key.v1:iMgJoBJ3gZrj0r27lXkYvhhUlUSGr6Y+HOB4bg==");
 
 				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
 				java.lang.Class.forName(driverClass_tDBOutput_1);
@@ -3330,7 +3330,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				currentComponent = "tUniqRow_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row4");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "filtered");
 				}
 
 				int tos_count_tUniqRow_1 = 0;
@@ -3413,7 +3413,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				currentComponent = "tFilterRow_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row1");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "merged");
 				}
 
 				int tos_count_tFilterRow_1 = 0;
@@ -3475,7 +3475,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 
 				if (execStat) {
 					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "qualites_remunerations",
-							"qualites_conventions", "qualites_avantages");
+							"qualites_avantages", "qualites_conventions");
 				}
 
 				int tos_count_tUnite_1 = 0;
@@ -3866,10 +3866,10 @@ public class qualite_beneficiaire_dim implements TalendJob {
 //////////
 
 // for output
-								row1 = new row1Struct();
+								merged = new mergedStruct();
 
-								row1.qualite_beneficiaire_id = qualites_remunerations.qualite_beneficiaire_id;
-								row1.nom_qualite_beneficiaire = qualites_remunerations.nom_qualite_beneficiaire;
+								merged.qualite_beneficiaire_id = qualites_remunerations.qualite_beneficiaire_id;
+								merged.nom_qualite_beneficiaire = qualites_remunerations.nom_qualite_beneficiaire;
 
 								nb_line_tUnite_1++;
 
@@ -3898,22 +3898,22 @@ public class qualite_beneficiaire_dim implements TalendJob {
 								currentComponent = "tFilterRow_1";
 
 								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1, "row1");
+									runStat.updateStatOnConnection(iterateId, 1, 1, "merged");
 								}
 
-								row4 = null;
+								filtered = null;
 								Operator_tFilterRow_1 ope_tFilterRow_1 = new Operator_tFilterRow_1("&&");
-								ope_tFilterRow_1.matches((row1.qualite_beneficiaire_id != null),
+								ope_tFilterRow_1.matches((merged.qualite_beneficiaire_id != null),
 										"qualite_beneficiaire_id!=null failed");
-								ope_tFilterRow_1.matches((row1.nom_qualite_beneficiaire != null),
+								ope_tFilterRow_1.matches((merged.nom_qualite_beneficiaire != null),
 										"nom_qualite_beneficiaire!=null failed");
 
 								if (ope_tFilterRow_1.getMatchFlag()) {
-									if (row4 == null) {
-										row4 = new row4Struct();
+									if (filtered == null) {
+										filtered = new filteredStruct();
 									}
-									row4.qualite_beneficiaire_id = row1.qualite_beneficiaire_id;
-									row4.nom_qualite_beneficiaire = row1.nom_qualite_beneficiaire;
+									filtered.qualite_beneficiaire_id = merged.qualite_beneficiaire_id;
+									filtered.nom_qualite_beneficiaire = merged.nom_qualite_beneficiaire;
 									nb_line_ok_tFilterRow_1++;
 								} else {
 									nb_line_reject_tFilterRow_1++;
@@ -3936,8 +3936,8 @@ public class qualite_beneficiaire_dim implements TalendJob {
 								/**
 								 * [tFilterRow_1 process_data_begin ] stop
 								 */
-// Start of branch "row4"
-								if (row4 != null) {
+// Start of branch "filtered"
+								if (filtered != null) {
 
 									/**
 									 * [tUniqRow_1 main ] start
@@ -3946,46 +3946,46 @@ public class qualite_beneficiaire_dim implements TalendJob {
 									currentComponent = "tUniqRow_1";
 
 									if (execStat) {
-										runStat.updateStatOnConnection(iterateId, 1, 1, "row4");
+										runStat.updateStatOnConnection(iterateId, 1, 1, "filtered");
 									}
 
-									row2 = null;
-									if (row4.qualite_beneficiaire_id == null) {
+									qualites = null;
+									if (filtered.qualite_beneficiaire_id == null) {
 										finder_tUniqRow_1.qualite_beneficiaire_id = null;
 									} else {
-										finder_tUniqRow_1.qualite_beneficiaire_id = row4.qualite_beneficiaire_id
+										finder_tUniqRow_1.qualite_beneficiaire_id = filtered.qualite_beneficiaire_id
 												.toLowerCase();
 									}
-									if (row4.nom_qualite_beneficiaire == null) {
+									if (filtered.nom_qualite_beneficiaire == null) {
 										finder_tUniqRow_1.nom_qualite_beneficiaire = null;
 									} else {
-										finder_tUniqRow_1.nom_qualite_beneficiaire = row4.nom_qualite_beneficiaire
+										finder_tUniqRow_1.nom_qualite_beneficiaire = filtered.nom_qualite_beneficiaire
 												.toLowerCase();
 									}
 									finder_tUniqRow_1.hashCodeDirty = true;
 									if (!keystUniqRow_1.contains(finder_tUniqRow_1)) {
 										KeyStruct_tUniqRow_1 new_tUniqRow_1 = new KeyStruct_tUniqRow_1();
 
-										if (row4.qualite_beneficiaire_id == null) {
+										if (filtered.qualite_beneficiaire_id == null) {
 											new_tUniqRow_1.qualite_beneficiaire_id = null;
 										} else {
-											new_tUniqRow_1.qualite_beneficiaire_id = row4.qualite_beneficiaire_id
+											new_tUniqRow_1.qualite_beneficiaire_id = filtered.qualite_beneficiaire_id
 													.toLowerCase();
 										}
-										if (row4.nom_qualite_beneficiaire == null) {
+										if (filtered.nom_qualite_beneficiaire == null) {
 											new_tUniqRow_1.nom_qualite_beneficiaire = null;
 										} else {
-											new_tUniqRow_1.nom_qualite_beneficiaire = row4.nom_qualite_beneficiaire
+											new_tUniqRow_1.nom_qualite_beneficiaire = filtered.nom_qualite_beneficiaire
 													.toLowerCase();
 										}
 
 										keystUniqRow_1.add(new_tUniqRow_1);
-										if (row2 == null) {
+										if (qualites == null) {
 
-											row2 = new row2Struct();
+											qualites = new qualitesStruct();
 										}
-										row2.qualite_beneficiaire_id = row4.qualite_beneficiaire_id;
-										row2.nom_qualite_beneficiaire = row4.nom_qualite_beneficiaire;
+										qualites.qualite_beneficiaire_id = filtered.qualite_beneficiaire_id;
+										qualites.nom_qualite_beneficiaire = filtered.nom_qualite_beneficiaire;
 										nb_uniques_tUniqRow_1++;
 									} else {
 										nb_duplicates_tUniqRow_1++;
@@ -4006,8 +4006,8 @@ public class qualite_beneficiaire_dim implements TalendJob {
 									/**
 									 * [tUniqRow_1 process_data_begin ] stop
 									 */
-// Start of branch "row2"
-									if (row2 != null) {
+// Start of branch "qualites"
+									if (qualites != null) {
 
 										/**
 										 * [tDBOutput_1 main ] start
@@ -4016,21 +4016,21 @@ public class qualite_beneficiaire_dim implements TalendJob {
 										currentComponent = "tDBOutput_1";
 
 										if (execStat) {
-											runStat.updateStatOnConnection(iterateId, 1, 1, "row2");
+											runStat.updateStatOnConnection(iterateId, 1, 1, "qualites");
 										}
 
 										row3 = null;
 										whetherReject_tDBOutput_1 = false;
-										if (row2.qualite_beneficiaire_id == null) {
+										if (qualites.qualite_beneficiaire_id == null) {
 											pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(1, row2.qualite_beneficiaire_id);
+											pstmt_tDBOutput_1.setString(1, qualites.qualite_beneficiaire_id);
 										}
 
-										if (row2.nom_qualite_beneficiaire == null) {
+										if (qualites.nom_qualite_beneficiaire == null) {
 											pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(2, row2.nom_qualite_beneficiaire);
+											pstmt_tDBOutput_1.setString(2, qualites.nom_qualite_beneficiaire);
 										}
 
 										pstmt_tDBOutput_1.addBatch();
@@ -4039,8 +4039,8 @@ public class qualite_beneficiaire_dim implements TalendJob {
 										batchSizeCounter_tDBOutput_1++;
 										if (!whetherReject_tDBOutput_1) {
 											row3 = new row3Struct();
-											row3.qualite_beneficiaire_id = row2.qualite_beneficiaire_id;
-											row3.nom_qualite_beneficiaire = row2.nom_qualite_beneficiaire;
+											row3.qualite_beneficiaire_id = qualites.qualite_beneficiaire_id;
+											row3.nom_qualite_beneficiaire = qualites.nom_qualite_beneficiaire;
 										}
 										if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
 											try {
@@ -4176,7 +4176,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 										 * [tDBOutput_1 process_data_end ] stop
 										 */
 
-									} // End of branch "row2"
+									} // End of branch "qualites"
 
 									/**
 									 * [tUniqRow_1 process_data_end ] start
@@ -4188,7 +4188,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 									 * [tUniqRow_1 process_data_end ] stop
 									 */
 
-								} // End of branch "row4"
+								} // End of branch "filtered"
 
 								/**
 								 * [tFilterRow_1 process_data_end ] start
@@ -5137,10 +5137,10 @@ public class qualite_beneficiaire_dim implements TalendJob {
 //////////
 
 // for output
-								row1 = new row1Struct();
+								merged = new mergedStruct();
 
-								row1.qualite_beneficiaire_id = qualites_avantages.qualite_beneficiaire_id;
-								row1.nom_qualite_beneficiaire = qualites_avantages.nom_qualite_beneficiaire;
+								merged.qualite_beneficiaire_id = qualites_avantages.qualite_beneficiaire_id;
+								merged.nom_qualite_beneficiaire = qualites_avantages.nom_qualite_beneficiaire;
 
 								nb_line_tUnite_1++;
 
@@ -5169,22 +5169,22 @@ public class qualite_beneficiaire_dim implements TalendJob {
 								currentComponent = "tFilterRow_1";
 
 								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1, "row1");
+									runStat.updateStatOnConnection(iterateId, 1, 1, "merged");
 								}
 
-								row4 = null;
+								filtered = null;
 								Operator_tFilterRow_1 ope_tFilterRow_1 = new Operator_tFilterRow_1("&&");
-								ope_tFilterRow_1.matches((row1.qualite_beneficiaire_id != null),
+								ope_tFilterRow_1.matches((merged.qualite_beneficiaire_id != null),
 										"qualite_beneficiaire_id!=null failed");
-								ope_tFilterRow_1.matches((row1.nom_qualite_beneficiaire != null),
+								ope_tFilterRow_1.matches((merged.nom_qualite_beneficiaire != null),
 										"nom_qualite_beneficiaire!=null failed");
 
 								if (ope_tFilterRow_1.getMatchFlag()) {
-									if (row4 == null) {
-										row4 = new row4Struct();
+									if (filtered == null) {
+										filtered = new filteredStruct();
 									}
-									row4.qualite_beneficiaire_id = row1.qualite_beneficiaire_id;
-									row4.nom_qualite_beneficiaire = row1.nom_qualite_beneficiaire;
+									filtered.qualite_beneficiaire_id = merged.qualite_beneficiaire_id;
+									filtered.nom_qualite_beneficiaire = merged.nom_qualite_beneficiaire;
 									nb_line_ok_tFilterRow_1++;
 								} else {
 									nb_line_reject_tFilterRow_1++;
@@ -5207,8 +5207,8 @@ public class qualite_beneficiaire_dim implements TalendJob {
 								/**
 								 * [tFilterRow_1 process_data_begin ] stop
 								 */
-// Start of branch "row4"
-								if (row4 != null) {
+// Start of branch "filtered"
+								if (filtered != null) {
 
 									/**
 									 * [tUniqRow_1 main ] start
@@ -5217,46 +5217,46 @@ public class qualite_beneficiaire_dim implements TalendJob {
 									currentComponent = "tUniqRow_1";
 
 									if (execStat) {
-										runStat.updateStatOnConnection(iterateId, 1, 1, "row4");
+										runStat.updateStatOnConnection(iterateId, 1, 1, "filtered");
 									}
 
-									row2 = null;
-									if (row4.qualite_beneficiaire_id == null) {
+									qualites = null;
+									if (filtered.qualite_beneficiaire_id == null) {
 										finder_tUniqRow_1.qualite_beneficiaire_id = null;
 									} else {
-										finder_tUniqRow_1.qualite_beneficiaire_id = row4.qualite_beneficiaire_id
+										finder_tUniqRow_1.qualite_beneficiaire_id = filtered.qualite_beneficiaire_id
 												.toLowerCase();
 									}
-									if (row4.nom_qualite_beneficiaire == null) {
+									if (filtered.nom_qualite_beneficiaire == null) {
 										finder_tUniqRow_1.nom_qualite_beneficiaire = null;
 									} else {
-										finder_tUniqRow_1.nom_qualite_beneficiaire = row4.nom_qualite_beneficiaire
+										finder_tUniqRow_1.nom_qualite_beneficiaire = filtered.nom_qualite_beneficiaire
 												.toLowerCase();
 									}
 									finder_tUniqRow_1.hashCodeDirty = true;
 									if (!keystUniqRow_1.contains(finder_tUniqRow_1)) {
 										KeyStruct_tUniqRow_1 new_tUniqRow_1 = new KeyStruct_tUniqRow_1();
 
-										if (row4.qualite_beneficiaire_id == null) {
+										if (filtered.qualite_beneficiaire_id == null) {
 											new_tUniqRow_1.qualite_beneficiaire_id = null;
 										} else {
-											new_tUniqRow_1.qualite_beneficiaire_id = row4.qualite_beneficiaire_id
+											new_tUniqRow_1.qualite_beneficiaire_id = filtered.qualite_beneficiaire_id
 													.toLowerCase();
 										}
-										if (row4.nom_qualite_beneficiaire == null) {
+										if (filtered.nom_qualite_beneficiaire == null) {
 											new_tUniqRow_1.nom_qualite_beneficiaire = null;
 										} else {
-											new_tUniqRow_1.nom_qualite_beneficiaire = row4.nom_qualite_beneficiaire
+											new_tUniqRow_1.nom_qualite_beneficiaire = filtered.nom_qualite_beneficiaire
 													.toLowerCase();
 										}
 
 										keystUniqRow_1.add(new_tUniqRow_1);
-										if (row2 == null) {
+										if (qualites == null) {
 
-											row2 = new row2Struct();
+											qualites = new qualitesStruct();
 										}
-										row2.qualite_beneficiaire_id = row4.qualite_beneficiaire_id;
-										row2.nom_qualite_beneficiaire = row4.nom_qualite_beneficiaire;
+										qualites.qualite_beneficiaire_id = filtered.qualite_beneficiaire_id;
+										qualites.nom_qualite_beneficiaire = filtered.nom_qualite_beneficiaire;
 										nb_uniques_tUniqRow_1++;
 									} else {
 										nb_duplicates_tUniqRow_1++;
@@ -5277,8 +5277,8 @@ public class qualite_beneficiaire_dim implements TalendJob {
 									/**
 									 * [tUniqRow_1 process_data_begin ] stop
 									 */
-// Start of branch "row2"
-									if (row2 != null) {
+// Start of branch "qualites"
+									if (qualites != null) {
 
 										/**
 										 * [tDBOutput_1 main ] start
@@ -5287,21 +5287,21 @@ public class qualite_beneficiaire_dim implements TalendJob {
 										currentComponent = "tDBOutput_1";
 
 										if (execStat) {
-											runStat.updateStatOnConnection(iterateId, 1, 1, "row2");
+											runStat.updateStatOnConnection(iterateId, 1, 1, "qualites");
 										}
 
 										row3 = null;
 										whetherReject_tDBOutput_1 = false;
-										if (row2.qualite_beneficiaire_id == null) {
+										if (qualites.qualite_beneficiaire_id == null) {
 											pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(1, row2.qualite_beneficiaire_id);
+											pstmt_tDBOutput_1.setString(1, qualites.qualite_beneficiaire_id);
 										}
 
-										if (row2.nom_qualite_beneficiaire == null) {
+										if (qualites.nom_qualite_beneficiaire == null) {
 											pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(2, row2.nom_qualite_beneficiaire);
+											pstmt_tDBOutput_1.setString(2, qualites.nom_qualite_beneficiaire);
 										}
 
 										pstmt_tDBOutput_1.addBatch();
@@ -5310,8 +5310,8 @@ public class qualite_beneficiaire_dim implements TalendJob {
 										batchSizeCounter_tDBOutput_1++;
 										if (!whetherReject_tDBOutput_1) {
 											row3 = new row3Struct();
-											row3.qualite_beneficiaire_id = row2.qualite_beneficiaire_id;
-											row3.nom_qualite_beneficiaire = row2.nom_qualite_beneficiaire;
+											row3.qualite_beneficiaire_id = qualites.qualite_beneficiaire_id;
+											row3.nom_qualite_beneficiaire = qualites.nom_qualite_beneficiaire;
 										}
 										if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
 											try {
@@ -5447,7 +5447,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 										 * [tDBOutput_1 process_data_end ] stop
 										 */
 
-									} // End of branch "row2"
+									} // End of branch "qualites"
 
 									/**
 									 * [tUniqRow_1 process_data_end ] start
@@ -5459,7 +5459,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 									 * [tUniqRow_1 process_data_end ] stop
 									 */
 
-								} // End of branch "row4"
+								} // End of branch "filtered"
 
 								/**
 								 * [tFilterRow_1 process_data_end ] start
@@ -5930,10 +5930,12 @@ public class qualite_beneficiaire_dim implements TalendJob {
 								qualites_conventions = null;
 
 // # Output table : 'qualites_conventions'
-								qualites_conventions_tmp.qualite_beneficiaire_id = conventions.benef_qualite_code
-										.equals("")
-												? null
-												: conventions.benef_qualite_code.charAt(0) == '['
+								qualites_conventions_tmp.qualite_beneficiaire_id = // qualite code starts with a '['.
+																					// Always.
+// the code is enclosed between braces like so : [CODE]
+										conventions.benef_qualite_code.equals("") ? null :
+
+												conventions.benef_qualite_code.charAt(0) == '['
 														? conventions.benef_qualite_code
 														: null;
 								qualites_conventions_tmp.nom_qualite_beneficiaire = conventions.qualite.equals("")
@@ -5977,10 +5979,10 @@ public class qualite_beneficiaire_dim implements TalendJob {
 //////////
 
 // for output
-								row1 = new row1Struct();
+								merged = new mergedStruct();
 
-								row1.qualite_beneficiaire_id = qualites_conventions.qualite_beneficiaire_id;
-								row1.nom_qualite_beneficiaire = qualites_conventions.nom_qualite_beneficiaire;
+								merged.qualite_beneficiaire_id = qualites_conventions.qualite_beneficiaire_id;
+								merged.nom_qualite_beneficiaire = qualites_conventions.nom_qualite_beneficiaire;
 
 								nb_line_tUnite_1++;
 
@@ -6009,22 +6011,22 @@ public class qualite_beneficiaire_dim implements TalendJob {
 								currentComponent = "tFilterRow_1";
 
 								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1, "row1");
+									runStat.updateStatOnConnection(iterateId, 1, 1, "merged");
 								}
 
-								row4 = null;
+								filtered = null;
 								Operator_tFilterRow_1 ope_tFilterRow_1 = new Operator_tFilterRow_1("&&");
-								ope_tFilterRow_1.matches((row1.qualite_beneficiaire_id != null),
+								ope_tFilterRow_1.matches((merged.qualite_beneficiaire_id != null),
 										"qualite_beneficiaire_id!=null failed");
-								ope_tFilterRow_1.matches((row1.nom_qualite_beneficiaire != null),
+								ope_tFilterRow_1.matches((merged.nom_qualite_beneficiaire != null),
 										"nom_qualite_beneficiaire!=null failed");
 
 								if (ope_tFilterRow_1.getMatchFlag()) {
-									if (row4 == null) {
-										row4 = new row4Struct();
+									if (filtered == null) {
+										filtered = new filteredStruct();
 									}
-									row4.qualite_beneficiaire_id = row1.qualite_beneficiaire_id;
-									row4.nom_qualite_beneficiaire = row1.nom_qualite_beneficiaire;
+									filtered.qualite_beneficiaire_id = merged.qualite_beneficiaire_id;
+									filtered.nom_qualite_beneficiaire = merged.nom_qualite_beneficiaire;
 									nb_line_ok_tFilterRow_1++;
 								} else {
 									nb_line_reject_tFilterRow_1++;
@@ -6047,8 +6049,8 @@ public class qualite_beneficiaire_dim implements TalendJob {
 								/**
 								 * [tFilterRow_1 process_data_begin ] stop
 								 */
-// Start of branch "row4"
-								if (row4 != null) {
+// Start of branch "filtered"
+								if (filtered != null) {
 
 									/**
 									 * [tUniqRow_1 main ] start
@@ -6057,46 +6059,46 @@ public class qualite_beneficiaire_dim implements TalendJob {
 									currentComponent = "tUniqRow_1";
 
 									if (execStat) {
-										runStat.updateStatOnConnection(iterateId, 1, 1, "row4");
+										runStat.updateStatOnConnection(iterateId, 1, 1, "filtered");
 									}
 
-									row2 = null;
-									if (row4.qualite_beneficiaire_id == null) {
+									qualites = null;
+									if (filtered.qualite_beneficiaire_id == null) {
 										finder_tUniqRow_1.qualite_beneficiaire_id = null;
 									} else {
-										finder_tUniqRow_1.qualite_beneficiaire_id = row4.qualite_beneficiaire_id
+										finder_tUniqRow_1.qualite_beneficiaire_id = filtered.qualite_beneficiaire_id
 												.toLowerCase();
 									}
-									if (row4.nom_qualite_beneficiaire == null) {
+									if (filtered.nom_qualite_beneficiaire == null) {
 										finder_tUniqRow_1.nom_qualite_beneficiaire = null;
 									} else {
-										finder_tUniqRow_1.nom_qualite_beneficiaire = row4.nom_qualite_beneficiaire
+										finder_tUniqRow_1.nom_qualite_beneficiaire = filtered.nom_qualite_beneficiaire
 												.toLowerCase();
 									}
 									finder_tUniqRow_1.hashCodeDirty = true;
 									if (!keystUniqRow_1.contains(finder_tUniqRow_1)) {
 										KeyStruct_tUniqRow_1 new_tUniqRow_1 = new KeyStruct_tUniqRow_1();
 
-										if (row4.qualite_beneficiaire_id == null) {
+										if (filtered.qualite_beneficiaire_id == null) {
 											new_tUniqRow_1.qualite_beneficiaire_id = null;
 										} else {
-											new_tUniqRow_1.qualite_beneficiaire_id = row4.qualite_beneficiaire_id
+											new_tUniqRow_1.qualite_beneficiaire_id = filtered.qualite_beneficiaire_id
 													.toLowerCase();
 										}
-										if (row4.nom_qualite_beneficiaire == null) {
+										if (filtered.nom_qualite_beneficiaire == null) {
 											new_tUniqRow_1.nom_qualite_beneficiaire = null;
 										} else {
-											new_tUniqRow_1.nom_qualite_beneficiaire = row4.nom_qualite_beneficiaire
+											new_tUniqRow_1.nom_qualite_beneficiaire = filtered.nom_qualite_beneficiaire
 													.toLowerCase();
 										}
 
 										keystUniqRow_1.add(new_tUniqRow_1);
-										if (row2 == null) {
+										if (qualites == null) {
 
-											row2 = new row2Struct();
+											qualites = new qualitesStruct();
 										}
-										row2.qualite_beneficiaire_id = row4.qualite_beneficiaire_id;
-										row2.nom_qualite_beneficiaire = row4.nom_qualite_beneficiaire;
+										qualites.qualite_beneficiaire_id = filtered.qualite_beneficiaire_id;
+										qualites.nom_qualite_beneficiaire = filtered.nom_qualite_beneficiaire;
 										nb_uniques_tUniqRow_1++;
 									} else {
 										nb_duplicates_tUniqRow_1++;
@@ -6117,8 +6119,8 @@ public class qualite_beneficiaire_dim implements TalendJob {
 									/**
 									 * [tUniqRow_1 process_data_begin ] stop
 									 */
-// Start of branch "row2"
-									if (row2 != null) {
+// Start of branch "qualites"
+									if (qualites != null) {
 
 										/**
 										 * [tDBOutput_1 main ] start
@@ -6127,21 +6129,21 @@ public class qualite_beneficiaire_dim implements TalendJob {
 										currentComponent = "tDBOutput_1";
 
 										if (execStat) {
-											runStat.updateStatOnConnection(iterateId, 1, 1, "row2");
+											runStat.updateStatOnConnection(iterateId, 1, 1, "qualites");
 										}
 
 										row3 = null;
 										whetherReject_tDBOutput_1 = false;
-										if (row2.qualite_beneficiaire_id == null) {
+										if (qualites.qualite_beneficiaire_id == null) {
 											pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(1, row2.qualite_beneficiaire_id);
+											pstmt_tDBOutput_1.setString(1, qualites.qualite_beneficiaire_id);
 										}
 
-										if (row2.nom_qualite_beneficiaire == null) {
+										if (qualites.nom_qualite_beneficiaire == null) {
 											pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(2, row2.nom_qualite_beneficiaire);
+											pstmt_tDBOutput_1.setString(2, qualites.nom_qualite_beneficiaire);
 										}
 
 										pstmt_tDBOutput_1.addBatch();
@@ -6150,8 +6152,8 @@ public class qualite_beneficiaire_dim implements TalendJob {
 										batchSizeCounter_tDBOutput_1++;
 										if (!whetherReject_tDBOutput_1) {
 											row3 = new row3Struct();
-											row3.qualite_beneficiaire_id = row2.qualite_beneficiaire_id;
-											row3.nom_qualite_beneficiaire = row2.nom_qualite_beneficiaire;
+											row3.qualite_beneficiaire_id = qualites.qualite_beneficiaire_id;
+											row3.nom_qualite_beneficiaire = qualites.nom_qualite_beneficiaire;
 										}
 										if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
 											try {
@@ -6287,7 +6289,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 										 * [tDBOutput_1 process_data_end ] stop
 										 */
 
-									} // End of branch "row2"
+									} // End of branch "qualites"
 
 									/**
 									 * [tUniqRow_1 process_data_end ] start
@@ -6299,7 +6301,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 									 * [tUniqRow_1 process_data_end ] stop
 									 */
 
-								} // End of branch "row4"
+								} // End of branch "filtered"
 
 								/**
 								 * [tFilterRow_1 process_data_end ] start
@@ -6400,8 +6402,8 @@ public class qualite_beneficiaire_dim implements TalendJob {
 
 				globalMap.put("tUnite_1_NB_LINE", nb_line_tUnite_1);
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "qualites_remunerations", "qualites_conventions",
-							"qualites_avantages");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "qualites_remunerations", "qualites_avantages",
+							"qualites_conventions");
 				}
 
 				ok_Hash.put("tUnite_1", true);
@@ -6422,7 +6424,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				globalMap.put("tFilterRow_1_NB_LINE_REJECT", nb_line_reject_tFilterRow_1);
 
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row1");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "merged");
 				}
 
 				ok_Hash.put("tFilterRow_1", true);
@@ -6442,7 +6444,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				globalMap.put("tUniqRow_1_NB_DUPLICATES", nb_duplicates_tUniqRow_1);
 
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row4");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "filtered");
 				}
 
 				ok_Hash.put("tUniqRow_1", true);
@@ -6515,7 +6517,7 @@ public class qualite_beneficiaire_dim implements TalendJob {
 				globalMap.put("tDBOutput_1_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_1);
 
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row2");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "qualites");
 				}
 
 				ok_Hash.put("tDBOutput_1", true);
@@ -7075,6 +7077,6 @@ public class qualite_beneficiaire_dim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 210611 characters generated by Talend Open Studio for Data Integration on the
- * 6 janvier 2021 18:04:33 CET
+ * 211279 characters generated by Talend Open Studio for Data Integration on the
+ * 7 janvier 2021 03:30:04 CET
  ************************************************************************************************/

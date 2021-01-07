@@ -79,7 +79,7 @@ CREATE TABLE `temps_dim` (
 CREATE TABLE `titre_beneficiaire_dim` (
   `titre_beneficiaire_id` varchar(7) NOT NULL,
   `nom_titre_beneficiaire` varchar(200) NOT NULL,
-  PRIMARY KEY (`titre_beneficiaire_id`)
+  PRIMARY KEY (`titre_beneficiaire_id`, `nom_titre_beneficiaire`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `type_avantage_dim` (
