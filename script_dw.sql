@@ -70,8 +70,8 @@ CREATE TABLE `temps_dim` (
   `annee` int(4) NOT NULL,
   `trimestre` varchar(10) NOT NULL,
   `semestre` varchar(10) NOT NULL,
-  `mois` varchar(7) NOT NULL,
-  `saison` varchar(9) NOT NULL,
+  `mois` varchar(10) NOT NULL,
+  `saison` varchar(10) NOT NULL,
   `numero_jour_mois` int(2) NOT NULL,
   PRIMARY KEY (`date_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
