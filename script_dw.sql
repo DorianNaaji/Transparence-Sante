@@ -83,7 +83,7 @@ CREATE TABLE `titre_beneficiaire_dim` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `type_avantage_dim` (
-  `type_avantage_id` varchar(30) NOT NULL,
+  `type_avantage_id` int(2) NOT NULL,
   `type_avantage_nom` varchar(200) NOT NULL,
   PRIMARY KEY (`type_avantage_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
