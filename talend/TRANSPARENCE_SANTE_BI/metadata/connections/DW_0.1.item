@@ -56,10 +56,10 @@
     </ownedElement>
     <ownedElement xsi:type="relational:TdTable" xmi:id="_K4jpgQmHEeuvUZ6jv3Exkw" name="type_avantage_dim" id="_K4jpgAmHEeuvUZ6jv3Exkw" label="type_avantage_dim" tableType="TABLE">
       <taggedValue xmi:id="_K4jpggmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K4jpgwmHEeuvUZ6jv3Exkw" name="type_avantage_id" label="type_avantage_id" length="30" sourceType="VARCHAR" talendType="id_String" key="true" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K4jpgwmHEeuvUZ6jv3Exkw" name="type_avantage_id" label="type_avantage_id" length="10" sourceType="INT" talendType="id_Integer" key="true" nullable="false">
         <taggedValue xmi:id="_K4jphAmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K4jphQmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
-        <sqlDataType xmi:id="_K4jphgmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
+        <sqlDataType xmi:id="_K4jphgmHEeuvUZ6jv3Exkw" name="INT" numericPrecisionRadix="10" javaDataType="4"/>
       </feature>
       <feature xsi:type="relational:TdColumn" xmi:id="_K4jphwmHEeuvUZ6jv3Exkw" name="type_avantage_nom" label="type_avantage_nom" length="200" sourceType="VARCHAR" talendType="id_String" nullable="false">
         <taggedValue xmi:id="_K4jpiAmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
