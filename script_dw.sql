@@ -41,9 +41,8 @@ CREATE TABLE `evenement_convention_dim` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `objet_convention_dim` (
-  `objet_convention_id` varchar(50) NOT NULL,
+  `objet_convention_id` int(2) NOT NULL,
   `objet_convention` varchar(200) NOT NULL,
-  `objet_convention_autre` varchar(200) NOT NULL,
   PRIMARY KEY (`objet_convention_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -100,7 +99,7 @@ CREATE TABLE `avantage_remuneration_fact` (
   `adresse_entreprise_id` varchar(50) NOT NULL,
   `specialite_beneficiaire_id` varchar(10) NOT NULL,
   `secteur_activite_entreprise_id` varchar(10) NOT NULL,
-  `type_avantage_id` varchar(30) NOT NULL,
+  `type_avantage_id` int(2) NOT NULL,
   `date_id` date NOT NULL,
   `is_avantage` BOOLEAN NOT NULL,
   `montant_ttc`  DECIMAL NULL,
@@ -128,7 +127,7 @@ CREATE TABLE `convention_fact` (
   `adresse_entreprise_id` varchar(50) NOT NULL,
   `specialite_beneficiaire_id` varchar(10) NOT NULL,
   `secteur_activite_entreprise_id` varchar(10) NOT NULL,
-  `objet_convention_id` varchar(50) NOT NULL,
+  `objet_convention_id` int(2) NOT NULL,
   `evenement_convention_id` varchar(50) NOT NULL,
   `date_debut_convention` date NOT NULL,
   `date_fin_convention` date NOT NULL,

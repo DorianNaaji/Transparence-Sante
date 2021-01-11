@@ -366,7 +366,7 @@
     </ownedElement>
     <ownedElement xsi:type="relational:TdTable" xmi:id="_K53REAmHEeuvUZ6jv3Exkw" name="objet_convention_dim" id="_K52qAAmHEeuvUZ6jv3Exkw" label="objet_convention_dim" tableType="TABLE">
       <taggedValue xmi:id="_K53REQmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K53REgmHEeuvUZ6jv3Exkw" name="objet_convention_id" label="objet_convention_id" length="50" sourceType="VARCHAR" talendType="id_String" key="true" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K53REgmHEeuvUZ6jv3Exkw" name="objet_convention_id" label="objet_convention_id" length="-1" sourceType="INT" talendType="id_Integer" key="true" nullable="false">
         <taggedValue xmi:id="_K53REwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K53RFAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K53RFQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
@@ -375,11 +375,6 @@
         <taggedValue xmi:id="_K53RFwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K53RGAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K53RGQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
-      </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K53RGgmHEeuvUZ6jv3Exkw" name="objet_convention_autre" label="objet_convention_autre" length="200" sourceType="VARCHAR" talendType="id_String" nullable="false">
-        <taggedValue xmi:id="_K53RGwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
-        <initialValue xsi:type="relational:TdExpression" xmi:id="_K53RHAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
-        <sqlDataType xmi:id="_K53RHQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
       </feature>
     </ownedElement>
     <ownedElement xsi:type="relational:TdTable" xmi:id="_K59XsQmHEeuvUZ6jv3Exkw" name="evenement_convention_dim" id="_K59XsAmHEeuvUZ6jv3Exkw" label="evenement_convention_dim" tableType="TABLE">
