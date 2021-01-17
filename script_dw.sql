@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS transparence_sante_bi;
 CREATE DATABASE `transparence_sante_bi` DEFAULT CHARACTER SET utf8 ;
 USE transparence_sante_bi;
 CREATE TABLE `adresse_dim` (
-  `adresse_id` varchar(50) NOT NULL,
+  `adresse_id` varchar(200) NOT NULL,
   `ville` varchar(200) NOT NULL,
   `code_postal` varchar(200) NOT NULL,
   `departement` varchar(200) NOT NULL,
@@ -95,8 +95,8 @@ CREATE TABLE `avantage_remuneration_fact` (
   `categorie_beneficiaire_id` varchar(5) NOT NULL,
   `qualite_beneficiaire_id` varchar(5) NOT NULL,
   `titre_beneficiaire_id` varchar(7) NOT NULL,
-  `adresse_beneficiaire_id` varchar(50) NOT NULL,
-  `adresse_entreprise_id` varchar(50) NOT NULL,
+  `adresse_beneficiaire_id` varchar(200) NOT NULL,
+  `adresse_entreprise_id` varchar(200) NOT NULL,
   `specialite_beneficiaire_id` varchar(10) NOT NULL,
   `secteur_activite_entreprise_id` varchar(10) NOT NULL,
   `type_avantage_id` int(2) NOT NULL,
@@ -123,8 +123,8 @@ CREATE TABLE `convention_fact` (
   `categorie_beneficiaire_id` varchar(5) NOT NULL,
   `qualite_beneficiaire_id` varchar(5) NOT NULL,
   `titre_beneficiaire_id` varchar(7) NOT NULL,
-  `adresse_beneficiaire_id` varchar(50) NOT NULL,
-  `adresse_entreprise_id` varchar(50) NOT NULL,
+  `adresse_beneficiaire_id` varchar(200) NOT NULL,
+  `adresse_entreprise_id` varchar(200) NOT NULL,
   `specialite_beneficiaire_id` varchar(10) NOT NULL,
   `secteur_activite_entreprise_id` varchar(10) NOT NULL,
   `objet_convention_id` int(2) NOT NULL,

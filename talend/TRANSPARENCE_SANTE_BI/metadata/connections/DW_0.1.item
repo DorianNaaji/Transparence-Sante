@@ -18,7 +18,7 @@
   <orgomg.cwm.resource.relational:Catalog xmi:id="_FZq-8AmHEeuvUZ6jv3Exkw" name="transparence_sante_bi" dataManager="__qCioAmGEeuvUZ6jv3Exkw">
     <ownedElement xsi:type="relational:TdTable" xmi:id="_K4YDUAmHEeuvUZ6jv3Exkw" name="adresse_dim" id="_K4VAAAmHEeuvUZ6jv3Exkw" label="adresse_dim" tableType="TABLE">
       <taggedValue xmi:id="_K4YDUQmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K4YDUgmHEeuvUZ6jv3Exkw" name="adresse_id" label="adresse_id" length="50" sourceType="VARCHAR" talendType="id_String" key="true" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K4YDUgmHEeuvUZ6jv3Exkw" name="adresse_id" label="adresse_id" length="200" sourceType="VARCHAR" talendType="id_String" key="true" nullable="false">
         <taggedValue xmi:id="_K4YDUwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K4YDVAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K4YDVQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
