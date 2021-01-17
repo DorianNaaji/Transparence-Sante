@@ -11,6 +11,6 @@ public class AdressesCleanerV2 {
 	
     private static String normalizeField(String toNormalize)
     {
-    	return (Normalizer.normalize(toNormalize.toLowerCase(), Normalizer.Form.NFD)).replace("cedex", "").replace("cdx", "").replace("-", "").replace(" ", "").trim(); 
+    	return Normalizer.normalize(toNormalize.toLowerCase(), Normalizer.Form.NFD).trim(); 
     }
 }
