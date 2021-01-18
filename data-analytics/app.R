@@ -1,4 +1,12 @@
+install.packages("anyLib")
+anyLib::anyLib(c("shiny", "shinydashboard", "shinyWidgets", "DT", "plotly", "ggplot2", "googleVis", "colourpicker"))
+
+library(shiny)
+library(shinydashboard)
+
+
 options(shiny.maxRequestSize=1000*1024^2)
+
 
 ################################################################################
 # UI
@@ -69,20 +77,9 @@ ui <- dashboardPage(
               dataTableOutput('dataTable'),
               h2("Graphiques"),
               fluidRow(
-                column(4, plotOutput("plotAvecR")),
-                column(4, colourpicker::colourInput("colR", "Couleur graphique R", "black",allowTransparent = T),
-                       sliderInput("cex", "Taille",
-                                   min = 0.5, max = 3,
-                                   value = 1,step = 0.2
-                       )),
-                column(4, selectInput(inputId = "pch", choices = 1:20, label = "Type de points",selected = 1),
-                       textInput("title", "Titre", "Sepal length vs Petal length (R)") )
-              ),
-              tags$br(), 
-              fluidRow(
-                column(4, plotOutput("plotAvecGgplot2")),
-                column(4, plotlyOutput("plotAvecPlotly")),
-                column(4, htmlOutput("plotAvecGoogle"))
+                plotOutput("plotAvecGgplot2"),
+                plotOutput("plotIdType")
+
               )
       )
     )
@@ -129,6 +126,8 @@ server <- function(input, output, session) {
         type = "success"
       )
       
+      options = list(scrollX = TRUE , dom = 't')
+      
       updateTabItems(session, "tabs", selected = "visualization")
     }
     
@@ -139,15 +138,51 @@ server <- function(input, output, session) {
   #=============================================================================
   
   output$dataTable = DT::renderDataTable({
-    print(is)
     if(!is.null(data$table)){
-      datatable(data$table, filter = 'top') %>% 
-        formatStyle('remu_montant_ttc', 
-                    background = styleColorBar(data$table$remu_montant_ttc, 'lightcoral'),
-                    backgroundSize = '100% 90%',
-                    backgroundRepeat = 'no-repeat',
-                    backgroundPosition = 'center'
+      datatable(data$table, filter = 'top', options = list(scrollX = TRUE , dom = 't')) %>% 
+        formatStyle(
+          'identifiant_type',
+          backgroundColor = styleEqual(
+            unique(data$table$identifiant_type), c('lightblue', 'lightgreen', 'lavender', 'red', 'green')
+          )
         )
+    }else {
+      NULL
+    }
+  })
+  
+  #=============================================================================
+  # Graphiques
+  #=============================================================================
+  output$plotAvecGgplot2 <- renderPlot({
+    if(!is.null(data$table)){
+
+      list_country_amount <- aggregate(data$table$remu_montant_ttc, by=list(Pays = data$table$benef_pays_code), FUN=sum)
+
+        ggplot(data = list_country_amount, 
+               aes(x=Pays, y=x,  fill=factor(Pays))) + 
+          geom_bar(position = "dodge", stat = "identity") + ylab("Montant (en Euros)") + 
+          xlab("Pays") + theme(legend.position="bottom" 
+                               ,plot.title = element_text(size=15, face="bold")) + 
+          ggtitle("Montant de la rémunération par pays") + labs(fill = "Pays")
+      
+    }else {
+      NULL
+    }
+  })
+  
+  output$plotIdType <- renderPlot({
+    if(!is.null(data$table)){
+      
+      list_idtype_amount <- aggregate(data$table$remu_montant_ttc, by=list(Type = data$table$identifiant_type), FUN=sum)
+
+      ggplot(data = list_idtype_amount, 
+             aes(x=Type, y=x,  fill=factor(Type))) + 
+        geom_bar(position = "dodge", stat = "identity") + ylab("Montant (en Euros)") + 
+        xlab("Type") + theme(legend.position="bottom" 
+                             ,plot.title = element_text(size=15, face="bold")) + 
+        ggtitle("Montant de la rémunération par type de l'identifiant") + labs(fill = "Type")
+      
     }else {
       NULL
     }
