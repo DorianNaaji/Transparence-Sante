@@ -12,10 +12,6 @@
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_xTSIuVjIEeuBsqF93yid1w" label="admin_code2" length="7" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_xTSIuljIEeuBsqF93yid1w" label="admin_name3" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_xTSIu1jIEeuBsqF93yid1w" label="admin_code3" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_xTSIvFjIEeuBsqF93yid1w" label="latitude" length="8" precision="5" talendType="id_Double" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_xTSIvVjIEeuBsqF93yid1w" label="longitude" length="8" precision="5" talendType="id_Double" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_xTSIvljIEeuBsqF93yid1w" label="accuracy" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_xTSIv1jIEeuBsqF93yid1w" label="coordinates" length="17" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
     </ownedElement>
   </orgomg.cwm.resource.record:RecordFile>
 </xmi:XMI>

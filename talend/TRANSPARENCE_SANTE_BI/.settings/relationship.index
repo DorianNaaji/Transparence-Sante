@@ -347,6 +347,10 @@
     "id" : "_suYI4AmREeuo66iw6Iwaqw - remunerations",
     "version" : "Latest",
     "type" : "schema"
+  }, {
+    "id" : "_xTNQMFjIEeuBsqF93yid1w - metadata",
+    "version" : "Latest",
+    "type" : "schema"
   } ]
 }, {
   "baseItem" : {
