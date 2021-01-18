@@ -77,9 +77,11 @@ ui <- dashboardPage(
               dataTableOutput('dataTable'),
               h2("Graphiques"),
               fluidRow(
-                plotOutput("plotAvecGgplot2"),
-                plotOutput("plotIdType")
-
+                plotOutput("plotCountryAmount"),
+                plotOutput("plotIdTypeAmount"),
+                plotOutput("plotQualiteAmount"),
+                plotOutput("plotPayseMeanAmount")
+                
               )
       )
     )
@@ -154,7 +156,7 @@ server <- function(input, output, session) {
   #=============================================================================
   # Graphiques
   #=============================================================================
-  output$plotAvecGgplot2 <- renderPlot({
+  output$plotCountryAmount <- renderPlot({
     if(!is.null(data$table)){
 
       list_country_amount <- aggregate(data$table$remu_montant_ttc, by=list(Pays = data$table$benef_pays_code), FUN=sum)
@@ -164,14 +166,14 @@ server <- function(input, output, session) {
           geom_bar(position = "dodge", stat = "identity") + ylab("Montant (en Euros)") + 
           xlab("Pays") + theme(legend.position="bottom" 
                                ,plot.title = element_text(size=15, face="bold")) + 
-          ggtitle("Montant de la rémunération par pays") + labs(fill = "Pays")
+          ggtitle("Montant de la rémunération en fonction pays") + labs(fill = "Pays")
       
     }else {
       NULL
     }
   })
   
-  output$plotIdType <- renderPlot({
+  output$plotIdTypeAmount <- renderPlot({
     if(!is.null(data$table)){
       
       list_idtype_amount <- aggregate(data$table$remu_montant_ttc, by=list(Type = data$table$identifiant_type), FUN=sum)
@@ -181,7 +183,46 @@ server <- function(input, output, session) {
         geom_bar(position = "dodge", stat = "identity") + ylab("Montant (en Euros)") + 
         xlab("Type") + theme(legend.position="bottom" 
                              ,plot.title = element_text(size=15, face="bold")) + 
-        ggtitle("Montant de la rémunération par type de l'identifiant") + labs(fill = "Type")
+        ggtitle("Montant de la rémunération en fonction du type de l'identifiant du bénéficiaire") + labs(fill = "Type")
+      
+    }else {
+      NULL
+    }
+  })
+  
+  output$plotQualiteAmount <- renderPlot({
+    if(!is.null(data$table)){
+      
+      list_qualite_amount <- aggregate(data$table$remu_montant_ttc, by=list(Qualite = data$table$qualite), FUN=sum)
+      print(list_qualite_amount[1, ])
+      #list_qualite_amount[1, 1] <- 0 pour supprimer le montant pour la qualité = "Autre"
+      list_qualite_amount[1, 2] <- 0
+      #list_qualite_amount[1, 1] <- NULL
+      #list_qualite_amount[1, 2] <- NULL
+
+      ggplot(data = list_qualite_amount, 
+             aes(x=Qualite, y=x,  fill=factor(Qualite))) + 
+        geom_bar(position = "dodge", stat = "identity") + ylab("Montant (en Euros)") + 
+        xlab("Qualite") + theme(legend.position="bottom" 
+                             ,plot.title = element_text(size=15, face="bold")) +
+        ggtitle("Montant de la rémunération en fonction de la qualité du bénéficiaire") + labs(fill = "Qualite")
+      
+    }else {
+      NULL
+    }
+  })
+  
+  output$plotPayseMeanAmount <- renderPlot({
+    if(!is.null(data$table)){
+      
+      list_qualite_amount <- aggregate(data$table$remu_montant_ttc, by=list(Pays = data$table$benef_pays_code), FUN=mean)
+      
+      ggplot(data = list_qualite_amount, 
+             aes(x=Pays, y=x,  fill=factor(Pays))) + 
+        geom_bar(position = "dodge", stat = "identity") + ylab("Montant (en Euros)") + 
+        xlab("Pays") + theme(legend.position="bottom" 
+                                ,plot.title = element_text(size=15, face="bold")) +
+        ggtitle("Moyenne du montant de la rémunération en fonction du pays") + labs(fill = "Pays")
       
     }else {
       NULL
