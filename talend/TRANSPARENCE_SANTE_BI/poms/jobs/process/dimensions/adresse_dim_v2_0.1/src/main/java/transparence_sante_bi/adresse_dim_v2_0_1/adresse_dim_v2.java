@@ -281,8 +281,8 @@ public class adresse_dim_v2 implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tMap_3_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
-			throws TalendException {
+	public void tUnite_1_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
 
@@ -291,8 +291,8 @@ public class adresse_dim_v2 implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tUnite_1_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
+	public void tMap_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
+			throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
 
@@ -321,6 +321,26 @@ public class adresse_dim_v2 implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tFileInputDelimited_2_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tMap_3_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tFileInputDelimited_3_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -331,27 +351,7 @@ public class adresse_dim_v2 implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tFileInputDelimited_2_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tMap_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
-			throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tAdvancedHash_row3_error(Exception exception, String errorComponent,
+	public void tAdvancedHash_dep_region_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -369,15 +369,7 @@ public class adresse_dim_v2 implements TalendJob {
 
 	}
 
-	public void tFileInputDelimited_2_onSubJobError(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
-				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
-
-	}
-
-	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
+	public static class adresses_uniqueStruct implements routines.system.IPersistableRow<adresses_uniqueStruct> {
 		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
 		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
 		protected static final int DEFAULT_HASHCODE = 1;
@@ -451,7 +443,7 @@ public class adresse_dim_v2 implements TalendJob {
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
-			final row1Struct other = (row1Struct) obj;
+			final adresses_uniqueStruct other = (adresses_uniqueStruct) obj;
 
 			if (this.adresse_id == null) {
 				if (other.adresse_id != null)
@@ -464,7 +456,7 @@ public class adresse_dim_v2 implements TalendJob {
 			return true;
 		}
 
-		public void copyDataTo(row1Struct other) {
+		public void copyDataTo(adresses_uniqueStruct other) {
 
 			other.adresse_id = this.adresse_id;
 			other.ville = this.ville;
@@ -476,7 +468,7 @@ public class adresse_dim_v2 implements TalendJob {
 
 		}
 
-		public void copyKeysDataTo(row1Struct other) {
+		public void copyKeysDataTo(adresses_uniqueStruct other) {
 
 			other.adresse_id = this.adresse_id;
 
@@ -600,7 +592,7 @@ public class adresse_dim_v2 implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(row1Struct other) {
+		public int compareTo(adresses_uniqueStruct other) {
 
 			int returnValue = -1;
 
@@ -635,7 +627,7 @@ public class adresse_dim_v2 implements TalendJob {
 
 	}
 
-	public static class row2Struct implements routines.system.IPersistableRow<row2Struct> {
+	public static class adresses_with_depStruct implements routines.system.IPersistableRow<adresses_with_depStruct> {
 		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
 		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
 		protected static final int DEFAULT_HASHCODE = 1;
@@ -709,7 +701,7 @@ public class adresse_dim_v2 implements TalendJob {
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
-			final row2Struct other = (row2Struct) obj;
+			final adresses_with_depStruct other = (adresses_with_depStruct) obj;
 
 			if (this.adresse_id == null) {
 				if (other.adresse_id != null)
@@ -722,7 +714,7 @@ public class adresse_dim_v2 implements TalendJob {
 			return true;
 		}
 
-		public void copyDataTo(row2Struct other) {
+		public void copyDataTo(adresses_with_depStruct other) {
 
 			other.adresse_id = this.adresse_id;
 			other.ville = this.ville;
@@ -734,7 +726,7 @@ public class adresse_dim_v2 implements TalendJob {
 
 		}
 
-		public void copyKeysDataTo(row2Struct other) {
+		public void copyKeysDataTo(adresses_with_depStruct other) {
 
 			other.adresse_id = this.adresse_id;
 
@@ -858,7 +850,7 @@ public class adresse_dim_v2 implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(row2Struct other) {
+		public int compareTo(adresses_with_depStruct other) {
 
 			int returnValue = -1;
 
@@ -893,7 +885,202 @@ public class adresse_dim_v2 implements TalendJob {
 
 	}
 
-	public static class with_depStruct implements routines.system.IPersistableRow<with_depStruct> {
+	public static class adresses_mergedStruct implements routines.system.IPersistableRow<adresses_mergedStruct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
+
+		public String adresse_id;
+
+		public String getAdresse_id() {
+			return this.adresse_id;
+		}
+
+		public String ville;
+
+		public String getVille() {
+			return this.ville;
+		}
+
+		public String code_postal;
+
+		public String getCode_postal() {
+			return this.code_postal;
+		}
+
+		public String departement;
+
+		public String getDepartement() {
+			return this.departement;
+		}
+
+		public String region;
+
+		public String getRegion() {
+			return this.region;
+		}
+
+		public String pays_code;
+
+		public String getPays_code() {
+			return this.pays_code;
+		}
+
+		public String pays;
+
+		public String getPays() {
+			return this.pays;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2) {
+
+				try {
+
+					int length = 0;
+
+					this.adresse_id = readString(dis);
+
+					this.ville = readString(dis);
+
+					this.code_postal = readString(dis);
+
+					this.departement = readString(dis);
+
+					this.region = readString(dis);
+
+					this.pays_code = readString(dis);
+
+					this.pays = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.adresse_id, dos);
+
+				// String
+
+				writeString(this.ville, dos);
+
+				// String
+
+				writeString(this.code_postal, dos);
+
+				// String
+
+				writeString(this.departement, dos);
+
+				// String
+
+				writeString(this.region, dos);
+
+				// String
+
+				writeString(this.pays_code, dos);
+
+				// String
+
+				writeString(this.pays, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("adresse_id=" + adresse_id);
+			sb.append(",ville=" + ville);
+			sb.append(",code_postal=" + code_postal);
+			sb.append(",departement=" + departement);
+			sb.append(",region=" + region);
+			sb.append(",pays_code=" + pays_code);
+			sb.append(",pays=" + pays);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(adresses_mergedStruct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class adresses_remunerationStruct
+			implements routines.system.IPersistableRow<adresses_remunerationStruct> {
 		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
 		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
 		protected static final int DEFAULT_HASHCODE = 1;
@@ -967,7 +1154,7 @@ public class adresse_dim_v2 implements TalendJob {
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
-			final with_depStruct other = (with_depStruct) obj;
+			final adresses_remunerationStruct other = (adresses_remunerationStruct) obj;
 
 			if (this.adresse_id == null) {
 				if (other.adresse_id != null)
@@ -980,7 +1167,7 @@ public class adresse_dim_v2 implements TalendJob {
 			return true;
 		}
 
-		public void copyDataTo(with_depStruct other) {
+		public void copyDataTo(adresses_remunerationStruct other) {
 
 			other.adresse_id = this.adresse_id;
 			other.ville = this.ville;
@@ -992,7 +1179,7 @@ public class adresse_dim_v2 implements TalendJob {
 
 		}
 
-		public void copyKeysDataTo(with_depStruct other) {
+		public void copyKeysDataTo(adresses_remunerationStruct other) {
 
 			other.adresse_id = this.adresse_id;
 
@@ -1116,7 +1303,7 @@ public class adresse_dim_v2 implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(with_depStruct other) {
+		public int compareTo(adresses_remunerationStruct other) {
 
 			int returnValue = -1;
 
@@ -1124,201 +1311,6 @@ public class adresse_dim_v2 implements TalendJob {
 			if (returnValue != 0) {
 				return returnValue;
 			}
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class adresses_remunerationsStruct
-			implements routines.system.IPersistableRow<adresses_remunerationsStruct> {
-		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
-		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
-
-		public String adresse_id;
-
-		public String getAdresse_id() {
-			return this.adresse_id;
-		}
-
-		public String ville;
-
-		public String getVille() {
-			return this.ville;
-		}
-
-		public String code_postal;
-
-		public String getCode_postal() {
-			return this.code_postal;
-		}
-
-		public String departement;
-
-		public String getDepartement() {
-			return this.departement;
-		}
-
-		public String region;
-
-		public String getRegion() {
-			return this.region;
-		}
-
-		public String pays_code;
-
-		public String getPays_code() {
-			return this.pays_code;
-		}
-
-		public String pays;
-
-		public String getPays() {
-			return this.pays;
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2.length) {
-					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2.length == 0) {
-						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[1024];
-					} else {
-						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2, 0, length);
-				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2) {
-
-				try {
-
-					int length = 0;
-
-					this.adresse_id = readString(dis);
-
-					this.ville = readString(dis);
-
-					this.code_postal = readString(dis);
-
-					this.departement = readString(dis);
-
-					this.region = readString(dis);
-
-					this.pays_code = readString(dis);
-
-					this.pays = readString(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.adresse_id, dos);
-
-				// String
-
-				writeString(this.ville, dos);
-
-				// String
-
-				writeString(this.code_postal, dos);
-
-				// String
-
-				writeString(this.departement, dos);
-
-				// String
-
-				writeString(this.region, dos);
-
-				// String
-
-				writeString(this.pays_code, dos);
-
-				// String
-
-				writeString(this.pays, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("adresse_id=" + adresse_id);
-			sb.append(",ville=" + ville);
-			sb.append(",code_postal=" + code_postal);
-			sb.append(",departement=" + departement);
-			sb.append(",region=" + region);
-			sb.append(",pays_code=" + pays_code);
-			sb.append(",pays=" + pays);
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(adresses_remunerationsStruct other) {
-
-			int returnValue = -1;
 
 			return returnValue;
 		}
@@ -2473,6 +2465,524 @@ public class adresse_dim_v2 implements TalendJob {
 
 	}
 
+	public static class adresses_entreprisesStruct
+			implements routines.system.IPersistableRow<adresses_entreprisesStruct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
+		protected static final int DEFAULT_HASHCODE = 1;
+		protected static final int PRIME = 31;
+		protected int hashCode = DEFAULT_HASHCODE;
+		public boolean hashCodeDirty = true;
+
+		public String loopKey;
+
+		public String adresse_id;
+
+		public String getAdresse_id() {
+			return this.adresse_id;
+		}
+
+		public String ville;
+
+		public String getVille() {
+			return this.ville;
+		}
+
+		public String code_postal;
+
+		public String getCode_postal() {
+			return this.code_postal;
+		}
+
+		public String departement;
+
+		public String getDepartement() {
+			return this.departement;
+		}
+
+		public String region;
+
+		public String getRegion() {
+			return this.region;
+		}
+
+		public String pays_code;
+
+		public String getPays_code() {
+			return this.pays_code;
+		}
+
+		public String pays;
+
+		public String getPays() {
+			return this.pays;
+		}
+
+		@Override
+		public int hashCode() {
+			if (this.hashCodeDirty) {
+				final int prime = PRIME;
+				int result = DEFAULT_HASHCODE;
+
+				result = prime * result + ((this.adresse_id == null) ? 0 : this.adresse_id.hashCode());
+
+				this.hashCode = result;
+				this.hashCodeDirty = false;
+			}
+			return this.hashCode;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			final adresses_entreprisesStruct other = (adresses_entreprisesStruct) obj;
+
+			if (this.adresse_id == null) {
+				if (other.adresse_id != null)
+					return false;
+
+			} else if (!this.adresse_id.equals(other.adresse_id))
+
+				return false;
+
+			return true;
+		}
+
+		public void copyDataTo(adresses_entreprisesStruct other) {
+
+			other.adresse_id = this.adresse_id;
+			other.ville = this.ville;
+			other.code_postal = this.code_postal;
+			other.departement = this.departement;
+			other.region = this.region;
+			other.pays_code = this.pays_code;
+			other.pays = this.pays;
+
+		}
+
+		public void copyKeysDataTo(adresses_entreprisesStruct other) {
+
+			other.adresse_id = this.adresse_id;
+
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2) {
+
+				try {
+
+					int length = 0;
+
+					this.adresse_id = readString(dis);
+
+					this.ville = readString(dis);
+
+					this.code_postal = readString(dis);
+
+					this.departement = readString(dis);
+
+					this.region = readString(dis);
+
+					this.pays_code = readString(dis);
+
+					this.pays = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.adresse_id, dos);
+
+				// String
+
+				writeString(this.ville, dos);
+
+				// String
+
+				writeString(this.code_postal, dos);
+
+				// String
+
+				writeString(this.departement, dos);
+
+				// String
+
+				writeString(this.region, dos);
+
+				// String
+
+				writeString(this.pays_code, dos);
+
+				// String
+
+				writeString(this.pays, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("adresse_id=" + adresse_id);
+			sb.append(",ville=" + ville);
+			sb.append(",code_postal=" + code_postal);
+			sb.append(",departement=" + departement);
+			sb.append(",region=" + region);
+			sb.append(",pays_code=" + pays_code);
+			sb.append(",pays=" + pays);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(adresses_entreprisesStruct other) {
+
+			int returnValue = -1;
+
+			returnValue = checkNullsAndCompare(this.adresse_id, other.adresse_id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class entreprisesStruct implements routines.system.IPersistableRow<entreprisesStruct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
+
+		public String identifiant;
+
+		public String getIdentifiant() {
+			return this.identifiant;
+		}
+
+		public String pays_code;
+
+		public String getPays_code() {
+			return this.pays_code;
+		}
+
+		public String pays;
+
+		public String getPays() {
+			return this.pays;
+		}
+
+		public String secteur_activite_code;
+
+		public String getSecteur_activite_code() {
+			return this.secteur_activite_code;
+		}
+
+		public String secteur;
+
+		public String getSecteur() {
+			return this.secteur;
+		}
+
+		public String denomination_sociale;
+
+		public String getDenomination_sociale() {
+			return this.denomination_sociale;
+		}
+
+		public String adresse_1;
+
+		public String getAdresse_1() {
+			return this.adresse_1;
+		}
+
+		public String adresse_2;
+
+		public String getAdresse_2() {
+			return this.adresse_2;
+		}
+
+		public String adresse_3;
+
+		public String getAdresse_3() {
+			return this.adresse_3;
+		}
+
+		public String adresse_4;
+
+		public String getAdresse_4() {
+			return this.adresse_4;
+		}
+
+		public String code_postal;
+
+		public String getCode_postal() {
+			return this.code_postal;
+		}
+
+		public String ville;
+
+		public String getVille() {
+			return this.ville;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2) {
+
+				try {
+
+					int length = 0;
+
+					this.identifiant = readString(dis);
+
+					this.pays_code = readString(dis);
+
+					this.pays = readString(dis);
+
+					this.secteur_activite_code = readString(dis);
+
+					this.secteur = readString(dis);
+
+					this.denomination_sociale = readString(dis);
+
+					this.adresse_1 = readString(dis);
+
+					this.adresse_2 = readString(dis);
+
+					this.adresse_3 = readString(dis);
+
+					this.adresse_4 = readString(dis);
+
+					this.code_postal = readString(dis);
+
+					this.ville = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.identifiant, dos);
+
+				// String
+
+				writeString(this.pays_code, dos);
+
+				// String
+
+				writeString(this.pays, dos);
+
+				// String
+
+				writeString(this.secteur_activite_code, dos);
+
+				// String
+
+				writeString(this.secteur, dos);
+
+				// String
+
+				writeString(this.denomination_sociale, dos);
+
+				// String
+
+				writeString(this.adresse_1, dos);
+
+				// String
+
+				writeString(this.adresse_2, dos);
+
+				// String
+
+				writeString(this.adresse_3, dos);
+
+				// String
+
+				writeString(this.adresse_4, dos);
+
+				// String
+
+				writeString(this.code_postal, dos);
+
+				// String
+
+				writeString(this.ville, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("identifiant=" + identifiant);
+			sb.append(",pays_code=" + pays_code);
+			sb.append(",pays=" + pays);
+			sb.append(",secteur_activite_code=" + secteur_activite_code);
+			sb.append(",secteur=" + secteur);
+			sb.append(",denomination_sociale=" + denomination_sociale);
+			sb.append(",adresse_1=" + adresse_1);
+			sb.append(",adresse_2=" + adresse_2);
+			sb.append(",adresse_3=" + adresse_3);
+			sb.append(",adresse_4=" + adresse_4);
+			sb.append(",code_postal=" + code_postal);
+			sb.append(",ville=" + ville);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(entreprisesStruct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
 	public void tFileInputDelimited_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
 		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 0);
 
@@ -2496,11 +3006,14 @@ public class adresse_dim_v2 implements TalendJob {
 				tFileInputDelimited_3Process(globalMap);
 
 				remunerationsStruct remunerations = new remunerationsStruct();
-				adresses_remunerationsStruct adresses_remunerations = new adresses_remunerationsStruct();
-				with_depStruct with_dep = new with_depStruct();
+				adresses_remunerationStruct adresses_remuneration = new adresses_remunerationStruct();
 
-				row2Struct row2 = new row2Struct();
-				row1Struct row1 = new row1Struct();
+				entreprisesStruct entreprises = new entreprisesStruct();
+				adresses_entreprisesStruct adresses_entreprises = new adresses_entreprisesStruct();
+
+				adresses_mergedStruct adresses_merged = new adresses_mergedStruct();
+				adresses_with_depStruct adresses_with_dep = new adresses_with_depStruct();
+				adresses_uniqueStruct adresses_unique = new adresses_uniqueStruct();
 
 				/**
 				 * [tDBOutput_1 begin ] start
@@ -2512,7 +3025,7 @@ public class adresse_dim_v2 implements TalendJob {
 				currentComponent = "tDBOutput_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row1");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "adresses_unique");
 				}
 
 				int tos_count_tDBOutput_1 = 0;
@@ -2559,7 +3072,7 @@ public class adresse_dim_v2 implements TalendJob {
 				String dbUser_tDBOutput_1 = "root";
 
 				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:DSR4iaE43AX7BKaSXaBPrORQgEmnLH+ufnq9Zg==");
+						.decryptPassword("enc:routine.encryption.key.v1:FdRJiZCIIZu9oKQ58voTqdkYDwftLM6MvwF1BA==");
 
 				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
 				java.lang.Class.forName(driverClass_tDBOutput_1);
@@ -2600,7 +3113,7 @@ public class adresse_dim_v2 implements TalendJob {
 				currentComponent = "tUniqRow_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row2");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "adresses_with_dep");
 				}
 
 				int tos_count_tUniqRow_1 = 0;
@@ -2661,6 +3174,47 @@ public class adresse_dim_v2 implements TalendJob {
 				 */
 
 				/**
+				 * [tMap_1 begin ] start
+				 */
+
+				ok_Hash.put("tMap_1", false);
+				start_Hash.put("tMap_1", System.currentTimeMillis());
+
+				currentComponent = "tMap_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "adresses_merged");
+				}
+
+				int tos_count_tMap_1 = 0;
+
+// ###############################
+// # Lookup's keys initialization
+
+				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<dep_regionStruct> tHash_Lookup_dep_region = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<dep_regionStruct>) ((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<dep_regionStruct>) globalMap
+						.get("tHash_Lookup_dep_region"));
+
+				dep_regionStruct dep_regionHashKey = new dep_regionStruct();
+				dep_regionStruct dep_regionDefault = new dep_regionStruct();
+// ###############################        
+
+// ###############################
+// # Vars initialization
+				class Var__tMap_1__Struct {
+				}
+				Var__tMap_1__Struct Var__tMap_1 = new Var__tMap_1__Struct();
+// ###############################
+
+// ###############################
+// # Outputs initialization
+				adresses_with_depStruct adresses_with_dep_tmp = new adresses_with_depStruct();
+// ###############################
+
+				/**
+				 * [tMap_1 begin ] stop
+				 */
+
+				/**
 				 * [tUnite_1 begin ] start
 				 */
 
@@ -2670,7 +3224,8 @@ public class adresse_dim_v2 implements TalendJob {
 				currentComponent = "tUnite_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "with_dep");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "adresses_entreprises",
+							"adresses_remuneration");
 				}
 
 				int tos_count_tUnite_1 = 0;
@@ -2679,47 +3234,6 @@ public class adresse_dim_v2 implements TalendJob {
 
 				/**
 				 * [tUnite_1 begin ] stop
-				 */
-
-				/**
-				 * [tMap_3 begin ] start
-				 */
-
-				ok_Hash.put("tMap_3", false);
-				start_Hash.put("tMap_3", System.currentTimeMillis());
-
-				currentComponent = "tMap_3";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "adresses_remunerations");
-				}
-
-				int tos_count_tMap_3 = 0;
-
-// ###############################
-// # Lookup's keys initialization
-
-				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row3Struct> tHash_Lookup_row3 = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row3Struct>) ((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row3Struct>) globalMap
-						.get("tHash_Lookup_row3"));
-
-				row3Struct row3HashKey = new row3Struct();
-				row3Struct row3Default = new row3Struct();
-// ###############################        
-
-// ###############################
-// # Vars initialization
-				class Var__tMap_3__Struct {
-				}
-				Var__tMap_3__Struct Var__tMap_3 = new Var__tMap_3__Struct();
-// ###############################
-
-// ###############################
-// # Outputs initialization
-				with_depStruct with_dep_tmp = new with_depStruct();
-// ###############################
-
-				/**
-				 * [tMap_3 begin ] stop
 				 */
 
 				/**
@@ -2752,7 +3266,7 @@ public class adresse_dim_v2 implements TalendJob {
 
 // ###############################
 // # Outputs initialization
-				adresses_remunerationsStruct adresses_remunerations_tmp = new adresses_remunerationsStruct();
+				adresses_remunerationStruct adresses_remuneration_tmp = new adresses_remunerationStruct();
 // ###############################
 
 				/**
@@ -3523,23 +4037,23 @@ public class adresse_dim_v2 implements TalendJob {
 								// ###############################
 								// # Output tables
 
-								adresses_remunerations = null;
+								adresses_remuneration = null;
 
-// # Output table : 'adresses_remunerations'
-								adresses_remunerations_tmp.adresse_id = Var.id;
-								adresses_remunerations_tmp.ville = (Var.id.equals(Var.NA)) ? Var.NA
+// # Output table : 'adresses_remuneration'
+								adresses_remuneration_tmp.adresse_id = Var.id;
+								adresses_remuneration_tmp.ville = (Var.id.equals(Var.NA)) ? Var.NA
 										: remunerations.benef_ville.equals("") ? remunerations.benef_etablissement_ville
 												: remunerations.benef_ville;
-								adresses_remunerations_tmp.code_postal = (Var.id.equals(Var.NA)) ? Var.NA
+								adresses_remuneration_tmp.code_postal = (Var.id.equals(Var.NA)) ? Var.NA
 										: remunerations.benef_codepostal.equals("")
 												? remunerations.benef_etablissement_codepostal
 												: remunerations.benef_codepostal;
-								adresses_remunerations_tmp.departement = Var.NA;
-								adresses_remunerations_tmp.region = Var.NA;
-								adresses_remunerations_tmp.pays_code = (Var.id.equals(Var.NA)) ? Var.NA
+								adresses_remuneration_tmp.departement = Var.NA;
+								adresses_remuneration_tmp.region = Var.NA;
+								adresses_remuneration_tmp.pays_code = (Var.id.equals(Var.NA)) ? Var.NA
 										: remunerations.benef_pays_code.replace("[", "").replace("]", "");
-								adresses_remunerations_tmp.pays = (Var.id.equals(Var.NA)) ? Var.NA : remunerations.pays;
-								adresses_remunerations = adresses_remunerations_tmp;
+								adresses_remuneration_tmp.pays = (Var.id.equals(Var.NA)) ? Var.NA : remunerations.pays;
+								adresses_remuneration = adresses_remuneration_tmp;
 // ###############################
 
 							} // end of Var scope
@@ -3561,75 +4075,113 @@ public class adresse_dim_v2 implements TalendJob {
 							/**
 							 * [tMap_2 process_data_begin ] stop
 							 */
-// Start of branch "adresses_remunerations"
-							if (adresses_remunerations != null) {
+// Start of branch "adresses_remuneration"
+							if (adresses_remuneration != null) {
 
 								/**
-								 * [tMap_3 main ] start
+								 * [tUnite_1 main ] start
 								 */
 
-								currentComponent = "tMap_3";
+								currentComponent = "tUnite_1";
 
 								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1, "adresses_remunerations");
+									runStat.updateStatOnConnection(iterateId, 1, 1, "adresses_remuneration");
 								}
 
-								boolean hasCasePrimitiveKeyWithNull_tMap_3 = false;
+//////////
+
+// for output
+								adresses_merged = new adresses_mergedStruct();
+
+								adresses_merged.adresse_id = adresses_remuneration.adresse_id;
+								adresses_merged.ville = adresses_remuneration.ville;
+								adresses_merged.code_postal = adresses_remuneration.code_postal;
+								adresses_merged.departement = adresses_remuneration.departement;
+								adresses_merged.region = adresses_remuneration.region;
+								adresses_merged.pays_code = adresses_remuneration.pays_code;
+								adresses_merged.pays = adresses_remuneration.pays;
+
+								nb_line_tUnite_1++;
+
+//////////
+
+								tos_count_tUnite_1++;
+
+								/**
+								 * [tUnite_1 main ] stop
+								 */
+
+								/**
+								 * [tUnite_1 process_data_begin ] start
+								 */
+
+								currentComponent = "tUnite_1";
+
+								/**
+								 * [tUnite_1 process_data_begin ] stop
+								 */
+
+								/**
+								 * [tMap_1 main ] start
+								 */
+
+								currentComponent = "tMap_1";
+
+								if (execStat) {
+									runStat.updateStatOnConnection(iterateId, 1, 1, "adresses_merged");
+								}
+
+								boolean hasCasePrimitiveKeyWithNull_tMap_1 = false;
 
 								// ###############################
 								// # Input tables (lookups)
-								boolean rejectedInnerJoin_tMap_3 = false;
-								boolean mainRowRejected_tMap_3 = false;
+								boolean rejectedInnerJoin_tMap_1 = false;
+								boolean mainRowRejected_tMap_1 = false;
 
 								///////////////////////////////////////////////
-								// Starting Lookup Table "row3"
+								// Starting Lookup Table "dep_region"
 								///////////////////////////////////////////////
 
-								boolean forceLooprow3 = false;
+								boolean forceLoopdep_region = false;
 
-								row3Struct row3ObjectFromLookup = null;
+								dep_regionStruct dep_regionObjectFromLookup = null;
 
-								if (!rejectedInnerJoin_tMap_3) { // G_TM_M_020
+								if (!rejectedInnerJoin_tMap_1) { // G_TM_M_020
 
-									hasCasePrimitiveKeyWithNull_tMap_3 = false;
+									hasCasePrimitiveKeyWithNull_tMap_1 = false;
 
-									row3HashKey.country_code = adresses_remunerations.pays_code;
+									dep_regionHashKey.country_code = adresses_merged.pays_code;
 
-									row3HashKey.postal_code = adresses_remunerations.code_postal;
+									dep_regionHashKey.postal_code = adresses_merged.code_postal;
 
-									row3HashKey.hashCodeDirty = true;
+									dep_regionHashKey.hashCodeDirty = true;
 
-									tHash_Lookup_row3.lookup(row3HashKey);
-
-									if (!tHash_Lookup_row3.hasNext()) { // G_TM_M_090
-
-										rejectedInnerJoin_tMap_3 = true;
-
-									} // G_TM_M_090
+									tHash_Lookup_dep_region.lookup(dep_regionHashKey);
 
 								} // G_TM_M_020
 
-								if (tHash_Lookup_row3 != null && tHash_Lookup_row3.getCount(row3HashKey) > 1) { // G 071
+								if (tHash_Lookup_dep_region != null
+										&& tHash_Lookup_dep_region.getCount(dep_regionHashKey) > 1) { // G 071
 
-									// System.out.println("WARNING: UNIQUE MATCH is configured for the lookup 'row3'
-									// and it contains more one result from keys : row3.country_code = '" +
-									// row3HashKey.country_code + "', row3.postal_code = '" +
-									// row3HashKey.postal_code + "'");
+									// System.out.println("WARNING: UNIQUE MATCH is configured for the lookup
+									// 'dep_region' and it contains more one result from keys :
+									// dep_region.country_code = '" + dep_regionHashKey.country_code + "',
+									// dep_region.postal_code = '" + dep_regionHashKey.postal_code + "'");
 								} // G 071
 
-								row3Struct row3 = null;
+								dep_regionStruct dep_region = null;
 
-								row3Struct fromLookup_row3 = null;
-								row3 = row3Default;
+								dep_regionStruct fromLookup_dep_region = null;
+								dep_region = dep_regionDefault;
 
-								if (tHash_Lookup_row3 != null && tHash_Lookup_row3.hasNext()) { // G 099
+								if (tHash_Lookup_dep_region != null && tHash_Lookup_dep_region.hasNext()) { // G 099
 
-									fromLookup_row3 = tHash_Lookup_row3.next();
+									fromLookup_dep_region = tHash_Lookup_dep_region.next();
 
 								} // G 099
 
-								if (fromLookup_row3 != null) {
-									row3 = fromLookup_row3;
+								if (fromLookup_dep_region != null) {
+									dep_region = fromLookup_dep_region;
 								}
 
 								// ###############################
@@ -3638,90 +4190,50 @@ public class adresse_dim_v2 implements TalendJob {
 									// ###############################
 									// # Vars tables
 
-									Var__tMap_3__Struct Var = Var__tMap_3;// ###############################
+									Var__tMap_1__Struct Var = Var__tMap_1;// ###############################
 									// ###############################
 									// # Output tables
 
-									with_dep = null;
+									adresses_with_dep = null;
 
-									if (!rejectedInnerJoin_tMap_3) {
-
-// # Output table : 'with_dep'
-										with_dep_tmp.adresse_id = adresses_remunerations.adresse_id;
-										with_dep_tmp.ville = adresses_remunerations.ville;
-										with_dep_tmp.code_postal = adresses_remunerations.code_postal;
-										with_dep_tmp.departement = row3.admin_code2;
-										with_dep_tmp.region = row3.admin_code1;
-										with_dep_tmp.pays_code = adresses_remunerations.pays_code;
-										with_dep_tmp.pays = adresses_remunerations.pays;
-										with_dep = with_dep_tmp;
-									} // closing inner join bracket (2)
+// # Output table : 'adresses_with_dep'
+									adresses_with_dep_tmp.adresse_id = adresses_merged.adresse_id;
+									adresses_with_dep_tmp.ville = adresses_merged.ville;
+									adresses_with_dep_tmp.code_postal = adresses_merged.code_postal;
+									adresses_with_dep_tmp.departement = // TODO : column shifting ?
+											dep_region.admin_code2 == null ? AdressesCleanerV2.getNA()
+													: dep_region.admin_code2;
+									adresses_with_dep_tmp.region = // TODO : column shifting ?
+											dep_region.admin_code1 == null ? AdressesCleanerV2.getNA()
+													: dep_region.admin_code1;
+									adresses_with_dep_tmp.pays_code = adresses_merged.pays_code;
+									adresses_with_dep_tmp.pays = // adresses_merged.pays == null ?
+																	// AdressesCleanerV2.getNA() : adresses_merged.pays
+											adresses_merged.pays;
+									adresses_with_dep = adresses_with_dep_tmp;
 // ###############################
 
 								} // end of Var scope
 
-								rejectedInnerJoin_tMap_3 = false;
+								rejectedInnerJoin_tMap_1 = false;
 
-								tos_count_tMap_3++;
+								tos_count_tMap_1++;
 
 								/**
-								 * [tMap_3 main ] stop
+								 * [tMap_1 main ] stop
 								 */
 
 								/**
-								 * [tMap_3 process_data_begin ] start
+								 * [tMap_1 process_data_begin ] start
 								 */
 
-								currentComponent = "tMap_3";
+								currentComponent = "tMap_1";
 
 								/**
-								 * [tMap_3 process_data_begin ] stop
+								 * [tMap_1 process_data_begin ] stop
 								 */
-// Start of branch "with_dep"
-								if (with_dep != null) {
-
-									/**
-									 * [tUnite_1 main ] start
-									 */
-
-									currentComponent = "tUnite_1";
-
-									if (execStat) {
-										runStat.updateStatOnConnection(iterateId, 1, 1, "with_dep");
-									}
-
-//////////
-
-// for output
-									row2 = new row2Struct();
-
-									row2.adresse_id = with_dep.adresse_id;
-									row2.ville = with_dep.ville;
-									row2.code_postal = with_dep.code_postal;
-									row2.departement = with_dep.departement;
-									row2.region = with_dep.region;
-									row2.pays_code = with_dep.pays_code;
-									row2.pays = with_dep.pays;
-
-									nb_line_tUnite_1++;
-
-//////////
-
-									tos_count_tUnite_1++;
-
-									/**
-									 * [tUnite_1 main ] stop
-									 */
-
-									/**
-									 * [tUnite_1 process_data_begin ] start
-									 */
-
-									currentComponent = "tUnite_1";
-
-									/**
-									 * [tUnite_1 process_data_begin ] stop
-									 */
+// Start of branch "adresses_with_dep"
+								if (adresses_with_dep != null) {
 
 									/**
 									 * [tUniqRow_1 main ] start
@@ -3730,37 +4242,37 @@ public class adresse_dim_v2 implements TalendJob {
 									currentComponent = "tUniqRow_1";
 
 									if (execStat) {
-										runStat.updateStatOnConnection(iterateId, 1, 1, "row2");
+										runStat.updateStatOnConnection(iterateId, 1, 1, "adresses_with_dep");
 									}
 
-									row1 = null;
-									if (row2.adresse_id == null) {
+									adresses_unique = null;
+									if (adresses_with_dep.adresse_id == null) {
 										finder_tUniqRow_1.adresse_id = null;
 									} else {
-										finder_tUniqRow_1.adresse_id = row2.adresse_id.toLowerCase();
+										finder_tUniqRow_1.adresse_id = adresses_with_dep.adresse_id.toLowerCase();
 									}
 									finder_tUniqRow_1.hashCodeDirty = true;
 									if (!keystUniqRow_1.contains(finder_tUniqRow_1)) {
 										KeyStruct_tUniqRow_1 new_tUniqRow_1 = new KeyStruct_tUniqRow_1();
 
-										if (row2.adresse_id == null) {
+										if (adresses_with_dep.adresse_id == null) {
 											new_tUniqRow_1.adresse_id = null;
 										} else {
-											new_tUniqRow_1.adresse_id = row2.adresse_id.toLowerCase();
+											new_tUniqRow_1.adresse_id = adresses_with_dep.adresse_id.toLowerCase();
 										}
 
 										keystUniqRow_1.add(new_tUniqRow_1);
-										if (row1 == null) {
+										if (adresses_unique == null) {
 
-											row1 = new row1Struct();
+											adresses_unique = new adresses_uniqueStruct();
 										}
-										row1.adresse_id = row2.adresse_id;
-										row1.ville = row2.ville;
-										row1.code_postal = row2.code_postal;
-										row1.departement = row2.departement;
-										row1.region = row2.region;
-										row1.pays_code = row2.pays_code;
-										row1.pays = row2.pays;
+										adresses_unique.adresse_id = adresses_with_dep.adresse_id;
+										adresses_unique.ville = adresses_with_dep.ville;
+										adresses_unique.code_postal = adresses_with_dep.code_postal;
+										adresses_unique.departement = adresses_with_dep.departement;
+										adresses_unique.region = adresses_with_dep.region;
+										adresses_unique.pays_code = adresses_with_dep.pays_code;
+										adresses_unique.pays = adresses_with_dep.pays;
 										nb_uniques_tUniqRow_1++;
 									} else {
 										nb_duplicates_tUniqRow_1++;
@@ -3781,8 +4293,8 @@ public class adresse_dim_v2 implements TalendJob {
 									/**
 									 * [tUniqRow_1 process_data_begin ] stop
 									 */
-// Start of branch "row1"
-									if (row1 != null) {
+// Start of branch "adresses_unique"
+									if (adresses_unique != null) {
 
 										/**
 										 * [tDBOutput_1 main ] start
@@ -3791,50 +4303,50 @@ public class adresse_dim_v2 implements TalendJob {
 										currentComponent = "tDBOutput_1";
 
 										if (execStat) {
-											runStat.updateStatOnConnection(iterateId, 1, 1, "row1");
+											runStat.updateStatOnConnection(iterateId, 1, 1, "adresses_unique");
 										}
 
 										whetherReject_tDBOutput_1 = false;
-										if (row1.adresse_id == null) {
+										if (adresses_unique.adresse_id == null) {
 											pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(1, row1.adresse_id);
+											pstmt_tDBOutput_1.setString(1, adresses_unique.adresse_id);
 										}
 
-										if (row1.ville == null) {
+										if (adresses_unique.ville == null) {
 											pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(2, row1.ville);
+											pstmt_tDBOutput_1.setString(2, adresses_unique.ville);
 										}
 
-										if (row1.code_postal == null) {
+										if (adresses_unique.code_postal == null) {
 											pstmt_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(3, row1.code_postal);
+											pstmt_tDBOutput_1.setString(3, adresses_unique.code_postal);
 										}
 
-										if (row1.departement == null) {
+										if (adresses_unique.departement == null) {
 											pstmt_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(4, row1.departement);
+											pstmt_tDBOutput_1.setString(4, adresses_unique.departement);
 										}
 
-										if (row1.region == null) {
+										if (adresses_unique.region == null) {
 											pstmt_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(5, row1.region);
+											pstmt_tDBOutput_1.setString(5, adresses_unique.region);
 										}
 
-										if (row1.pays_code == null) {
+										if (adresses_unique.pays_code == null) {
 											pstmt_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(6, row1.pays_code);
+											pstmt_tDBOutput_1.setString(6, adresses_unique.pays_code);
 										}
 
-										if (row1.pays == null) {
+										if (adresses_unique.pays == null) {
 											pstmt_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(7, row1.pays);
+											pstmt_tDBOutput_1.setString(7, adresses_unique.pays);
 										}
 
 										pstmt_tDBOutput_1.addBatch();
@@ -3913,7 +4425,7 @@ public class adresse_dim_v2 implements TalendJob {
 										 * [tDBOutput_1 process_data_end ] stop
 										 */
 
-									} // End of branch "row1"
+									} // End of branch "adresses_unique"
 
 									/**
 									 * [tUniqRow_1 process_data_end ] start
@@ -3925,29 +4437,29 @@ public class adresse_dim_v2 implements TalendJob {
 									 * [tUniqRow_1 process_data_end ] stop
 									 */
 
-									/**
-									 * [tUnite_1 process_data_end ] start
-									 */
-
-									currentComponent = "tUnite_1";
-
-									/**
-									 * [tUnite_1 process_data_end ] stop
-									 */
-
-								} // End of branch "with_dep"
+								} // End of branch "adresses_with_dep"
 
 								/**
-								 * [tMap_3 process_data_end ] start
+								 * [tMap_1 process_data_end ] start
 								 */
 
-								currentComponent = "tMap_3";
+								currentComponent = "tMap_1";
 
 								/**
-								 * [tMap_3 process_data_end ] stop
+								 * [tMap_1 process_data_end ] stop
 								 */
 
-							} // End of branch "adresses_remunerations"
+								/**
+								 * [tUnite_1 process_data_end ] start
+								 */
+
+								currentComponent = "tUnite_1";
+
+								/**
+								 * [tUnite_1 process_data_end ] stop
+								 */
+
+							} // End of branch "adresses_remuneration"
 
 							/**
 							 * [tMap_2 process_data_end ] start
@@ -4021,1214 +4533,19 @@ public class adresse_dim_v2 implements TalendJob {
 				 */
 
 				/**
-				 * [tMap_3 end ] start
+				 * [tMap_3 begin ] start
 				 */
+
+				ok_Hash.put("tMap_3", false);
+				start_Hash.put("tMap_3", System.currentTimeMillis());
 
 				currentComponent = "tMap_3";
-
-// ###############################
-// # Lookup hashes releasing
-				if (tHash_Lookup_row3 != null) {
-					tHash_Lookup_row3.endGet();
-				}
-				globalMap.remove("tHash_Lookup_row3");
-
-// ###############################      
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "adresses_remunerations");
-				}
-
-				ok_Hash.put("tMap_3", true);
-				end_Hash.put("tMap_3", System.currentTimeMillis());
-
-				/**
-				 * [tMap_3 end ] stop
-				 */
-
-				/**
-				 * [tUnite_1 end ] start
-				 */
-
-				currentComponent = "tUnite_1";
-
-				globalMap.put("tUnite_1_NB_LINE", nb_line_tUnite_1);
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "with_dep");
-				}
-
-				ok_Hash.put("tUnite_1", true);
-				end_Hash.put("tUnite_1", System.currentTimeMillis());
-
-				/**
-				 * [tUnite_1 end ] stop
-				 */
-
-				/**
-				 * [tUniqRow_1 end ] start
-				 */
-
-				currentComponent = "tUniqRow_1";
-
-				globalMap.put("tUniqRow_1_NB_UNIQUES", nb_uniques_tUniqRow_1);
-				globalMap.put("tUniqRow_1_NB_DUPLICATES", nb_duplicates_tUniqRow_1);
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row2");
-				}
-
-				ok_Hash.put("tUniqRow_1", true);
-				end_Hash.put("tUniqRow_1", System.currentTimeMillis());
-
-				/**
-				 * [tUniqRow_1 end ] stop
-				 */
-
-				/**
-				 * [tDBOutput_1 end ] start
-				 */
-
-				currentComponent = "tDBOutput_1";
-
-				try {
-					if (batchSizeCounter_tDBOutput_1 != 0) {
-						int countSum_tDBOutput_1 = 0;
-
-						for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
-							countSum_tDBOutput_1 += (countEach_tDBOutput_1 == java.sql.Statement.EXECUTE_FAILED ? 0
-									: 1);
-						}
-
-						insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
-
-					}
-
-				} catch (java.sql.BatchUpdateException e) {
-
-					int countSum_tDBOutput_1 = 0;
-					for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
-						countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : countEach_tDBOutput_1);
-					}
-
-					insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
-
-					globalMap.put(currentComponent + "_ERROR_MESSAGE", e.getMessage());
-					System.err.println(e.getMessage());
-
-				}
-				batchSizeCounter_tDBOutput_1 = 0;
-
-				if (pstmt_tDBOutput_1 != null) {
-
-					pstmt_tDBOutput_1.close();
-					resourceMap.remove("pstmt_tDBOutput_1");
-
-				}
-				resourceMap.put("statementClosed_tDBOutput_1", true);
-				if (commitCounter_tDBOutput_1 > 0) {
-
-					conn_tDBOutput_1.commit();
-
-				}
-
-				conn_tDBOutput_1.close();
-
-				resourceMap.put("finish_tDBOutput_1", true);
-
-				nb_line_deleted_tDBOutput_1 = nb_line_deleted_tDBOutput_1 + deletedCount_tDBOutput_1;
-				nb_line_update_tDBOutput_1 = nb_line_update_tDBOutput_1 + updatedCount_tDBOutput_1;
-				nb_line_inserted_tDBOutput_1 = nb_line_inserted_tDBOutput_1 + insertedCount_tDBOutput_1;
-				nb_line_rejected_tDBOutput_1 = nb_line_rejected_tDBOutput_1 + rejectedCount_tDBOutput_1;
-
-				globalMap.put("tDBOutput_1_NB_LINE", nb_line_tDBOutput_1);
-				globalMap.put("tDBOutput_1_NB_LINE_UPDATED", nb_line_update_tDBOutput_1);
-				globalMap.put("tDBOutput_1_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_1);
-				globalMap.put("tDBOutput_1_NB_LINE_DELETED", nb_line_deleted_tDBOutput_1);
-				globalMap.put("tDBOutput_1_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_1);
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row1");
-				}
-
-				ok_Hash.put("tDBOutput_1", true);
-				end_Hash.put("tDBOutput_1", System.currentTimeMillis());
-
-				/**
-				 * [tDBOutput_1 end ] stop
-				 */
-
-			} // end the resume
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent, globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			runStat.stopThreadStat();
-
-			throw error;
-		} finally {
-
-			// free memory for "tMap_3"
-			globalMap.remove("tHash_Lookup_row3");
-
-			try {
-
-				/**
-				 * [tFileInputDelimited_1 finally ] start
-				 */
-
-				currentComponent = "tFileInputDelimited_1";
-
-				/**
-				 * [tFileInputDelimited_1 finally ] stop
-				 */
-
-				/**
-				 * [tMap_2 finally ] start
-				 */
-
-				currentComponent = "tMap_2";
-
-				/**
-				 * [tMap_2 finally ] stop
-				 */
-
-				/**
-				 * [tMap_3 finally ] start
-				 */
-
-				currentComponent = "tMap_3";
-
-				/**
-				 * [tMap_3 finally ] stop
-				 */
-
-				/**
-				 * [tUnite_1 finally ] start
-				 */
-
-				currentComponent = "tUnite_1";
-
-				/**
-				 * [tUnite_1 finally ] stop
-				 */
-
-				/**
-				 * [tUniqRow_1 finally ] start
-				 */
-
-				currentComponent = "tUniqRow_1";
-
-				/**
-				 * [tUniqRow_1 finally ] stop
-				 */
-
-				/**
-				 * [tDBOutput_1 finally ] start
-				 */
-
-				currentComponent = "tDBOutput_1";
-
-				try {
-					if (resourceMap.get("statementClosed_tDBOutput_1") == null) {
-						java.sql.PreparedStatement pstmtToClose_tDBOutput_1 = null;
-						if ((pstmtToClose_tDBOutput_1 = (java.sql.PreparedStatement) resourceMap
-								.remove("pstmt_tDBOutput_1")) != null) {
-							pstmtToClose_tDBOutput_1.close();
-						}
-					}
-				} finally {
-					if (resourceMap.get("finish_tDBOutput_1") == null) {
-						java.sql.Connection ctn_tDBOutput_1 = null;
-						if ((ctn_tDBOutput_1 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_1")) != null) {
-							try {
-								ctn_tDBOutput_1.close();
-							} catch (java.sql.SQLException sqlEx_tDBOutput_1) {
-								String errorMessage_tDBOutput_1 = "failed to close the connection in tDBOutput_1 :"
-										+ sqlEx_tDBOutput_1.getMessage();
-								System.err.println(errorMessage_tDBOutput_1);
-							}
-						}
-					}
-				}
-
-				/**
-				 * [tDBOutput_1 finally ] stop
-				 */
-
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
-		}
-
-		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 1);
-	}
-
-	public static class row3Struct implements routines.system.IPersistableComparableLookupRow<row3Struct> {
-		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
-		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
-		protected static final int DEFAULT_HASHCODE = 1;
-		protected static final int PRIME = 31;
-		protected int hashCode = DEFAULT_HASHCODE;
-		public boolean hashCodeDirty = true;
-
-		public String loopKey;
-
-		public String country_code;
-
-		public String getCountry_code() {
-			return this.country_code;
-		}
-
-		public String postal_code;
-
-		public String getPostal_code() {
-			return this.postal_code;
-		}
-
-		public String admin_name1;
-
-		public String getAdmin_name1() {
-			return this.admin_name1;
-		}
-
-		public String admin_code1;
-
-		public String getAdmin_code1() {
-			return this.admin_code1;
-		}
-
-		public String admin_name2;
-
-		public String getAdmin_name2() {
-			return this.admin_name2;
-		}
-
-		public String admin_code2;
-
-		public String getAdmin_code2() {
-			return this.admin_code2;
-		}
-
-		public String admin_name3;
-
-		public String getAdmin_name3() {
-			return this.admin_name3;
-		}
-
-		public String admin_code3;
-
-		public String getAdmin_code3() {
-			return this.admin_code3;
-		}
-
-		@Override
-		public int hashCode() {
-			if (this.hashCodeDirty) {
-				final int prime = PRIME;
-				int result = DEFAULT_HASHCODE;
-
-				result = prime * result + ((this.country_code == null) ? 0 : this.country_code.hashCode());
-
-				result = prime * result + ((this.postal_code == null) ? 0 : this.postal_code.hashCode());
-
-				this.hashCode = result;
-				this.hashCodeDirty = false;
-			}
-			return this.hashCode;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			final row3Struct other = (row3Struct) obj;
-
-			if (this.country_code == null) {
-				if (other.country_code != null)
-					return false;
-
-			} else if (!this.country_code.equals(other.country_code))
-
-				return false;
-
-			if (this.postal_code == null) {
-				if (other.postal_code != null)
-					return false;
-
-			} else if (!this.postal_code.equals(other.postal_code))
-
-				return false;
-
-			return true;
-		}
-
-		public void copyDataTo(row3Struct other) {
-
-			other.country_code = this.country_code;
-			other.postal_code = this.postal_code;
-			other.admin_name1 = this.admin_name1;
-			other.admin_code1 = this.admin_code1;
-			other.admin_name2 = this.admin_name2;
-			other.admin_code2 = this.admin_code2;
-			other.admin_name3 = this.admin_name3;
-			other.admin_code3 = this.admin_code3;
-
-		}
-
-		public void copyKeysDataTo(row3Struct other) {
-
-			other.country_code = this.country_code;
-			other.postal_code = this.postal_code;
-
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2.length) {
-					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2.length == 0) {
-						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[1024];
-					} else {
-						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2, 0, length);
-				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private String readString(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				byte[] byteArray = new byte[length];
-				dis.read(byteArray);
-				strReturn = new String(byteArray, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		public void readKeysData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2) {
-
-				try {
-
-					int length = 0;
-
-					this.country_code = readString(dis);
-
-					this.postal_code = readString(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeKeysData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.country_code, dos);
-
-				// String
-
-				writeString(this.postal_code, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		/**
-		 * Fill Values data by reading ObjectInputStream.
-		 */
-		public void readValuesData(DataInputStream dis, ObjectInputStream ois) {
-			try {
-
-				int length = 0;
-
-				this.admin_name1 = readString(dis, ois);
-
-				this.admin_code1 = readString(dis, ois);
-
-				this.admin_name2 = readString(dis, ois);
-
-				this.admin_code2 = readString(dis, ois);
-
-				this.admin_name3 = readString(dis, ois);
-
-				this.admin_code3 = readString(dis, ois);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-
-			}
-
-		}
-
-		/**
-		 * Return a byte array which represents Values data.
-		 */
-		public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
-			try {
-
-				writeString(this.admin_name1, dos, oos);
-
-				writeString(this.admin_code1, dos, oos);
-
-				writeString(this.admin_name2, dos, oos);
-
-				writeString(this.admin_code2, dos, oos);
-
-				writeString(this.admin_name3, dos, oos);
-
-				writeString(this.admin_code3, dos, oos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("country_code=" + country_code);
-			sb.append(",postal_code=" + postal_code);
-			sb.append(",admin_name1=" + admin_name1);
-			sb.append(",admin_code1=" + admin_code1);
-			sb.append(",admin_name2=" + admin_name2);
-			sb.append(",admin_code2=" + admin_code2);
-			sb.append(",admin_name3=" + admin_name3);
-			sb.append(",admin_code3=" + admin_code3);
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row3Struct other) {
-
-			int returnValue = -1;
-
-			returnValue = checkNullsAndCompare(this.country_code, other.country_code);
-			if (returnValue != 0) {
-				return returnValue;
-			}
-
-			returnValue = checkNullsAndCompare(this.postal_code, other.postal_code);
-			if (returnValue != 0) {
-				return returnValue;
-			}
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public void tFileInputDelimited_3Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-			// TDI-39566 avoid throwing an useless Exception
-			boolean resumeIt = true;
-			if (globalResumeTicket == false && resumeEntryMethodName != null) {
-				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-				resumeIt = resumeEntryMethodName.equals(currentMethodName);
-			}
-			if (resumeIt || globalResumeTicket) { // start the resume
-				globalResumeTicket = true;
-
-				row3Struct row3 = new row3Struct();
-
-				/**
-				 * [tAdvancedHash_row3 begin ] start
-				 */
-
-				ok_Hash.put("tAdvancedHash_row3", false);
-				start_Hash.put("tAdvancedHash_row3", System.currentTimeMillis());
-
-				currentComponent = "tAdvancedHash_row3";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row3");
-				}
-
-				int tos_count_tAdvancedHash_row3 = 0;
-
-				// connection name:row3
-				// source node:tFileInputDelimited_3 - inputs:(after_tFileInputDelimited_1)
-				// outputs:(row3,row3) | target node:tAdvancedHash_row3 - inputs:(row3)
-				// outputs:()
-				// linked node: tMap_3 - inputs:(adresses_remunerations,row3) outputs:(with_dep)
-
-				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row3 = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
-
-				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row3Struct> tHash_Lookup_row3 = org.talend.designer.components.lookup.memory.AdvancedMemoryLookup
-						.<row3Struct>getLookup(matchingModeEnum_row3);
-
-				globalMap.put("tHash_Lookup_row3", tHash_Lookup_row3);
-
-				/**
-				 * [tAdvancedHash_row3 begin ] stop
-				 */
-
-				/**
-				 * [tFileInputDelimited_3 begin ] start
-				 */
-
-				ok_Hash.put("tFileInputDelimited_3", false);
-				start_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
-
-				currentComponent = "tFileInputDelimited_3";
-
-				int tos_count_tFileInputDelimited_3 = 0;
-
-				final routines.system.RowState rowstate_tFileInputDelimited_3 = new routines.system.RowState();
-
-				int nb_line_tFileInputDelimited_3 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_3 = null;
-				int limit_tFileInputDelimited_3 = -1;
-				try {
-
-					Object filename_tFileInputDelimited_3 = "C:/BI/transparence-sante/data/others/zipcodes_dep_region.csv";
-					if (filename_tFileInputDelimited_3 instanceof java.io.InputStream) {
-
-						int footer_value_tFileInputDelimited_3 = 0, random_value_tFileInputDelimited_3 = -1;
-						if (footer_value_tFileInputDelimited_3 > 0 || random_value_tFileInputDelimited_3 > 0) {
-							throw new java.lang.Exception(
-									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
-						}
-
-					}
-					try {
-						fid_tFileInputDelimited_3 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/BI/transparence-sante/data/others/zipcodes_dep_region.csv", "UTF-8", ";", "\n",
-								false, 1, 0, limit_tFileInputDelimited_3, -1, false);
-					} catch (java.lang.Exception e) {
-
-						System.err.println(e.getMessage());
-
-					}
-
-					while (fid_tFileInputDelimited_3 != null && fid_tFileInputDelimited_3.nextRecord()) {
-						rowstate_tFileInputDelimited_3.reset();
-
-						row3 = null;
-
-						row3 = null;
-
-						boolean whetherReject_tFileInputDelimited_3 = false;
-						row3 = new row3Struct();
-						try {
-
-							int columnIndexWithD_tFileInputDelimited_3 = 0;
-
-							columnIndexWithD_tFileInputDelimited_3 = 0;
-
-							row3.country_code = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 1;
-
-							row3.postal_code = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 2;
-
-							row3.admin_name1 = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 3;
-
-							row3.admin_code1 = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 4;
-
-							row3.admin_name2 = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 5;
-
-							row3.admin_code2 = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 6;
-
-							row3.admin_name3 = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 7;
-
-							row3.admin_code3 = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-
-							if (rowstate_tFileInputDelimited_3.getException() != null) {
-								throw rowstate_tFileInputDelimited_3.getException();
-							}
-
-						} catch (java.lang.Exception e) {
-							whetherReject_tFileInputDelimited_3 = true;
-
-							System.err.println(e.getMessage());
-							row3 = null;
-
-						}
-
-						/**
-						 * [tFileInputDelimited_3 begin ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_3 main ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_3";
-
-						tos_count_tFileInputDelimited_3++;
-
-						/**
-						 * [tFileInputDelimited_3 main ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_3 process_data_begin ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_3";
-
-						/**
-						 * [tFileInputDelimited_3 process_data_begin ] stop
-						 */
-// Start of branch "row3"
-						if (row3 != null) {
-
-							/**
-							 * [tAdvancedHash_row3 main ] start
-							 */
-
-							currentComponent = "tAdvancedHash_row3";
-
-							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1, "row3");
-							}
-
-							row3Struct row3_HashRow = new row3Struct();
-
-							row3_HashRow.country_code = row3.country_code;
-
-							row3_HashRow.postal_code = row3.postal_code;
-
-							row3_HashRow.admin_name1 = row3.admin_name1;
-
-							row3_HashRow.admin_code1 = row3.admin_code1;
-
-							row3_HashRow.admin_name2 = row3.admin_name2;
-
-							row3_HashRow.admin_code2 = row3.admin_code2;
-
-							row3_HashRow.admin_name3 = row3.admin_name3;
-
-							row3_HashRow.admin_code3 = row3.admin_code3;
-
-							tHash_Lookup_row3.put(row3_HashRow);
-
-							tos_count_tAdvancedHash_row3++;
-
-							/**
-							 * [tAdvancedHash_row3 main ] stop
-							 */
-
-							/**
-							 * [tAdvancedHash_row3 process_data_begin ] start
-							 */
-
-							currentComponent = "tAdvancedHash_row3";
-
-							/**
-							 * [tAdvancedHash_row3 process_data_begin ] stop
-							 */
-
-							/**
-							 * [tAdvancedHash_row3 process_data_end ] start
-							 */
-
-							currentComponent = "tAdvancedHash_row3";
-
-							/**
-							 * [tAdvancedHash_row3 process_data_end ] stop
-							 */
-
-						} // End of branch "row3"
-
-						/**
-						 * [tFileInputDelimited_3 process_data_end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_3";
-
-						/**
-						 * [tFileInputDelimited_3 process_data_end ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_3 end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_3";
-
-					}
-				} finally {
-					if (!((Object) ("C:/BI/transparence-sante/data/others/zipcodes_dep_region.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_3 != null) {
-							fid_tFileInputDelimited_3.close();
-						}
-					}
-					if (fid_tFileInputDelimited_3 != null) {
-						globalMap.put("tFileInputDelimited_3_NB_LINE", fid_tFileInputDelimited_3.getRowNumber());
-
-					}
-				}
-
-				ok_Hash.put("tFileInputDelimited_3", true);
-				end_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
-
-				/**
-				 * [tFileInputDelimited_3 end ] stop
-				 */
-
-				/**
-				 * [tAdvancedHash_row3 end ] start
-				 */
-
-				currentComponent = "tAdvancedHash_row3";
-
-				tHash_Lookup_row3.endPut();
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row3");
-				}
-
-				ok_Hash.put("tAdvancedHash_row3", true);
-				end_Hash.put("tAdvancedHash_row3", System.currentTimeMillis());
-
-				/**
-				 * [tAdvancedHash_row3 end ] stop
-				 */
-
-			} // end the resume
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent, globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			runStat.stopThreadStat();
-
-			throw error;
-		} finally {
-
-			try {
-
-				/**
-				 * [tFileInputDelimited_3 finally ] start
-				 */
-
-				currentComponent = "tFileInputDelimited_3";
-
-				/**
-				 * [tFileInputDelimited_3 finally ] stop
-				 */
-
-				/**
-				 * [tAdvancedHash_row3 finally ] start
-				 */
-
-				currentComponent = "tAdvancedHash_row3";
-
-				/**
-				 * [tAdvancedHash_row3 finally ] stop
-				 */
-
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
-		}
-
-		globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", 1);
-	}
-
-	public static class entreprisesStruct implements routines.system.IPersistableRow<entreprisesStruct> {
-		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
-		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
-
-		public String identifiant;
-
-		public String getIdentifiant() {
-			return this.identifiant;
-		}
-
-		public String pays_code;
-
-		public String getPays_code() {
-			return this.pays_code;
-		}
-
-		public String pays;
-
-		public String getPays() {
-			return this.pays;
-		}
-
-		public String secteur_activite_code;
-
-		public String getSecteur_activite_code() {
-			return this.secteur_activite_code;
-		}
-
-		public String secteur;
-
-		public String getSecteur() {
-			return this.secteur;
-		}
-
-		public String denomination_sociale;
-
-		public String getDenomination_sociale() {
-			return this.denomination_sociale;
-		}
-
-		public String adresse_1;
-
-		public String getAdresse_1() {
-			return this.adresse_1;
-		}
-
-		public String adresse_2;
-
-		public String getAdresse_2() {
-			return this.adresse_2;
-		}
-
-		public String adresse_3;
-
-		public String getAdresse_3() {
-			return this.adresse_3;
-		}
-
-		public String adresse_4;
-
-		public String getAdresse_4() {
-			return this.adresse_4;
-		}
-
-		public String code_postal;
-
-		public String getCode_postal() {
-			return this.code_postal;
-		}
-
-		public String ville;
-
-		public String getVille() {
-			return this.ville;
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2.length) {
-					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2.length == 0) {
-						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[1024];
-					} else {
-						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2, 0, length);
-				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2) {
-
-				try {
-
-					int length = 0;
-
-					this.identifiant = readString(dis);
-
-					this.pays_code = readString(dis);
-
-					this.pays = readString(dis);
-
-					this.secteur_activite_code = readString(dis);
-
-					this.secteur = readString(dis);
-
-					this.denomination_sociale = readString(dis);
-
-					this.adresse_1 = readString(dis);
-
-					this.adresse_2 = readString(dis);
-
-					this.adresse_3 = readString(dis);
-
-					this.adresse_4 = readString(dis);
-
-					this.code_postal = readString(dis);
-
-					this.ville = readString(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.identifiant, dos);
-
-				// String
-
-				writeString(this.pays_code, dos);
-
-				// String
-
-				writeString(this.pays, dos);
-
-				// String
-
-				writeString(this.secteur_activite_code, dos);
-
-				// String
-
-				writeString(this.secteur, dos);
-
-				// String
-
-				writeString(this.denomination_sociale, dos);
-
-				// String
-
-				writeString(this.adresse_1, dos);
-
-				// String
-
-				writeString(this.adresse_2, dos);
-
-				// String
-
-				writeString(this.adresse_3, dos);
-
-				// String
-
-				writeString(this.adresse_4, dos);
-
-				// String
-
-				writeString(this.code_postal, dos);
-
-				// String
-
-				writeString(this.ville, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("identifiant=" + identifiant);
-			sb.append(",pays_code=" + pays_code);
-			sb.append(",pays=" + pays);
-			sb.append(",secteur_activite_code=" + secteur_activite_code);
-			sb.append(",secteur=" + secteur);
-			sb.append(",denomination_sociale=" + denomination_sociale);
-			sb.append(",adresse_1=" + adresse_1);
-			sb.append(",adresse_2=" + adresse_2);
-			sb.append(",adresse_3=" + adresse_3);
-			sb.append(",adresse_4=" + adresse_4);
-			sb.append(",code_postal=" + code_postal);
-			sb.append(",ville=" + ville);
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(entreprisesStruct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public void tFileInputDelimited_2Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-			// TDI-39566 avoid throwing an useless Exception
-			boolean resumeIt = true;
-			if (globalResumeTicket == false && resumeEntryMethodName != null) {
-				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-				resumeIt = resumeEntryMethodName.equals(currentMethodName);
-			}
-			if (resumeIt || globalResumeTicket) { // start the resume
-				globalResumeTicket = true;
-
-				entreprisesStruct entreprises = new entreprisesStruct();
-
-				/**
-				 * [tMap_1 begin ] start
-				 */
-
-				ok_Hash.put("tMap_1", false);
-				start_Hash.put("tMap_1", System.currentTimeMillis());
-
-				currentComponent = "tMap_1";
 
 				if (execStat) {
 					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "entreprises");
 				}
 
-				int tos_count_tMap_1 = 0;
+				int tos_count_tMap_3 = 0;
 
 // ###############################
 // # Lookup's keys initialization
@@ -5236,17 +4553,20 @@ public class adresse_dim_v2 implements TalendJob {
 
 // ###############################
 // # Vars initialization
-				class Var__tMap_1__Struct {
+				class Var__tMap_3__Struct {
+					String id;
+					String NA;
 				}
-				Var__tMap_1__Struct Var__tMap_1 = new Var__tMap_1__Struct();
+				Var__tMap_3__Struct Var__tMap_3 = new Var__tMap_3__Struct();
 // ###############################
 
 // ###############################
 // # Outputs initialization
+				adresses_entreprisesStruct adresses_entreprises_tmp = new adresses_entreprisesStruct();
 // ###############################
 
 				/**
-				 * [tMap_1 begin ] stop
+				 * [tMap_3 begin ] stop
 				 */
 
 				/**
@@ -5396,21 +4716,21 @@ public class adresse_dim_v2 implements TalendJob {
 						if (entreprises != null) {
 
 							/**
-							 * [tMap_1 main ] start
+							 * [tMap_3 main ] start
 							 */
 
-							currentComponent = "tMap_1";
+							currentComponent = "tMap_3";
 
 							if (execStat) {
 								runStat.updateStatOnConnection(iterateId, 1, 1, "entreprises");
 							}
 
-							boolean hasCasePrimitiveKeyWithNull_tMap_1 = false;
+							boolean hasCasePrimitiveKeyWithNull_tMap_3 = false;
 
 							// ###############################
 							// # Input tables (lookups)
-							boolean rejectedInnerJoin_tMap_1 = false;
-							boolean mainRowRejected_tMap_1 = false;
+							boolean rejectedInnerJoin_tMap_3 = false;
+							boolean mainRowRejected_tMap_3 = false;
 
 							// ###############################
 							{ // start of Var scope
@@ -5418,40 +4738,440 @@ public class adresse_dim_v2 implements TalendJob {
 								// ###############################
 								// # Vars tables
 
-								Var__tMap_1__Struct Var = Var__tMap_1;// ###############################
+								Var__tMap_3__Struct Var = Var__tMap_3;
+								Var.id = AdressesCleanerV2.generateId(entreprises.code_postal, entreprises.ville);
+								Var.NA = AdressesCleanerV2.getNA();// ###############################
 								// ###############################
 								// # Output tables
 
+								adresses_entreprises = null;
+
+// # Output table : 'adresses_entreprises'
+								adresses_entreprises_tmp.adresse_id = Var.id;
+								adresses_entreprises_tmp.ville = (Var.id.equals(Var.NA)) ? Var.NA : entreprises.ville;
+								adresses_entreprises_tmp.code_postal = (Var.id.equals(Var.NA)) ? Var.NA
+										: entreprises.code_postal;
+								adresses_entreprises_tmp.departement = AdressesCleanerV2.getNA();
+								adresses_entreprises_tmp.region = AdressesCleanerV2.getNA();
+								adresses_entreprises_tmp.pays_code = entreprises.pays_code.replace("[", "").replace("]",
+										"");
+								adresses_entreprises_tmp.pays = entreprises.pays;
+								adresses_entreprises = adresses_entreprises_tmp;
 // ###############################
 
 							} // end of Var scope
 
-							rejectedInnerJoin_tMap_1 = false;
+							rejectedInnerJoin_tMap_3 = false;
 
-							tos_count_tMap_1++;
+							tos_count_tMap_3++;
 
 							/**
-							 * [tMap_1 main ] stop
+							 * [tMap_3 main ] stop
 							 */
 
 							/**
-							 * [tMap_1 process_data_begin ] start
+							 * [tMap_3 process_data_begin ] start
 							 */
 
-							currentComponent = "tMap_1";
+							currentComponent = "tMap_3";
 
 							/**
-							 * [tMap_1 process_data_begin ] stop
+							 * [tMap_3 process_data_begin ] stop
+							 */
+// Start of branch "adresses_entreprises"
+							if (adresses_entreprises != null) {
+
+								/**
+								 * [tUnite_1 main ] start
+								 */
+
+								currentComponent = "tUnite_1";
+
+								if (execStat) {
+									runStat.updateStatOnConnection(iterateId, 1, 1, "adresses_entreprises");
+								}
+
+//////////
+
+// for output
+								adresses_merged = new adresses_mergedStruct();
+
+								adresses_merged.adresse_id = adresses_entreprises.adresse_id;
+								adresses_merged.ville = adresses_entreprises.ville;
+								adresses_merged.code_postal = adresses_entreprises.code_postal;
+								adresses_merged.departement = adresses_entreprises.departement;
+								adresses_merged.region = adresses_entreprises.region;
+								adresses_merged.pays_code = adresses_entreprises.pays_code;
+								adresses_merged.pays = adresses_entreprises.pays;
+
+								nb_line_tUnite_1++;
+
+//////////
+
+								tos_count_tUnite_1++;
+
+								/**
+								 * [tUnite_1 main ] stop
+								 */
+
+								/**
+								 * [tUnite_1 process_data_begin ] start
+								 */
+
+								currentComponent = "tUnite_1";
+
+								/**
+								 * [tUnite_1 process_data_begin ] stop
+								 */
+
+								/**
+								 * [tMap_1 main ] start
+								 */
+
+								currentComponent = "tMap_1";
+
+								if (execStat) {
+									runStat.updateStatOnConnection(iterateId, 1, 1, "adresses_merged");
+								}
+
+								boolean hasCasePrimitiveKeyWithNull_tMap_1 = false;
+
+								// ###############################
+								// # Input tables (lookups)
+								boolean rejectedInnerJoin_tMap_1 = false;
+								boolean mainRowRejected_tMap_1 = false;
+
+								///////////////////////////////////////////////
+								// Starting Lookup Table "dep_region"
+								///////////////////////////////////////////////
+
+								boolean forceLoopdep_region = false;
+
+								dep_regionStruct dep_regionObjectFromLookup = null;
+
+								if (!rejectedInnerJoin_tMap_1) { // G_TM_M_020
+
+									hasCasePrimitiveKeyWithNull_tMap_1 = false;
+
+									dep_regionHashKey.country_code = adresses_merged.pays_code;
+
+									dep_regionHashKey.postal_code = adresses_merged.code_postal;
+
+									dep_regionHashKey.hashCodeDirty = true;
+
+									tHash_Lookup_dep_region.lookup(dep_regionHashKey);
+
+								} // G_TM_M_020
+
+								if (tHash_Lookup_dep_region != null
+										&& tHash_Lookup_dep_region.getCount(dep_regionHashKey) > 1) { // G 071
+
+									// System.out.println("WARNING: UNIQUE MATCH is configured for the lookup
+									// 'dep_region' and it contains more one result from keys :
+									// dep_region.country_code = '" + dep_regionHashKey.country_code + "',
+									// dep_region.postal_code = '" + dep_regionHashKey.postal_code + "'");
+								} // G 071
+
+								dep_regionStruct dep_region = null;
+
+								dep_regionStruct fromLookup_dep_region = null;
+								dep_region = dep_regionDefault;
+
+								if (tHash_Lookup_dep_region != null && tHash_Lookup_dep_region.hasNext()) { // G 099
+
+									fromLookup_dep_region = tHash_Lookup_dep_region.next();
+
+								} // G 099
+
+								if (fromLookup_dep_region != null) {
+									dep_region = fromLookup_dep_region;
+								}
+
+								// ###############################
+								{ // start of Var scope
+
+									// ###############################
+									// # Vars tables
+
+									Var__tMap_1__Struct Var = Var__tMap_1;// ###############################
+									// ###############################
+									// # Output tables
+
+									adresses_with_dep = null;
+
+// # Output table : 'adresses_with_dep'
+									adresses_with_dep_tmp.adresse_id = adresses_merged.adresse_id;
+									adresses_with_dep_tmp.ville = adresses_merged.ville;
+									adresses_with_dep_tmp.code_postal = adresses_merged.code_postal;
+									adresses_with_dep_tmp.departement = // TODO : column shifting ?
+											dep_region.admin_code2 == null ? AdressesCleanerV2.getNA()
+													: dep_region.admin_code2;
+									adresses_with_dep_tmp.region = // TODO : column shifting ?
+											dep_region.admin_code1 == null ? AdressesCleanerV2.getNA()
+													: dep_region.admin_code1;
+									adresses_with_dep_tmp.pays_code = adresses_merged.pays_code;
+									adresses_with_dep_tmp.pays = // adresses_merged.pays == null ?
+																	// AdressesCleanerV2.getNA() : adresses_merged.pays
+											adresses_merged.pays;
+									adresses_with_dep = adresses_with_dep_tmp;
+// ###############################
+
+								} // end of Var scope
+
+								rejectedInnerJoin_tMap_1 = false;
+
+								tos_count_tMap_1++;
+
+								/**
+								 * [tMap_1 main ] stop
+								 */
+
+								/**
+								 * [tMap_1 process_data_begin ] start
+								 */
+
+								currentComponent = "tMap_1";
+
+								/**
+								 * [tMap_1 process_data_begin ] stop
+								 */
+// Start of branch "adresses_with_dep"
+								if (adresses_with_dep != null) {
+
+									/**
+									 * [tUniqRow_1 main ] start
+									 */
+
+									currentComponent = "tUniqRow_1";
+
+									if (execStat) {
+										runStat.updateStatOnConnection(iterateId, 1, 1, "adresses_with_dep");
+									}
+
+									adresses_unique = null;
+									if (adresses_with_dep.adresse_id == null) {
+										finder_tUniqRow_1.adresse_id = null;
+									} else {
+										finder_tUniqRow_1.adresse_id = adresses_with_dep.adresse_id.toLowerCase();
+									}
+									finder_tUniqRow_1.hashCodeDirty = true;
+									if (!keystUniqRow_1.contains(finder_tUniqRow_1)) {
+										KeyStruct_tUniqRow_1 new_tUniqRow_1 = new KeyStruct_tUniqRow_1();
+
+										if (adresses_with_dep.adresse_id == null) {
+											new_tUniqRow_1.adresse_id = null;
+										} else {
+											new_tUniqRow_1.adresse_id = adresses_with_dep.adresse_id.toLowerCase();
+										}
+
+										keystUniqRow_1.add(new_tUniqRow_1);
+										if (adresses_unique == null) {
+
+											adresses_unique = new adresses_uniqueStruct();
+										}
+										adresses_unique.adresse_id = adresses_with_dep.adresse_id;
+										adresses_unique.ville = adresses_with_dep.ville;
+										adresses_unique.code_postal = adresses_with_dep.code_postal;
+										adresses_unique.departement = adresses_with_dep.departement;
+										adresses_unique.region = adresses_with_dep.region;
+										adresses_unique.pays_code = adresses_with_dep.pays_code;
+										adresses_unique.pays = adresses_with_dep.pays;
+										nb_uniques_tUniqRow_1++;
+									} else {
+										nb_duplicates_tUniqRow_1++;
+									}
+
+									tos_count_tUniqRow_1++;
+
+									/**
+									 * [tUniqRow_1 main ] stop
+									 */
+
+									/**
+									 * [tUniqRow_1 process_data_begin ] start
+									 */
+
+									currentComponent = "tUniqRow_1";
+
+									/**
+									 * [tUniqRow_1 process_data_begin ] stop
+									 */
+// Start of branch "adresses_unique"
+									if (adresses_unique != null) {
+
+										/**
+										 * [tDBOutput_1 main ] start
+										 */
+
+										currentComponent = "tDBOutput_1";
+
+										if (execStat) {
+											runStat.updateStatOnConnection(iterateId, 1, 1, "adresses_unique");
+										}
+
+										whetherReject_tDBOutput_1 = false;
+										if (adresses_unique.adresse_id == null) {
+											pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
+										} else {
+											pstmt_tDBOutput_1.setString(1, adresses_unique.adresse_id);
+										}
+
+										if (adresses_unique.ville == null) {
+											pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
+										} else {
+											pstmt_tDBOutput_1.setString(2, adresses_unique.ville);
+										}
+
+										if (adresses_unique.code_postal == null) {
+											pstmt_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
+										} else {
+											pstmt_tDBOutput_1.setString(3, adresses_unique.code_postal);
+										}
+
+										if (adresses_unique.departement == null) {
+											pstmt_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
+										} else {
+											pstmt_tDBOutput_1.setString(4, adresses_unique.departement);
+										}
+
+										if (adresses_unique.region == null) {
+											pstmt_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
+										} else {
+											pstmt_tDBOutput_1.setString(5, adresses_unique.region);
+										}
+
+										if (adresses_unique.pays_code == null) {
+											pstmt_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
+										} else {
+											pstmt_tDBOutput_1.setString(6, adresses_unique.pays_code);
+										}
+
+										if (adresses_unique.pays == null) {
+											pstmt_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
+										} else {
+											pstmt_tDBOutput_1.setString(7, adresses_unique.pays);
+										}
+
+										pstmt_tDBOutput_1.addBatch();
+										nb_line_tDBOutput_1++;
+
+										batchSizeCounter_tDBOutput_1++;
+										if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
+											try {
+												int countSum_tDBOutput_1 = 0;
+												for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+													countSum_tDBOutput_1 += (countEach_tDBOutput_1 == java.sql.Statement.EXECUTE_FAILED
+															? 0
+															: 1);
+												}
+												insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+											} catch (java.sql.BatchUpdateException e) {
+												int countSum_tDBOutput_1 = 0;
+												for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+													countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
+															: countEach_tDBOutput_1);
+												}
+												insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+												System.err.println(e.getMessage());
+											}
+
+											batchSizeCounter_tDBOutput_1 = 0;
+										}
+										commitCounter_tDBOutput_1++;
+
+										if (commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
+
+											try {
+												int countSum_tDBOutput_1 = 0;
+												for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+													countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : 1);
+												}
+												insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+											} catch (java.sql.BatchUpdateException e) {
+												int countSum_tDBOutput_1 = 0;
+												for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+													countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
+															: countEach_tDBOutput_1);
+												}
+												insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+												System.err.println(e.getMessage());
+
+											}
+											conn_tDBOutput_1.commit();
+											commitCounter_tDBOutput_1 = 0;
+
+										}
+
+										tos_count_tDBOutput_1++;
+
+										/**
+										 * [tDBOutput_1 main ] stop
+										 */
+
+										/**
+										 * [tDBOutput_1 process_data_begin ] start
+										 */
+
+										currentComponent = "tDBOutput_1";
+
+										/**
+										 * [tDBOutput_1 process_data_begin ] stop
+										 */
+
+										/**
+										 * [tDBOutput_1 process_data_end ] start
+										 */
+
+										currentComponent = "tDBOutput_1";
+
+										/**
+										 * [tDBOutput_1 process_data_end ] stop
+										 */
+
+									} // End of branch "adresses_unique"
+
+									/**
+									 * [tUniqRow_1 process_data_end ] start
+									 */
+
+									currentComponent = "tUniqRow_1";
+
+									/**
+									 * [tUniqRow_1 process_data_end ] stop
+									 */
+
+								} // End of branch "adresses_with_dep"
+
+								/**
+								 * [tMap_1 process_data_end ] start
+								 */
+
+								currentComponent = "tMap_1";
+
+								/**
+								 * [tMap_1 process_data_end ] stop
+								 */
+
+								/**
+								 * [tUnite_1 process_data_end ] start
+								 */
+
+								currentComponent = "tUnite_1";
+
+								/**
+								 * [tUnite_1 process_data_end ] stop
+								 */
+
+							} // End of branch "adresses_entreprises"
+
+							/**
+							 * [tMap_3 process_data_end ] start
 							 */
 
-							/**
-							 * [tMap_1 process_data_end ] start
-							 */
-
-							currentComponent = "tMap_1";
+							currentComponent = "tMap_3";
 
 							/**
-							 * [tMap_1 process_data_end ] stop
+							 * [tMap_3 process_data_end ] stop
 							 */
 
 						} // End of branch "entreprises"
@@ -5493,10 +5213,10 @@ public class adresse_dim_v2 implements TalendJob {
 				 */
 
 				/**
-				 * [tMap_1 end ] start
+				 * [tMap_3 end ] start
 				 */
 
-				currentComponent = "tMap_1";
+				currentComponent = "tMap_3";
 
 // ###############################
 // # Lookup hashes releasing
@@ -5506,11 +5226,926 @@ public class adresse_dim_v2 implements TalendJob {
 					runStat.updateStat(resourceMap, iterateId, 2, 0, "entreprises");
 				}
 
+				ok_Hash.put("tMap_3", true);
+				end_Hash.put("tMap_3", System.currentTimeMillis());
+
+				/**
+				 * [tMap_3 end ] stop
+				 */
+
+				/**
+				 * [tUnite_1 end ] start
+				 */
+
+				currentComponent = "tUnite_1";
+
+				globalMap.put("tUnite_1_NB_LINE", nb_line_tUnite_1);
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "adresses_entreprises", "adresses_remuneration");
+				}
+
+				ok_Hash.put("tUnite_1", true);
+				end_Hash.put("tUnite_1", System.currentTimeMillis());
+
+				/**
+				 * [tUnite_1 end ] stop
+				 */
+
+				/**
+				 * [tMap_1 end ] start
+				 */
+
+				currentComponent = "tMap_1";
+
+// ###############################
+// # Lookup hashes releasing
+				if (tHash_Lookup_dep_region != null) {
+					tHash_Lookup_dep_region.endGet();
+				}
+				globalMap.remove("tHash_Lookup_dep_region");
+
+// ###############################      
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "adresses_merged");
+				}
+
 				ok_Hash.put("tMap_1", true);
 				end_Hash.put("tMap_1", System.currentTimeMillis());
 
 				/**
 				 * [tMap_1 end ] stop
+				 */
+
+				/**
+				 * [tUniqRow_1 end ] start
+				 */
+
+				currentComponent = "tUniqRow_1";
+
+				globalMap.put("tUniqRow_1_NB_UNIQUES", nb_uniques_tUniqRow_1);
+				globalMap.put("tUniqRow_1_NB_DUPLICATES", nb_duplicates_tUniqRow_1);
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "adresses_with_dep");
+				}
+
+				ok_Hash.put("tUniqRow_1", true);
+				end_Hash.put("tUniqRow_1", System.currentTimeMillis());
+
+				/**
+				 * [tUniqRow_1 end ] stop
+				 */
+
+				/**
+				 * [tDBOutput_1 end ] start
+				 */
+
+				currentComponent = "tDBOutput_1";
+
+				try {
+					if (batchSizeCounter_tDBOutput_1 != 0) {
+						int countSum_tDBOutput_1 = 0;
+
+						for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+							countSum_tDBOutput_1 += (countEach_tDBOutput_1 == java.sql.Statement.EXECUTE_FAILED ? 0
+									: 1);
+						}
+
+						insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+
+					}
+
+				} catch (java.sql.BatchUpdateException e) {
+
+					int countSum_tDBOutput_1 = 0;
+					for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+						countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : countEach_tDBOutput_1);
+					}
+
+					insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+
+					globalMap.put(currentComponent + "_ERROR_MESSAGE", e.getMessage());
+					System.err.println(e.getMessage());
+
+				}
+				batchSizeCounter_tDBOutput_1 = 0;
+
+				if (pstmt_tDBOutput_1 != null) {
+
+					pstmt_tDBOutput_1.close();
+					resourceMap.remove("pstmt_tDBOutput_1");
+
+				}
+				resourceMap.put("statementClosed_tDBOutput_1", true);
+				if (commitCounter_tDBOutput_1 > 0) {
+
+					conn_tDBOutput_1.commit();
+
+				}
+
+				conn_tDBOutput_1.close();
+
+				resourceMap.put("finish_tDBOutput_1", true);
+
+				nb_line_deleted_tDBOutput_1 = nb_line_deleted_tDBOutput_1 + deletedCount_tDBOutput_1;
+				nb_line_update_tDBOutput_1 = nb_line_update_tDBOutput_1 + updatedCount_tDBOutput_1;
+				nb_line_inserted_tDBOutput_1 = nb_line_inserted_tDBOutput_1 + insertedCount_tDBOutput_1;
+				nb_line_rejected_tDBOutput_1 = nb_line_rejected_tDBOutput_1 + rejectedCount_tDBOutput_1;
+
+				globalMap.put("tDBOutput_1_NB_LINE", nb_line_tDBOutput_1);
+				globalMap.put("tDBOutput_1_NB_LINE_UPDATED", nb_line_update_tDBOutput_1);
+				globalMap.put("tDBOutput_1_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_1);
+				globalMap.put("tDBOutput_1_NB_LINE_DELETED", nb_line_deleted_tDBOutput_1);
+				globalMap.put("tDBOutput_1_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_1);
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "adresses_unique");
+				}
+
+				ok_Hash.put("tDBOutput_1", true);
+				end_Hash.put("tDBOutput_1", System.currentTimeMillis());
+
+				/**
+				 * [tDBOutput_1 end ] stop
+				 */
+
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			// free memory for "tMap_1"
+			globalMap.remove("tHash_Lookup_dep_region");
+
+			try {
+
+				/**
+				 * [tFileInputDelimited_1 finally ] start
+				 */
+
+				currentComponent = "tFileInputDelimited_1";
+
+				/**
+				 * [tFileInputDelimited_1 finally ] stop
+				 */
+
+				/**
+				 * [tMap_2 finally ] start
+				 */
+
+				currentComponent = "tMap_2";
+
+				/**
+				 * [tMap_2 finally ] stop
+				 */
+
+				/**
+				 * [tFileInputDelimited_2 finally ] start
+				 */
+
+				currentComponent = "tFileInputDelimited_2";
+
+				/**
+				 * [tFileInputDelimited_2 finally ] stop
+				 */
+
+				/**
+				 * [tMap_3 finally ] start
+				 */
+
+				currentComponent = "tMap_3";
+
+				/**
+				 * [tMap_3 finally ] stop
+				 */
+
+				/**
+				 * [tUnite_1 finally ] start
+				 */
+
+				currentComponent = "tUnite_1";
+
+				/**
+				 * [tUnite_1 finally ] stop
+				 */
+
+				/**
+				 * [tMap_1 finally ] start
+				 */
+
+				currentComponent = "tMap_1";
+
+				/**
+				 * [tMap_1 finally ] stop
+				 */
+
+				/**
+				 * [tUniqRow_1 finally ] start
+				 */
+
+				currentComponent = "tUniqRow_1";
+
+				/**
+				 * [tUniqRow_1 finally ] stop
+				 */
+
+				/**
+				 * [tDBOutput_1 finally ] start
+				 */
+
+				currentComponent = "tDBOutput_1";
+
+				try {
+					if (resourceMap.get("statementClosed_tDBOutput_1") == null) {
+						java.sql.PreparedStatement pstmtToClose_tDBOutput_1 = null;
+						if ((pstmtToClose_tDBOutput_1 = (java.sql.PreparedStatement) resourceMap
+								.remove("pstmt_tDBOutput_1")) != null) {
+							pstmtToClose_tDBOutput_1.close();
+						}
+					}
+				} finally {
+					if (resourceMap.get("finish_tDBOutput_1") == null) {
+						java.sql.Connection ctn_tDBOutput_1 = null;
+						if ((ctn_tDBOutput_1 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_1")) != null) {
+							try {
+								ctn_tDBOutput_1.close();
+							} catch (java.sql.SQLException sqlEx_tDBOutput_1) {
+								String errorMessage_tDBOutput_1 = "failed to close the connection in tDBOutput_1 :"
+										+ sqlEx_tDBOutput_1.getMessage();
+								System.err.println(errorMessage_tDBOutput_1);
+							}
+						}
+					}
+				}
+
+				/**
+				 * [tDBOutput_1 finally ] stop
+				 */
+
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 1);
+	}
+
+	public static class dep_regionStruct implements routines.system.IPersistableComparableLookupRow<dep_regionStruct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[0];
+		protected static final int DEFAULT_HASHCODE = 1;
+		protected static final int PRIME = 31;
+		protected int hashCode = DEFAULT_HASHCODE;
+		public boolean hashCodeDirty = true;
+
+		public String loopKey;
+
+		public String country_code;
+
+		public String getCountry_code() {
+			return this.country_code;
+		}
+
+		public String postal_code;
+
+		public String getPostal_code() {
+			return this.postal_code;
+		}
+
+		public String place_name;
+
+		public String getPlace_name() {
+			return this.place_name;
+		}
+
+		public String admin_name1;
+
+		public String getAdmin_name1() {
+			return this.admin_name1;
+		}
+
+		public String admin_code1;
+
+		public String getAdmin_code1() {
+			return this.admin_code1;
+		}
+
+		public String admin_name2;
+
+		public String getAdmin_name2() {
+			return this.admin_name2;
+		}
+
+		public String admin_code2;
+
+		public String getAdmin_code2() {
+			return this.admin_code2;
+		}
+
+		public String admin_name3;
+
+		public String getAdmin_name3() {
+			return this.admin_name3;
+		}
+
+		public String admin_code3;
+
+		public String getAdmin_code3() {
+			return this.admin_code3;
+		}
+
+		@Override
+		public int hashCode() {
+			if (this.hashCodeDirty) {
+				final int prime = PRIME;
+				int result = DEFAULT_HASHCODE;
+
+				result = prime * result + ((this.country_code == null) ? 0 : this.country_code.hashCode());
+
+				result = prime * result + ((this.postal_code == null) ? 0 : this.postal_code.hashCode());
+
+				this.hashCode = result;
+				this.hashCodeDirty = false;
+			}
+			return this.hashCode;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			final dep_regionStruct other = (dep_regionStruct) obj;
+
+			if (this.country_code == null) {
+				if (other.country_code != null)
+					return false;
+
+			} else if (!this.country_code.equals(other.country_code))
+
+				return false;
+
+			if (this.postal_code == null) {
+				if (other.postal_code != null)
+					return false;
+
+			} else if (!this.postal_code.equals(other.postal_code))
+
+				return false;
+
+			return true;
+		}
+
+		public void copyDataTo(dep_regionStruct other) {
+
+			other.country_code = this.country_code;
+			other.postal_code = this.postal_code;
+			other.place_name = this.place_name;
+			other.admin_name1 = this.admin_name1;
+			other.admin_code1 = this.admin_code1;
+			other.admin_name2 = this.admin_name2;
+			other.admin_code2 = this.admin_code2;
+			other.admin_name3 = this.admin_name3;
+			other.admin_code3 = this.admin_code3;
+
+		}
+
+		public void copyKeysDataTo(dep_regionStruct other) {
+
+			other.country_code = this.country_code;
+			other.postal_code = this.postal_code;
+
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2 = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim_v2, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private String readString(DataInputStream dis, ObjectInputStream ois) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				byte[] byteArray = new byte[length];
+				dis.read(byteArray);
+				strReturn = new String(byteArray, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readKeysData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim_v2) {
+
+				try {
+
+					int length = 0;
+
+					this.country_code = readString(dis);
+
+					this.postal_code = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeKeysData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.country_code, dos);
+
+				// String
+
+				writeString(this.postal_code, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		/**
+		 * Fill Values data by reading ObjectInputStream.
+		 */
+		public void readValuesData(DataInputStream dis, ObjectInputStream ois) {
+			try {
+
+				int length = 0;
+
+				this.place_name = readString(dis, ois);
+
+				this.admin_name1 = readString(dis, ois);
+
+				this.admin_code1 = readString(dis, ois);
+
+				this.admin_name2 = readString(dis, ois);
+
+				this.admin_code2 = readString(dis, ois);
+
+				this.admin_name3 = readString(dis, ois);
+
+				this.admin_code3 = readString(dis, ois);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+
+			}
+
+		}
+
+		/**
+		 * Return a byte array which represents Values data.
+		 */
+		public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
+			try {
+
+				writeString(this.place_name, dos, oos);
+
+				writeString(this.admin_name1, dos, oos);
+
+				writeString(this.admin_code1, dos, oos);
+
+				writeString(this.admin_name2, dos, oos);
+
+				writeString(this.admin_code2, dos, oos);
+
+				writeString(this.admin_name3, dos, oos);
+
+				writeString(this.admin_code3, dos, oos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("country_code=" + country_code);
+			sb.append(",postal_code=" + postal_code);
+			sb.append(",place_name=" + place_name);
+			sb.append(",admin_name1=" + admin_name1);
+			sb.append(",admin_code1=" + admin_code1);
+			sb.append(",admin_name2=" + admin_name2);
+			sb.append(",admin_code2=" + admin_code2);
+			sb.append(",admin_name3=" + admin_name3);
+			sb.append(",admin_code3=" + admin_code3);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(dep_regionStruct other) {
+
+			int returnValue = -1;
+
+			returnValue = checkNullsAndCompare(this.country_code, other.country_code);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			returnValue = checkNullsAndCompare(this.postal_code, other.postal_code);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public void tFileInputDelimited_3Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				dep_regionStruct dep_region = new dep_regionStruct();
+
+				/**
+				 * [tAdvancedHash_dep_region begin ] start
+				 */
+
+				ok_Hash.put("tAdvancedHash_dep_region", false);
+				start_Hash.put("tAdvancedHash_dep_region", System.currentTimeMillis());
+
+				currentComponent = "tAdvancedHash_dep_region";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "dep_region");
+				}
+
+				int tos_count_tAdvancedHash_dep_region = 0;
+
+				// connection name:dep_region
+				// source node:tFileInputDelimited_3 - inputs:(after_tFileInputDelimited_1)
+				// outputs:(dep_region,dep_region) | target node:tAdvancedHash_dep_region -
+				// inputs:(dep_region) outputs:()
+				// linked node: tMap_1 - inputs:(adresses_merged,dep_region)
+				// outputs:(adresses_with_dep)
+
+				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_dep_region = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
+
+				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<dep_regionStruct> tHash_Lookup_dep_region = org.talend.designer.components.lookup.memory.AdvancedMemoryLookup
+						.<dep_regionStruct>getLookup(matchingModeEnum_dep_region);
+
+				globalMap.put("tHash_Lookup_dep_region", tHash_Lookup_dep_region);
+
+				/**
+				 * [tAdvancedHash_dep_region begin ] stop
+				 */
+
+				/**
+				 * [tFileInputDelimited_3 begin ] start
+				 */
+
+				ok_Hash.put("tFileInputDelimited_3", false);
+				start_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
+
+				currentComponent = "tFileInputDelimited_3";
+
+				int tos_count_tFileInputDelimited_3 = 0;
+
+				final routines.system.RowState rowstate_tFileInputDelimited_3 = new routines.system.RowState();
+
+				int nb_line_tFileInputDelimited_3 = 0;
+				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_3 = null;
+				int limit_tFileInputDelimited_3 = -1;
+				try {
+
+					Object filename_tFileInputDelimited_3 = "C:/BI/transparence-sante/data/others/zipcodes_dep_region.csv";
+					if (filename_tFileInputDelimited_3 instanceof java.io.InputStream) {
+
+						int footer_value_tFileInputDelimited_3 = 0, random_value_tFileInputDelimited_3 = -1;
+						if (footer_value_tFileInputDelimited_3 > 0 || random_value_tFileInputDelimited_3 > 0) {
+							throw new java.lang.Exception(
+									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
+						}
+
+					}
+					try {
+						fid_tFileInputDelimited_3 = new org.talend.fileprocess.FileInputDelimited(
+								"C:/BI/transparence-sante/data/others/zipcodes_dep_region.csv", "UTF-8", ";", "\n",
+								false, 1, 0, limit_tFileInputDelimited_3, -1, false);
+					} catch (java.lang.Exception e) {
+
+						System.err.println(e.getMessage());
+
+					}
+
+					while (fid_tFileInputDelimited_3 != null && fid_tFileInputDelimited_3.nextRecord()) {
+						rowstate_tFileInputDelimited_3.reset();
+
+						dep_region = null;
+
+						dep_region = null;
+
+						boolean whetherReject_tFileInputDelimited_3 = false;
+						dep_region = new dep_regionStruct();
+						try {
+
+							int columnIndexWithD_tFileInputDelimited_3 = 0;
+
+							columnIndexWithD_tFileInputDelimited_3 = 0;
+
+							dep_region.country_code = fid_tFileInputDelimited_3
+									.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 1;
+
+							dep_region.postal_code = fid_tFileInputDelimited_3
+									.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 2;
+
+							dep_region.place_name = fid_tFileInputDelimited_3
+									.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 3;
+
+							dep_region.admin_name1 = fid_tFileInputDelimited_3
+									.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 4;
+
+							dep_region.admin_code1 = fid_tFileInputDelimited_3
+									.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 5;
+
+							dep_region.admin_name2 = fid_tFileInputDelimited_3
+									.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 6;
+
+							dep_region.admin_code2 = fid_tFileInputDelimited_3
+									.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 7;
+
+							dep_region.admin_name3 = fid_tFileInputDelimited_3
+									.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 8;
+
+							dep_region.admin_code3 = fid_tFileInputDelimited_3
+									.get(columnIndexWithD_tFileInputDelimited_3);
+
+							if (rowstate_tFileInputDelimited_3.getException() != null) {
+								throw rowstate_tFileInputDelimited_3.getException();
+							}
+
+						} catch (java.lang.Exception e) {
+							whetherReject_tFileInputDelimited_3 = true;
+
+							System.err.println(e.getMessage());
+							dep_region = null;
+
+						}
+
+						/**
+						 * [tFileInputDelimited_3 begin ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_3 main ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_3";
+
+						tos_count_tFileInputDelimited_3++;
+
+						/**
+						 * [tFileInputDelimited_3 main ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_3 process_data_begin ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_3";
+
+						/**
+						 * [tFileInputDelimited_3 process_data_begin ] stop
+						 */
+// Start of branch "dep_region"
+						if (dep_region != null) {
+
+							/**
+							 * [tAdvancedHash_dep_region main ] start
+							 */
+
+							currentComponent = "tAdvancedHash_dep_region";
+
+							if (execStat) {
+								runStat.updateStatOnConnection(iterateId, 1, 1, "dep_region");
+							}
+
+							dep_regionStruct dep_region_HashRow = new dep_regionStruct();
+
+							dep_region_HashRow.country_code = dep_region.country_code;
+
+							dep_region_HashRow.postal_code = dep_region.postal_code;
+
+							dep_region_HashRow.place_name = dep_region.place_name;
+
+							dep_region_HashRow.admin_name1 = dep_region.admin_name1;
+
+							dep_region_HashRow.admin_code1 = dep_region.admin_code1;
+
+							dep_region_HashRow.admin_name2 = dep_region.admin_name2;
+
+							dep_region_HashRow.admin_code2 = dep_region.admin_code2;
+
+							dep_region_HashRow.admin_name3 = dep_region.admin_name3;
+
+							dep_region_HashRow.admin_code3 = dep_region.admin_code3;
+
+							tHash_Lookup_dep_region.put(dep_region_HashRow);
+
+							tos_count_tAdvancedHash_dep_region++;
+
+							/**
+							 * [tAdvancedHash_dep_region main ] stop
+							 */
+
+							/**
+							 * [tAdvancedHash_dep_region process_data_begin ] start
+							 */
+
+							currentComponent = "tAdvancedHash_dep_region";
+
+							/**
+							 * [tAdvancedHash_dep_region process_data_begin ] stop
+							 */
+
+							/**
+							 * [tAdvancedHash_dep_region process_data_end ] start
+							 */
+
+							currentComponent = "tAdvancedHash_dep_region";
+
+							/**
+							 * [tAdvancedHash_dep_region process_data_end ] stop
+							 */
+
+						} // End of branch "dep_region"
+
+						/**
+						 * [tFileInputDelimited_3 process_data_end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_3";
+
+						/**
+						 * [tFileInputDelimited_3 process_data_end ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_3 end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_3";
+
+					}
+				} finally {
+					if (!((Object) ("C:/BI/transparence-sante/data/others/zipcodes_dep_region.csv") instanceof java.io.InputStream)) {
+						if (fid_tFileInputDelimited_3 != null) {
+							fid_tFileInputDelimited_3.close();
+						}
+					}
+					if (fid_tFileInputDelimited_3 != null) {
+						globalMap.put("tFileInputDelimited_3_NB_LINE", fid_tFileInputDelimited_3.getRowNumber());
+
+					}
+				}
+
+				ok_Hash.put("tFileInputDelimited_3", true);
+				end_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
+
+				/**
+				 * [tFileInputDelimited_3 end ] stop
+				 */
+
+				/**
+				 * [tAdvancedHash_dep_region end ] start
+				 */
+
+				currentComponent = "tAdvancedHash_dep_region";
+
+				tHash_Lookup_dep_region.endPut();
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "dep_region");
+				}
+
+				ok_Hash.put("tAdvancedHash_dep_region", true);
+				end_Hash.put("tAdvancedHash_dep_region", System.currentTimeMillis());
+
+				/**
+				 * [tAdvancedHash_dep_region end ] stop
 				 */
 
 			} // end the resume
@@ -5530,23 +6165,23 @@ public class adresse_dim_v2 implements TalendJob {
 			try {
 
 				/**
-				 * [tFileInputDelimited_2 finally ] start
+				 * [tFileInputDelimited_3 finally ] start
 				 */
 
-				currentComponent = "tFileInputDelimited_2";
+				currentComponent = "tFileInputDelimited_3";
 
 				/**
-				 * [tFileInputDelimited_2 finally ] stop
+				 * [tFileInputDelimited_3 finally ] stop
 				 */
 
 				/**
-				 * [tMap_1 finally ] start
+				 * [tAdvancedHash_dep_region finally ] start
 				 */
 
-				currentComponent = "tMap_1";
+				currentComponent = "tAdvancedHash_dep_region";
 
 				/**
-				 * [tMap_1 finally ] stop
+				 * [tAdvancedHash_dep_region finally ] stop
 				 */
 
 			} catch (java.lang.Exception e) {
@@ -5557,7 +6192,7 @@ public class adresse_dim_v2 implements TalendJob {
 			resourceMap = null;
 		}
 
-		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 1);
+		globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", 1);
 	}
 
 	public String resuming_logs_dir_path = null;
@@ -5764,18 +6399,6 @@ public class adresse_dim_v2 implements TalendJob {
 			e_tFileInputDelimited_1.printStackTrace();
 
 		}
-		try {
-			errorCode = null;
-			tFileInputDelimited_2Process(globalMap);
-			if (!"failure".equals(status)) {
-				status = "end";
-			}
-		} catch (TalendException e_tFileInputDelimited_2) {
-			globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", -1);
-
-			e_tFileInputDelimited_2.printStackTrace();
-
-		}
 
 		this.globalResumeTicket = true;// to run tPostJob
 
@@ -5928,6 +6551,6 @@ public class adresse_dim_v2 implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 173178 characters generated by Talend Open Studio for Data Integration on the
- * 18 janvier 2021 02:26:29 CET
+ * 193450 characters generated by Talend Open Studio for Data Integration on the
+ * 18 janvier 2021 03:30:51 CET
  ************************************************************************************************/

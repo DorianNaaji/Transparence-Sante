@@ -8,7 +8,7 @@ public class AdressesCleanerV2 {
 	
 	public static String generateId(String CP, String ville)
 	{
-		if(CP != null && CP.trim().chars().allMatch(Character::isDigit) && !CP.trim().equals("00000"))
+		if(CP != null && CP.trim().chars().allMatch(Character::isDigit) && !CP.trim().equals("00000") && !CP.trim().equals("99999"))
 		{
 			return CP.trim() + "|" + normalizeField(ville);
 		}
