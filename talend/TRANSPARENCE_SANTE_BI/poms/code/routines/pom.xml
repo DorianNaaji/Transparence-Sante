@@ -11,7 +11,7 @@
   <groupId>org.example.transparence_sante_bi.code</groupId>
   <artifactId>routines</artifactId>
   <version>7.2.1</version>
-  <name>TRANSPARENCE_SANTE_BI Routines</name>
+  <name>TRANSPARENCE_SANTE Routines</name>
   <properties>
     <talend.codes.package>routines</talend.codes.package>
   </properties>
