@@ -11,18 +11,18 @@
   <groupId>org.example.transparence_sante_bi.job</groupId>
   <artifactId>adresse_dim</artifactId>
   <version>0.1.0</version>
-  <name>TRANSPARENCE_SANTE adresse_dim-0.1.0 (0.1,Jobs)</name>
+  <name>TRANSPARENCE_SANTE_BI adresse_dim-0.1.0 (0.1,Jobs)</name>
   <properties>
     <output.resources.dir>${talend.job.name}/src/main/resources</output.resources.dir>
     <talend.job.applyContextToChildren>false</talend.job.applyContextToChildren>
     <current.test.resources.dir>${basedir}/src/test/resources</current.test.resources.dir>
     <current.int-resources.dir>${basedir}/src/main/resources</current.int-resources.dir>
     <talend.job.version>0.1</talend.job.version>
-    <talend.project.name.lowercase>transparence_sante</talend.project.name.lowercase>
-    <talend.job.path>transparence_sante</talend.job.path>
+    <talend.project.name.lowercase>transparence_sante_bi</talend.project.name.lowercase>
+    <talend.job.path>transparence_sante_bi</talend.job.path>
     <project.distribution-management.repository.id>${project.distributionManagement.repository.id}</project.distribution-management.repository.id>
     <maven.build.timestamp.format>yyyy-MM-dd HHmmssSSS</maven.build.timestamp.format>
-    <talend.project.name>TRANSPARENCE_SANTE</talend.project.name>
+    <talend.project.name>TRANSPARENCE_SANTE_BI</talend.project.name>
     <talend.product.version>7.3.1.20200219_1130</talend.product.version>
     <talend.job.finalName>adresse_dim_0_1</talend.job.finalName>
     <talend.pigudf.groupid>org.example.transparence_sante_bi.pigudf</talend.pigudf.groupid>
