@@ -24,6 +24,7 @@
     <module>jobs/process/dimensions/temps_dim_0.1</module>
     <module>jobs/process/dimensions/titre_beneficiaire_dim_0.1</module>
     <module>jobs/process/dimensions/type_avantage_dim_0.1</module>
+    <module>jobs/process/dimensions/adresse_dim_v2_0.1</module>
   </modules>
   <properties>
     <talend.project.name>TRANSPARENCE_SANTE_BI</talend.project.name>
