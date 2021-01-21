@@ -305,6 +305,16 @@ public class adresse_dim implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tUnite_1_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tDBOutput_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -365,6 +375,26 @@ public class adresse_dim implements TalendJob {
 		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tRowGenerator_1_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tMap_2_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tAdvancedHash_row2_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -388,6 +418,200 @@ public class adresse_dim implements TalendJob {
 
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
 				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public static class row4Struct implements routines.system.IPersistableRow<row4Struct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[0];
+
+		public String adresse_id;
+
+		public String getAdresse_id() {
+			return this.adresse_id;
+		}
+
+		public String ville;
+
+		public String getVille() {
+			return this.ville;
+		}
+
+		public String code_postal;
+
+		public String getCode_postal() {
+			return this.code_postal;
+		}
+
+		public String departement;
+
+		public String getDepartement() {
+			return this.departement;
+		}
+
+		public String region;
+
+		public String getRegion() {
+			return this.region;
+		}
+
+		public String pays_code;
+
+		public String getPays_code() {
+			return this.pays_code;
+		}
+
+		public String pays;
+
+		public String getPays() {
+			return this.pays;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim) {
+
+				try {
+
+					int length = 0;
+
+					this.adresse_id = readString(dis);
+
+					this.ville = readString(dis);
+
+					this.code_postal = readString(dis);
+
+					this.departement = readString(dis);
+
+					this.region = readString(dis);
+
+					this.pays_code = readString(dis);
+
+					this.pays = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.adresse_id, dos);
+
+				// String
+
+				writeString(this.ville, dos);
+
+				// String
+
+				writeString(this.code_postal, dos);
+
+				// String
+
+				writeString(this.departement, dos);
+
+				// String
+
+				writeString(this.region, dos);
+
+				// String
+
+				writeString(this.pays_code, dos);
+
+				// String
+
+				writeString(this.pays, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("adresse_id=" + adresse_id);
+			sb.append(",ville=" + ville);
+			sb.append(",code_postal=" + code_postal);
+			sb.append(",departement=" + departement);
+			sb.append(",region=" + region);
+			sb.append(",pays_code=" + pays_code);
+			sb.append(",pays=" + pays);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row4Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
 
 	}
 
@@ -2075,6 +2299,316 @@ public class adresse_dim implements TalendJob {
 
 	}
 
+	public static class NAStruct implements routines.system.IPersistableRow<NAStruct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[0];
+
+		public String adresse_id;
+
+		public String getAdresse_id() {
+			return this.adresse_id;
+		}
+
+		public String ville;
+
+		public String getVille() {
+			return this.ville;
+		}
+
+		public String code_postal;
+
+		public String getCode_postal() {
+			return this.code_postal;
+		}
+
+		public String departement;
+
+		public String getDepartement() {
+			return this.departement;
+		}
+
+		public String region;
+
+		public String getRegion() {
+			return this.region;
+		}
+
+		public String pays_code;
+
+		public String getPays_code() {
+			return this.pays_code;
+		}
+
+		public String pays;
+
+		public String getPays() {
+			return this.pays;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim) {
+
+				try {
+
+					int length = 0;
+
+					this.adresse_id = readString(dis);
+
+					this.ville = readString(dis);
+
+					this.code_postal = readString(dis);
+
+					this.departement = readString(dis);
+
+					this.region = readString(dis);
+
+					this.pays_code = readString(dis);
+
+					this.pays = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.adresse_id, dos);
+
+				// String
+
+				writeString(this.ville, dos);
+
+				// String
+
+				writeString(this.code_postal, dos);
+
+				// String
+
+				writeString(this.departement, dos);
+
+				// String
+
+				writeString(this.region, dos);
+
+				// String
+
+				writeString(this.pays_code, dos);
+
+				// String
+
+				writeString(this.pays, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("adresse_id=" + adresse_id);
+			sb.append(",ville=" + ville);
+			sb.append(",code_postal=" + code_postal);
+			sb.append(",departement=" + departement);
+			sb.append(",region=" + region);
+			sb.append(",pays_code=" + pays_code);
+			sb.append(",pays=" + pays);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(NAStruct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row5Struct implements routines.system.IPersistableRow<row5Struct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[0];
+
+		public String NA_ROW;
+
+		public String getNA_ROW() {
+			return this.NA_ROW;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim) {
+
+				try {
+
+					int length = 0;
+
+					this.NA_ROW = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.NA_ROW, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("NA_ROW=" + NA_ROW);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row5Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
 	public void tFileInputDelimited_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
 		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 0);
 
@@ -2104,6 +2638,11 @@ public class adresse_dim implements TalendJob {
 				row7Struct row7 = new row7Struct();
 				row9Struct row9 = new row9Struct();
 
+				row5Struct row5 = new row5Struct();
+				NAStruct NA = new NAStruct();
+
+				row4Struct row4 = new row4Struct();
+
 				/**
 				 * [tDBOutput_1 begin ] start
 				 */
@@ -2114,7 +2653,7 @@ public class adresse_dim implements TalendJob {
 				currentComponent = "tDBOutput_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row6");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row4");
 				}
 
 				int tos_count_tDBOutput_1 = 0;
@@ -2161,7 +2700,7 @@ public class adresse_dim implements TalendJob {
 				String dbUser_tDBOutput_1 = "root";
 
 				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:1l/SiIQ3Jme7rxabC9wMHxOGbG/gQWPdvGTsUw==");
+						.decryptPassword("enc:routine.encryption.key.v1:FXL79lnwUBoHBseAFrR7LVcpT0fV95MUVxOUQw==");
 
 				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
 				java.lang.Class.forName(driverClass_tDBOutput_1);
@@ -2190,6 +2729,27 @@ public class adresse_dim implements TalendJob {
 
 				/**
 				 * [tDBOutput_1 begin ] stop
+				 */
+
+				/**
+				 * [tUnite_1 begin ] start
+				 */
+
+				ok_Hash.put("tUnite_1", false);
+				start_Hash.put("tUnite_1", System.currentTimeMillis());
+
+				currentComponent = "tUnite_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row6", "NA");
+				}
+
+				int tos_count_tUnite_1 = 0;
+
+				int nb_line_tUnite_1 = 0;
+
+				/**
+				 * [tUnite_1 begin ] stop
 				 */
 
 				/**
@@ -2681,7 +3241,6 @@ public class adresse_dim implements TalendJob {
 						 */
 // Start of branch "row8"
 						if (row8 != null) {
-							row9 = null;
 
 							/**
 							 * [tFilterRow_2 main ] start
@@ -2955,56 +3514,99 @@ public class adresse_dim implements TalendJob {
 									if (row6 != null) {
 
 										/**
+										 * [tUnite_1 main ] start
+										 */
+
+										currentComponent = "tUnite_1";
+
+										if (execStat) {
+											runStat.updateStatOnConnection(iterateId, 1, 1, "row6");
+										}
+
+//////////
+
+// for output
+										row4 = new row4Struct();
+
+										row4.adresse_id = row6.adresse_id;
+										row4.ville = row6.ville;
+										row4.code_postal = row6.code_postal;
+										row4.departement = row6.departement;
+										row4.region = row6.region;
+										row4.pays_code = row6.pays_code;
+										row4.pays = row6.pays;
+
+										nb_line_tUnite_1++;
+
+//////////
+
+										tos_count_tUnite_1++;
+
+										/**
+										 * [tUnite_1 main ] stop
+										 */
+
+										/**
+										 * [tUnite_1 process_data_begin ] start
+										 */
+
+										currentComponent = "tUnite_1";
+
+										/**
+										 * [tUnite_1 process_data_begin ] stop
+										 */
+
+										/**
 										 * [tDBOutput_1 main ] start
 										 */
 
 										currentComponent = "tDBOutput_1";
 
 										if (execStat) {
-											runStat.updateStatOnConnection(iterateId, 1, 1, "row6");
+											runStat.updateStatOnConnection(iterateId, 1, 1, "row4");
 										}
 
 										whetherReject_tDBOutput_1 = false;
-										if (row6.adresse_id == null) {
+										if (row4.adresse_id == null) {
 											pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(1, row6.adresse_id);
+											pstmt_tDBOutput_1.setString(1, row4.adresse_id);
 										}
 
-										if (row6.ville == null) {
+										if (row4.ville == null) {
 											pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(2, row6.ville);
+											pstmt_tDBOutput_1.setString(2, row4.ville);
 										}
 
-										if (row6.code_postal == null) {
+										if (row4.code_postal == null) {
 											pstmt_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(3, row6.code_postal);
+											pstmt_tDBOutput_1.setString(3, row4.code_postal);
 										}
 
-										if (row6.departement == null) {
+										if (row4.departement == null) {
 											pstmt_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(4, row6.departement);
+											pstmt_tDBOutput_1.setString(4, row4.departement);
 										}
 
-										if (row6.region == null) {
+										if (row4.region == null) {
 											pstmt_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(5, row6.region);
+											pstmt_tDBOutput_1.setString(5, row4.region);
 										}
 
-										if (row6.pays_code == null) {
+										if (row4.pays_code == null) {
 											pstmt_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(6, row6.pays_code);
+											pstmt_tDBOutput_1.setString(6, row4.pays_code);
 										}
 
-										if (row6.pays == null) {
+										if (row4.pays == null) {
 											pstmt_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
 										} else {
-											pstmt_tDBOutput_1.setString(7, row6.pays);
+											pstmt_tDBOutput_1.setString(7, row4.pays);
 										}
 
 										pstmt_tDBOutput_1.addBatch();
@@ -3081,6 +3683,16 @@ public class adresse_dim implements TalendJob {
 
 										/**
 										 * [tDBOutput_1 process_data_end ] stop
+										 */
+
+										/**
+										 * [tUnite_1 process_data_end ] start
+										 */
+
+										currentComponent = "tUnite_1";
+
+										/**
+										 * [tUnite_1 process_data_end ] stop
 										 */
 
 									} // End of branch "row6"
@@ -3406,6 +4018,467 @@ public class adresse_dim implements TalendJob {
 				 */
 
 				/**
+				 * [tFileOutputDelimited_2 end ] start
+				 */
+
+				currentComponent = "tFileOutputDelimited_2";
+
+				if (outtFileOutputDelimited_2 != null) {
+					outtFileOutputDelimited_2.flush();
+					outtFileOutputDelimited_2.close();
+				}
+
+				globalMap.put("tFileOutputDelimited_2_NB_LINE", nb_line_tFileOutputDelimited_2);
+				globalMap.put("tFileOutputDelimited_2_FILE_NAME", fileName_tFileOutputDelimited_2);
+
+				resourceMap.put("finish_tFileOutputDelimited_2", true);
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row7");
+				}
+
+				ok_Hash.put("tFileOutputDelimited_2", true);
+				end_Hash.put("tFileOutputDelimited_2", System.currentTimeMillis());
+
+				/**
+				 * [tFileOutputDelimited_2 end ] stop
+				 */
+
+				/**
+				 * [tFileOutputDelimited_3 end ] start
+				 */
+
+				currentComponent = "tFileOutputDelimited_3";
+
+				if (outtFileOutputDelimited_3 != null) {
+					outtFileOutputDelimited_3.flush();
+					outtFileOutputDelimited_3.close();
+				}
+
+				globalMap.put("tFileOutputDelimited_3_NB_LINE", nb_line_tFileOutputDelimited_3);
+				globalMap.put("tFileOutputDelimited_3_FILE_NAME", fileName_tFileOutputDelimited_3);
+
+				resourceMap.put("finish_tFileOutputDelimited_3", true);
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row9");
+				}
+
+				ok_Hash.put("tFileOutputDelimited_3", true);
+				end_Hash.put("tFileOutputDelimited_3", System.currentTimeMillis());
+
+				/**
+				 * [tFileOutputDelimited_3 end ] stop
+				 */
+
+				/**
+				 * [tMap_2 begin ] start
+				 */
+
+				ok_Hash.put("tMap_2", false);
+				start_Hash.put("tMap_2", System.currentTimeMillis());
+
+				currentComponent = "tMap_2";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row5");
+				}
+
+				int tos_count_tMap_2 = 0;
+
+// ###############################
+// # Lookup's keys initialization
+// ###############################        
+
+// ###############################
+// # Vars initialization
+				class Var__tMap_2__Struct {
+				}
+				Var__tMap_2__Struct Var__tMap_2 = new Var__tMap_2__Struct();
+// ###############################
+
+// ###############################
+// # Outputs initialization
+				NAStruct NA_tmp = new NAStruct();
+// ###############################
+
+				/**
+				 * [tMap_2 begin ] stop
+				 */
+
+				/**
+				 * [tRowGenerator_1 begin ] start
+				 */
+
+				ok_Hash.put("tRowGenerator_1", false);
+				start_Hash.put("tRowGenerator_1", System.currentTimeMillis());
+
+				currentComponent = "tRowGenerator_1";
+
+				int tos_count_tRowGenerator_1 = 0;
+
+				int nb_line_tRowGenerator_1 = 0;
+				int nb_max_row_tRowGenerator_1 = 1;
+
+				class tRowGenerator_1Randomizer {
+					public String getRandomNA_ROW() {
+
+						return TalendString.getAsciiRandomString(6);
+
+					}
+				}
+				tRowGenerator_1Randomizer randtRowGenerator_1 = new tRowGenerator_1Randomizer();
+
+				for (int itRowGenerator_1 = 0; itRowGenerator_1 < nb_max_row_tRowGenerator_1; itRowGenerator_1++) {
+					row5.NA_ROW = randtRowGenerator_1.getRandomNA_ROW();
+					nb_line_tRowGenerator_1++;
+
+					/**
+					 * [tRowGenerator_1 begin ] stop
+					 */
+
+					/**
+					 * [tRowGenerator_1 main ] start
+					 */
+
+					currentComponent = "tRowGenerator_1";
+
+					tos_count_tRowGenerator_1++;
+
+					/**
+					 * [tRowGenerator_1 main ] stop
+					 */
+
+					/**
+					 * [tRowGenerator_1 process_data_begin ] start
+					 */
+
+					currentComponent = "tRowGenerator_1";
+
+					/**
+					 * [tRowGenerator_1 process_data_begin ] stop
+					 */
+
+					/**
+					 * [tMap_2 main ] start
+					 */
+
+					currentComponent = "tMap_2";
+
+					if (execStat) {
+						runStat.updateStatOnConnection(iterateId, 1, 1, "row5");
+					}
+
+					boolean hasCasePrimitiveKeyWithNull_tMap_2 = false;
+
+					// ###############################
+					// # Input tables (lookups)
+					boolean rejectedInnerJoin_tMap_2 = false;
+					boolean mainRowRejected_tMap_2 = false;
+
+					// ###############################
+					{ // start of Var scope
+
+						// ###############################
+						// # Vars tables
+
+						Var__tMap_2__Struct Var = Var__tMap_2;// ###############################
+						// ###############################
+						// # Output tables
+
+						NA = null;
+
+// # Output table : 'NA'
+						NA_tmp.adresse_id = "N/A";
+						NA_tmp.ville = "N/A";
+						NA_tmp.code_postal = "0";
+						NA_tmp.departement = "N/A";
+						NA_tmp.region = "N/A";
+						NA_tmp.pays_code = "N/A";
+						NA_tmp.pays = "N/A";
+						NA = NA_tmp;
+// ###############################
+
+					} // end of Var scope
+
+					rejectedInnerJoin_tMap_2 = false;
+
+					tos_count_tMap_2++;
+
+					/**
+					 * [tMap_2 main ] stop
+					 */
+
+					/**
+					 * [tMap_2 process_data_begin ] start
+					 */
+
+					currentComponent = "tMap_2";
+
+					/**
+					 * [tMap_2 process_data_begin ] stop
+					 */
+// Start of branch "NA"
+					if (NA != null) {
+
+						/**
+						 * [tUnite_1 main ] start
+						 */
+
+						currentComponent = "tUnite_1";
+
+						if (execStat) {
+							runStat.updateStatOnConnection(iterateId, 1, 1, "NA");
+						}
+
+//////////
+
+// for output
+						row4 = new row4Struct();
+
+						row4.adresse_id = NA.adresse_id;
+						row4.ville = NA.ville;
+						row4.code_postal = NA.code_postal;
+						row4.departement = NA.departement;
+						row4.region = NA.region;
+						row4.pays_code = NA.pays_code;
+						row4.pays = NA.pays;
+
+						nb_line_tUnite_1++;
+
+//////////
+
+						tos_count_tUnite_1++;
+
+						/**
+						 * [tUnite_1 main ] stop
+						 */
+
+						/**
+						 * [tUnite_1 process_data_begin ] start
+						 */
+
+						currentComponent = "tUnite_1";
+
+						/**
+						 * [tUnite_1 process_data_begin ] stop
+						 */
+
+						/**
+						 * [tDBOutput_1 main ] start
+						 */
+
+						currentComponent = "tDBOutput_1";
+
+						if (execStat) {
+							runStat.updateStatOnConnection(iterateId, 1, 1, "row4");
+						}
+
+						whetherReject_tDBOutput_1 = false;
+						if (row4.adresse_id == null) {
+							pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
+						} else {
+							pstmt_tDBOutput_1.setString(1, row4.adresse_id);
+						}
+
+						if (row4.ville == null) {
+							pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
+						} else {
+							pstmt_tDBOutput_1.setString(2, row4.ville);
+						}
+
+						if (row4.code_postal == null) {
+							pstmt_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
+						} else {
+							pstmt_tDBOutput_1.setString(3, row4.code_postal);
+						}
+
+						if (row4.departement == null) {
+							pstmt_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
+						} else {
+							pstmt_tDBOutput_1.setString(4, row4.departement);
+						}
+
+						if (row4.region == null) {
+							pstmt_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
+						} else {
+							pstmt_tDBOutput_1.setString(5, row4.region);
+						}
+
+						if (row4.pays_code == null) {
+							pstmt_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
+						} else {
+							pstmt_tDBOutput_1.setString(6, row4.pays_code);
+						}
+
+						if (row4.pays == null) {
+							pstmt_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
+						} else {
+							pstmt_tDBOutput_1.setString(7, row4.pays);
+						}
+
+						pstmt_tDBOutput_1.addBatch();
+						nb_line_tDBOutput_1++;
+
+						batchSizeCounter_tDBOutput_1++;
+						if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
+							try {
+								int countSum_tDBOutput_1 = 0;
+								for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+									countSum_tDBOutput_1 += (countEach_tDBOutput_1 == java.sql.Statement.EXECUTE_FAILED
+											? 0
+											: 1);
+								}
+								insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+							} catch (java.sql.BatchUpdateException e) {
+								int countSum_tDBOutput_1 = 0;
+								for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+									countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : countEach_tDBOutput_1);
+								}
+								insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+								System.err.println(e.getMessage());
+							}
+
+							batchSizeCounter_tDBOutput_1 = 0;
+						}
+						commitCounter_tDBOutput_1++;
+
+						if (commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
+
+							try {
+								int countSum_tDBOutput_1 = 0;
+								for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+									countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : 1);
+								}
+								insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+							} catch (java.sql.BatchUpdateException e) {
+								int countSum_tDBOutput_1 = 0;
+								for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+									countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : countEach_tDBOutput_1);
+								}
+								insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+								System.err.println(e.getMessage());
+
+							}
+							conn_tDBOutput_1.commit();
+							commitCounter_tDBOutput_1 = 0;
+
+						}
+
+						tos_count_tDBOutput_1++;
+
+						/**
+						 * [tDBOutput_1 main ] stop
+						 */
+
+						/**
+						 * [tDBOutput_1 process_data_begin ] start
+						 */
+
+						currentComponent = "tDBOutput_1";
+
+						/**
+						 * [tDBOutput_1 process_data_begin ] stop
+						 */
+
+						/**
+						 * [tDBOutput_1 process_data_end ] start
+						 */
+
+						currentComponent = "tDBOutput_1";
+
+						/**
+						 * [tDBOutput_1 process_data_end ] stop
+						 */
+
+						/**
+						 * [tUnite_1 process_data_end ] start
+						 */
+
+						currentComponent = "tUnite_1";
+
+						/**
+						 * [tUnite_1 process_data_end ] stop
+						 */
+
+					} // End of branch "NA"
+
+					/**
+					 * [tMap_2 process_data_end ] start
+					 */
+
+					currentComponent = "tMap_2";
+
+					/**
+					 * [tMap_2 process_data_end ] stop
+					 */
+
+					/**
+					 * [tRowGenerator_1 process_data_end ] start
+					 */
+
+					currentComponent = "tRowGenerator_1";
+
+					/**
+					 * [tRowGenerator_1 process_data_end ] stop
+					 */
+
+					/**
+					 * [tRowGenerator_1 end ] start
+					 */
+
+					currentComponent = "tRowGenerator_1";
+
+				}
+				globalMap.put("tRowGenerator_1_NB_LINE", nb_line_tRowGenerator_1);
+
+				ok_Hash.put("tRowGenerator_1", true);
+				end_Hash.put("tRowGenerator_1", System.currentTimeMillis());
+
+				/**
+				 * [tRowGenerator_1 end ] stop
+				 */
+
+				/**
+				 * [tMap_2 end ] start
+				 */
+
+				currentComponent = "tMap_2";
+
+// ###############################
+// # Lookup hashes releasing
+// ###############################      
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row5");
+				}
+
+				ok_Hash.put("tMap_2", true);
+				end_Hash.put("tMap_2", System.currentTimeMillis());
+
+				/**
+				 * [tMap_2 end ] stop
+				 */
+
+				/**
+				 * [tUnite_1 end ] start
+				 */
+
+				currentComponent = "tUnite_1";
+
+				globalMap.put("tUnite_1_NB_LINE", nb_line_tUnite_1);
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row6", "NA");
+				}
+
+				ok_Hash.put("tUnite_1", true);
+				end_Hash.put("tUnite_1", System.currentTimeMillis());
+
+				/**
+				 * [tUnite_1 end ] stop
+				 */
+
+				/**
 				 * [tDBOutput_1 end ] start
 				 */
 
@@ -3468,7 +4541,7 @@ public class adresse_dim implements TalendJob {
 				globalMap.put("tDBOutput_1_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_1);
 
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row6");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row4");
 				}
 
 				ok_Hash.put("tDBOutput_1", true);
@@ -3476,60 +4549,6 @@ public class adresse_dim implements TalendJob {
 
 				/**
 				 * [tDBOutput_1 end ] stop
-				 */
-
-				/**
-				 * [tFileOutputDelimited_2 end ] start
-				 */
-
-				currentComponent = "tFileOutputDelimited_2";
-
-				if (outtFileOutputDelimited_2 != null) {
-					outtFileOutputDelimited_2.flush();
-					outtFileOutputDelimited_2.close();
-				}
-
-				globalMap.put("tFileOutputDelimited_2_NB_LINE", nb_line_tFileOutputDelimited_2);
-				globalMap.put("tFileOutputDelimited_2_FILE_NAME", fileName_tFileOutputDelimited_2);
-
-				resourceMap.put("finish_tFileOutputDelimited_2", true);
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row7");
-				}
-
-				ok_Hash.put("tFileOutputDelimited_2", true);
-				end_Hash.put("tFileOutputDelimited_2", System.currentTimeMillis());
-
-				/**
-				 * [tFileOutputDelimited_2 end ] stop
-				 */
-
-				/**
-				 * [tFileOutputDelimited_3 end ] start
-				 */
-
-				currentComponent = "tFileOutputDelimited_3";
-
-				if (outtFileOutputDelimited_3 != null) {
-					outtFileOutputDelimited_3.flush();
-					outtFileOutputDelimited_3.close();
-				}
-
-				globalMap.put("tFileOutputDelimited_3_NB_LINE", nb_line_tFileOutputDelimited_3);
-				globalMap.put("tFileOutputDelimited_3_FILE_NAME", fileName_tFileOutputDelimited_3);
-
-				resourceMap.put("finish_tFileOutputDelimited_3", true);
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row9");
-				}
-
-				ok_Hash.put("tFileOutputDelimited_3", true);
-				end_Hash.put("tFileOutputDelimited_3", System.currentTimeMillis());
-
-				/**
-				 * [tFileOutputDelimited_3 end ] stop
 				 */
 
 			} // end the resume
@@ -3592,39 +4611,6 @@ public class adresse_dim implements TalendJob {
 				 */
 
 				/**
-				 * [tDBOutput_1 finally ] start
-				 */
-
-				currentComponent = "tDBOutput_1";
-
-				try {
-					if (resourceMap.get("statementClosed_tDBOutput_1") == null) {
-						java.sql.PreparedStatement pstmtToClose_tDBOutput_1 = null;
-						if ((pstmtToClose_tDBOutput_1 = (java.sql.PreparedStatement) resourceMap
-								.remove("pstmt_tDBOutput_1")) != null) {
-							pstmtToClose_tDBOutput_1.close();
-						}
-					}
-				} finally {
-					if (resourceMap.get("finish_tDBOutput_1") == null) {
-						java.sql.Connection ctn_tDBOutput_1 = null;
-						if ((ctn_tDBOutput_1 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_1")) != null) {
-							try {
-								ctn_tDBOutput_1.close();
-							} catch (java.sql.SQLException sqlEx_tDBOutput_1) {
-								String errorMessage_tDBOutput_1 = "failed to close the connection in tDBOutput_1 :"
-										+ sqlEx_tDBOutput_1.getMessage();
-								System.err.println(errorMessage_tDBOutput_1);
-							}
-						}
-					}
-				}
-
-				/**
-				 * [tDBOutput_1 finally ] stop
-				 */
-
-				/**
 				 * [tFileOutputDelimited_2 finally ] start
 				 */
 
@@ -3664,6 +4650,69 @@ public class adresse_dim implements TalendJob {
 
 				/**
 				 * [tFileOutputDelimited_3 finally ] stop
+				 */
+
+				/**
+				 * [tRowGenerator_1 finally ] start
+				 */
+
+				currentComponent = "tRowGenerator_1";
+
+				/**
+				 * [tRowGenerator_1 finally ] stop
+				 */
+
+				/**
+				 * [tMap_2 finally ] start
+				 */
+
+				currentComponent = "tMap_2";
+
+				/**
+				 * [tMap_2 finally ] stop
+				 */
+
+				/**
+				 * [tUnite_1 finally ] start
+				 */
+
+				currentComponent = "tUnite_1";
+
+				/**
+				 * [tUnite_1 finally ] stop
+				 */
+
+				/**
+				 * [tDBOutput_1 finally ] start
+				 */
+
+				currentComponent = "tDBOutput_1";
+
+				try {
+					if (resourceMap.get("statementClosed_tDBOutput_1") == null) {
+						java.sql.PreparedStatement pstmtToClose_tDBOutput_1 = null;
+						if ((pstmtToClose_tDBOutput_1 = (java.sql.PreparedStatement) resourceMap
+								.remove("pstmt_tDBOutput_1")) != null) {
+							pstmtToClose_tDBOutput_1.close();
+						}
+					}
+				} finally {
+					if (resourceMap.get("finish_tDBOutput_1") == null) {
+						java.sql.Connection ctn_tDBOutput_1 = null;
+						if ((ctn_tDBOutput_1 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_1")) != null) {
+							try {
+								ctn_tDBOutput_1.close();
+							} catch (java.sql.SQLException sqlEx_tDBOutput_1) {
+								String errorMessage_tDBOutput_1 = "failed to close the connection in tDBOutput_1 :"
+										+ sqlEx_tDBOutput_1.getMessage();
+								System.err.println(errorMessage_tDBOutput_1);
+							}
+						}
+					}
+				}
+
+				/**
+				 * [tDBOutput_1 finally ] stop
 				 */
 
 			} catch (java.lang.Exception e) {
@@ -8663,6 +9712,6 @@ public class adresse_dim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 276953 characters generated by Talend Open Studio for Data Integration on the
- * 20 janvier 2021 17:07:26 CET
+ * 302896 characters generated by Talend Open Studio for Data Integration on the
+ * 21 janvier 2021 20:02:27 CET
  ************************************************************************************************/

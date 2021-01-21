@@ -29,7 +29,7 @@ CREATE TABLE `categorie_beneficiaire_dim` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `entreprise_dim` (
-  `entreprise_id` varchar(8) NOT NULL,
+  `entreprise_id` varchar(100) NOT NULL,
   `denomination_sociale_entreprise` varchar(200) NOT NULL,
   PRIMARY KEY (`entreprise_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -89,8 +89,8 @@ CREATE TABLE `type_avantage_dim` (
 
 
 CREATE TABLE `avantage_remuneration_fact` (
-  `ligne_id` int(11) NOT NULL,
-  `entreprise_id` varchar(8) NOT NULL,
+  `ligne_id` varchar(200) NOT NULL,
+  `entreprise_id` varchar(100) NOT NULL,
   `beneficiaire_id` varchar(50) NOT NULL,
   `categorie_beneficiaire_id` varchar(5) NOT NULL,
   `qualite_beneficiaire_id` varchar(5) NOT NULL,
@@ -99,7 +99,7 @@ CREATE TABLE `avantage_remuneration_fact` (
   `adresse_entreprise_id` varchar(200) NOT NULL,
   `specialite_beneficiaire_id` varchar(10) NOT NULL,
   `secteur_activite_entreprise_id` varchar(10) NOT NULL,
-  `type_avantage_id` int(2) NOT NULL,
+  `type_avantage_id` int(30) NOT NULL,
   `date_id` date NOT NULL,
   `is_avantage` BOOLEAN NOT NULL,
   `montant_ttc`  DECIMAL NULL,
@@ -117,8 +117,8 @@ CREATE TABLE `avantage_remuneration_fact` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `convention_fact` (
-  `ligne_id` int(11) NOT NULL,
-  `entreprise_id` varchar(8) NOT NULL,
+  `ligne_id` varchar(200) NOT NULL,
+  `entreprise_id` varchar(100) NOT NULL,
   `beneficiaire_id` varchar(50) NOT NULL,
   `categorie_beneficiaire_id` varchar(5) NOT NULL,
   `qualite_beneficiaire_id` varchar(5) NOT NULL,
