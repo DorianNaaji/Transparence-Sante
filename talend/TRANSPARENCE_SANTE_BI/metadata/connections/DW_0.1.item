@@ -133,12 +133,12 @@
     </ownedElement>
     <ownedElement xsi:type="relational:TdTable" xmi:id="_K5IRQAmHEeuvUZ6jv3Exkw" name="convention_fact" id="_K5HDIAmHEeuvUZ6jv3Exkw" label="convention_fact" tableType="TABLE">
       <taggedValue xmi:id="_K5IRQQmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K5IRQgmHEeuvUZ6jv3Exkw" name="ligne_id" label="ligne_id" length="10" sourceType="INT" talendType="id_Integer" key="true" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K5IRQgmHEeuvUZ6jv3Exkw" name="ligne_id" label="ligne_id" length="100" sourceType="VARCHAR" talendType="id_String" key="true" nullable="false">
         <taggedValue xmi:id="_K5IRQwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5IRRAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
-        <sqlDataType xmi:id="_K5IRRQmHEeuvUZ6jv3Exkw" name="INT" numericPrecisionRadix="10" javaDataType="4"/>
+        <sqlDataType xmi:id="_K5IRRQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K5IRRgmHEeuvUZ6jv3Exkw" name="entreprise_id" label="entreprise_id" length="8" sourceType="VARCHAR" talendType="id_String" key="true" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K5IRRgmHEeuvUZ6jv3Exkw" name="entreprise_id" label="entreprise_id" length="100" sourceType="VARCHAR" talendType="id_String" key="true" nullable="false">
         <taggedValue xmi:id="_K5IRRwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5IRSAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K5IRSQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
@@ -163,12 +163,12 @@
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5IRWAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K5IRWQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K5IRWgmHEeuvUZ6jv3Exkw" name="adresse_beneficiaire_id" label="adresse_beneficiaire_id" length="50" sourceType="VARCHAR" talendType="id_String" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K5IRWgmHEeuvUZ6jv3Exkw" name="adresse_beneficiaire_id" label="adresse_beneficiaire_id" length="200" sourceType="VARCHAR" talendType="id_String" nullable="false">
         <taggedValue xmi:id="_K5IRWwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5IRXAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K5IRXQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K5IRXgmHEeuvUZ6jv3Exkw" name="adresse_entreprise_id" label="adresse_entreprise_id" length="50" sourceType="VARCHAR" talendType="id_String" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K5IRXgmHEeuvUZ6jv3Exkw" name="adresse_entreprise_id" label="adresse_entreprise_id" length="200" sourceType="VARCHAR" talendType="id_String" nullable="false">
         <taggedValue xmi:id="_K5IRXwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5IRYAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K5IRYQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
@@ -183,15 +183,15 @@
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5IRaAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K5IRaQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K5IRagmHEeuvUZ6jv3Exkw" name="objet_convention_id" label="objet_convention_id" length="50" sourceType="VARCHAR" talendType="id_String" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K5IRagmHEeuvUZ6jv3Exkw" name="objet_convention_id" label="objet_convention_id" length="10" sourceType="INT" talendType="id_Integer" nullable="false">
         <taggedValue xmi:id="_K5IRawmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5IRbAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
-        <sqlDataType xmi:id="_K5IRbQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
+        <sqlDataType xmi:id="_K5IRbQmHEeuvUZ6jv3Exkw" name="INT" numericPrecisionRadix="10" javaDataType="4"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K5IRbgmHEeuvUZ6jv3Exkw" name="evenement_convention_id" label="evenement_convention_id" length="50" sourceType="VARCHAR" talendType="id_String" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K5IRbgmHEeuvUZ6jv3Exkw" name="evenement_convention_id" label="evenement_convention_id" length="10" sourceType="INT" talendType="id_Integer" nullable="false">
         <taggedValue xmi:id="_K5IRbwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5IRcAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
-        <sqlDataType xmi:id="_K5IRcQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
+        <sqlDataType xmi:id="_K5IRcQmHEeuvUZ6jv3Exkw" name="INT" numericPrecisionRadix="10" javaDataType="4"/>
       </feature>
       <feature xsi:type="relational:TdColumn" xmi:id="_K5IRcgmHEeuvUZ6jv3Exkw" name="date_debut_convention" label="date_debut_convention" length="10" sourceType="DATE" talendType="id_Date" nullable="false" pattern="&quot;dd-MM-yyyy&quot;">
         <taggedValue xmi:id="_K5IRcwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
@@ -267,12 +267,12 @@
     </ownedElement>
     <ownedElement xsi:type="relational:TdTable" xmi:id="_K5jIAAmHEeuvUZ6jv3Exkw" name="avantage_remuneration_fact" id="_K5ig8AmHEeuvUZ6jv3Exkw" label="avantage_remuneration_fact" tableType="TABLE">
       <taggedValue xmi:id="_K5jIAQmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K5jIAgmHEeuvUZ6jv3Exkw" name="ligne_id" label="ligne_id" length="10" sourceType="INT" talendType="id_Integer" key="true" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K5jIAgmHEeuvUZ6jv3Exkw" name="ligne_id" label="ligne_id" length="100" sourceType="VARCHAR" talendType="id_String" key="true" nullable="false">
         <taggedValue xmi:id="_K5jIAwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5jIBAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
-        <sqlDataType xmi:id="_K5jIBQmHEeuvUZ6jv3Exkw" name="INT" numericPrecisionRadix="10" javaDataType="4"/>
+        <sqlDataType xmi:id="_K5jIBQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K5jIBgmHEeuvUZ6jv3Exkw" name="entreprise_id" label="entreprise_id" length="8" sourceType="VARCHAR" talendType="id_String" key="true" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K5jIBgmHEeuvUZ6jv3Exkw" name="entreprise_id" label="entreprise_id" length="100" sourceType="VARCHAR" talendType="id_String" key="true" nullable="false">
         <taggedValue xmi:id="_K5jIBwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5jICAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K5jICQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
@@ -297,12 +297,12 @@
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5jIGAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K5jIGQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K5jIGgmHEeuvUZ6jv3Exkw" name="adresse_beneficiaire_id" label="adresse_beneficiaire_id" length="50" sourceType="VARCHAR" talendType="id_String" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K5jIGgmHEeuvUZ6jv3Exkw" name="adresse_beneficiaire_id" label="adresse_beneficiaire_id" length="200" sourceType="VARCHAR" talendType="id_String" nullable="false">
         <taggedValue xmi:id="_K5jIGwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5jIHAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K5jIHQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K5jIHgmHEeuvUZ6jv3Exkw" name="adresse_entreprise_id" label="adresse_entreprise_id" length="50" sourceType="VARCHAR" talendType="id_String" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K5jIHgmHEeuvUZ6jv3Exkw" name="adresse_entreprise_id" label="adresse_entreprise_id" length="200" sourceType="VARCHAR" talendType="id_String" nullable="false">
         <taggedValue xmi:id="_K5jIHwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5jIIAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K5jIIQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
@@ -317,10 +317,10 @@
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5jIKAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K5jIKQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K5jIKgmHEeuvUZ6jv3Exkw" name="type_avantage_id" label="type_avantage_id" length="30" sourceType="VARCHAR" talendType="id_String" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K5jIKgmHEeuvUZ6jv3Exkw" name="type_avantage_id" label="type_avantage_id" length="10" sourceType="INT" talendType="id_Integer" nullable="false">
         <taggedValue xmi:id="_K5jIKwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5jILAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
-        <sqlDataType xmi:id="_K5jILQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
+        <sqlDataType xmi:id="_K5jILQmHEeuvUZ6jv3Exkw" name="INT" numericPrecisionRadix="10" javaDataType="4"/>
       </feature>
       <feature xsi:type="relational:TdColumn" xmi:id="_K5jILgmHEeuvUZ6jv3Exkw" name="date_id" label="date_id" length="10" sourceType="DATE" talendType="id_Date" nullable="false" pattern="&quot;dd-MM-yyyy&quot;">
         <taggedValue xmi:id="_K5jILwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>

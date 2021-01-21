@@ -42,7 +42,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:UCOxLBLv/i0gp0hti1nupQM7Xr6uJkoog5kMf+1Y" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:hMxFcV5DIz1EMbx8VVvT+RaiST9WVjXNSk/M7JRP" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -77,7 +77,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:oa668Vy3aa+nDWClI+ORECtHRvO5bJtdurtkcs9T" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:YP7FyTIwLDYrKhTn2WaXCfRQtGoMZ7NKWMtcirL6" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -369,11 +369,11 @@
       <column comment="" key="false" length="200" name="nom_titre_beneficiaire" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="titres_remunerations">
-        <mapperTableEntries name="titre_beneficiaire_id" expression="remunerations.benef_titre_code.equals(&quot;&quot;) ? null : &#xD;&#xA;remunerations.benef_titre_code " type="id_String" nullable="true"/>
-        <mapperTableEntries name="nom_titre_beneficiaire" expression="remunerations.benef_titre_libelle.equals(&quot;&quot;) ? null : remunerations.benef_titre_libelle " type="id_String" nullable="true"/>
+        <mapperTableEntries name="titre_beneficiaire_id" expression="remunerations.benef_titre_code.equals(&quot;&quot;) ? &quot;N/A&quot; : &#xD;&#xA;remunerations.benef_titre_code " type="id_String" nullable="true"/>
+        <mapperTableEntries name="nom_titre_beneficiaire" expression="remunerations.benef_titre_libelle.equals(&quot;&quot;) ? &quot;N/A&quot; : remunerations.benef_titre_libelle " type="id_String" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="remunerations" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="entreprise_identifiant" type="id_String" nullable="true"/>
@@ -731,11 +731,11 @@
       <column comment="" key="false" length="200" name="nom_titre_beneficiaire" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="titres_conventions">
-        <mapperTableEntries name="titre_beneficiaire_id" expression="remunerations.benef_titre_code.equals(&quot;&quot;) ? null : &#xD;&#xA;remunerations.benef_titre_code " type="id_String" nullable="true"/>
-        <mapperTableEntries name="nom_titre_beneficiaire" expression="conventions.benef_titre_libelle.equals(&quot;&quot;) ? null : conventions.benef_titre_libelle " type="id_String" nullable="true"/>
+        <mapperTableEntries name="titre_beneficiaire_id" expression="remunerations.benef_titre_code.equals(&quot;&quot;) ? &quot;N/A&quot; : &#xD;&#xA;remunerations.benef_titre_code " type="id_String" nullable="true"/>
+        <mapperTableEntries name="nom_titre_beneficiaire" expression="conventions.benef_titre_libelle.equals(&quot;&quot;) ? &quot;N/A&quot; : conventions.benef_titre_libelle " type="id_String" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="conventions" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="entreprise_identifiant" type="id_String" nullable="true"/>
@@ -789,7 +789,7 @@
       <elementValue elementRef="KEY_ATTRIBUTE" value="true"/>
       <elementValue elementRef="CASE_SENSITIVE" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="nom_titre_beneficiaire"/>
-      <elementValue elementRef="KEY_ATTRIBUTE" value="true"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
       <elementValue elementRef="CASE_SENSITIVE" value="false"/>
     </elementParameter>
     <elementParameter field="CHECK" name="ONLY_ONCE_EACH_DUPLICATED_KEY" value="false"/>
@@ -826,7 +826,7 @@
     <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;"/>
     <elementParameter field="TEXT" name="DBNAME" value="&quot;transparence_sante_bi&quot;"/>
     <elementParameter field="TEXT" name="USER" value="&quot;root&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:HDID1uRukctsssks2L0MkF/fkegq+5m6Ef8IBBwN"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:KvFJg9szPgu76aejtj5ylMmkufsz2lvPKk0rzLSL"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;titre_beneficiaire_dim&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CLEAR"/>
     <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>

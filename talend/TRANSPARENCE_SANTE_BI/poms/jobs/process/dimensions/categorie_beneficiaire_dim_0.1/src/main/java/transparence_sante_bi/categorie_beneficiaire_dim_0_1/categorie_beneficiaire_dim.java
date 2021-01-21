@@ -282,16 +282,6 @@ public class categorie_beneficiaire_dim implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tUnite_1_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
-	}
-
 	public void tUniqRow_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -561,136 +551,6 @@ public class categorie_beneficiaire_dim implements TalendJob {
 		 * Compare keys
 		 */
 		public int compareTo(categoriesStruct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class mergedStruct implements routines.system.IPersistableRow<mergedStruct> {
-		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_categorie_beneficiaire_dim = new byte[0];
-		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_categorie_beneficiaire_dim = new byte[0];
-
-		public String categorie_beneficiaire_id;
-
-		public String getCategorie_beneficiaire_id() {
-			return this.categorie_beneficiaire_id;
-		}
-
-		public String categorie_beneficiaire_nom;
-
-		public String getCategorie_beneficiaire_nom() {
-			return this.categorie_beneficiaire_nom;
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_categorie_beneficiaire_dim.length) {
-					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_categorie_beneficiaire_dim.length == 0) {
-						commonByteArray_TRANSPARENCE_SANTE_BI_categorie_beneficiaire_dim = new byte[1024];
-					} else {
-						commonByteArray_TRANSPARENCE_SANTE_BI_categorie_beneficiaire_dim = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_categorie_beneficiaire_dim, 0, length);
-				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_categorie_beneficiaire_dim, 0, length,
-						utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_categorie_beneficiaire_dim) {
-
-				try {
-
-					int length = 0;
-
-					this.categorie_beneficiaire_id = readString(dis);
-
-					this.categorie_beneficiaire_nom = readString(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.categorie_beneficiaire_id, dos);
-
-				// String
-
-				writeString(this.categorie_beneficiaire_nom, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("categorie_beneficiaire_id=" + categorie_beneficiaire_id);
-			sb.append(",categorie_beneficiaire_nom=" + categorie_beneficiaire_nom);
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(mergedStruct other) {
 
 			int returnValue = -1;
 
@@ -1416,8 +1276,6 @@ public class categorie_beneficiaire_dim implements TalendJob {
 
 				remunerationsStruct remunerations = new remunerationsStruct();
 				categories_remunerationStruct categories_remuneration = new categories_remunerationStruct();
-
-				mergedStruct merged = new mergedStruct();
 				categoriesStruct categories = new categoriesStruct();
 				row3Struct row3 = new row3Struct();
 
@@ -1506,7 +1364,7 @@ public class categorie_beneficiaire_dim implements TalendJob {
 				String dbUser_tDBOutput_2 = "root";
 
 				final String decryptedPassword_tDBOutput_2 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:UYeSO1iMXUVDflRPBf7Jq4IgG4lNTGQ3eQBZQw==");
+						.decryptPassword("enc:routine.encryption.key.v1:NPx4y0jnM74/JJ3fn8hCSxG40mipbMmBbjWiFQ==");
 
 				String dbPwd_tDBOutput_2 = decryptedPassword_tDBOutput_2;
 				java.lang.Class.forName(driverClass_tDBOutput_2);
@@ -1547,7 +1405,7 @@ public class categorie_beneficiaire_dim implements TalendJob {
 				currentComponent = "tUniqRow_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "merged");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "categories_remuneration");
 				}
 
 				int tos_count_tUniqRow_1 = 0;
@@ -1618,27 +1476,6 @@ public class categorie_beneficiaire_dim implements TalendJob {
 
 				/**
 				 * [tUniqRow_1 begin ] stop
-				 */
-
-				/**
-				 * [tUnite_1 begin ] start
-				 */
-
-				ok_Hash.put("tUnite_1", false);
-				start_Hash.put("tUnite_1", System.currentTimeMillis());
-
-				currentComponent = "tUnite_1";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "categories_remuneration");
-				}
-
-				int tos_count_tUnite_1 = 0;
-
-				int nb_line_tUnite_1 = 0;
-
-				/**
-				 * [tUnite_1 begin ] stop
 				 */
 
 				/**
@@ -2442,80 +2279,42 @@ public class categorie_beneficiaire_dim implements TalendJob {
 							if (categories_remuneration != null) {
 
 								/**
-								 * [tUnite_1 main ] start
-								 */
-
-								currentComponent = "tUnite_1";
-
-								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1, "categories_remuneration");
-								}
-
-//////////
-
-// for output
-								merged = new mergedStruct();
-
-								merged.categorie_beneficiaire_id = categories_remuneration.categorie_beneficiaire_id;
-								merged.categorie_beneficiaire_nom = categories_remuneration.categorie_beneficiaire_nom;
-
-								nb_line_tUnite_1++;
-
-//////////
-
-								tos_count_tUnite_1++;
-
-								/**
-								 * [tUnite_1 main ] stop
-								 */
-
-								/**
-								 * [tUnite_1 process_data_begin ] start
-								 */
-
-								currentComponent = "tUnite_1";
-
-								/**
-								 * [tUnite_1 process_data_begin ] stop
-								 */
-
-								/**
 								 * [tUniqRow_1 main ] start
 								 */
 
 								currentComponent = "tUniqRow_1";
 
 								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1, "merged");
+									runStat.updateStatOnConnection(iterateId, 1, 1, "categories_remuneration");
 								}
 
 								categories = null;
-								if (merged.categorie_beneficiaire_id == null) {
+								if (categories_remuneration.categorie_beneficiaire_id == null) {
 									finder_tUniqRow_1.categorie_beneficiaire_id = null;
 								} else {
-									finder_tUniqRow_1.categorie_beneficiaire_id = merged.categorie_beneficiaire_id
+									finder_tUniqRow_1.categorie_beneficiaire_id = categories_remuneration.categorie_beneficiaire_id
 											.toLowerCase();
 								}
-								if (merged.categorie_beneficiaire_nom == null) {
+								if (categories_remuneration.categorie_beneficiaire_nom == null) {
 									finder_tUniqRow_1.categorie_beneficiaire_nom = null;
 								} else {
-									finder_tUniqRow_1.categorie_beneficiaire_nom = merged.categorie_beneficiaire_nom
+									finder_tUniqRow_1.categorie_beneficiaire_nom = categories_remuneration.categorie_beneficiaire_nom
 											.toLowerCase();
 								}
 								finder_tUniqRow_1.hashCodeDirty = true;
 								if (!keystUniqRow_1.contains(finder_tUniqRow_1)) {
 									KeyStruct_tUniqRow_1 new_tUniqRow_1 = new KeyStruct_tUniqRow_1();
 
-									if (merged.categorie_beneficiaire_id == null) {
+									if (categories_remuneration.categorie_beneficiaire_id == null) {
 										new_tUniqRow_1.categorie_beneficiaire_id = null;
 									} else {
-										new_tUniqRow_1.categorie_beneficiaire_id = merged.categorie_beneficiaire_id
+										new_tUniqRow_1.categorie_beneficiaire_id = categories_remuneration.categorie_beneficiaire_id
 												.toLowerCase();
 									}
-									if (merged.categorie_beneficiaire_nom == null) {
+									if (categories_remuneration.categorie_beneficiaire_nom == null) {
 										new_tUniqRow_1.categorie_beneficiaire_nom = null;
 									} else {
-										new_tUniqRow_1.categorie_beneficiaire_nom = merged.categorie_beneficiaire_nom
+										new_tUniqRow_1.categorie_beneficiaire_nom = categories_remuneration.categorie_beneficiaire_nom
 												.toLowerCase();
 									}
 
@@ -2524,8 +2323,8 @@ public class categorie_beneficiaire_dim implements TalendJob {
 
 										categories = new categoriesStruct();
 									}
-									categories.categorie_beneficiaire_id = merged.categorie_beneficiaire_id;
-									categories.categorie_beneficiaire_nom = merged.categorie_beneficiaire_nom;
+									categories.categorie_beneficiaire_id = categories_remuneration.categorie_beneficiaire_id;
+									categories.categorie_beneficiaire_nom = categories_remuneration.categorie_beneficiaire_nom;
 									nb_uniques_tUniqRow_1++;
 								} else {
 									nb_duplicates_tUniqRow_1++;
@@ -2741,16 +2540,6 @@ public class categorie_beneficiaire_dim implements TalendJob {
 								 * [tUniqRow_1 process_data_end ] stop
 								 */
 
-								/**
-								 * [tUnite_1 process_data_end ] start
-								 */
-
-								currentComponent = "tUnite_1";
-
-								/**
-								 * [tUnite_1 process_data_end ] stop
-								 */
-
 							} // End of branch "categories_remuneration"
 
 							/**
@@ -2825,24 +2614,6 @@ public class categorie_beneficiaire_dim implements TalendJob {
 				 */
 
 				/**
-				 * [tUnite_1 end ] start
-				 */
-
-				currentComponent = "tUnite_1";
-
-				globalMap.put("tUnite_1_NB_LINE", nb_line_tUnite_1);
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "categories_remuneration");
-				}
-
-				ok_Hash.put("tUnite_1", true);
-				end_Hash.put("tUnite_1", System.currentTimeMillis());
-
-				/**
-				 * [tUnite_1 end ] stop
-				 */
-
-				/**
 				 * [tUniqRow_1 end ] start
 				 */
 
@@ -2852,7 +2623,7 @@ public class categorie_beneficiaire_dim implements TalendJob {
 				globalMap.put("tUniqRow_1_NB_DUPLICATES", nb_duplicates_tUniqRow_1);
 
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "merged");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "categories_remuneration");
 				}
 
 				ok_Hash.put("tUniqRow_1", true);
@@ -2992,16 +2763,6 @@ public class categorie_beneficiaire_dim implements TalendJob {
 
 				/**
 				 * [tMap_1 finally ] stop
-				 */
-
-				/**
-				 * [tUnite_1 finally ] start
-				 */
-
-				currentComponent = "tUnite_1";
-
-				/**
-				 * [tUnite_1 finally ] stop
 				 */
 
 				/**
@@ -3424,6 +3185,6 @@ public class categorie_beneficiaire_dim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 107566 characters generated by Talend Open Studio for Data Integration on the
- * 21 janvier 2021 17:43:20 CET
+ * 101615 characters generated by Talend Open Studio for Data Integration on the
+ * 21 janvier 2021 19:39:28 CET
  ************************************************************************************************/
