@@ -31,4 +31,8 @@ public class MyStringRoutine {
 	}
 
 	
+	public static boolean isNumeric(String str) 
+	{
+		  return str.matches("-?\\d+(\\.\\d+)?");  //matches a number with optional '-' and decimal.
+		}
 }

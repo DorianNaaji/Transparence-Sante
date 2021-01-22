@@ -283,7 +283,7 @@ public class TalendString {
      * {param} string("") text: Text to remove accents.
      *
      *
-     * {example} removeAccents("AccÃ¨s Ã  la base")
+     * {example} removeAccents("Accès à la base")
      */
     public static String removeAccents(String text) {
         StringBuffer result = new StringBuffer();
