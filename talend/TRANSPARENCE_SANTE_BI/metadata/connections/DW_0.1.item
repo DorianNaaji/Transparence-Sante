@@ -10,7 +10,7 @@
     <taggedValue xmi:id="__rq6UAmGEeuvUZ6jv3Exkw" tag="Author" value=""/>
     <taggedValue xmi:id="__rq6UQmGEeuvUZ6jv3Exkw" tag="otherParameter"/>
     <taggedValue xmi:id="__rxA8AmGEeuvUZ6jv3Exkw" tag="DB ProductName" value="MySQL"/>
-    <taggedValue xmi:id="__rxA8QmGEeuvUZ6jv3Exkw" tag="DB ProductVersion" value="10.1.36-MariaDB"/>
+    <taggedValue xmi:id="__rxA8QmGEeuvUZ6jv3Exkw" tag="DB ProductVersion" value="5.7.31"/>
     <taggedValue xmi:id="__rxA8gmGEeuvUZ6jv3Exkw" tag="DB IdentifierQuoteString" value="`"/>
     <parameters xmi:id="__qRMIQmGEeuvUZ6jv3Exkw" key="CONN_PARA_KEY_USERNAME" value="root"/>
     <parameters xmi:id="_CLEU8AmHEeuvUZ6jv3Exkw" key="CONN_PARA_KEY_MAPRDB_TABLE_NS_MAPPING" value=""/>

@@ -1,34 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
-  <TalendMetadata:DelimitedFileConnection xmi:id="_YvyMIAmUEeuo66iw6Iwaqw" name="rpps_diplomes" id="_YvxlEAmUEeuo66iw6Iwaqw" dataPackage="_YvyMIQmUEeuo66iw6Iwaqw _DN-mMFqWEeujlbqxtEMfnQ" Server="Localhost 127.0.0.1" FilePath="C:/BI/transparence-sante/data/others/rpps_diplomes.csv" Encoding="UTF-8" FieldSeparatorValue="&quot;|&quot;" RowSeparatorValue="&quot;\n&quot;" UseHeader="true" HeaderValue="1" FirstLineCaption="true" FieldSeparatorType="Custom UTF8"/>
-  <orgomg.cwm.resource.record:RecordFile xmi:id="_YvyMIQmUEeuo66iw6Iwaqw" name="default" dataManager="_YvyMIAmUEeuo66iw6Iwaqw">
-    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_YvyMIgmUEeuo66iw6Iwaqw" properties="deleted&#xA;&#xA;true&#xA;&#xA;" id="_H_IkUAmSEeuo66iw6Iwaqw" comment="schéma des rpps diplomes" label="rpps_diplomes">
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_YvyMIwmUEeuo66iw6Iwaqw" label="Type_d_identifiant_PP" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_YvyMJAmUEeuo66iw6Iwaqw" label="Identifiant_PP" length="11" talendType="id_Long" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_YvyMJQmUEeuo66iw6Iwaqw" label="Identification_nationale_PP" length="12" talendType="id_Long" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_YvyMJgmUEeuo66iw6Iwaqw" label="Nom_d_exercice" length="17" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_YvyMJwmUEeuo66iw6Iwaqw" label="Prenom_d_exercice" length="14" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_YvyMKAmUEeuo66iw6Iwaqw" label="Code_type_diplome_obtenu" length="4" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_YvyMKQmUEeuo66iw6Iwaqw" label="Libelle_type_diplome_obtenu" length="51" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_YvyMKgmUEeuo66iw6Iwaqw" label="Libelle_diplome_obtenu" length="50" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-    </ownedElement>
-  </orgomg.cwm.resource.record:RecordFile>
-  <orgomg.cwm.resource.record:RecordFile xmi:id="_DN-mMFqWEeujlbqxtEMfnQ" name="default" dataManager="_YvyMIAmUEeuo66iw6Iwaqw">
-    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_DN-mMVqWEeujlbqxtEMfnQ" id="_AVG7oFqWEeujlbqxtEMfnQ" label="metadata">
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hUj_QFqWEeujlbqxtEMfnQ" label="Type_d_identifiant_PP" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hUj_QVqWEeujlbqxtEMfnQ" label="Identifiant_PP" length="11" talendType="id_Long" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hUj_QlqWEeujlbqxtEMfnQ" label="Identification_nationale_PP" length="12" talendType="id_Long" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hUj_Q1qWEeujlbqxtEMfnQ" label="Nom_d_exercice" length="17" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hUj_RFqWEeujlbqxtEMfnQ" label="Prenom_d_exercice" length="14" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hUj_RVqWEeujlbqxtEMfnQ" label="Code_type_diplome_obtenu" length="4" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hUj_RlqWEeujlbqxtEMfnQ" label="Libelle_type_diplome_obtenu" length="51" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hUj_R1qWEeujlbqxtEMfnQ" label="Code_diplome_obtenu" length="6" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hUj_SFqWEeujlbqxtEMfnQ" label="Libelle_diplome_obtenu" length="50" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hUj_SVqWEeujlbqxtEMfnQ" label="Code_type_autorisation" length="4" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hUj_SlqWEeujlbqxtEMfnQ" label="Libelle_type_autorisation" length="46" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hUj_S1qWEeujlbqxtEMfnQ" label="Code_discipline_autorisation" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hUj_TFqWEeujlbqxtEMfnQ" label="Libelle_discipline_autorisation" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hUj_TVqWEeujlbqxtEMfnQ" label="Column13" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+  <TalendMetadata:DelimitedFileConnection xmi:id="_l5rw0VsFEeuMSNW9-rm_yQ" name="rpps_diplomes" id="_l5rw0FsFEeuMSNW9-rm_yQ" dataPackage="_l5rw0lsFEeuMSNW9-rm_yQ" Server="Localhost 127.0.0.1" FilePath="C:/BI/transparence-sante/data/others/rpps_diplomes.csv" Encoding="UTF-8" FieldSeparatorValue="&quot;|&quot;" RowSeparatorValue="&quot;\n&quot;" UseHeader="true" HeaderValue="1" FirstLineCaption="true" EscapeType="CSV" CsvOption="true" FieldSeparatorType="Custom ANSI"/>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_l5rw0lsFEeuMSNW9-rm_yQ" name="default" dataManager="_l5rw0VsFEeuMSNW9-rm_yQ">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_l5rw01sFEeuMSNW9-rm_yQ" id="_b51cgFsFEeuMSNW9-rm_yQ" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_eioAkFyuEeujrIvhlPvYYA" label="Type_d_identifiant_PP" length="1" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_eioAkVyuEeujrIvhlPvYYA" label="Identifiant_PP" length="11" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_eioAklyuEeujrIvhlPvYYA" label="Identification_nationale_PP" length="12" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_eioAk1yuEeujrIvhlPvYYA" label="Nom_d_exercice" length="17" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_eioAlFyuEeujrIvhlPvYYA" label="Prenom_d_exercice" length="14" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_eioAlVyuEeujrIvhlPvYYA" label="Code_type_diplome_obtenu" length="4" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_eioAllyuEeujrIvhlPvYYA" label="Libelle_type_diplome_obtenu" length="51" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_eioAl1yuEeujrIvhlPvYYA" label="Code_diplome_obtenu" length="6" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_eioAmFyuEeujrIvhlPvYYA" label="Libelle_diplome_obtenu" length="50" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_eioAmVyuEeujrIvhlPvYYA" label="Code_type_autorisation" length="4" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_eioAmlyuEeujrIvhlPvYYA" label="Libelle_type_autorisation" length="46" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_eioAm1yuEeujrIvhlPvYYA" label="Code_discipline_autorisation" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_eioAnFyuEeujrIvhlPvYYA" label="Libelle_discipline_autorisation" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_eioAnVyuEeujrIvhlPvYYA" label="Column13" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
     </ownedElement>
   </orgomg.cwm.resource.record:RecordFile>
 </xmi:XMI>
