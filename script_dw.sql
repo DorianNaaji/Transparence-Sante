@@ -13,7 +13,7 @@ CREATE TABLE `adresse_dim` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `beneficiaire_dim` (
-  `beneficiaire_id` varchar(50)  NOT NULL,
+  `beneficiaire_id` varchar(200)  NOT NULL,
   `beneficiaire_moral_booleen` BOOLEAN NOT NULL,
   `beneficiaire_nom` varchar(200) NOT NULL,
   `beneficiaire_prenom` varchar(200) NOT NULL,
@@ -91,7 +91,7 @@ CREATE TABLE `type_avantage_dim` (
 CREATE TABLE `avantage_remuneration_fact` (
   `ligne_id` int(11) NOT NULL,
   `entreprise_id` varchar(8) NOT NULL,
-  `beneficiaire_id` varchar(50) NOT NULL,
+  `beneficiaire_id` varchar(200) NOT NULL,
   `categorie_beneficiaire_id` varchar(5) NOT NULL,
   `qualite_beneficiaire_id` varchar(5) NOT NULL,
   `titre_beneficiaire_id` varchar(7) NOT NULL,
@@ -119,7 +119,7 @@ CREATE TABLE `avantage_remuneration_fact` (
 CREATE TABLE `convention_fact` (
   `ligne_id` int(11) NOT NULL,
   `entreprise_id` varchar(8) NOT NULL,
-  `beneficiaire_id` varchar(50) NOT NULL,
+  `beneficiaire_id` varchar(200) NOT NULL,
   `categorie_beneficiaire_id` varchar(5) NOT NULL,
   `qualite_beneficiaire_id` varchar(5) NOT NULL,
   `titre_beneficiaire_id` varchar(7) NOT NULL,
