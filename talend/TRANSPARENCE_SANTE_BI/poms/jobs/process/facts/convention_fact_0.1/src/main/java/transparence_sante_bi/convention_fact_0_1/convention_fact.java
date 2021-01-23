@@ -50,8 +50,8 @@ import java.util.Comparator;
 /**
  * Job: convention_fact Purpose: Remplissage de la table des faits des
  * conventions<br>
- * Description: contient les différentes informations sur les conventions + des
- * clés vers les dimensions concernées. Voir doc :
+ * Description: contient les diffÃ©rentes informations sur les conventions + des
+ * clÃ©s vers les dimensions concernÃ©es. Voir doc :
  * https://github.com/DorianNaaji/transparence-sante <br>
  * 
  * @author haytham.elghazel@univ-lyon1.fr
@@ -770,22 +770,10 @@ public class convention_fact implements TalendJob {
 			return this.entreprise_identifiant;
 		}
 
-		public String denomination_sociale;
-
-		public String getDenomination_sociale() {
-			return this.denomination_sociale;
-		}
-
 		public String ligne_identifiant;
 
 		public String getLigne_identifiant() {
 			return this.ligne_identifiant;
-		}
-
-		public Character ligne_rectification;
-
-		public Character getLigne_rectification() {
-			return this.ligne_rectification;
 		}
 
 		public String benef_categorie_code;
@@ -794,58 +782,10 @@ public class convention_fact implements TalendJob {
 			return this.benef_categorie_code;
 		}
 
-		public String categorie;
-
-		public String getCategorie() {
-			return this.categorie;
-		}
-
-		public String benef_nom;
-
-		public String getBenef_nom() {
-			return this.benef_nom;
-		}
-
-		public String benef_prenom;
-
-		public String getBenef_prenom() {
-			return this.benef_prenom;
-		}
-
 		public String benef_qualite_code;
 
 		public String getBenef_qualite_code() {
 			return this.benef_qualite_code;
-		}
-
-		public String qualite;
-
-		public String getQualite() {
-			return this.qualite;
-		}
-
-		public String benef_adresse1;
-
-		public String getBenef_adresse1() {
-			return this.benef_adresse1;
-		}
-
-		public String benef_adresse2;
-
-		public String getBenef_adresse2() {
-			return this.benef_adresse2;
-		}
-
-		public String benef_adresse3;
-
-		public String getBenef_adresse3() {
-			return this.benef_adresse3;
-		}
-
-		public String benef_adresse4;
-
-		public String getBenef_adresse4() {
-			return this.benef_adresse4;
 		}
 
 		public String benef_codepostal;
@@ -866,22 +806,10 @@ public class convention_fact implements TalendJob {
 			return this.benef_pays_code;
 		}
 
-		public String pays;
-
-		public String getPays() {
-			return this.pays;
-		}
-
 		public String benef_titre_code;
 
 		public String getBenef_titre_code() {
 			return this.benef_titre_code;
-		}
-
-		public String benef_titre_libelle;
-
-		public String getBenef_titre_libelle() {
-			return this.benef_titre_libelle;
 		}
 
 		public String benef_specialite_code;
@@ -890,64 +818,10 @@ public class convention_fact implements TalendJob {
 			return this.benef_specialite_code;
 		}
 
-		public String benef_speicalite_libelle;
-
-		public String getBenef_speicalite_libelle() {
-			return this.benef_speicalite_libelle;
-		}
-
-		public String benef_identifiant_type_code;
-
-		public String getBenef_identifiant_type_code() {
-			return this.benef_identifiant_type_code;
-		}
-
-		public String identifiant_type;
-
-		public String getIdentifiant_type() {
-			return this.identifiant_type;
-		}
-
 		public String benef_identifiant_valeur;
 
 		public String getBenef_identifiant_valeur() {
 			return this.benef_identifiant_valeur;
-		}
-
-		public String benef_etablissement;
-
-		public String getBenef_etablissement() {
-			return this.benef_etablissement;
-		}
-
-		public String benef_etablissement_codepostal;
-
-		public String getBenef_etablissement_codepostal() {
-			return this.benef_etablissement_codepostal;
-		}
-
-		public String benef_etablissement_ville;
-
-		public String getBenef_etablissement_ville() {
-			return this.benef_etablissement_ville;
-		}
-
-		public String benef_denomination_sociale;
-
-		public String getBenef_denomination_sociale() {
-			return this.benef_denomination_sociale;
-		}
-
-		public String benef_objet_social;
-
-		public String getBenef_objet_social() {
-			return this.benef_objet_social;
-		}
-
-		public String ligne_type;
-
-		public String getLigne_type() {
-			return this.ligne_type;
 		}
 
 		public String conv_date_signature;
@@ -986,28 +860,10 @@ public class convention_fact implements TalendJob {
 			return this.conv_montant_ttc;
 		}
 
-		public String conv_manifestation_date;
-
-		public String getConv_manifestation_date() {
-			return this.conv_manifestation_date;
-		}
-
 		public String conv_manifestation_nom;
 
 		public String getConv_manifestation_nom() {
 			return this.conv_manifestation_nom;
-		}
-
-		public String conv_manifestation_lieu;
-
-		public String getConv_manifestation_lieu() {
-			return this.conv_manifestation_lieu;
-		}
-
-		public String conv_manifestation_organisateur;
-
-		public String getConv_manifestation_organisateur() {
-			return this.conv_manifestation_organisateur;
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -1050,36 +906,11 @@ public class convention_fact implements TalendJob {
 
 					this.entreprise_identifiant = readString(dis);
 
-					this.denomination_sociale = readString(dis);
-
 					this.ligne_identifiant = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.ligne_rectification = null;
-					} else {
-						this.ligne_rectification = dis.readChar();
-					}
 
 					this.benef_categorie_code = readString(dis);
 
-					this.categorie = readString(dis);
-
-					this.benef_nom = readString(dis);
-
-					this.benef_prenom = readString(dis);
-
 					this.benef_qualite_code = readString(dis);
-
-					this.qualite = readString(dis);
-
-					this.benef_adresse1 = readString(dis);
-
-					this.benef_adresse2 = readString(dis);
-
-					this.benef_adresse3 = readString(dis);
-
-					this.benef_adresse4 = readString(dis);
 
 					this.benef_codepostal = readString(dis);
 
@@ -1087,33 +918,11 @@ public class convention_fact implements TalendJob {
 
 					this.benef_pays_code = readString(dis);
 
-					this.pays = readString(dis);
-
 					this.benef_titre_code = readString(dis);
-
-					this.benef_titre_libelle = readString(dis);
 
 					this.benef_specialite_code = readString(dis);
 
-					this.benef_speicalite_libelle = readString(dis);
-
-					this.benef_identifiant_type_code = readString(dis);
-
-					this.identifiant_type = readString(dis);
-
 					this.benef_identifiant_valeur = readString(dis);
-
-					this.benef_etablissement = readString(dis);
-
-					this.benef_etablissement_codepostal = readString(dis);
-
-					this.benef_etablissement_ville = readString(dis);
-
-					this.benef_denomination_sociale = readString(dis);
-
-					this.benef_objet_social = readString(dis);
-
-					this.ligne_type = readString(dis);
 
 					this.conv_date_signature = readString(dis);
 
@@ -1127,13 +936,7 @@ public class convention_fact implements TalendJob {
 
 					this.conv_montant_ttc = readString(dis);
 
-					this.conv_manifestation_date = readString(dis);
-
 					this.conv_manifestation_nom = readString(dis);
-
-					this.conv_manifestation_lieu = readString(dis);
-
-					this.conv_manifestation_organisateur = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1153,20 +956,7 @@ public class convention_fact implements TalendJob {
 
 				// String
 
-				writeString(this.denomination_sociale, dos);
-
-				// String
-
 				writeString(this.ligne_identifiant, dos);
-
-				// Character
-
-				if (this.ligne_rectification == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeChar(this.ligne_rectification);
-				}
 
 				// String
 
@@ -1174,39 +964,7 @@ public class convention_fact implements TalendJob {
 
 				// String
 
-				writeString(this.categorie, dos);
-
-				// String
-
-				writeString(this.benef_nom, dos);
-
-				// String
-
-				writeString(this.benef_prenom, dos);
-
-				// String
-
 				writeString(this.benef_qualite_code, dos);
-
-				// String
-
-				writeString(this.qualite, dos);
-
-				// String
-
-				writeString(this.benef_adresse1, dos);
-
-				// String
-
-				writeString(this.benef_adresse2, dos);
-
-				// String
-
-				writeString(this.benef_adresse3, dos);
-
-				// String
-
-				writeString(this.benef_adresse4, dos);
 
 				// String
 
@@ -1222,15 +980,7 @@ public class convention_fact implements TalendJob {
 
 				// String
 
-				writeString(this.pays, dos);
-
-				// String
-
 				writeString(this.benef_titre_code, dos);
-
-				// String
-
-				writeString(this.benef_titre_libelle, dos);
 
 				// String
 
@@ -1238,43 +988,7 @@ public class convention_fact implements TalendJob {
 
 				// String
 
-				writeString(this.benef_speicalite_libelle, dos);
-
-				// String
-
-				writeString(this.benef_identifiant_type_code, dos);
-
-				// String
-
-				writeString(this.identifiant_type, dos);
-
-				// String
-
 				writeString(this.benef_identifiant_valeur, dos);
-
-				// String
-
-				writeString(this.benef_etablissement, dos);
-
-				// String
-
-				writeString(this.benef_etablissement_codepostal, dos);
-
-				// String
-
-				writeString(this.benef_etablissement_ville, dos);
-
-				// String
-
-				writeString(this.benef_denomination_sociale, dos);
-
-				// String
-
-				writeString(this.benef_objet_social, dos);
-
-				// String
-
-				writeString(this.ligne_type, dos);
 
 				// String
 
@@ -1302,19 +1016,7 @@ public class convention_fact implements TalendJob {
 
 				// String
 
-				writeString(this.conv_manifestation_date, dos);
-
-				// String
-
 				writeString(this.conv_manifestation_nom, dos);
-
-				// String
-
-				writeString(this.conv_manifestation_lieu, dos);
-
-				// String
-
-				writeString(this.conv_manifestation_organisateur, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -1328,46 +1030,22 @@ public class convention_fact implements TalendJob {
 			sb.append(super.toString());
 			sb.append("[");
 			sb.append("entreprise_identifiant=" + entreprise_identifiant);
-			sb.append(",denomination_sociale=" + denomination_sociale);
 			sb.append(",ligne_identifiant=" + ligne_identifiant);
-			sb.append(",ligne_rectification=" + String.valueOf(ligne_rectification));
 			sb.append(",benef_categorie_code=" + benef_categorie_code);
-			sb.append(",categorie=" + categorie);
-			sb.append(",benef_nom=" + benef_nom);
-			sb.append(",benef_prenom=" + benef_prenom);
 			sb.append(",benef_qualite_code=" + benef_qualite_code);
-			sb.append(",qualite=" + qualite);
-			sb.append(",benef_adresse1=" + benef_adresse1);
-			sb.append(",benef_adresse2=" + benef_adresse2);
-			sb.append(",benef_adresse3=" + benef_adresse3);
-			sb.append(",benef_adresse4=" + benef_adresse4);
 			sb.append(",benef_codepostal=" + benef_codepostal);
 			sb.append(",benef_ville=" + benef_ville);
 			sb.append(",benef_pays_code=" + benef_pays_code);
-			sb.append(",pays=" + pays);
 			sb.append(",benef_titre_code=" + benef_titre_code);
-			sb.append(",benef_titre_libelle=" + benef_titre_libelle);
 			sb.append(",benef_specialite_code=" + benef_specialite_code);
-			sb.append(",benef_speicalite_libelle=" + benef_speicalite_libelle);
-			sb.append(",benef_identifiant_type_code=" + benef_identifiant_type_code);
-			sb.append(",identifiant_type=" + identifiant_type);
 			sb.append(",benef_identifiant_valeur=" + benef_identifiant_valeur);
-			sb.append(",benef_etablissement=" + benef_etablissement);
-			sb.append(",benef_etablissement_codepostal=" + benef_etablissement_codepostal);
-			sb.append(",benef_etablissement_ville=" + benef_etablissement_ville);
-			sb.append(",benef_denomination_sociale=" + benef_denomination_sociale);
-			sb.append(",benef_objet_social=" + benef_objet_social);
-			sb.append(",ligne_type=" + ligne_type);
 			sb.append(",conv_date_signature=" + conv_date_signature);
 			sb.append(",conv_objet=" + conv_objet);
 			sb.append(",conv_objet_autre=" + conv_objet_autre);
 			sb.append(",conv_date_debut=" + conv_date_debut);
 			sb.append(",conv_date_fin=" + conv_date_fin);
 			sb.append(",conv_montant_ttc=" + conv_montant_ttc);
-			sb.append(",conv_manifestation_date=" + conv_manifestation_date);
 			sb.append(",conv_manifestation_nom=" + conv_manifestation_nom);
-			sb.append(",conv_manifestation_lieu=" + conv_manifestation_lieu);
-			sb.append(",conv_manifestation_organisateur=" + conv_manifestation_organisateur);
 			sb.append("]");
 
 			return sb.toString();
@@ -1417,22 +1095,10 @@ public class convention_fact implements TalendJob {
 			return this.entreprise_identifiant;
 		}
 
-		public String denomination_sociale;
-
-		public String getDenomination_sociale() {
-			return this.denomination_sociale;
-		}
-
 		public String ligne_identifiant;
 
 		public String getLigne_identifiant() {
 			return this.ligne_identifiant;
-		}
-
-		public Character ligne_rectification;
-
-		public Character getLigne_rectification() {
-			return this.ligne_rectification;
 		}
 
 		public String benef_categorie_code;
@@ -1441,58 +1107,10 @@ public class convention_fact implements TalendJob {
 			return this.benef_categorie_code;
 		}
 
-		public String categorie;
-
-		public String getCategorie() {
-			return this.categorie;
-		}
-
-		public String benef_nom;
-
-		public String getBenef_nom() {
-			return this.benef_nom;
-		}
-
-		public String benef_prenom;
-
-		public String getBenef_prenom() {
-			return this.benef_prenom;
-		}
-
 		public String benef_qualite_code;
 
 		public String getBenef_qualite_code() {
 			return this.benef_qualite_code;
-		}
-
-		public String qualite;
-
-		public String getQualite() {
-			return this.qualite;
-		}
-
-		public String benef_adresse1;
-
-		public String getBenef_adresse1() {
-			return this.benef_adresse1;
-		}
-
-		public String benef_adresse2;
-
-		public String getBenef_adresse2() {
-			return this.benef_adresse2;
-		}
-
-		public String benef_adresse3;
-
-		public String getBenef_adresse3() {
-			return this.benef_adresse3;
-		}
-
-		public String benef_adresse4;
-
-		public String getBenef_adresse4() {
-			return this.benef_adresse4;
 		}
 
 		public String benef_codepostal;
@@ -1513,22 +1131,10 @@ public class convention_fact implements TalendJob {
 			return this.benef_pays_code;
 		}
 
-		public String pays;
-
-		public String getPays() {
-			return this.pays;
-		}
-
 		public String benef_titre_code;
 
 		public String getBenef_titre_code() {
 			return this.benef_titre_code;
-		}
-
-		public String benef_titre_libelle;
-
-		public String getBenef_titre_libelle() {
-			return this.benef_titre_libelle;
 		}
 
 		public String benef_specialite_code;
@@ -1537,64 +1143,10 @@ public class convention_fact implements TalendJob {
 			return this.benef_specialite_code;
 		}
 
-		public String benef_speicalite_libelle;
-
-		public String getBenef_speicalite_libelle() {
-			return this.benef_speicalite_libelle;
-		}
-
-		public String benef_identifiant_type_code;
-
-		public String getBenef_identifiant_type_code() {
-			return this.benef_identifiant_type_code;
-		}
-
-		public String identifiant_type;
-
-		public String getIdentifiant_type() {
-			return this.identifiant_type;
-		}
-
 		public String benef_identifiant_valeur;
 
 		public String getBenef_identifiant_valeur() {
 			return this.benef_identifiant_valeur;
-		}
-
-		public String benef_etablissement;
-
-		public String getBenef_etablissement() {
-			return this.benef_etablissement;
-		}
-
-		public String benef_etablissement_codepostal;
-
-		public String getBenef_etablissement_codepostal() {
-			return this.benef_etablissement_codepostal;
-		}
-
-		public String benef_etablissement_ville;
-
-		public String getBenef_etablissement_ville() {
-			return this.benef_etablissement_ville;
-		}
-
-		public String benef_denomination_sociale;
-
-		public String getBenef_denomination_sociale() {
-			return this.benef_denomination_sociale;
-		}
-
-		public String benef_objet_social;
-
-		public String getBenef_objet_social() {
-			return this.benef_objet_social;
-		}
-
-		public String ligne_type;
-
-		public String getLigne_type() {
-			return this.ligne_type;
 		}
 
 		public String conv_date_signature;
@@ -1633,28 +1185,10 @@ public class convention_fact implements TalendJob {
 			return this.conv_montant_ttc;
 		}
 
-		public String conv_manifestation_date;
-
-		public String getConv_manifestation_date() {
-			return this.conv_manifestation_date;
-		}
-
 		public String conv_manifestation_nom;
 
 		public String getConv_manifestation_nom() {
 			return this.conv_manifestation_nom;
-		}
-
-		public String conv_manifestation_lieu;
-
-		public String getConv_manifestation_lieu() {
-			return this.conv_manifestation_lieu;
-		}
-
-		public String conv_manifestation_organisateur;
-
-		public String getConv_manifestation_organisateur() {
-			return this.conv_manifestation_organisateur;
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -1697,36 +1231,11 @@ public class convention_fact implements TalendJob {
 
 					this.entreprise_identifiant = readString(dis);
 
-					this.denomination_sociale = readString(dis);
-
 					this.ligne_identifiant = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.ligne_rectification = null;
-					} else {
-						this.ligne_rectification = dis.readChar();
-					}
 
 					this.benef_categorie_code = readString(dis);
 
-					this.categorie = readString(dis);
-
-					this.benef_nom = readString(dis);
-
-					this.benef_prenom = readString(dis);
-
 					this.benef_qualite_code = readString(dis);
-
-					this.qualite = readString(dis);
-
-					this.benef_adresse1 = readString(dis);
-
-					this.benef_adresse2 = readString(dis);
-
-					this.benef_adresse3 = readString(dis);
-
-					this.benef_adresse4 = readString(dis);
 
 					this.benef_codepostal = readString(dis);
 
@@ -1734,33 +1243,11 @@ public class convention_fact implements TalendJob {
 
 					this.benef_pays_code = readString(dis);
 
-					this.pays = readString(dis);
-
 					this.benef_titre_code = readString(dis);
-
-					this.benef_titre_libelle = readString(dis);
 
 					this.benef_specialite_code = readString(dis);
 
-					this.benef_speicalite_libelle = readString(dis);
-
-					this.benef_identifiant_type_code = readString(dis);
-
-					this.identifiant_type = readString(dis);
-
 					this.benef_identifiant_valeur = readString(dis);
-
-					this.benef_etablissement = readString(dis);
-
-					this.benef_etablissement_codepostal = readString(dis);
-
-					this.benef_etablissement_ville = readString(dis);
-
-					this.benef_denomination_sociale = readString(dis);
-
-					this.benef_objet_social = readString(dis);
-
-					this.ligne_type = readString(dis);
 
 					this.conv_date_signature = readString(dis);
 
@@ -1774,13 +1261,7 @@ public class convention_fact implements TalendJob {
 
 					this.conv_montant_ttc = readString(dis);
 
-					this.conv_manifestation_date = readString(dis);
-
 					this.conv_manifestation_nom = readString(dis);
-
-					this.conv_manifestation_lieu = readString(dis);
-
-					this.conv_manifestation_organisateur = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1800,20 +1281,7 @@ public class convention_fact implements TalendJob {
 
 				// String
 
-				writeString(this.denomination_sociale, dos);
-
-				// String
-
 				writeString(this.ligne_identifiant, dos);
-
-				// Character
-
-				if (this.ligne_rectification == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeChar(this.ligne_rectification);
-				}
 
 				// String
 
@@ -1821,39 +1289,7 @@ public class convention_fact implements TalendJob {
 
 				// String
 
-				writeString(this.categorie, dos);
-
-				// String
-
-				writeString(this.benef_nom, dos);
-
-				// String
-
-				writeString(this.benef_prenom, dos);
-
-				// String
-
 				writeString(this.benef_qualite_code, dos);
-
-				// String
-
-				writeString(this.qualite, dos);
-
-				// String
-
-				writeString(this.benef_adresse1, dos);
-
-				// String
-
-				writeString(this.benef_adresse2, dos);
-
-				// String
-
-				writeString(this.benef_adresse3, dos);
-
-				// String
-
-				writeString(this.benef_adresse4, dos);
 
 				// String
 
@@ -1869,15 +1305,7 @@ public class convention_fact implements TalendJob {
 
 				// String
 
-				writeString(this.pays, dos);
-
-				// String
-
 				writeString(this.benef_titre_code, dos);
-
-				// String
-
-				writeString(this.benef_titre_libelle, dos);
 
 				// String
 
@@ -1885,43 +1313,7 @@ public class convention_fact implements TalendJob {
 
 				// String
 
-				writeString(this.benef_speicalite_libelle, dos);
-
-				// String
-
-				writeString(this.benef_identifiant_type_code, dos);
-
-				// String
-
-				writeString(this.identifiant_type, dos);
-
-				// String
-
 				writeString(this.benef_identifiant_valeur, dos);
-
-				// String
-
-				writeString(this.benef_etablissement, dos);
-
-				// String
-
-				writeString(this.benef_etablissement_codepostal, dos);
-
-				// String
-
-				writeString(this.benef_etablissement_ville, dos);
-
-				// String
-
-				writeString(this.benef_denomination_sociale, dos);
-
-				// String
-
-				writeString(this.benef_objet_social, dos);
-
-				// String
-
-				writeString(this.ligne_type, dos);
 
 				// String
 
@@ -1949,19 +1341,7 @@ public class convention_fact implements TalendJob {
 
 				// String
 
-				writeString(this.conv_manifestation_date, dos);
-
-				// String
-
 				writeString(this.conv_manifestation_nom, dos);
-
-				// String
-
-				writeString(this.conv_manifestation_lieu, dos);
-
-				// String
-
-				writeString(this.conv_manifestation_organisateur, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -1975,46 +1355,22 @@ public class convention_fact implements TalendJob {
 			sb.append(super.toString());
 			sb.append("[");
 			sb.append("entreprise_identifiant=" + entreprise_identifiant);
-			sb.append(",denomination_sociale=" + denomination_sociale);
 			sb.append(",ligne_identifiant=" + ligne_identifiant);
-			sb.append(",ligne_rectification=" + String.valueOf(ligne_rectification));
 			sb.append(",benef_categorie_code=" + benef_categorie_code);
-			sb.append(",categorie=" + categorie);
-			sb.append(",benef_nom=" + benef_nom);
-			sb.append(",benef_prenom=" + benef_prenom);
 			sb.append(",benef_qualite_code=" + benef_qualite_code);
-			sb.append(",qualite=" + qualite);
-			sb.append(",benef_adresse1=" + benef_adresse1);
-			sb.append(",benef_adresse2=" + benef_adresse2);
-			sb.append(",benef_adresse3=" + benef_adresse3);
-			sb.append(",benef_adresse4=" + benef_adresse4);
 			sb.append(",benef_codepostal=" + benef_codepostal);
 			sb.append(",benef_ville=" + benef_ville);
 			sb.append(",benef_pays_code=" + benef_pays_code);
-			sb.append(",pays=" + pays);
 			sb.append(",benef_titre_code=" + benef_titre_code);
-			sb.append(",benef_titre_libelle=" + benef_titre_libelle);
 			sb.append(",benef_specialite_code=" + benef_specialite_code);
-			sb.append(",benef_speicalite_libelle=" + benef_speicalite_libelle);
-			sb.append(",benef_identifiant_type_code=" + benef_identifiant_type_code);
-			sb.append(",identifiant_type=" + identifiant_type);
 			sb.append(",benef_identifiant_valeur=" + benef_identifiant_valeur);
-			sb.append(",benef_etablissement=" + benef_etablissement);
-			sb.append(",benef_etablissement_codepostal=" + benef_etablissement_codepostal);
-			sb.append(",benef_etablissement_ville=" + benef_etablissement_ville);
-			sb.append(",benef_denomination_sociale=" + benef_denomination_sociale);
-			sb.append(",benef_objet_social=" + benef_objet_social);
-			sb.append(",ligne_type=" + ligne_type);
 			sb.append(",conv_date_signature=" + conv_date_signature);
 			sb.append(",conv_objet=" + conv_objet);
 			sb.append(",conv_objet_autre=" + conv_objet_autre);
 			sb.append(",conv_date_debut=" + conv_date_debut);
 			sb.append(",conv_date_fin=" + conv_date_fin);
 			sb.append(",conv_montant_ttc=" + conv_montant_ttc);
-			sb.append(",conv_manifestation_date=" + conv_manifestation_date);
 			sb.append(",conv_manifestation_nom=" + conv_manifestation_nom);
-			sb.append(",conv_manifestation_lieu=" + conv_manifestation_lieu);
-			sb.append(",conv_manifestation_organisateur=" + conv_manifestation_organisateur);
 			sb.append("]");
 
 			return sb.toString();
@@ -2135,7 +1491,7 @@ public class convention_fact implements TalendJob {
 				String dbUser_tDBOutput_1 = "root";
 
 				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:ozoz778xAznt/V9hbmU8N0PjYAwg/hweAaTXFw==");
+						.decryptPassword("enc:routine.encryption.key.v1:fBsFmkQV3abasoMfnfbpBNBp0aHWGO1Zqph7Cw==");
 
 				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
 				java.lang.Class.forName(driverClass_tDBOutput_1);
@@ -2227,149 +1583,32 @@ public class convention_fact implements TalendJob {
 				final routines.system.RowState rowstate_tFileInputDelimited_1 = new routines.system.RowState();
 
 				int nb_line_tFileInputDelimited_1 = 0;
-				int footer_tFileInputDelimited_1 = 0;
-				int totalLinetFileInputDelimited_1 = 0;
-				int limittFileInputDelimited_1 = -1;
-				int lastLinetFileInputDelimited_1 = -1;
-
-				char fieldSeparator_tFileInputDelimited_1[] = null;
-
-				// support passing value (property: Field Separator) by 'context.fs' or
-				// 'globalMap.get("fs")'.
-				if (((String) ";").length() > 0) {
-					fieldSeparator_tFileInputDelimited_1 = ((String) ";").toCharArray();
-				} else {
-					throw new IllegalArgumentException("Field Separator must be assigned a char.");
-				}
-
-				char rowSeparator_tFileInputDelimited_1[] = null;
-
-				// support passing value (property: Row Separator) by 'context.rs' or
-				// 'globalMap.get("rs")'.
-				if (((String) "\n").length() > 0) {
-					rowSeparator_tFileInputDelimited_1 = ((String) "\n").toCharArray();
-				} else {
-					throw new IllegalArgumentException("Row Separator must be assigned a char.");
-				}
-
-				Object filename_tFileInputDelimited_1 = /** Start field tFileInputDelimited_1:FILENAME */
-						"C:/BI/transparence-sante/data/data.gouv/conventions.csv"/**
-																					 * End field
-																					 * tFileInputDelimited_1:FILENAME
-																					 */
-				;
-				com.talend.csv.CSVReader csvReadertFileInputDelimited_1 = null;
-
+				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
+				int limit_tFileInputDelimited_1 = -1;
 				try {
 
-					String[] rowtFileInputDelimited_1 = null;
-					int currentLinetFileInputDelimited_1 = 0;
-					int outputLinetFileInputDelimited_1 = 0;
-					try {// TD110 begin
-						if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
+					Object filename_tFileInputDelimited_1 = "C:/BI/transparence-sante/data/min/conventions_top10000.csv";
+					if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
 
-							int footer_value_tFileInputDelimited_1 = 0;
-							if (footer_value_tFileInputDelimited_1 > 0) {
-								throw new java.lang.Exception(
-										"When the input source is a stream,footer shouldn't be bigger than 0.");
-							}
-
-							csvReadertFileInputDelimited_1 = new com.talend.csv.CSVReader(
-									(java.io.InputStream) filename_tFileInputDelimited_1,
-									fieldSeparator_tFileInputDelimited_1[0], "UTF-8");
-						} else {
-							csvReadertFileInputDelimited_1 = new com.talend.csv.CSVReader(
-									new java.io.BufferedReader(new java.io.InputStreamReader(
-											new java.io.FileInputStream(String.valueOf(filename_tFileInputDelimited_1)),
-											"UTF-8")),
-									fieldSeparator_tFileInputDelimited_1[0]);
+						int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
+						if (footer_value_tFileInputDelimited_1 > 0 || random_value_tFileInputDelimited_1 > 0) {
+							throw new java.lang.Exception(
+									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
 						}
 
-						csvReadertFileInputDelimited_1.setTrimWhitespace(false);
-						if ((rowSeparator_tFileInputDelimited_1[0] != '\n')
-								&& (rowSeparator_tFileInputDelimited_1[0] != '\r'))
-							csvReadertFileInputDelimited_1.setLineEnd("" + rowSeparator_tFileInputDelimited_1[0]);
-
-						csvReadertFileInputDelimited_1.setQuoteChar('"');
-
-						csvReadertFileInputDelimited_1.setEscapeChar(csvReadertFileInputDelimited_1.getQuoteChar());
-
-						if (footer_tFileInputDelimited_1 > 0) {
-							for (totalLinetFileInputDelimited_1 = 0; totalLinetFileInputDelimited_1 < 1; totalLinetFileInputDelimited_1++) {
-								csvReadertFileInputDelimited_1.readNext();
-							}
-							csvReadertFileInputDelimited_1.setSkipEmptyRecords(false);
-							while (csvReadertFileInputDelimited_1.readNext()) {
-
-								totalLinetFileInputDelimited_1++;
-
-							}
-							int lastLineTemptFileInputDelimited_1 = totalLinetFileInputDelimited_1
-									- footer_tFileInputDelimited_1 < 0 ? 0
-											: totalLinetFileInputDelimited_1 - footer_tFileInputDelimited_1;
-							if (lastLinetFileInputDelimited_1 > 0) {
-								lastLinetFileInputDelimited_1 = lastLinetFileInputDelimited_1 < lastLineTemptFileInputDelimited_1
-										? lastLinetFileInputDelimited_1
-										: lastLineTemptFileInputDelimited_1;
-							} else {
-								lastLinetFileInputDelimited_1 = lastLineTemptFileInputDelimited_1;
-							}
-
-							csvReadertFileInputDelimited_1.close();
-							if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
-								csvReadertFileInputDelimited_1 = new com.talend.csv.CSVReader(
-										(java.io.InputStream) filename_tFileInputDelimited_1,
-										fieldSeparator_tFileInputDelimited_1[0], "UTF-8");
-							} else {
-								csvReadertFileInputDelimited_1 = new com.talend.csv.CSVReader(
-										new java.io.BufferedReader(
-												new java.io.InputStreamReader(
-														new java.io.FileInputStream(
-																String.valueOf(filename_tFileInputDelimited_1)),
-														"UTF-8")),
-										fieldSeparator_tFileInputDelimited_1[0]);
-							}
-							csvReadertFileInputDelimited_1.setTrimWhitespace(false);
-							if ((rowSeparator_tFileInputDelimited_1[0] != '\n')
-									&& (rowSeparator_tFileInputDelimited_1[0] != '\r'))
-								csvReadertFileInputDelimited_1.setLineEnd("" + rowSeparator_tFileInputDelimited_1[0]);
-
-							csvReadertFileInputDelimited_1.setQuoteChar('"');
-
-							csvReadertFileInputDelimited_1.setEscapeChar(csvReadertFileInputDelimited_1.getQuoteChar());
-
-						}
-
-						if (limittFileInputDelimited_1 != 0) {
-							for (currentLinetFileInputDelimited_1 = 0; currentLinetFileInputDelimited_1 < 1; currentLinetFileInputDelimited_1++) {
-								csvReadertFileInputDelimited_1.readNext();
-							}
-						}
-						csvReadertFileInputDelimited_1.setSkipEmptyRecords(false);
-
+					}
+					try {
+						fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(
+								"C:/BI/transparence-sante/data/min/conventions_top10000.csv", "UTF-8", ";", "\n", false,
+								1, 0, limit_tFileInputDelimited_1, -1, false);
 					} catch (java.lang.Exception e) {
 
 						System.err.println(e.getMessage());
 
-					} // TD110 end
+					}
 
-					while (limittFileInputDelimited_1 != 0 && csvReadertFileInputDelimited_1 != null
-							&& csvReadertFileInputDelimited_1.readNext()) {
+					while (fid_tFileInputDelimited_1 != null && fid_tFileInputDelimited_1.nextRecord()) {
 						rowstate_tFileInputDelimited_1.reset();
-
-						rowtFileInputDelimited_1 = csvReadertFileInputDelimited_1.getValues();
-
-						currentLinetFileInputDelimited_1++;
-
-						if (lastLinetFileInputDelimited_1 > -1
-								&& currentLinetFileInputDelimited_1 > lastLinetFileInputDelimited_1) {
-							break;
-						}
-						outputLinetFileInputDelimited_1++;
-						if (limittFileInputDelimited_1 > 0
-								&& outputLinetFileInputDelimited_1 > limittFileInputDelimited_1) {
-							break;
-						}
 
 						conventions = null;
 
@@ -2377,619 +1616,92 @@ public class convention_fact implements TalendJob {
 						conventions = new conventionsStruct();
 						try {
 
-							char fieldSeparator_tFileInputDelimited_1_ListType[] = null;
-							// support passing value (property: Field Separator) by 'context.fs' or
-							// 'globalMap.get("fs")'.
-							if (((String) ";").length() > 0) {
-								fieldSeparator_tFileInputDelimited_1_ListType = ((String) ";").toCharArray();
-							} else {
-								throw new IllegalArgumentException("Field Separator must be assigned a char.");
-							}
-							if (rowtFileInputDelimited_1.length == 1 && ("\015").equals(rowtFileInputDelimited_1[0])) {// empty
-																														// line
-																														// when
-																														// row
-																														// separator
-																														// is
-																														// '\n'
+							int columnIndexWithD_tFileInputDelimited_1 = 0;
 
-								conventions.entreprise_identifiant = null;
+							columnIndexWithD_tFileInputDelimited_1 = 0;
 
-								conventions.denomination_sociale = null;
+							conventions.entreprise_identifiant = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.ligne_identifiant = null;
+							columnIndexWithD_tFileInputDelimited_1 = 1;
 
-								conventions.ligne_rectification = null;
+							conventions.ligne_identifiant = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_categorie_code = null;
+							columnIndexWithD_tFileInputDelimited_1 = 2;
 
-								conventions.categorie = null;
+							conventions.benef_categorie_code = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_nom = null;
+							columnIndexWithD_tFileInputDelimited_1 = 3;
 
-								conventions.benef_prenom = null;
+							conventions.benef_qualite_code = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_qualite_code = null;
+							columnIndexWithD_tFileInputDelimited_1 = 4;
 
-								conventions.qualite = null;
+							conventions.benef_codepostal = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_adresse1 = null;
+							columnIndexWithD_tFileInputDelimited_1 = 5;
 
-								conventions.benef_adresse2 = null;
+							conventions.benef_ville = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_adresse3 = null;
+							columnIndexWithD_tFileInputDelimited_1 = 6;
 
-								conventions.benef_adresse4 = null;
+							conventions.benef_pays_code = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_codepostal = null;
+							columnIndexWithD_tFileInputDelimited_1 = 7;
 
-								conventions.benef_ville = null;
+							conventions.benef_titre_code = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_pays_code = null;
+							columnIndexWithD_tFileInputDelimited_1 = 8;
 
-								conventions.pays = null;
+							conventions.benef_specialite_code = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_titre_code = null;
+							columnIndexWithD_tFileInputDelimited_1 = 9;
 
-								conventions.benef_titre_libelle = null;
+							conventions.benef_identifiant_valeur = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_specialite_code = null;
+							columnIndexWithD_tFileInputDelimited_1 = 10;
 
-								conventions.benef_speicalite_libelle = null;
+							conventions.conv_date_signature = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_identifiant_type_code = null;
+							columnIndexWithD_tFileInputDelimited_1 = 11;
 
-								conventions.identifiant_type = null;
+							conventions.conv_objet = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_identifiant_valeur = null;
+							columnIndexWithD_tFileInputDelimited_1 = 12;
 
-								conventions.benef_etablissement = null;
+							conventions.conv_objet_autre = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_etablissement_codepostal = null;
+							columnIndexWithD_tFileInputDelimited_1 = 13;
 
-								conventions.benef_etablissement_ville = null;
+							conventions.conv_date_debut = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_denomination_sociale = null;
+							columnIndexWithD_tFileInputDelimited_1 = 14;
 
-								conventions.benef_objet_social = null;
+							conventions.conv_date_fin = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.ligne_type = null;
+							columnIndexWithD_tFileInputDelimited_1 = 15;
 
-								conventions.conv_date_signature = null;
+							conventions.conv_montant_ttc = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.conv_objet = null;
+							columnIndexWithD_tFileInputDelimited_1 = 16;
 
-								conventions.conv_objet_autre = null;
-
-								conventions.conv_date_debut = null;
-
-								conventions.conv_date_fin = null;
-
-								conventions.conv_montant_ttc = null;
-
-								conventions.conv_manifestation_date = null;
-
-								conventions.conv_manifestation_nom = null;
-
-								conventions.conv_manifestation_lieu = null;
-
-								conventions.conv_manifestation_organisateur = null;
-
-							} else {
-
-								int columnIndexWithD_tFileInputDelimited_1 = 0; // Column Index
-
-								columnIndexWithD_tFileInputDelimited_1 = 0;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.entreprise_identifiant = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.entreprise_identifiant = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 1;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.denomination_sociale = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.denomination_sociale = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 2;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.ligne_identifiant = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.ligne_identifiant = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 3;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									if (rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
-										try {
-
-											conventions.ligne_rectification = ParserUtils.parseTo_Character(
-													rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
-
-										} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String
-													.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-															"ligne_rectification", "conventions",
-															rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1],
-															ex_tFileInputDelimited_1),
-													ex_tFileInputDelimited_1));
-										}
-									} else {
-
-										conventions.ligne_rectification = null;
-
-									}
-
-								} else {
-
-									conventions.ligne_rectification = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 4;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_categorie_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_categorie_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 5;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.categorie = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.categorie = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 6;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_nom = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_nom = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 7;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_prenom = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_prenom = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 8;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_qualite_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_qualite_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 9;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.qualite = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.qualite = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 10;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_adresse1 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_adresse1 = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 11;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_adresse2 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_adresse2 = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 12;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_adresse3 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_adresse3 = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 13;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_adresse4 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_adresse4 = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 14;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_codepostal = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_codepostal = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 15;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_ville = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_ville = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 16;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_pays_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_pays_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 17;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.pays = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.pays = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 18;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_titre_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_titre_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 19;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_titre_libelle = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_titre_libelle = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 20;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_specialite_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_specialite_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 21;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_speicalite_libelle = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_speicalite_libelle = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 22;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_identifiant_type_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_identifiant_type_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 23;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.identifiant_type = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.identifiant_type = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 24;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_identifiant_valeur = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_identifiant_valeur = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 25;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_etablissement = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_etablissement = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 26;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_etablissement_codepostal = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_etablissement_codepostal = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 27;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_etablissement_ville = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_etablissement_ville = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 28;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_denomination_sociale = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_denomination_sociale = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 29;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_objet_social = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_objet_social = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 30;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.ligne_type = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.ligne_type = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 31;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_date_signature = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_date_signature = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 32;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_objet = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_objet = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 33;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_objet_autre = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_objet_autre = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 34;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_date_debut = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_date_debut = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 35;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_date_fin = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_date_fin = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 36;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_montant_ttc = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_montant_ttc = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 37;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_manifestation_date = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_manifestation_date = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 38;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_manifestation_nom = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_manifestation_nom = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 39;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_manifestation_lieu = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_manifestation_lieu = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 40;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_manifestation_organisateur = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_manifestation_organisateur = null;
-
-								}
-
-							}
+							conventions.conv_manifestation_nom = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
 							if (rowstate_tFileInputDelimited_1.getException() != null) {
 								throw rowstate_tFileInputDelimited_1.getException();
@@ -3103,32 +1815,57 @@ public class convention_fact implements TalendJob {
 								Var.normalizedEvenementConvention = EvenementConventionIdGenerator
 										.normalizeEvenementConvention(conventions.conv_manifestation_nom);
 								;
-								Var.date_debut = conventions.conv_date_debut != null
-										&& !conventions.conv_date_debut.equals("") ?
+								Var.date_debut = conventions.conv_date_debut != null &&
+
+//enleve tous les elements que ne sont pas de nombre ou des  - et / 
+
+										MyStringRoutine
+												.isDate(conventions.conv_date_debut.replaceAll("[^\\-\\/0-9]", "")) ?
+
+														TalendDate.parseDate("dd-MM-yyyy", (
+//make a date with the string  with only number and -  matches a date format
+														conventions.conv_date_debut.replaceAll("[^\\-\\/0-9]", ""))
+																.replace("/", "-"))
+
+														:
+
+// if date string is null or empty, default date
+
+														TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
+								Var.date_fin = conventions.conv_date_fin != null &&
+//check if the string only number, - and / matches a date format
+
+										MyStringRoutine.isDate(conventions.conv_date_fin.replaceAll("[^0-9\\/\\-]", ""))
+												?
 
 												TalendDate.parseDate("dd-MM-yyyy",
-														conventions.conv_date_debut.replace("/", "-"))
-												:
-// if date string is null or empty, default date
-												TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
-								Var.date_fin = conventions.conv_date_fin != null
-										&& !conventions.conv_date_fin.equals("") ?
+//make a date with the string  with only number and -  matches a date format
+														(conventions.conv_date_fin.replaceAll("[^\\-\\/0-9]", ""))
+																.replace("/", "-"))
 
-												TalendDate.parseDate("dd-MM-yyyy",
-														conventions.conv_date_fin.replace("/", "-"))
 												:
+
 // if date string is null or empty, default date
+
 												TalendDate.parseDate("dd-MM-yyyy", "31-12-2099");
-								Var.date_signature = conventions.conv_date_signature != null
-										&& !conventions.conv_date_signature.equals("") ?
+								Var.date_signature = conventions.conv_date_signature != null &&
+
+//check if the string only number, - and / matches a date format
+										MyStringRoutine.isDate(conventions.conv_date_fin.replaceAll("[^0-9\\/\\-]", ""))
+												?
 
 												TalendDate.parseDate("dd-MM-yyyy",
-														conventions.conv_date_signature.replace("/", "-"))
+//make a date with the string  with only number and -  matches a date format
+														(conventions.conv_date_signature.replaceAll("[^0-9\\/\\-]", ""))
+																.replace("/", "-"))
+
 												:
+
 // if date string is null or empty, default date
+
 												TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
 								Var.isConvMontantNumeric = conventions.conv_montant_ttc != null
-										? MyStringRoutine.isNumeric(conventions.conv_montant_ttc)
+										? MyStringRoutine.isFloat(conventions.conv_montant_ttc)
 										: false;// ###############################
 								// ###############################
 								// # Output tables
@@ -3138,8 +1875,11 @@ public class convention_fact implements TalendJob {
 // # Output table : 'convention_fact'
 								convention_fact_tmp.ligne_id = conventions.ligne_identifiant;
 								convention_fact_tmp.entreprise_id = conventions.entreprise_identifiant;
-								convention_fact_tmp.beneficiaire_id = // TODO
-										"N/A";
+								convention_fact_tmp.beneficiaire_id = conventions.benef_identifiant_valeur.isEmpty()
+										|| (conventions.benef_identifiant_valeur.replaceAll("[^A-Za-z0-9]", ""))
+												.isEmpty() ? "N/A"
+														: conventions.benef_identifiant_valeur
+																.replaceAll("[^A-Za-z0-9]", "");
 								convention_fact_tmp.categorie_beneficiaire_id = conventions.benef_categorie_code
 										.equals("") ? "N/A" : conventions.benef_categorie_code;
 								convention_fact_tmp.qualite_beneficiaire_id = conventions.benef_qualite_code.equals("")
@@ -3148,10 +1888,21 @@ public class convention_fact implements TalendJob {
 								convention_fact_tmp.titre_beneficiaire_id = conventions.benef_titre_code.equals("")
 										? "N/A"
 										: conventions.benef_titre_code;
-								convention_fact_tmp.adresse_beneficiaire_id = // TODO
-										"N/A";
-								convention_fact_tmp.adresse_entreprise_id = // TODO
-										"N/A";
+								convention_fact_tmp.adresse_beneficiaire_id = conventions.benef_ville == null
+										|| (conventions.benef_pays_code.replaceAll("[^A-Za-z0-9]", "")
+												+ conventions.benef_codepostal
+												+ conventions.benef_ville.replaceAll("[^A-Za-z0-9]", "")).isEmpty()
+														? "N/A"
+														: conventions.benef_pays_code.replaceAll("[^A-Za-z0-9]", "")
+																+ conventions.benef_codepostal + conventions.benef_ville
+																		.replaceAll("[^A-Za-z0-9]", "");
+								convention_fact_tmp.adresse_entreprise_id = row1.ville == null
+										|| (row1.pays_code.replaceAll("[^A-Za-z0-9]", "") + row1.code_postal
+												+ row1.ville.replaceAll("[^A-Za-z0-9]", "")).isEmpty()
+														? "N/A"
+														: row1.pays_code.replaceAll("[^A-Za-z0-9]", "")
+																+ row1.code_postal
+																+ row1.ville.replaceAll("[^A-Za-z0-9]", "");
 								convention_fact_tmp.specialite_beneficiaire_id = conventions.benef_specialite_code
 										.equals("") ? "N/A" : conventions.benef_specialite_code;
 								convention_fact_tmp.secteur_activite_entreprise_id = row1.secteur_activite_code;
@@ -3173,7 +1924,8 @@ public class convention_fact implements TalendJob {
 												? Var.date_signature
 												: TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
 								convention_fact_tmp.montant_convention = Var.isConvMontantNumeric
-										? Math.round(Float.parseFloat(conventions.conv_montant_ttc))
+										? Math.round(Float
+												.parseFloat(conventions.conv_montant_ttc.replaceAll("[^0-9\\.]", "")))
 										: 0;
 								convention_fact_tmp.duree_convention = (DateTransformations
 										.getAnnee(Var.date_fin) >= 1980
@@ -3428,19 +2180,17 @@ public class convention_fact implements TalendJob {
 
 						currentComponent = "tFileInputDelimited_1";
 
-						nb_line_tFileInputDelimited_1++;
 					}
-
 				} finally {
-					if (!(filename_tFileInputDelimited_1 instanceof java.io.InputStream)) {
-						if (csvReadertFileInputDelimited_1 != null) {
-							csvReadertFileInputDelimited_1.close();
+					if (!((Object) ("C:/BI/transparence-sante/data/min/conventions_top10000.csv") instanceof java.io.InputStream)) {
+						if (fid_tFileInputDelimited_1 != null) {
+							fid_tFileInputDelimited_1.close();
 						}
 					}
-					if (csvReadertFileInputDelimited_1 != null) {
-						globalMap.put("tFileInputDelimited_1_NB_LINE", nb_line_tFileInputDelimited_1);
-					}
+					if (fid_tFileInputDelimited_1 != null) {
+						globalMap.put("tFileInputDelimited_1_NB_LINE", fid_tFileInputDelimited_1.getRowNumber());
 
+					}
 				}
 
 				ok_Hash.put("tFileInputDelimited_1", true);
@@ -3654,52 +2404,10 @@ public class convention_fact implements TalendJob {
 			return this.pays_code;
 		}
 
-		public String pays;
-
-		public String getPays() {
-			return this.pays;
-		}
-
 		public String secteur_activite_code;
 
 		public String getSecteur_activite_code() {
 			return this.secteur_activite_code;
-		}
-
-		public String secteur;
-
-		public String getSecteur() {
-			return this.secteur;
-		}
-
-		public String denomination_sociale;
-
-		public String getDenomination_sociale() {
-			return this.denomination_sociale;
-		}
-
-		public String adresse_1;
-
-		public String getAdresse_1() {
-			return this.adresse_1;
-		}
-
-		public String adresse_2;
-
-		public String getAdresse_2() {
-			return this.adresse_2;
-		}
-
-		public String adresse_3;
-
-		public String getAdresse_3() {
-			return this.adresse_3;
-		}
-
-		public String adresse_4;
-
-		public String getAdresse_4() {
-			return this.adresse_4;
 		}
 
 		public String code_postal;
@@ -3753,14 +2461,7 @@ public class convention_fact implements TalendJob {
 
 			other.identifiant = this.identifiant;
 			other.pays_code = this.pays_code;
-			other.pays = this.pays;
 			other.secteur_activite_code = this.secteur_activite_code;
-			other.secteur = this.secteur;
-			other.denomination_sociale = this.denomination_sociale;
-			other.adresse_1 = this.adresse_1;
-			other.adresse_2 = this.adresse_2;
-			other.adresse_3 = this.adresse_3;
-			other.adresse_4 = this.adresse_4;
 			other.code_postal = this.code_postal;
 			other.ville = this.ville;
 
@@ -3868,21 +2569,7 @@ public class convention_fact implements TalendJob {
 
 				this.pays_code = readString(dis, ois);
 
-				this.pays = readString(dis, ois);
-
 				this.secteur_activite_code = readString(dis, ois);
-
-				this.secteur = readString(dis, ois);
-
-				this.denomination_sociale = readString(dis, ois);
-
-				this.adresse_1 = readString(dis, ois);
-
-				this.adresse_2 = readString(dis, ois);
-
-				this.adresse_3 = readString(dis, ois);
-
-				this.adresse_4 = readString(dis, ois);
 
 				this.code_postal = readString(dis, ois);
 
@@ -3903,21 +2590,7 @@ public class convention_fact implements TalendJob {
 
 				writeString(this.pays_code, dos, oos);
 
-				writeString(this.pays, dos, oos);
-
 				writeString(this.secteur_activite_code, dos, oos);
-
-				writeString(this.secteur, dos, oos);
-
-				writeString(this.denomination_sociale, dos, oos);
-
-				writeString(this.adresse_1, dos, oos);
-
-				writeString(this.adresse_2, dos, oos);
-
-				writeString(this.adresse_3, dos, oos);
-
-				writeString(this.adresse_4, dos, oos);
 
 				writeString(this.code_postal, dos, oos);
 
@@ -3936,14 +2609,7 @@ public class convention_fact implements TalendJob {
 			sb.append("[");
 			sb.append("identifiant=" + identifiant);
 			sb.append(",pays_code=" + pays_code);
-			sb.append(",pays=" + pays);
 			sb.append(",secteur_activite_code=" + secteur_activite_code);
-			sb.append(",secteur=" + secteur);
-			sb.append(",denomination_sociale=" + denomination_sociale);
-			sb.append(",adresse_1=" + adresse_1);
-			sb.append(",adresse_2=" + adresse_2);
-			sb.append(",adresse_3=" + adresse_3);
-			sb.append(",adresse_4=" + adresse_4);
 			sb.append(",code_postal=" + code_postal);
 			sb.append(",ville=" + ville);
 			sb.append("]");
@@ -4104,43 +2770,14 @@ public class convention_fact implements TalendJob {
 
 							columnIndexWithD_tFileInputDelimited_2 = 2;
 
-							row1.pays = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 3;
-
 							row1.secteur_activite_code = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_2 = 4;
-
-							row1.secteur = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 5;
-
-							row1.denomination_sociale = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 6;
-
-							row1.adresse_1 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 7;
-
-							row1.adresse_2 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 8;
-
-							row1.adresse_3 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 9;
-
-							row1.adresse_4 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 10;
+							columnIndexWithD_tFileInputDelimited_2 = 3;
 
 							row1.code_postal = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_2 = 11;
+							columnIndexWithD_tFileInputDelimited_2 = 4;
 
 							row1.ville = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
@@ -4200,21 +2837,7 @@ public class convention_fact implements TalendJob {
 
 							row1_HashRow.pays_code = row1.pays_code;
 
-							row1_HashRow.pays = row1.pays;
-
 							row1_HashRow.secteur_activite_code = row1.secteur_activite_code;
-
-							row1_HashRow.secteur = row1.secteur;
-
-							row1_HashRow.denomination_sociale = row1.denomination_sociale;
-
-							row1_HashRow.adresse_1 = row1.adresse_1;
-
-							row1_HashRow.adresse_2 = row1.adresse_2;
-
-							row1_HashRow.adresse_3 = row1.adresse_3;
-
-							row1_HashRow.adresse_4 = row1.adresse_4;
 
 							row1_HashRow.code_postal = row1.code_postal;
 
@@ -4708,6 +3331,6 @@ public class convention_fact implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 147692 characters generated by Talend Open Studio for Data Integration on the
- * 22 janvier 2021 15:47:29 CET
+ * 105016 characters generated by Talend Open Studio for Data Integration on the
+ * 23 janvier 2021 18:59:11 CET
  ************************************************************************************************/

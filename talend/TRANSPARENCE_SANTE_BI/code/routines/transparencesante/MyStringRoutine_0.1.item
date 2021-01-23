@@ -19,20 +19,67 @@ package routines;
  * 5. {example} gives a example for the Function. it is optional.
  */
 public class MyStringRoutine {
+	public static String dateRegex = "^(?:(?:(?:0?[13578]|1[02])"
+			+ "(\\/|-|\\.)31)\\1|(?:(?:0?[1,3-9]|1[0-2])(\\/|-|\\.)"
+			+ "(?:29|30)\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})"
+			+ "$|^(?:0?2(\\/|-|\\.)29\\3(?:(?:(?:1[6-9]|[2-9]\\d)"
+			+ "?(?:0[48]|[2468][048]|[13579][26])|"
+			+ "(?:(?:16|[2468][048]|[3579][26])00))))$|"
+			+ "^(?:(?:0?[1-9])|(?:1[0-2]))(\\/|-|\\.)"
+			+ "(?:0?[1-9]|1\\d|2[0-8])\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$";
 
 	/**
-	 * 
-	 * @param string: your string
-	 * @return true if your string contains number in it
+	 * isNumeric: returns check if a string is a number
+     * 
+     * 
+     * {talendTypes} Boolean
+     * 
+     * {Category} User Defined
+     * 
+     * {param} String input: The processed string
+     * 
+     * {example} string.toString() = "1998" -->  isNumeric(string) = true
 	 */
-	public boolean hasInt(String string) {
-		String resultat = string.replaceAll("^[0-9]", "");
+	public static boolean isNumeric(String string) {
+		String resultat = string.replaceAll("[^0-9]", "");
 		return resultat.length() != 0;
 	}
-
 	
-	public static boolean isNumeric(String str) 
-	{
-		  return str.matches("-?\\d+(\\.\\d+)?");  //matches a number with optional '-' and decimal.
-		}
+	/**
+	 * isFloat: returns check if a string is a number
+     * 
+     * 
+     * {talendTypes} Boolean
+     * 
+     * {Category} User Defined
+     * 
+     * {param} String input: The processed string
+     * 
+     * {example} string.toString() = "1998.01" -->  isFloat(string) = true
+	 */
+	public static boolean isFloat(String string) {
+		String resultat = string.replaceAll("[^0-9\\.]", "");
+		return resultat.length() != 0 && !resultat.equals(".");
+	}
+	
+	
+	/**
+	 * isDate: returns check if a string is respect a date format
+     * 
+     * 
+     * {talendTypes} Boolean
+     * 
+     * {Category} User Defined
+     * 
+     * {param} String input: The processed string
+     * 
+     * {example} string.toString() = "01-01-1998" -->  isDate(string) = true
+	 *  
+	 */
+	public static boolean isDate(String string) {
+		 if(string.matches(dateRegex)) {
+			 return true;
+		 }
+		 return false;
+	 }
 }
