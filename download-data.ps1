@@ -2,11 +2,11 @@
 cd C:\BI\transparence-sante
 
 # downloading rrps_diplomes
-curl.exe --output C:\BI\transparence-sante\data\others\rpps_diplomes.zip --url http://82.254.125.180:55166/share/QW3PbWnQFxfdlAi0/rpps_diplomes.zip
+curl.exe --output C:\BI\transparence-sante\data\others\rpps_diplomes.zip --url https://cocon69.freeboxos.fr:22199/share/e3ykLkheLaEBJpf2/rpps_diplomes.zip 
 # downloading data.gouv.zip
-curl.exe --output C:\BI\transparence-sante\data\data.gouv\data.gouv.zip --url http://82.254.125.180:55166/share/GT1e57gNYLfizc_v/data.gouv.zip
+curl.exe --output C:\BI\transparence-sante\data\data.gouv\data.gouv.zip --url https://cocon69.freeboxos.fr:22199/share/K2gMA1iSRoNeBo7F/data.gouv.zip
 # downloading zipcodes_dep_region
-curl.exe --output C:\BI\transparence-sante\data\others\zipcodes_dep_region.zip --url http://82.254.125.180:55166/share/eTF3QY5bJAHcpbVV/zipcodes_dep_region.zip
+curl.exe --output C:\BI\transparence-sante\data\others\zipcodes_dep_region.zip --url https://cocon69.freeboxos.fr:22199/share/vrAi3L-JcwncRfPc/zipcodes_dep_region.zip 
 
 # dezip
 expand-archive -path 'C:\BI\transparence-sante\data\others\rpps_diplomes.zip' -destinationpath '.\data\others'
