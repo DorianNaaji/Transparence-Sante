@@ -1491,7 +1491,7 @@ public class convention_fact implements TalendJob {
 				String dbUser_tDBOutput_1 = "root";
 
 				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:IGRphmg2cuAF6UVHe9vHbwTrGv9bA2FaR+KrXA==");
+						.decryptPassword("enc:routine.encryption.key.v1:fBsFmkQV3abasoMfnfbpBNBp0aHWGO1Zqph7Cw==");
 
 				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
 				java.lang.Class.forName(driverClass_tDBOutput_1);
@@ -1583,149 +1583,32 @@ public class convention_fact implements TalendJob {
 				final routines.system.RowState rowstate_tFileInputDelimited_1 = new routines.system.RowState();
 
 				int nb_line_tFileInputDelimited_1 = 0;
-				int footer_tFileInputDelimited_1 = 0;
-				int totalLinetFileInputDelimited_1 = 0;
-				int limittFileInputDelimited_1 = -1;
-				int lastLinetFileInputDelimited_1 = -1;
-
-				char fieldSeparator_tFileInputDelimited_1[] = null;
-
-				// support passing value (property: Field Separator) by 'context.fs' or
-				// 'globalMap.get("fs")'.
-				if (((String) ";").length() > 0) {
-					fieldSeparator_tFileInputDelimited_1 = ((String) ";").toCharArray();
-				} else {
-					throw new IllegalArgumentException("Field Separator must be assigned a char.");
-				}
-
-				char rowSeparator_tFileInputDelimited_1[] = null;
-
-				// support passing value (property: Row Separator) by 'context.rs' or
-				// 'globalMap.get("rs")'.
-				if (((String) "\n").length() > 0) {
-					rowSeparator_tFileInputDelimited_1 = ((String) "\n").toCharArray();
-				} else {
-					throw new IllegalArgumentException("Row Separator must be assigned a char.");
-				}
-
-				Object filename_tFileInputDelimited_1 = /** Start field tFileInputDelimited_1:FILENAME */
-						"C:/BI/transparence-sante/data/data.gouv/conventions.csv"/**
-																					 * End field
-																					 * tFileInputDelimited_1:FILENAME
-																					 */
-				;
-				com.talend.csv.CSVReader csvReadertFileInputDelimited_1 = null;
-
+				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
+				int limit_tFileInputDelimited_1 = -1;
 				try {
 
-					String[] rowtFileInputDelimited_1 = null;
-					int currentLinetFileInputDelimited_1 = 0;
-					int outputLinetFileInputDelimited_1 = 0;
-					try {// TD110 begin
-						if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
+					Object filename_tFileInputDelimited_1 = "C:/BI/transparence-sante/data/min/conventions_top10000.csv";
+					if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
 
-							int footer_value_tFileInputDelimited_1 = 0;
-							if (footer_value_tFileInputDelimited_1 > 0) {
-								throw new java.lang.Exception(
-										"When the input source is a stream,footer shouldn't be bigger than 0.");
-							}
-
-							csvReadertFileInputDelimited_1 = new com.talend.csv.CSVReader(
-									(java.io.InputStream) filename_tFileInputDelimited_1,
-									fieldSeparator_tFileInputDelimited_1[0], "UTF-8");
-						} else {
-							csvReadertFileInputDelimited_1 = new com.talend.csv.CSVReader(
-									new java.io.BufferedReader(new java.io.InputStreamReader(
-											new java.io.FileInputStream(String.valueOf(filename_tFileInputDelimited_1)),
-											"UTF-8")),
-									fieldSeparator_tFileInputDelimited_1[0]);
+						int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
+						if (footer_value_tFileInputDelimited_1 > 0 || random_value_tFileInputDelimited_1 > 0) {
+							throw new java.lang.Exception(
+									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
 						}
 
-						csvReadertFileInputDelimited_1.setTrimWhitespace(false);
-						if ((rowSeparator_tFileInputDelimited_1[0] != '\n')
-								&& (rowSeparator_tFileInputDelimited_1[0] != '\r'))
-							csvReadertFileInputDelimited_1.setLineEnd("" + rowSeparator_tFileInputDelimited_1[0]);
-
-						csvReadertFileInputDelimited_1.setQuoteChar('"');
-
-						csvReadertFileInputDelimited_1.setEscapeChar(csvReadertFileInputDelimited_1.getQuoteChar());
-
-						if (footer_tFileInputDelimited_1 > 0) {
-							for (totalLinetFileInputDelimited_1 = 0; totalLinetFileInputDelimited_1 < 1; totalLinetFileInputDelimited_1++) {
-								csvReadertFileInputDelimited_1.readNext();
-							}
-							csvReadertFileInputDelimited_1.setSkipEmptyRecords(false);
-							while (csvReadertFileInputDelimited_1.readNext()) {
-
-								totalLinetFileInputDelimited_1++;
-
-							}
-							int lastLineTemptFileInputDelimited_1 = totalLinetFileInputDelimited_1
-									- footer_tFileInputDelimited_1 < 0 ? 0
-											: totalLinetFileInputDelimited_1 - footer_tFileInputDelimited_1;
-							if (lastLinetFileInputDelimited_1 > 0) {
-								lastLinetFileInputDelimited_1 = lastLinetFileInputDelimited_1 < lastLineTemptFileInputDelimited_1
-										? lastLinetFileInputDelimited_1
-										: lastLineTemptFileInputDelimited_1;
-							} else {
-								lastLinetFileInputDelimited_1 = lastLineTemptFileInputDelimited_1;
-							}
-
-							csvReadertFileInputDelimited_1.close();
-							if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
-								csvReadertFileInputDelimited_1 = new com.talend.csv.CSVReader(
-										(java.io.InputStream) filename_tFileInputDelimited_1,
-										fieldSeparator_tFileInputDelimited_1[0], "UTF-8");
-							} else {
-								csvReadertFileInputDelimited_1 = new com.talend.csv.CSVReader(
-										new java.io.BufferedReader(
-												new java.io.InputStreamReader(
-														new java.io.FileInputStream(
-																String.valueOf(filename_tFileInputDelimited_1)),
-														"UTF-8")),
-										fieldSeparator_tFileInputDelimited_1[0]);
-							}
-							csvReadertFileInputDelimited_1.setTrimWhitespace(false);
-							if ((rowSeparator_tFileInputDelimited_1[0] != '\n')
-									&& (rowSeparator_tFileInputDelimited_1[0] != '\r'))
-								csvReadertFileInputDelimited_1.setLineEnd("" + rowSeparator_tFileInputDelimited_1[0]);
-
-							csvReadertFileInputDelimited_1.setQuoteChar('"');
-
-							csvReadertFileInputDelimited_1.setEscapeChar(csvReadertFileInputDelimited_1.getQuoteChar());
-
-						}
-
-						if (limittFileInputDelimited_1 != 0) {
-							for (currentLinetFileInputDelimited_1 = 0; currentLinetFileInputDelimited_1 < 1; currentLinetFileInputDelimited_1++) {
-								csvReadertFileInputDelimited_1.readNext();
-							}
-						}
-						csvReadertFileInputDelimited_1.setSkipEmptyRecords(false);
-
+					}
+					try {
+						fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(
+								"C:/BI/transparence-sante/data/min/conventions_top10000.csv", "UTF-8", ";", "\n", false,
+								1, 0, limit_tFileInputDelimited_1, -1, false);
 					} catch (java.lang.Exception e) {
 
 						System.err.println(e.getMessage());
 
-					} // TD110 end
+					}
 
-					while (limittFileInputDelimited_1 != 0 && csvReadertFileInputDelimited_1 != null
-							&& csvReadertFileInputDelimited_1.readNext()) {
+					while (fid_tFileInputDelimited_1 != null && fid_tFileInputDelimited_1.nextRecord()) {
 						rowstate_tFileInputDelimited_1.reset();
-
-						rowtFileInputDelimited_1 = csvReadertFileInputDelimited_1.getValues();
-
-						currentLinetFileInputDelimited_1++;
-
-						if (lastLinetFileInputDelimited_1 > -1
-								&& currentLinetFileInputDelimited_1 > lastLinetFileInputDelimited_1) {
-							break;
-						}
-						outputLinetFileInputDelimited_1++;
-						if (limittFileInputDelimited_1 > 0
-								&& outputLinetFileInputDelimited_1 > limittFileInputDelimited_1) {
-							break;
-						}
 
 						conventions = null;
 
@@ -1733,265 +1616,92 @@ public class convention_fact implements TalendJob {
 						conventions = new conventionsStruct();
 						try {
 
-							char fieldSeparator_tFileInputDelimited_1_ListType[] = null;
-							// support passing value (property: Field Separator) by 'context.fs' or
-							// 'globalMap.get("fs")'.
-							if (((String) ";").length() > 0) {
-								fieldSeparator_tFileInputDelimited_1_ListType = ((String) ";").toCharArray();
-							} else {
-								throw new IllegalArgumentException("Field Separator must be assigned a char.");
-							}
-							if (rowtFileInputDelimited_1.length == 1 && ("\015").equals(rowtFileInputDelimited_1[0])) {// empty
-																														// line
-																														// when
-																														// row
-																														// separator
-																														// is
-																														// '\n'
+							int columnIndexWithD_tFileInputDelimited_1 = 0;
 
-								conventions.entreprise_identifiant = null;
+							columnIndexWithD_tFileInputDelimited_1 = 0;
 
-								conventions.ligne_identifiant = null;
+							conventions.entreprise_identifiant = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_categorie_code = null;
+							columnIndexWithD_tFileInputDelimited_1 = 1;
 
-								conventions.benef_qualite_code = null;
+							conventions.ligne_identifiant = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_codepostal = null;
+							columnIndexWithD_tFileInputDelimited_1 = 2;
 
-								conventions.benef_ville = null;
+							conventions.benef_categorie_code = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_pays_code = null;
+							columnIndexWithD_tFileInputDelimited_1 = 3;
 
-								conventions.benef_titre_code = null;
+							conventions.benef_qualite_code = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_specialite_code = null;
+							columnIndexWithD_tFileInputDelimited_1 = 4;
 
-								conventions.benef_identifiant_valeur = null;
+							conventions.benef_codepostal = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.conv_date_signature = null;
+							columnIndexWithD_tFileInputDelimited_1 = 5;
 
-								conventions.conv_objet = null;
+							conventions.benef_ville = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.conv_objet_autre = null;
+							columnIndexWithD_tFileInputDelimited_1 = 6;
 
-								conventions.conv_date_debut = null;
+							conventions.benef_pays_code = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.conv_date_fin = null;
+							columnIndexWithD_tFileInputDelimited_1 = 7;
 
-								conventions.conv_montant_ttc = null;
+							conventions.benef_titre_code = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.conv_manifestation_nom = null;
+							columnIndexWithD_tFileInputDelimited_1 = 8;
 
-							} else {
+							conventions.benef_specialite_code = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								int columnIndexWithD_tFileInputDelimited_1 = 0; // Column Index
+							columnIndexWithD_tFileInputDelimited_1 = 9;
 
-								columnIndexWithD_tFileInputDelimited_1 = 0;
+							conventions.benef_identifiant_valeur = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+							columnIndexWithD_tFileInputDelimited_1 = 10;
 
-									conventions.entreprise_identifiant = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+							conventions.conv_date_signature = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								} else {
+							columnIndexWithD_tFileInputDelimited_1 = 11;
 
-									conventions.entreprise_identifiant = null;
+							conventions.conv_objet = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								}
+							columnIndexWithD_tFileInputDelimited_1 = 12;
 
-								columnIndexWithD_tFileInputDelimited_1 = 1;
+							conventions.conv_objet_autre = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+							columnIndexWithD_tFileInputDelimited_1 = 13;
 
-									conventions.ligne_identifiant = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+							conventions.conv_date_debut = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								} else {
+							columnIndexWithD_tFileInputDelimited_1 = 14;
 
-									conventions.ligne_identifiant = null;
+							conventions.conv_date_fin = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								}
+							columnIndexWithD_tFileInputDelimited_1 = 15;
 
-								columnIndexWithD_tFileInputDelimited_1 = 2;
+							conventions.conv_montant_ttc = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
+							columnIndexWithD_tFileInputDelimited_1 = 16;
 
-									conventions.benef_categorie_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_categorie_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 3;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_qualite_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_qualite_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 4;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_codepostal = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_codepostal = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 5;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_ville = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_ville = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 6;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_pays_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_pays_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 7;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_titre_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_titre_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 8;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_specialite_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_specialite_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 9;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.benef_identifiant_valeur = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.benef_identifiant_valeur = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 10;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_date_signature = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_date_signature = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 11;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_objet = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_objet = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 12;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_objet_autre = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_objet_autre = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 13;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_date_debut = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_date_debut = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 14;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_date_fin = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_date_fin = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 15;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_montant_ttc = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_montant_ttc = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_1 = 16;
-
-								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
-
-									conventions.conv_manifestation_nom = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
-
-								} else {
-
-									conventions.conv_manifestation_nom = null;
-
-								}
-
-							}
+							conventions.conv_manifestation_nom = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
 							if (rowstate_tFileInputDelimited_1.getException() != null) {
 								throw rowstate_tFileInputDelimited_1.getException();
@@ -2105,32 +1815,57 @@ public class convention_fact implements TalendJob {
 								Var.normalizedEvenementConvention = EvenementConventionIdGenerator
 										.normalizeEvenementConvention(conventions.conv_manifestation_nom);
 								;
-								Var.date_debut = conventions.conv_date_debut != null
-										&& !conventions.conv_date_debut.equals("") ?
+								Var.date_debut = conventions.conv_date_debut != null &&
+
+//enleve tous les elements que ne sont pas de nombre ou des  - et / 
+
+										MyStringRoutine
+												.isDate(conventions.conv_date_debut.replaceAll("[^\\-\\/0-9]", "")) ?
+
+														TalendDate.parseDate("dd-MM-yyyy", (
+//make a date with the string  with only number and -  matches a date format
+														conventions.conv_date_debut.replaceAll("[^\\-\\/0-9]", ""))
+																.replace("/", "-"))
+
+														:
+
+// if date string is null or empty, default date
+
+														TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
+								Var.date_fin = conventions.conv_date_fin != null &&
+//check if the string only number, - and / matches a date format
+
+										MyStringRoutine.isDate(conventions.conv_date_fin.replaceAll("[^0-9\\/\\-]", ""))
+												?
 
 												TalendDate.parseDate("dd-MM-yyyy",
-														conventions.conv_date_debut.replace("/", "-"))
-												:
-// if date string is null or empty, default date
-												TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
-								Var.date_fin = conventions.conv_date_fin != null
-										&& !conventions.conv_date_fin.equals("") ?
+//make a date with the string  with only number and -  matches a date format
+														(conventions.conv_date_fin.replaceAll("[^\\-\\/0-9]", ""))
+																.replace("/", "-"))
 
-												TalendDate.parseDate("dd-MM-yyyy",
-														conventions.conv_date_fin.replace("/", "-"))
 												:
+
 // if date string is null or empty, default date
+
 												TalendDate.parseDate("dd-MM-yyyy", "31-12-2099");
-								Var.date_signature = conventions.conv_date_signature != null
-										&& !conventions.conv_date_signature.equals("") ?
+								Var.date_signature = conventions.conv_date_signature != null &&
+
+//check if the string only number, - and / matches a date format
+										MyStringRoutine.isDate(conventions.conv_date_fin.replaceAll("[^0-9\\/\\-]", ""))
+												?
 
 												TalendDate.parseDate("dd-MM-yyyy",
-														conventions.conv_date_signature.replace("/", "-"))
+//make a date with the string  with only number and -  matches a date format
+														(conventions.conv_date_signature.replaceAll("[^0-9\\/\\-]", ""))
+																.replace("/", "-"))
+
 												:
+
 // if date string is null or empty, default date
+
 												TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
 								Var.isConvMontantNumeric = conventions.conv_montant_ttc != null
-										? MyStringRoutine.isNumeric(conventions.conv_montant_ttc)
+										? MyStringRoutine.isFloat(conventions.conv_montant_ttc)
 										: false;// ###############################
 								// ###############################
 								// # Output tables
@@ -2153,18 +1888,21 @@ public class convention_fact implements TalendJob {
 								convention_fact_tmp.titre_beneficiaire_id = conventions.benef_titre_code.equals("")
 										? "N/A"
 										: conventions.benef_titre_code;
-								convention_fact_tmp.adresse_beneficiaire_id = (conventions.benef_pays_code
-										.replaceAll("[^A-Za-z0-9]", "") + conventions.benef_codepostal
-										+ conventions.benef_ville.replaceAll("[^A-Za-z0-9]", "")).isEmpty()
-												? "N/A"
-												: conventions.benef_pays_code.replaceAll("[^A-Za-z0-9]", "")
-														+ conventions.benef_codepostal
-														+ conventions.benef_ville.replaceAll("[^A-Za-z0-9]", "");
-								convention_fact_tmp.adresse_entreprise_id = (row1.pays_code.replaceAll("[^A-Za-z0-9]",
-										"") + row1.code_postal + row1.ville.replaceAll("[^A-Za-z0-9]", "")).isEmpty()
-												? "N/A"
-												: row1.pays_code.replaceAll("[^A-Za-z0-9]", "") + row1.code_postal
-														+ row1.ville.replaceAll("[^A-Za-z0-9]", "");
+								convention_fact_tmp.adresse_beneficiaire_id = conventions.benef_ville == null
+										|| (conventions.benef_pays_code.replaceAll("[^A-Za-z0-9]", "")
+												+ conventions.benef_codepostal
+												+ conventions.benef_ville.replaceAll("[^A-Za-z0-9]", "")).isEmpty()
+														? "N/A"
+														: conventions.benef_pays_code.replaceAll("[^A-Za-z0-9]", "")
+																+ conventions.benef_codepostal + conventions.benef_ville
+																		.replaceAll("[^A-Za-z0-9]", "");
+								convention_fact_tmp.adresse_entreprise_id = row1.ville == null
+										|| (row1.pays_code.replaceAll("[^A-Za-z0-9]", "") + row1.code_postal
+												+ row1.ville.replaceAll("[^A-Za-z0-9]", "")).isEmpty()
+														? "N/A"
+														: row1.pays_code.replaceAll("[^A-Za-z0-9]", "")
+																+ row1.code_postal
+																+ row1.ville.replaceAll("[^A-Za-z0-9]", "");
 								convention_fact_tmp.specialite_beneficiaire_id = conventions.benef_specialite_code
 										.equals("") ? "N/A" : conventions.benef_specialite_code;
 								convention_fact_tmp.secteur_activite_entreprise_id = row1.secteur_activite_code;
@@ -2186,7 +1924,8 @@ public class convention_fact implements TalendJob {
 												? Var.date_signature
 												: TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
 								convention_fact_tmp.montant_convention = Var.isConvMontantNumeric
-										? Math.round(Float.parseFloat(conventions.conv_montant_ttc))
+										? Math.round(Float
+												.parseFloat(conventions.conv_montant_ttc.replaceAll("[^0-9\\.]", "")))
 										: 0;
 								convention_fact_tmp.duree_convention = (DateTransformations
 										.getAnnee(Var.date_fin) >= 1980
@@ -2441,19 +2180,17 @@ public class convention_fact implements TalendJob {
 
 						currentComponent = "tFileInputDelimited_1";
 
-						nb_line_tFileInputDelimited_1++;
 					}
-
 				} finally {
-					if (!(filename_tFileInputDelimited_1 instanceof java.io.InputStream)) {
-						if (csvReadertFileInputDelimited_1 != null) {
-							csvReadertFileInputDelimited_1.close();
+					if (!((Object) ("C:/BI/transparence-sante/data/min/conventions_top10000.csv") instanceof java.io.InputStream)) {
+						if (fid_tFileInputDelimited_1 != null) {
+							fid_tFileInputDelimited_1.close();
 						}
 					}
-					if (csvReadertFileInputDelimited_1 != null) {
-						globalMap.put("tFileInputDelimited_1_NB_LINE", nb_line_tFileInputDelimited_1);
-					}
+					if (fid_tFileInputDelimited_1 != null) {
+						globalMap.put("tFileInputDelimited_1_NB_LINE", fid_tFileInputDelimited_1.getRowNumber());
 
+					}
 				}
 
 				ok_Hash.put("tFileInputDelimited_1", true);
@@ -3594,6 +3331,6 @@ public class convention_fact implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 115221 characters generated by Talend Open Studio for Data Integration on the
- * 23 janvier 2021 15:46:59 CET
+ * 105016 characters generated by Talend Open Studio for Data Integration on the
+ * 23 janvier 2021 18:59:11 CET
  ************************************************************************************************/
