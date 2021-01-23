@@ -51,13 +51,13 @@ public class NatureAvantageIdGenerator {
 		|| loweredWithoutAccents.contains("rpas") //typo
 		|| loweredWithoutAccents.contains("cocktail")
 		|| loweredWithoutAccents.contains("champagne")
-		|| loweredWithoutAccents.contains("déjeuner")
+		|| loweredWithoutAccents.contains("dÃ©jeuner")
 		|| loweredWithoutAccents.contains("erpas")) //typo
 		{
 			return "REPAS";
 		}
 		else if(loweredWithoutAccents.contains("hebergement")
-		|| 		loweredWithoutAccents.contains("hébergement")
+		|| 		loweredWithoutAccents.contains("hÃ©bergement")
 		|| 		loweredWithoutAccents.contains("hospitalite")
 		|| 		loweredWithoutAccents.contains("hotel")
 		|| 		loweredWithoutAccents.contains("nuitee"))

@@ -42,7 +42,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:X6WU9PgZ8Zf4gZRqZjVN4CXKm5tdtlQ28xvcB6wT" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:5Xn2gPkWZa+Z9k57Xlp/Qr15fS67cK8M92xAZwLk" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -77,7 +77,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:67c6Jgb6PyzScl8mSROe/semNLgBo/4AbyCOEthh" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:9XvIQ5dxiOfFPnnX1E0PbFL8j8Edjay4gy99WXom" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -440,12 +440,12 @@
       <outputTables sizeState="INTERMEDIATE" name="avantage_fact">
         <mapperTableEntries name="ligne_id" expression="avantages.ligne_identifiant " type="id_String"/>
         <mapperTableEntries name="entreprise_id" expression="avantages.entreprise_identifiant " type="id_String"/>
-        <mapperTableEntries name="beneficiaire_id" expression="//TODO&#xD;&#xA;&quot;N/A&quot; " type="id_String"/>
+        <mapperTableEntries name="beneficiaire_id" expression="avantages.benef_identifiant_valeur.isEmpty() || (avantages.benef_identifiant_valeur.replaceAll(&quot;[^a-zA-Z0-9]&quot;, &quot;&quot;)).isEmpty()?&#xD;&#xA;&quot;N/A&quot; : avantages.benef_identifiant_valeur.replaceAll(&quot;[^a-zA-Z0-9]&quot;, &quot;&quot;) " type="id_String"/>
         <mapperTableEntries name="categorie_beneficiaire_id" expression="avantages.benef_categorie_code.equals(&quot;&quot;) ? &quot;N/A&quot; : avantages.benef_categorie_code " type="id_String"/>
         <mapperTableEntries name="qualite_beneficiaire_id" expression="avantages.benef_qualite_code.equals(&quot;&quot;) ? &quot;N/A&quot; : avantages.benef_qualite_code " type="id_String"/>
         <mapperTableEntries name="titre_beneficiaire_id" expression="avantages.benef_titre_code.equals(&quot;&quot;) ? &quot;N/A&quot; : avantages.benef_titre_code " type="id_String"/>
-        <mapperTableEntries name="adresse_beneficiaire_id" expression="//TODO&#xD;&#xA;&quot;N/A&quot; " type="id_String"/>
-        <mapperTableEntries name="adresse_entreprise_id" expression="//TODO&#xD;&#xA;&quot;N/A&quot; " type="id_String"/>
+        <mapperTableEntries name="adresse_beneficiaire_id" expression="(avantages.benef_pays_code.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;)  + avantages.benef_codepostal+ avantages.benef_ville.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;)).isEmpty()? &#xD;&#xA;&quot;N/A&quot; : avantages.benef_pays_code.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;)  + avantages.benef_codepostal+ avantages.benef_ville.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;) " type="id_String"/>
+        <mapperTableEntries name="adresse_entreprise_id" expression="(row2.pays_code.replaceAll(&quot;[^A-Za-z0-9]&quot;,  &quot;&quot;) + row2.code_postal + row2.ville.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;)).isEmpty()? &quot;N/A&quot; : row2.pays_code.replaceAll(&quot;[^A-Za-z0-9]&quot;,&quot;&quot;) + row2.code_postal + row2.ville.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;) " type="id_String"/>
         <mapperTableEntries name="specialite_beneficiaire_id" expression="avantages.benef_specialite_code.equals(&quot;&quot;) ? &quot;N/A&quot; : avantages.benef_specialite_code " type="id_String"/>
         <mapperTableEntries name="secteur_activite_entreprise_id" expression="row2.secteur_activite_code " type="id_String"/>
         <mapperTableEntries name="type_avantage_id" expression="NatureAvantageIdGenerator.getNatureAvantageId(Var.normalizedNatureAvantage) " type="id_Integer"/>
@@ -688,7 +688,7 @@
     <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;"/>
     <elementParameter field="TEXT" name="DBNAME" value="&quot;transparence_sante_bi&quot;"/>
     <elementParameter field="TEXT" name="USER" value="&quot;root&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:ESw1amWPxSu3M2tyQ1bhjJbHJw4klXfjMCyHl46M"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:m2eRWVOijxdGuewjvz18tC/N41uUmmclbGLL6OWm"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;avantage_remuneration_fact&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CLEAR"/>
     <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
@@ -1194,12 +1194,12 @@
       <outputTables sizeState="INTERMEDIATE" name="remuneration_fact">
         <mapperTableEntries name="ligne_id" expression="remunerations.ligne_identifiant " type="id_String"/>
         <mapperTableEntries name="entreprise_id" expression="remunerations.entreprise_identifiant " type="id_String"/>
-        <mapperTableEntries name="beneficiaire_id" expression="//TODO&#xD;&#xA;&quot;N/A&quot; " type="id_String"/>
+        <mapperTableEntries name="beneficiaire_id" expression="remunerations.benef_identifiant_valeur.isEmpty() &#xD;&#xA;|| (remunerations.benef_identifiant_valeur.replaceAll(&quot;[^a-zA-Z0-9]&quot;, &quot;&quot;)).isEmpty() &#xD;&#xA;? &quot;N/A&quot; &#xD;&#xA;: remunerations.benef_identifiant_valeur.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;) " type="id_String"/>
         <mapperTableEntries name="categorie_beneficiaire_id" expression="remunerations.benef_categorie_code.equals(&quot;&quot;) ? &quot;N/A&quot; : remunerations.benef_categorie_code " type="id_String"/>
         <mapperTableEntries name="qualite_beneficiaire_id" expression="remunerations.benef_qualite_code.equals(&quot;&quot;) ? &quot;N/A&quot; : remunerations.benef_qualite_code " type="id_String"/>
         <mapperTableEntries name="titre_beneficiaire_id" expression="remunerations.benef_titre_code.equals(&quot;&quot;) ? &quot;N/A&quot; : remunerations.benef_titre_code " type="id_String"/>
-        <mapperTableEntries name="adresse_beneficiaire_id" expression="//TODO&#xD;&#xA;&quot;N/A&quot; " type="id_String"/>
-        <mapperTableEntries name="adresse_entreprise_id" expression="//TODO&#xD;&#xA;&quot;N/A&quot; " type="id_String"/>
+        <mapperTableEntries name="adresse_beneficiaire_id" expression="(&#xD;&#xA;remunerations.benef_pays_code.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;) &#xD;&#xA;+ remunerations.benef_codepostal &#xD;&#xA;+ remunerations.benef_ville.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;)&#xD;&#xA;).isEmpty()? &#xD;&#xA;&quot;N/A&quot; : &#xD;&#xA;remunerations.benef_pays_code.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;) &#xD;&#xA;+ remunerations.benef_codepostal &#xD;&#xA;+ remunerations.benef_ville.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;) " type="id_String"/>
+        <mapperTableEntries name="adresse_entreprise_id" expression="(row1.pays_code.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;)&#xD;&#xA;  + row1.code_postal&#xD;&#xA;   + row1.ville.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;)&#xD;&#xA;   ).isEmpty()&#xD;&#xA;   ? &quot;N/A&quot; &#xD;&#xA;   : row1.pays_code.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;)  +&#xD;&#xA;    row1.code_postal &#xD;&#xA;    + row1.ville.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;) " type="id_String"/>
         <mapperTableEntries name="specialite_beneficiaire_id" expression="avantages.benef_specialite_code.equals(&quot;&quot;) ? &quot;N/A&quot; : avantages.benef_specialite_code " type="id_String"/>
         <mapperTableEntries name="secteur_activite_entreprise_id" expression="row1.secteur_activite_code " type="id_String"/>
         <mapperTableEntries name="type_avantage_id" expression="// Il s'agit d'une rémunération &#xD;&#xA;NatureAvantageIdGenerator.getNatureAvantageId(&quot;INCONNU&quot;) " type="id_Integer"/>
@@ -1378,6 +1378,98 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="896" posY="416">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_1" show="false"/>
+    <elementParameter field="RADIO" name="BASIC_MODE" value="true"/>
+    <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
+    <elementParameter field="RADIO" name="VERTICAL" value="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE" value="true" show="false"/>
+    <elementParameter field="RADIO" name="PRINT_LABEL" value="false" show="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE_LABEL" value="false" show="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;|&quot;"/>
+    <elementParameter field="CHECK" name="PRINT_HEADER" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_COLNAMES" value="false"/>
+    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" value="false"/>
+    <elementParameter field="TABLE" name="LENGTHS" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="ligne_id"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="entreprise_id"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="beneficiaire_id"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="categorie_beneficiaire_id"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="qualite_beneficiaire_id"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="titre_beneficiaire_id"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="adresse_beneficiaire_id"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="adresse_entreprise_id"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="specialite_beneficiaire_id"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="secteur_activite_entreprise_id"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="type_avantage_id"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="date_id"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="is_avantage"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="montant_ttc"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
+    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" value="100" show="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="avantage_remuneration_fact" name="tLogRow_1">
+      <column comment="" key="true" length="100" name="ligne_id" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="true" length="100" name="entreprise_id" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="beneficiaire_id" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="5" name="categorie_beneficiaire_id" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="5" name="qualite_beneficiaire_id" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="7" name="titre_beneficiaire_id" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="adresse_beneficiaire_id" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="adresse_entreprise_id" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="specialite_beneficiaire_id" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="secteur_activite_entreprise_id" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="type_avantage_id" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="date_id" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="0" name="is_avantage" nullable="false" pattern="" precision="0" sourceType="BIT" type="id_Boolean" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="montant_ttc" nullable="true" pattern="" precision="0" sourceType="DECIMAL" type="id_BigDecimal" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+  </node>
   <connection connectorName="FLOW" label="avantages" lineStyle="0" metaname="tFileInputDelimited_1" offsetLabelX="0" offsetLabelY="0" source="tFileInputDelimited_1" target="tMap_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="avantages" show="false"/>
@@ -1393,6 +1485,10 @@
   <connection connectorName="FLOW" label="row3" lineStyle="0" metaname="tUnite_2" offsetLabelX="0" offsetLabelY="0" source="tUnite_2" target="tDBOutput_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row3" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row4" lineStyle="0" metaname="tDBOutput_1" offsetLabelX="0" offsetLabelY="0" source="tDBOutput_1" target="tLogRow_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row4" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="remunerations" lineStyle="0" metaname="tFileInputDelimited_2" offsetLabelX="0" offsetLabelY="0" source="tFileInputDelimited_2" target="tMap_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
