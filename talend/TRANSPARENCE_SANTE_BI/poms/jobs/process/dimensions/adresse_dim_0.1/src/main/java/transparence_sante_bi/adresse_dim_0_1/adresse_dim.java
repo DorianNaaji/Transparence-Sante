@@ -325,16 +325,6 @@ public class adresse_dim implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tLogRow_1_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
-	}
-
 	public void tFileOutputDelimited_2_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -428,200 +418,6 @@ public class adresse_dim implements TalendJob {
 
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
 				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
-
-	}
-
-	public static class row11Struct implements routines.system.IPersistableRow<row11Struct> {
-		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[0];
-		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[0];
-
-		public String adresse_id;
-
-		public String getAdresse_id() {
-			return this.adresse_id;
-		}
-
-		public String ville;
-
-		public String getVille() {
-			return this.ville;
-		}
-
-		public String code_postal;
-
-		public String getCode_postal() {
-			return this.code_postal;
-		}
-
-		public String departement;
-
-		public String getDepartement() {
-			return this.departement;
-		}
-
-		public String region;
-
-		public String getRegion() {
-			return this.region;
-		}
-
-		public String pays_code;
-
-		public String getPays_code() {
-			return this.pays_code;
-		}
-
-		public String pays;
-
-		public String getPays() {
-			return this.pays;
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim.length) {
-					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim.length == 0) {
-						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[1024];
-					} else {
-						commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim, 0, length);
-				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim) {
-
-				try {
-
-					int length = 0;
-
-					this.adresse_id = readString(dis);
-
-					this.ville = readString(dis);
-
-					this.code_postal = readString(dis);
-
-					this.departement = readString(dis);
-
-					this.region = readString(dis);
-
-					this.pays_code = readString(dis);
-
-					this.pays = readString(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.adresse_id, dos);
-
-				// String
-
-				writeString(this.ville, dos);
-
-				// String
-
-				writeString(this.code_postal, dos);
-
-				// String
-
-				writeString(this.departement, dos);
-
-				// String
-
-				writeString(this.region, dos);
-
-				// String
-
-				writeString(this.pays_code, dos);
-
-				// String
-
-				writeString(this.pays, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("adresse_id=" + adresse_id);
-			sb.append(",ville=" + ville);
-			sb.append(",code_postal=" + code_postal);
-			sb.append(",departement=" + departement);
-			sb.append(",region=" + region);
-			sb.append(",pays_code=" + pays_code);
-			sb.append(",pays=" + pays);
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row11Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
 
 	}
 
@@ -2430,35 +2226,6 @@ public class adresse_dim implements TalendJob {
 				NAStruct NA = new NAStruct();
 
 				row4Struct row4 = new row4Struct();
-				row11Struct row11 = new row11Struct();
-
-				/**
-				 * [tLogRow_1 begin ] start
-				 */
-
-				ok_Hash.put("tLogRow_1", false);
-				start_Hash.put("tLogRow_1", System.currentTimeMillis());
-
-				currentComponent = "tLogRow_1";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row11");
-				}
-
-				int tos_count_tLogRow_1 = 0;
-
-				///////////////////////
-
-				final String OUTPUT_FIELD_SEPARATOR_tLogRow_1 = "|";
-				java.io.PrintStream consoleOut_tLogRow_1 = null;
-
-				StringBuilder strBuffer_tLogRow_1 = null;
-				int nb_line_tLogRow_1 = 0;
-///////////////////////    			
-
-				/**
-				 * [tLogRow_1 begin ] stop
-				 */
 
 				/**
 				 * [tDBOutput_1 begin ] start
@@ -2517,7 +2284,7 @@ public class adresse_dim implements TalendJob {
 				String dbUser_tDBOutput_1 = "root";
 
 				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:6wj8Gz5qzWqDIdlGGtLfTo2Gi+eQ+CBcnvi8TQ==");
+						.decryptPassword("enc:routine.encryption.key.v1:A8VMRihbKV9iTLy4mz1Vp8rBtH8Ayr9jLOAW/g==");
 
 				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
 				java.lang.Class.forName(driverClass_tDBOutput_1);
@@ -2558,7 +2325,7 @@ public class adresse_dim implements TalendJob {
 				currentComponent = "tUnite_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "NA", "row6");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row6", "NA");
 				}
 
 				int tos_count_tUnite_1 = 0;
@@ -3339,7 +3106,6 @@ public class adresse_dim implements TalendJob {
 											runStat.updateStatOnConnection(iterateId, 1, 1, "row4");
 										}
 
-										row11 = null;
 										whetherReject_tDBOutput_1 = false;
 										if (row4.adresse_id == null) {
 											pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
@@ -3387,16 +3153,6 @@ public class adresse_dim implements TalendJob {
 										nb_line_tDBOutput_1++;
 
 										batchSizeCounter_tDBOutput_1++;
-										if (!whetherReject_tDBOutput_1) {
-											row11 = new row11Struct();
-											row11.adresse_id = row4.adresse_id;
-											row11.ville = row4.ville;
-											row11.code_postal = row4.code_postal;
-											row11.departement = row4.departement;
-											row11.region = row4.region;
-											row11.pays_code = row4.pays_code;
-											row11.pays = row4.pays;
-										}
 										if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
 											try {
 												int countSum_tDBOutput_1 = 0;
@@ -3458,121 +3214,6 @@ public class adresse_dim implements TalendJob {
 										/**
 										 * [tDBOutput_1 process_data_begin ] stop
 										 */
-// Start of branch "row11"
-										if (row11 != null) {
-
-											/**
-											 * [tLogRow_1 main ] start
-											 */
-
-											currentComponent = "tLogRow_1";
-
-											if (execStat) {
-												runStat.updateStatOnConnection(iterateId, 1, 1, "row11");
-											}
-
-///////////////////////		
-
-											strBuffer_tLogRow_1 = new StringBuilder();
-
-											if (row11.adresse_id != null) { //
-
-												strBuffer_tLogRow_1.append(String.valueOf(row11.adresse_id));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row11.ville != null) { //
-
-												strBuffer_tLogRow_1.append(String.valueOf(row11.ville));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row11.code_postal != null) { //
-
-												strBuffer_tLogRow_1.append(String.valueOf(row11.code_postal));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row11.departement != null) { //
-
-												strBuffer_tLogRow_1.append(String.valueOf(row11.departement));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row11.region != null) { //
-
-												strBuffer_tLogRow_1.append(String.valueOf(row11.region));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row11.pays_code != null) { //
-
-												strBuffer_tLogRow_1.append(String.valueOf(row11.pays_code));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row11.pays != null) { //
-
-												strBuffer_tLogRow_1.append(String.valueOf(row11.pays));
-
-											} //
-
-											if (globalMap.get("tLogRow_CONSOLE") != null) {
-												consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap
-														.get("tLogRow_CONSOLE");
-											} else {
-												consoleOut_tLogRow_1 = new java.io.PrintStream(
-														new java.io.BufferedOutputStream(System.out));
-												globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_1);
-											}
-											consoleOut_tLogRow_1.println(strBuffer_tLogRow_1.toString());
-											consoleOut_tLogRow_1.flush();
-											nb_line_tLogRow_1++;
-//////
-
-//////                    
-
-///////////////////////    			
-
-											tos_count_tLogRow_1++;
-
-											/**
-											 * [tLogRow_1 main ] stop
-											 */
-
-											/**
-											 * [tLogRow_1 process_data_begin ] start
-											 */
-
-											currentComponent = "tLogRow_1";
-
-											/**
-											 * [tLogRow_1 process_data_begin ] stop
-											 */
-
-											/**
-											 * [tLogRow_1 process_data_end ] start
-											 */
-
-											currentComponent = "tLogRow_1";
-
-											/**
-											 * [tLogRow_1 process_data_end ] stop
-											 */
-
-										} // End of branch "row11"
 
 										/**
 										 * [tDBOutput_1 process_data_end ] start
@@ -4141,7 +3782,6 @@ public class adresse_dim implements TalendJob {
 							runStat.updateStatOnConnection(iterateId, 1, 1, "row4");
 						}
 
-						row11 = null;
 						whetherReject_tDBOutput_1 = false;
 						if (row4.adresse_id == null) {
 							pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
@@ -4189,16 +3829,6 @@ public class adresse_dim implements TalendJob {
 						nb_line_tDBOutput_1++;
 
 						batchSizeCounter_tDBOutput_1++;
-						if (!whetherReject_tDBOutput_1) {
-							row11 = new row11Struct();
-							row11.adresse_id = row4.adresse_id;
-							row11.ville = row4.ville;
-							row11.code_postal = row4.code_postal;
-							row11.departement = row4.departement;
-							row11.region = row4.region;
-							row11.pays_code = row4.pays_code;
-							row11.pays = row4.pays;
-						}
 						if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
 							try {
 								int countSum_tDBOutput_1 = 0;
@@ -4258,120 +3888,6 @@ public class adresse_dim implements TalendJob {
 						/**
 						 * [tDBOutput_1 process_data_begin ] stop
 						 */
-// Start of branch "row11"
-						if (row11 != null) {
-
-							/**
-							 * [tLogRow_1 main ] start
-							 */
-
-							currentComponent = "tLogRow_1";
-
-							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1, "row11");
-							}
-
-///////////////////////		
-
-							strBuffer_tLogRow_1 = new StringBuilder();
-
-							if (row11.adresse_id != null) { //
-
-								strBuffer_tLogRow_1.append(String.valueOf(row11.adresse_id));
-
-							} //
-
-							strBuffer_tLogRow_1.append("|");
-
-							if (row11.ville != null) { //
-
-								strBuffer_tLogRow_1.append(String.valueOf(row11.ville));
-
-							} //
-
-							strBuffer_tLogRow_1.append("|");
-
-							if (row11.code_postal != null) { //
-
-								strBuffer_tLogRow_1.append(String.valueOf(row11.code_postal));
-
-							} //
-
-							strBuffer_tLogRow_1.append("|");
-
-							if (row11.departement != null) { //
-
-								strBuffer_tLogRow_1.append(String.valueOf(row11.departement));
-
-							} //
-
-							strBuffer_tLogRow_1.append("|");
-
-							if (row11.region != null) { //
-
-								strBuffer_tLogRow_1.append(String.valueOf(row11.region));
-
-							} //
-
-							strBuffer_tLogRow_1.append("|");
-
-							if (row11.pays_code != null) { //
-
-								strBuffer_tLogRow_1.append(String.valueOf(row11.pays_code));
-
-							} //
-
-							strBuffer_tLogRow_1.append("|");
-
-							if (row11.pays != null) { //
-
-								strBuffer_tLogRow_1.append(String.valueOf(row11.pays));
-
-							} //
-
-							if (globalMap.get("tLogRow_CONSOLE") != null) {
-								consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
-							} else {
-								consoleOut_tLogRow_1 = new java.io.PrintStream(
-										new java.io.BufferedOutputStream(System.out));
-								globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_1);
-							}
-							consoleOut_tLogRow_1.println(strBuffer_tLogRow_1.toString());
-							consoleOut_tLogRow_1.flush();
-							nb_line_tLogRow_1++;
-//////
-
-//////                    
-
-///////////////////////    			
-
-							tos_count_tLogRow_1++;
-
-							/**
-							 * [tLogRow_1 main ] stop
-							 */
-
-							/**
-							 * [tLogRow_1 process_data_begin ] start
-							 */
-
-							currentComponent = "tLogRow_1";
-
-							/**
-							 * [tLogRow_1 process_data_begin ] stop
-							 */
-
-							/**
-							 * [tLogRow_1 process_data_end ] start
-							 */
-
-							currentComponent = "tLogRow_1";
-
-							/**
-							 * [tLogRow_1 process_data_end ] stop
-							 */
-
-						} // End of branch "row11"
 
 						/**
 						 * [tDBOutput_1 process_data_end ] start
@@ -4460,7 +3976,7 @@ public class adresse_dim implements TalendJob {
 
 				globalMap.put("tUnite_1_NB_LINE", nb_line_tUnite_1);
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "NA", "row6");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row6", "NA");
 				}
 
 				ok_Hash.put("tUnite_1", true);
@@ -4541,29 +4057,6 @@ public class adresse_dim implements TalendJob {
 
 				/**
 				 * [tDBOutput_1 end ] stop
-				 */
-
-				/**
-				 * [tLogRow_1 end ] start
-				 */
-
-				currentComponent = "tLogRow_1";
-
-//////
-//////
-				globalMap.put("tLogRow_1_NB_LINE", nb_line_tLogRow_1);
-
-///////////////////////    			
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row11");
-				}
-
-				ok_Hash.put("tLogRow_1", true);
-				end_Hash.put("tLogRow_1", System.currentTimeMillis());
-
-				/**
-				 * [tLogRow_1 end ] stop
 				 */
 
 			} // end the resume
@@ -4728,16 +4221,6 @@ public class adresse_dim implements TalendJob {
 
 				/**
 				 * [tDBOutput_1 finally ] stop
-				 */
-
-				/**
-				 * [tLogRow_1 finally ] start
-				 */
-
-				currentComponent = "tLogRow_1";
-
-				/**
-				 * [tLogRow_1 finally ] stop
 				 */
 
 			} catch (java.lang.Exception e) {
@@ -6443,6 +5926,6 @@ public class adresse_dim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 192264 characters generated by Talend Open Studio for Data Integration on the
- * 24 janvier 2021 16:45:45 CET
+ * 177616 characters generated by Talend Open Studio for Data Integration on the
+ * 25 janvier 2021 20:38:56 CET
  ************************************************************************************************/

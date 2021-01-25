@@ -45,6 +45,15 @@ public class MyStringRoutine {
 		return resultat.length() != 0;
 	}
 	
+	public static boolean isNumericV2(String str) { 
+		  try {  
+		    Long.parseLong(str);  
+		    return true;
+		  } catch(NumberFormatException e){  
+		    return false;  
+		  }  
+		}
+	
 	/**
 	 * isFloat: returns check if a string is a number
      * 

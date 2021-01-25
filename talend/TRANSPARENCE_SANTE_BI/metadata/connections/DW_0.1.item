@@ -234,7 +234,7 @@
     </ownedElement>
     <ownedElement xsi:type="relational:TdTable" xmi:id="_K5WTsQmHEeuvUZ6jv3Exkw" name="beneficiaire_dim" id="_K5WTsAmHEeuvUZ6jv3Exkw" label="beneficiaire_dim" tableType="TABLE">
       <taggedValue xmi:id="_K5WTsgmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K5WTswmHEeuvUZ6jv3Exkw" name="beneficiaire_id" label="beneficiaire_id" length="50" sourceType="VARCHAR" talendType="id_String" key="true" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K5WTswmHEeuvUZ6jv3Exkw" name="beneficiaire_id" label="beneficiaire_id" length="200" sourceType="VARCHAR" talendType="id_String" key="true" nullable="false">
         <taggedValue xmi:id="_K5WTtAmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5WTtQmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K5WTtgmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
