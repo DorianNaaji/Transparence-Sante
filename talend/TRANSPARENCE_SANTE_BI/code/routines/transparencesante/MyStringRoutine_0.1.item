@@ -59,7 +59,9 @@ public class MyStringRoutine {
 	 */
 	public static boolean isFloat(String string) {
 		String resultat = string.replaceAll("[^0-9\\.]", "");
-		return resultat.length() != 0 && !resultat.equals(".");
+		//nombre de points
+		long count = string.chars().filter(ch -> ch == '.').count();
+		return resultat.length() != 0 && !resultat.equals(".") && count <2;
 	}
 	
 	
@@ -82,4 +84,32 @@ public class MyStringRoutine {
 		 }
 		 return false;
 	 }
+	
+	/**
+	 * concat: concat 2 string, replace the string which is null with N/A
+     * 
+     * 
+     * {talendTypes} Boolean
+     * 
+     * {Category} User Defined
+     * 
+     * {param} String string: The processed string
+     * {param} String string2: The processed string
+     * 
+     * {example} string = null  && string2 = null -->  concat(String string, String string2) = N/AN/A
+     * {example} string = a  && string2 = null -->  concat(String string, String string2) = aN/A
+	 * {example} string = null  && string2 = b -->  concat(String string, String string2) = N/Ab
+	 * {example} string = a  && string2 = b -->  concat(String string, String string2) = ab
+	 */
+	public static String concat(String string, String string2) {
+		if(string == null && string2 == null ) {
+			return "N/A" + "N/A";
+		} else if (string == null) {
+			return "N/A" + string2;
+		}else if (string2 == null) {
+			return string + "N/A" ;
+		}
+		return string + string2;
+	}
+	
 }

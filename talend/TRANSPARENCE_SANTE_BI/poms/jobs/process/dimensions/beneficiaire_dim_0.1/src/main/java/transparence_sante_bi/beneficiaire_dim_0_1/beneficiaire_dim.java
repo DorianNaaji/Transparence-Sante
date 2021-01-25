@@ -321,6 +321,16 @@ public class beneficiaire_dim implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tLogRow_1_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tFileOutputDelimited_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -384,6 +394,187 @@ public class beneficiaire_dim implements TalendJob {
 
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
 				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public static class row8Struct implements routines.system.IPersistableRow<row8Struct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_beneficiaire_dim = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_beneficiaire_dim = new byte[0];
+
+		public String beneficiaire_id;
+
+		public String getBeneficiaire_id() {
+			return this.beneficiaire_id;
+		}
+
+		public boolean beneficiaire_moral_booleen;
+
+		public boolean getBeneficiaire_moral_booleen() {
+			return this.beneficiaire_moral_booleen;
+		}
+
+		public String beneficiaire_nom;
+
+		public String getBeneficiaire_nom() {
+			return this.beneficiaire_nom;
+		}
+
+		public String beneficiaire_prenom;
+
+		public String getBeneficiaire_prenom() {
+			return this.beneficiaire_prenom;
+		}
+
+		public String beneficiaire_denomination_sociale;
+
+		public String getBeneficiaire_denomination_sociale() {
+			return this.beneficiaire_denomination_sociale;
+		}
+
+		public String beneficiaire_diplome;
+
+		public String getBeneficiaire_diplome() {
+			return this.beneficiaire_diplome;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_beneficiaire_dim.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_beneficiaire_dim.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_beneficiaire_dim = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_beneficiaire_dim = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_beneficiaire_dim, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_beneficiaire_dim, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_beneficiaire_dim) {
+
+				try {
+
+					int length = 0;
+
+					this.beneficiaire_id = readString(dis);
+
+					this.beneficiaire_moral_booleen = dis.readBoolean();
+
+					this.beneficiaire_nom = readString(dis);
+
+					this.beneficiaire_prenom = readString(dis);
+
+					this.beneficiaire_denomination_sociale = readString(dis);
+
+					this.beneficiaire_diplome = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.beneficiaire_id, dos);
+
+				// boolean
+
+				dos.writeBoolean(this.beneficiaire_moral_booleen);
+
+				// String
+
+				writeString(this.beneficiaire_nom, dos);
+
+				// String
+
+				writeString(this.beneficiaire_prenom, dos);
+
+				// String
+
+				writeString(this.beneficiaire_denomination_sociale, dos);
+
+				// String
+
+				writeString(this.beneficiaire_diplome, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("beneficiaire_id=" + beneficiaire_id);
+			sb.append(",beneficiaire_moral_booleen=" + String.valueOf(beneficiaire_moral_booleen));
+			sb.append(",beneficiaire_nom=" + beneficiaire_nom);
+			sb.append(",beneficiaire_prenom=" + beneficiaire_prenom);
+			sb.append(",beneficiaire_denomination_sociale=" + beneficiaire_denomination_sociale);
+			sb.append(",beneficiaire_diplome=" + beneficiaire_diplome);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row8Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
 
 	}
 
@@ -2664,7 +2855,36 @@ public class beneficiaire_dim implements TalendJob {
 				row2Struct row2 = new row2Struct();
 				beneficiaireStruct beneficiaire = new beneficiaireStruct();
 				row7Struct row7 = new row7Struct();
+				row8Struct row8 = new row8Struct();
 				row3Struct row3 = new row3Struct();
+
+				/**
+				 * [tLogRow_1 begin ] start
+				 */
+
+				ok_Hash.put("tLogRow_1", false);
+				start_Hash.put("tLogRow_1", System.currentTimeMillis());
+
+				currentComponent = "tLogRow_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row8");
+				}
+
+				int tos_count_tLogRow_1 = 0;
+
+				///////////////////////
+
+				final String OUTPUT_FIELD_SEPARATOR_tLogRow_1 = "|";
+				java.io.PrintStream consoleOut_tLogRow_1 = null;
+
+				StringBuilder strBuffer_tLogRow_1 = null;
+				int nb_line_tLogRow_1 = 0;
+///////////////////////    			
+
+				/**
+				 * [tLogRow_1 begin ] stop
+				 */
 
 				/**
 				 * [tDBOutput_1 begin ] start
@@ -2723,7 +2943,7 @@ public class beneficiaire_dim implements TalendJob {
 				String dbUser_tDBOutput_1 = "root";
 
 				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:9FfmKNtkuZdTx/5VJiBV/BLiCe1hC6SXhAQjiw==");
+						.decryptPassword("enc:routine.encryption.key.v1:gV8L4y6Dws/flptGcX1bTvvRKEEF/mR2LMWU/g==");
 
 				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
 				java.lang.Class.forName(driverClass_tDBOutput_1);
@@ -3069,7 +3289,7 @@ public class beneficiaire_dim implements TalendJob {
 				int limit_tFileInputDelimited_1 = -1;
 				try {
 
-					Object filename_tFileInputDelimited_1 = "C:/BI/transparence-sante/data/min/conventions_top10000.csv";
+					Object filename_tFileInputDelimited_1 = "C:/BI/transparence-sante/data/data.gouv/conventions.csv";
 					if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
 
 						int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
@@ -3081,8 +3301,8 @@ public class beneficiaire_dim implements TalendJob {
 					}
 					try {
 						fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/BI/transparence-sante/data/min/conventions_top10000.csv", "UTF-8", ";", "\n", false,
-								1, 0, limit_tFileInputDelimited_1, -1, false);
+								"C:/BI/transparence-sante/data/data.gouv/conventions.csv", "UTF-8", ";", "\n", false, 1,
+								0, limit_tFileInputDelimited_1, -1, false);
 					} catch (java.lang.Exception e) {
 
 						System.err.println(e.getMessage());
@@ -3575,20 +3795,18 @@ public class beneficiaire_dim implements TalendJob {
 										beneficiaire = null;
 
 // # Output table : 'beneficiaire'
-										beneficiaire_tmp.beneficiaire_id = row2.benef_identifiant_valeur;
-										beneficiaire_tmp.beneficiaire_moral_booleen = (row2.benef_categorie_code
-												.replaceAll("[^A-Za-z]", "")).equals("PRS")
-												|| (row2.benef_categorie_code.replaceAll("[^A-Za-z]", "")).equals("PRS")
-												|| (row2.benef_categorie_code.replaceAll("[^A-Za-z]", "")).equals("VET")
-												|| (row2.benef_categorie_code.replaceAll("[^A-Za-z]", "")).equals("APS")
-												|| (row2.benef_categorie_code.replaceAll("[^A-Za-z]", "")).equals("FON")
-												|| (row2.benef_categorie_code.replaceAll("[^A-Za-z]", "")).equals("PMO")
-												|| (row2.benef_categorie_code.replaceAll("[^A-Za-z]", ""))
-														.equals("VPM");
-										beneficiaire_tmp.beneficiaire_nom = row2.benef_nom;
-										beneficiaire_tmp.beneficiaire_prenom = row2.benef_prenom;
+										beneficiaire_tmp.beneficiaire_id = row2.benef_identifiant_valeur.isEmpty()
+												|| row2.benef_identifiant_valeur == null ? "N/A"
+														: row2.benef_identifiant_valeur;
+										beneficiaire_tmp.beneficiaire_moral_booleen = !row2.benef_denomination_sociale
+												.isEmpty() && row2.benef_denomination_sociale != null;
+										beneficiaire_tmp.beneficiaire_nom = row2.benef_nom.isEmpty()
+												|| row2.benef_nom == null ? "N/A" : row2.benef_nom;
+										beneficiaire_tmp.beneficiaire_prenom = row2.benef_prenom.isEmpty()
+												|| row2.benef_prenom == null ? "N/A" : row2.benef_prenom;
 										beneficiaire_tmp.beneficiaire_denomination_sociale = (row2.benef_denomination_sociale
-												.replaceAll("[^A-Za-z0-9]", "")).isEmpty() ? "N/A"
+												.replaceAll("[^A-Za-z0-9]", "")).isEmpty()
+												|| row2.benef_denomination_sociale == null ? "N/A"
 														: row2.benef_denomination_sociale.replaceAll("[^A-Za-z0-9]",
 																"");
 										beneficiaire_tmp.beneficiaire_diplome = (row5.Libelle_diplome_obtenu == null
@@ -3631,12 +3849,22 @@ public class beneficiaire_dim implements TalendJob {
 										}
 
 										row7 = null;
-										finder_tUniqRow_3.beneficiaire_id = beneficiaire.beneficiaire_id;
+										if (beneficiaire.beneficiaire_id == null) {
+											finder_tUniqRow_3.beneficiaire_id = null;
+										} else {
+											finder_tUniqRow_3.beneficiaire_id = beneficiaire.beneficiaire_id
+													.toLowerCase();
+										}
 										finder_tUniqRow_3.hashCodeDirty = true;
 										if (!keystUniqRow_3.contains(finder_tUniqRow_3)) {
 											KeyStruct_tUniqRow_3 new_tUniqRow_3 = new KeyStruct_tUniqRow_3();
 
-											new_tUniqRow_3.beneficiaire_id = beneficiaire.beneficiaire_id;
+											if (beneficiaire.beneficiaire_id == null) {
+												new_tUniqRow_3.beneficiaire_id = null;
+											} else {
+												new_tUniqRow_3.beneficiaire_id = beneficiaire.beneficiaire_id
+														.toLowerCase();
+											}
 
 											keystUniqRow_3.add(new_tUniqRow_3);
 											if (row7 == null) {
@@ -3682,6 +3910,7 @@ public class beneficiaire_dim implements TalendJob {
 												runStat.updateStatOnConnection(iterateId, 1, 1, "row7");
 											}
 
+											row8 = null;
 											whetherReject_tDBOutput_1 = false;
 											if (row7.beneficiaire_id == null) {
 												pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
@@ -3719,6 +3948,15 @@ public class beneficiaire_dim implements TalendJob {
 											nb_line_tDBOutput_1++;
 
 											batchSizeCounter_tDBOutput_1++;
+											if (!whetherReject_tDBOutput_1) {
+												row8 = new row8Struct();
+												row8.beneficiaire_id = row7.beneficiaire_id;
+												row8.beneficiaire_moral_booleen = row7.beneficiaire_moral_booleen;
+												row8.beneficiaire_nom = row7.beneficiaire_nom;
+												row8.beneficiaire_prenom = row7.beneficiaire_prenom;
+												row8.beneficiaire_denomination_sociale = row7.beneficiaire_denomination_sociale;
+												row8.beneficiaire_diplome = row7.beneficiaire_diplome;
+											}
 											if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
 												try {
 													int countSum_tDBOutput_1 = 0;
@@ -3780,6 +4018,113 @@ public class beneficiaire_dim implements TalendJob {
 											/**
 											 * [tDBOutput_1 process_data_begin ] stop
 											 */
+// Start of branch "row8"
+											if (row8 != null) {
+
+												/**
+												 * [tLogRow_1 main ] start
+												 */
+
+												currentComponent = "tLogRow_1";
+
+												if (execStat) {
+													runStat.updateStatOnConnection(iterateId, 1, 1, "row8");
+												}
+
+///////////////////////		
+
+												strBuffer_tLogRow_1 = new StringBuilder();
+
+												if (row8.beneficiaire_id != null) { //
+
+													strBuffer_tLogRow_1.append(String.valueOf(row8.beneficiaire_id));
+
+												} //
+
+												strBuffer_tLogRow_1.append("|");
+
+												strBuffer_tLogRow_1
+														.append(String.valueOf(row8.beneficiaire_moral_booleen));
+
+												strBuffer_tLogRow_1.append("|");
+
+												if (row8.beneficiaire_nom != null) { //
+
+													strBuffer_tLogRow_1.append(String.valueOf(row8.beneficiaire_nom));
+
+												} //
+
+												strBuffer_tLogRow_1.append("|");
+
+												if (row8.beneficiaire_prenom != null) { //
+
+													strBuffer_tLogRow_1
+															.append(String.valueOf(row8.beneficiaire_prenom));
+
+												} //
+
+												strBuffer_tLogRow_1.append("|");
+
+												if (row8.beneficiaire_denomination_sociale != null) { //
+
+													strBuffer_tLogRow_1.append(
+															String.valueOf(row8.beneficiaire_denomination_sociale));
+
+												} //
+
+												strBuffer_tLogRow_1.append("|");
+
+												if (row8.beneficiaire_diplome != null) { //
+
+													strBuffer_tLogRow_1
+															.append(String.valueOf(row8.beneficiaire_diplome));
+
+												} //
+
+												if (globalMap.get("tLogRow_CONSOLE") != null) {
+													consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap
+															.get("tLogRow_CONSOLE");
+												} else {
+													consoleOut_tLogRow_1 = new java.io.PrintStream(
+															new java.io.BufferedOutputStream(System.out));
+													globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_1);
+												}
+												consoleOut_tLogRow_1.println(strBuffer_tLogRow_1.toString());
+												consoleOut_tLogRow_1.flush();
+												nb_line_tLogRow_1++;
+//////
+
+//////                    
+
+///////////////////////    			
+
+												tos_count_tLogRow_1++;
+
+												/**
+												 * [tLogRow_1 main ] stop
+												 */
+
+												/**
+												 * [tLogRow_1 process_data_begin ] start
+												 */
+
+												currentComponent = "tLogRow_1";
+
+												/**
+												 * [tLogRow_1 process_data_begin ] stop
+												 */
+
+												/**
+												 * [tLogRow_1 process_data_end ] start
+												 */
+
+												currentComponent = "tLogRow_1";
+
+												/**
+												 * [tLogRow_1 process_data_end ] stop
+												 */
+
+											} // End of branch "row8"
 
 											/**
 											 * [tDBOutput_1 process_data_end ] start
@@ -3939,7 +4284,7 @@ public class beneficiaire_dim implements TalendJob {
 
 					}
 				} finally {
-					if (!((Object) ("C:/BI/transparence-sante/data/min/conventions_top10000.csv") instanceof java.io.InputStream)) {
+					if (!((Object) ("C:/BI/transparence-sante/data/data.gouv/conventions.csv") instanceof java.io.InputStream)) {
 						if (fid_tFileInputDelimited_1 != null) {
 							fid_tFileInputDelimited_1.close();
 						}
@@ -4119,6 +4464,29 @@ public class beneficiaire_dim implements TalendJob {
 				 */
 
 				/**
+				 * [tLogRow_1 end ] start
+				 */
+
+				currentComponent = "tLogRow_1";
+
+//////
+//////
+				globalMap.put("tLogRow_1_NB_LINE", nb_line_tLogRow_1);
+
+///////////////////////    			
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row8");
+				}
+
+				ok_Hash.put("tLogRow_1", true);
+				end_Hash.put("tLogRow_1", System.currentTimeMillis());
+
+				/**
+				 * [tLogRow_1 end ] stop
+				 */
+
+				/**
 				 * [tFileOutputDelimited_1 end ] start
 				 */
 
@@ -4245,6 +4613,16 @@ public class beneficiaire_dim implements TalendJob {
 
 				/**
 				 * [tDBOutput_1 finally ] stop
+				 */
+
+				/**
+				 * [tLogRow_1 finally ] start
+				 */
+
+				currentComponent = "tLogRow_1";
+
+				/**
+				 * [tLogRow_1 finally ] stop
 				 */
 
 				/**
@@ -6703,6 +7081,6 @@ public class beneficiaire_dim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 210872 characters generated by Talend Open Studio for Data Integration on the
- * 23 janvier 2021 12:48:11 CET
+ * 221717 characters generated by Talend Open Studio for Data Integration on the
+ * 24 janvier 2021 16:58:39 CET
  ************************************************************************************************/

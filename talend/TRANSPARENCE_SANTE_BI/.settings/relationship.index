@@ -462,10 +462,6 @@
     "version" : "Latest",
     "type" : "schema"
   }, {
-    "id" : "_DwsqEAlHEeuvUZ6jv3Exkw - convention_fact",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
     "id" : "_iSrbgAmQEeuo66iw6Iwaqw - entreprises",
     "version" : "Latest",
     "type" : "schema"
