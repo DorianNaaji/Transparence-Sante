@@ -42,7 +42,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:aZMh2eCXFavelY/k5s6d3hA4+UfiNK91Hv1mGmAz" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:mA2IkzyGwXNV77pQitjDEdboDjrKE2turWhzTW7y" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -77,7 +77,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:5pg5UuRlHmMI0vG/FawCpekNoJKoJroeEKwjvrRg" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:RLA+hslXBPKZfNIKTctKJBZjVlZMDKtMs2GOxTS7" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -285,7 +285,7 @@
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="adresse">
-        <mapperTableEntries name="adresse_id" expression="row1.country_code == null || row1.place_name == null&#xD;&#xA;? &quot;N/A&quot;: row1.country_code.concat(row1.postal_code).concat(row1.place_name.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;)  ) " type="id_String"/>
+        <mapperTableEntries name="adresse_id" expression="row1.country_code == null || row1.place_name == null&#xD;&#xA;? &quot;N/A&quot;: row1.country_code.concat(row1.postal_code) " type="id_String"/>
         <mapperTableEntries name="ville" expression="row1.place_name.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;) " type="id_String"/>
         <mapperTableEntries name="code_postal" expression="row1.postal_code" type="id_String"/>
         <mapperTableEntries name="departement" expression="row1.admin_name2" type="id_String"/>
@@ -694,7 +694,7 @@
     <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;"/>
     <elementParameter field="TEXT" name="DBNAME" value="&quot;transparence_sante_bi&quot;"/>
     <elementParameter field="TEXT" name="USER" value="&quot;root&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:an1Y+LoeZmmYicqfb3pCbxE/PsOKICcOjj436QnR"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:AIeWrKL5NL8DYWeW4Bu82zmB0LHzFflNdRVd7Nnr"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;adresse_dim&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CLEAR"/>
     <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
