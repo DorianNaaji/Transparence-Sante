@@ -317,16 +317,6 @@ public class convention_fact implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tLogRow_1_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
-	}
-
 	public void tFileInputDelimited_2_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -352,441 +342,6 @@ public class convention_fact implements TalendJob {
 
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
 				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
-
-	}
-
-	public static class row2Struct implements routines.system.IPersistableRow<row2Struct> {
-		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_convention_fact = new byte[0];
-		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[0];
-		protected static final int DEFAULT_HASHCODE = 1;
-		protected static final int PRIME = 31;
-		protected int hashCode = DEFAULT_HASHCODE;
-		public boolean hashCodeDirty = true;
-
-		public String loopKey;
-
-		public String ligne_id;
-
-		public String getLigne_id() {
-			return this.ligne_id;
-		}
-
-		public String entreprise_id;
-
-		public String getEntreprise_id() {
-			return this.entreprise_id;
-		}
-
-		public String beneficiaire_id;
-
-		public String getBeneficiaire_id() {
-			return this.beneficiaire_id;
-		}
-
-		public String categorie_beneficiaire_id;
-
-		public String getCategorie_beneficiaire_id() {
-			return this.categorie_beneficiaire_id;
-		}
-
-		public String qualite_beneficiaire_id;
-
-		public String getQualite_beneficiaire_id() {
-			return this.qualite_beneficiaire_id;
-		}
-
-		public String titre_beneficiaire_id;
-
-		public String getTitre_beneficiaire_id() {
-			return this.titre_beneficiaire_id;
-		}
-
-		public String adresse_beneficiaire_id;
-
-		public String getAdresse_beneficiaire_id() {
-			return this.adresse_beneficiaire_id;
-		}
-
-		public String adresse_entreprise_id;
-
-		public String getAdresse_entreprise_id() {
-			return this.adresse_entreprise_id;
-		}
-
-		public String specialite_beneficiaire_id;
-
-		public String getSpecialite_beneficiaire_id() {
-			return this.specialite_beneficiaire_id;
-		}
-
-		public String secteur_activite_entreprise_id;
-
-		public String getSecteur_activite_entreprise_id() {
-			return this.secteur_activite_entreprise_id;
-		}
-
-		public int objet_convention_id;
-
-		public int getObjet_convention_id() {
-			return this.objet_convention_id;
-		}
-
-		public int evenement_convention_id;
-
-		public int getEvenement_convention_id() {
-			return this.evenement_convention_id;
-		}
-
-		public java.util.Date date_debut_convention;
-
-		public java.util.Date getDate_debut_convention() {
-			return this.date_debut_convention;
-		}
-
-		public java.util.Date date_fin_convention;
-
-		public java.util.Date getDate_fin_convention() {
-			return this.date_fin_convention;
-		}
-
-		public java.util.Date date_signature_convention;
-
-		public java.util.Date getDate_signature_convention() {
-			return this.date_signature_convention;
-		}
-
-		public int montant_convention;
-
-		public int getMontant_convention() {
-			return this.montant_convention;
-		}
-
-		public int duree_convention;
-
-		public int getDuree_convention() {
-			return this.duree_convention;
-		}
-
-		@Override
-		public int hashCode() {
-			if (this.hashCodeDirty) {
-				final int prime = PRIME;
-				int result = DEFAULT_HASHCODE;
-
-				result = prime * result + ((this.ligne_id == null) ? 0 : this.ligne_id.hashCode());
-
-				result = prime * result + ((this.entreprise_id == null) ? 0 : this.entreprise_id.hashCode());
-
-				this.hashCode = result;
-				this.hashCodeDirty = false;
-			}
-			return this.hashCode;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			final row2Struct other = (row2Struct) obj;
-
-			if (this.ligne_id == null) {
-				if (other.ligne_id != null)
-					return false;
-
-			} else if (!this.ligne_id.equals(other.ligne_id))
-
-				return false;
-
-			if (this.entreprise_id == null) {
-				if (other.entreprise_id != null)
-					return false;
-
-			} else if (!this.entreprise_id.equals(other.entreprise_id))
-
-				return false;
-
-			return true;
-		}
-
-		public void copyDataTo(row2Struct other) {
-
-			other.ligne_id = this.ligne_id;
-			other.entreprise_id = this.entreprise_id;
-			other.beneficiaire_id = this.beneficiaire_id;
-			other.categorie_beneficiaire_id = this.categorie_beneficiaire_id;
-			other.qualite_beneficiaire_id = this.qualite_beneficiaire_id;
-			other.titre_beneficiaire_id = this.titre_beneficiaire_id;
-			other.adresse_beneficiaire_id = this.adresse_beneficiaire_id;
-			other.adresse_entreprise_id = this.adresse_entreprise_id;
-			other.specialite_beneficiaire_id = this.specialite_beneficiaire_id;
-			other.secteur_activite_entreprise_id = this.secteur_activite_entreprise_id;
-			other.objet_convention_id = this.objet_convention_id;
-			other.evenement_convention_id = this.evenement_convention_id;
-			other.date_debut_convention = this.date_debut_convention;
-			other.date_fin_convention = this.date_fin_convention;
-			other.date_signature_convention = this.date_signature_convention;
-			other.montant_convention = this.montant_convention;
-			other.duree_convention = this.duree_convention;
-
-		}
-
-		public void copyKeysDataTo(row2Struct other) {
-
-			other.ligne_id = this.ligne_id;
-			other.entreprise_id = this.entreprise_id;
-
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact.length) {
-					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact.length == 0) {
-						commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[1024];
-					} else {
-						commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact, 0, length);
-				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(dis.readLong());
-			}
-			return dateReturn;
-		}
-
-		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
-			if (date1 == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeLong(date1.getTime());
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_convention_fact) {
-
-				try {
-
-					int length = 0;
-
-					this.ligne_id = readString(dis);
-
-					this.entreprise_id = readString(dis);
-
-					this.beneficiaire_id = readString(dis);
-
-					this.categorie_beneficiaire_id = readString(dis);
-
-					this.qualite_beneficiaire_id = readString(dis);
-
-					this.titre_beneficiaire_id = readString(dis);
-
-					this.adresse_beneficiaire_id = readString(dis);
-
-					this.adresse_entreprise_id = readString(dis);
-
-					this.specialite_beneficiaire_id = readString(dis);
-
-					this.secteur_activite_entreprise_id = readString(dis);
-
-					this.objet_convention_id = dis.readInt();
-
-					this.evenement_convention_id = dis.readInt();
-
-					this.date_debut_convention = readDate(dis);
-
-					this.date_fin_convention = readDate(dis);
-
-					this.date_signature_convention = readDate(dis);
-
-					this.montant_convention = dis.readInt();
-
-					this.duree_convention = dis.readInt();
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.ligne_id, dos);
-
-				// String
-
-				writeString(this.entreprise_id, dos);
-
-				// String
-
-				writeString(this.beneficiaire_id, dos);
-
-				// String
-
-				writeString(this.categorie_beneficiaire_id, dos);
-
-				// String
-
-				writeString(this.qualite_beneficiaire_id, dos);
-
-				// String
-
-				writeString(this.titre_beneficiaire_id, dos);
-
-				// String
-
-				writeString(this.adresse_beneficiaire_id, dos);
-
-				// String
-
-				writeString(this.adresse_entreprise_id, dos);
-
-				// String
-
-				writeString(this.specialite_beneficiaire_id, dos);
-
-				// String
-
-				writeString(this.secteur_activite_entreprise_id, dos);
-
-				// int
-
-				dos.writeInt(this.objet_convention_id);
-
-				// int
-
-				dos.writeInt(this.evenement_convention_id);
-
-				// java.util.Date
-
-				writeDate(this.date_debut_convention, dos);
-
-				// java.util.Date
-
-				writeDate(this.date_fin_convention, dos);
-
-				// java.util.Date
-
-				writeDate(this.date_signature_convention, dos);
-
-				// int
-
-				dos.writeInt(this.montant_convention);
-
-				// int
-
-				dos.writeInt(this.duree_convention);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("ligne_id=" + ligne_id);
-			sb.append(",entreprise_id=" + entreprise_id);
-			sb.append(",beneficiaire_id=" + beneficiaire_id);
-			sb.append(",categorie_beneficiaire_id=" + categorie_beneficiaire_id);
-			sb.append(",qualite_beneficiaire_id=" + qualite_beneficiaire_id);
-			sb.append(",titre_beneficiaire_id=" + titre_beneficiaire_id);
-			sb.append(",adresse_beneficiaire_id=" + adresse_beneficiaire_id);
-			sb.append(",adresse_entreprise_id=" + adresse_entreprise_id);
-			sb.append(",specialite_beneficiaire_id=" + specialite_beneficiaire_id);
-			sb.append(",secteur_activite_entreprise_id=" + secteur_activite_entreprise_id);
-			sb.append(",objet_convention_id=" + String.valueOf(objet_convention_id));
-			sb.append(",evenement_convention_id=" + String.valueOf(evenement_convention_id));
-			sb.append(",date_debut_convention=" + String.valueOf(date_debut_convention));
-			sb.append(",date_fin_convention=" + String.valueOf(date_fin_convention));
-			sb.append(",date_signature_convention=" + String.valueOf(date_signature_convention));
-			sb.append(",montant_convention=" + String.valueOf(montant_convention));
-			sb.append(",duree_convention=" + String.valueOf(duree_convention));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row2Struct other) {
-
-			int returnValue = -1;
-
-			returnValue = checkNullsAndCompare(this.ligne_id, other.ligne_id);
-			if (returnValue != 0) {
-				return returnValue;
-			}
-
-			returnValue = checkNullsAndCompare(this.entreprise_id, other.entreprise_id);
-			if (returnValue != 0) {
-				return returnValue;
-			}
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
 
 	}
 
@@ -912,6 +467,9 @@ public class convention_fact implements TalendJob {
 
 				result = prime * result + ((this.entreprise_id == null) ? 0 : this.entreprise_id.hashCode());
 
+				result = prime * result
+						+ ((this.date_signature_convention == null) ? 0 : this.date_signature_convention.hashCode());
+
 				this.hashCode = result;
 				this.hashCodeDirty = false;
 			}
@@ -944,6 +502,14 @@ public class convention_fact implements TalendJob {
 
 				return false;
 
+			if (this.date_signature_convention == null) {
+				if (other.date_signature_convention != null)
+					return false;
+
+			} else if (!this.date_signature_convention.equals(other.date_signature_convention))
+
+				return false;
+
 			return true;
 		}
 
@@ -973,6 +539,7 @@ public class convention_fact implements TalendJob {
 
 			other.ligne_id = this.ligne_id;
 			other.entreprise_id = this.entreprise_id;
+			other.date_signature_convention = this.date_signature_convention;
 
 		}
 
@@ -1195,6 +762,11 @@ public class convention_fact implements TalendJob {
 			}
 
 			returnValue = checkNullsAndCompare(this.entreprise_id, other.entreprise_id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			returnValue = checkNullsAndCompare(this.date_signature_convention, other.date_signature_convention);
 			if (returnValue != 0) {
 				return returnValue;
 			}
@@ -1711,6 +1283,9 @@ public class convention_fact implements TalendJob {
 
 				result = prime * result + ((this.entreprise_id == null) ? 0 : this.entreprise_id.hashCode());
 
+				result = prime * result
+						+ ((this.date_signature_convention == null) ? 0 : this.date_signature_convention.hashCode());
+
 				this.hashCode = result;
 				this.hashCodeDirty = false;
 			}
@@ -1740,6 +1315,14 @@ public class convention_fact implements TalendJob {
 					return false;
 
 			} else if (!this.entreprise_id.equals(other.entreprise_id))
+
+				return false;
+
+			if (this.date_signature_convention == null) {
+				if (other.date_signature_convention != null)
+					return false;
+
+			} else if (!this.date_signature_convention.equals(other.date_signature_convention))
 
 				return false;
 
@@ -1773,6 +1356,7 @@ public class convention_fact implements TalendJob {
 
 			other.ligne_id = this.ligne_id;
 			other.entreprise_id = this.entreprise_id;
+			other.date_signature_convention = this.date_signature_convention;
 
 		}
 
@@ -2002,6 +1586,11 @@ public class convention_fact implements TalendJob {
 			}
 
 			returnValue = checkNullsAndCompare(this.entreprise_id, other.entreprise_id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			returnValue = checkNullsAndCompare(this.date_signature_convention, other.date_signature_convention);
 			if (returnValue != 0) {
 				return returnValue;
 			}
@@ -2707,35 +2296,6 @@ public class convention_fact implements TalendJob {
 				convention_factStruct convention_fact = new convention_factStruct();
 				row3Struct row3 = new row3Struct();
 				conventionStruct convention = new conventionStruct();
-				row2Struct row2 = new row2Struct();
-
-				/**
-				 * [tLogRow_1 begin ] start
-				 */
-
-				ok_Hash.put("tLogRow_1", false);
-				start_Hash.put("tLogRow_1", System.currentTimeMillis());
-
-				currentComponent = "tLogRow_1";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row2");
-				}
-
-				int tos_count_tLogRow_1 = 0;
-
-				///////////////////////
-
-				final String OUTPUT_FIELD_SEPARATOR_tLogRow_1 = "|";
-				java.io.PrintStream consoleOut_tLogRow_1 = null;
-
-				StringBuilder strBuffer_tLogRow_1 = null;
-				int nb_line_tLogRow_1 = 0;
-///////////////////////    			
-
-				/**
-				 * [tLogRow_1 begin ] stop
-				 */
 
 				/**
 				 * [tDBOutput_1 begin ] start
@@ -2794,7 +2354,7 @@ public class convention_fact implements TalendJob {
 				String dbUser_tDBOutput_1 = "root";
 
 				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:GeE/JQhNRRl1owaf00GUFiz0lBP4IvLwGIYF8w==");
+						.decryptPassword("enc:routine.encryption.key.v1:1YIjjpTMKIfyPa4TmRBFh7gqO/a7E/4i0GEHdw==");
 
 				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
 				java.lang.Class.forName(driverClass_tDBOutput_1);
@@ -3348,8 +2908,9 @@ public class convention_fact implements TalendJob {
 										&& DateTransformations.getAnnee(Var.date_debut) <= 2100)
 												? (int) TalendDate.diffDate(Var.date_fin, Var.date_debut, "dd")
 												: 0;
-								convention_fact_tmp.composite_key = MyStringRoutine
-										.concat(conventions.entreprise_identifiant, conventions.ligne_identifiant);
+								convention_fact_tmp.composite_key = MyStringRoutine.concat(
+										conventions.entreprise_identifiant, conventions.ligne_identifiant,
+										conventions.conv_date_signature);
 								convention_fact = convention_fact_tmp;
 // ###############################
 
@@ -3529,7 +3090,6 @@ public class convention_fact implements TalendJob {
 											runStat.updateStatOnConnection(iterateId, 1, 1, "convention");
 										}
 
-										row2 = null;
 										whetherReject_tDBOutput_1 = false;
 										if (convention.ligne_id == null) {
 											pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
@@ -3642,26 +3202,6 @@ public class convention_fact implements TalendJob {
 										nb_line_tDBOutput_1++;
 
 										batchSizeCounter_tDBOutput_1++;
-										if (!whetherReject_tDBOutput_1) {
-											row2 = new row2Struct();
-											row2.ligne_id = convention.ligne_id;
-											row2.entreprise_id = convention.entreprise_id;
-											row2.beneficiaire_id = convention.beneficiaire_id;
-											row2.categorie_beneficiaire_id = convention.categorie_beneficiaire_id;
-											row2.qualite_beneficiaire_id = convention.qualite_beneficiaire_id;
-											row2.titre_beneficiaire_id = convention.titre_beneficiaire_id;
-											row2.adresse_beneficiaire_id = convention.adresse_beneficiaire_id;
-											row2.adresse_entreprise_id = convention.adresse_entreprise_id;
-											row2.specialite_beneficiaire_id = convention.specialite_beneficiaire_id;
-											row2.secteur_activite_entreprise_id = convention.secteur_activite_entreprise_id;
-											row2.objet_convention_id = convention.objet_convention_id;
-											row2.evenement_convention_id = convention.evenement_convention_id;
-											row2.date_debut_convention = convention.date_debut_convention;
-											row2.date_fin_convention = convention.date_fin_convention;
-											row2.date_signature_convention = convention.date_signature_convention;
-											row2.montant_convention = convention.montant_convention;
-											row2.duree_convention = convention.duree_convention;
-										}
 										if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
 											try {
 												int countSum_tDBOutput_1 = 0;
@@ -3723,193 +3263,6 @@ public class convention_fact implements TalendJob {
 										/**
 										 * [tDBOutput_1 process_data_begin ] stop
 										 */
-// Start of branch "row2"
-										if (row2 != null) {
-
-											/**
-											 * [tLogRow_1 main ] start
-											 */
-
-											currentComponent = "tLogRow_1";
-
-											if (execStat) {
-												runStat.updateStatOnConnection(iterateId, 1, 1, "row2");
-											}
-
-///////////////////////		
-
-											strBuffer_tLogRow_1 = new StringBuilder();
-
-											if (row2.ligne_id != null) { //
-
-												strBuffer_tLogRow_1.append(String.valueOf(row2.ligne_id));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row2.entreprise_id != null) { //
-
-												strBuffer_tLogRow_1.append(String.valueOf(row2.entreprise_id));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row2.beneficiaire_id != null) { //
-
-												strBuffer_tLogRow_1.append(String.valueOf(row2.beneficiaire_id));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row2.categorie_beneficiaire_id != null) { //
-
-												strBuffer_tLogRow_1
-														.append(String.valueOf(row2.categorie_beneficiaire_id));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row2.qualite_beneficiaire_id != null) { //
-
-												strBuffer_tLogRow_1
-														.append(String.valueOf(row2.qualite_beneficiaire_id));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row2.titre_beneficiaire_id != null) { //
-
-												strBuffer_tLogRow_1.append(String.valueOf(row2.titre_beneficiaire_id));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row2.adresse_beneficiaire_id != null) { //
-
-												strBuffer_tLogRow_1
-														.append(String.valueOf(row2.adresse_beneficiaire_id));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row2.adresse_entreprise_id != null) { //
-
-												strBuffer_tLogRow_1.append(String.valueOf(row2.adresse_entreprise_id));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row2.specialite_beneficiaire_id != null) { //
-
-												strBuffer_tLogRow_1
-														.append(String.valueOf(row2.specialite_beneficiaire_id));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row2.secteur_activite_entreprise_id != null) { //
-
-												strBuffer_tLogRow_1
-														.append(String.valueOf(row2.secteur_activite_entreprise_id));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											strBuffer_tLogRow_1.append(String.valueOf(row2.objet_convention_id));
-
-											strBuffer_tLogRow_1.append("|");
-
-											strBuffer_tLogRow_1.append(String.valueOf(row2.evenement_convention_id));
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row2.date_debut_convention != null) { //
-
-												strBuffer_tLogRow_1.append(FormatterUtils
-														.format_Date(row2.date_debut_convention, "dd-MM-yyyy"));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row2.date_fin_convention != null) { //
-
-												strBuffer_tLogRow_1.append(FormatterUtils
-														.format_Date(row2.date_fin_convention, "dd-MM-yyyy"));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											if (row2.date_signature_convention != null) { //
-
-												strBuffer_tLogRow_1.append(FormatterUtils
-														.format_Date(row2.date_signature_convention, "dd-MM-yyyy"));
-
-											} //
-
-											strBuffer_tLogRow_1.append("|");
-
-											strBuffer_tLogRow_1.append(String.valueOf(row2.montant_convention));
-
-											strBuffer_tLogRow_1.append("|");
-
-											strBuffer_tLogRow_1.append(String.valueOf(row2.duree_convention));
-
-											if (globalMap.get("tLogRow_CONSOLE") != null) {
-												consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap
-														.get("tLogRow_CONSOLE");
-											} else {
-												consoleOut_tLogRow_1 = new java.io.PrintStream(
-														new java.io.BufferedOutputStream(System.out));
-												globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_1);
-											}
-											consoleOut_tLogRow_1.println(strBuffer_tLogRow_1.toString());
-											consoleOut_tLogRow_1.flush();
-											nb_line_tLogRow_1++;
-//////
-
-//////                    
-
-///////////////////////    			
-
-											tos_count_tLogRow_1++;
-
-											/**
-											 * [tLogRow_1 main ] stop
-											 */
-
-											/**
-											 * [tLogRow_1 process_data_begin ] start
-											 */
-
-											currentComponent = "tLogRow_1";
-
-											/**
-											 * [tLogRow_1 process_data_begin ] stop
-											 */
-
-											/**
-											 * [tLogRow_1 process_data_end ] start
-											 */
-
-											currentComponent = "tLogRow_1";
-
-											/**
-											 * [tLogRow_1 process_data_end ] stop
-											 */
-
-										} // End of branch "row2"
 
 										/**
 										 * [tDBOutput_1 process_data_end ] start
@@ -4135,29 +3488,6 @@ public class convention_fact implements TalendJob {
 				 * [tDBOutput_1 end ] stop
 				 */
 
-				/**
-				 * [tLogRow_1 end ] start
-				 */
-
-				currentComponent = "tLogRow_1";
-
-//////
-//////
-				globalMap.put("tLogRow_1_NB_LINE", nb_line_tLogRow_1);
-
-///////////////////////    			
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row2");
-				}
-
-				ok_Hash.put("tLogRow_1", true);
-				end_Hash.put("tLogRow_1", System.currentTimeMillis());
-
-				/**
-				 * [tLogRow_1 end ] stop
-				 */
-
 			} // end the resume
 
 		} catch (java.lang.Exception e) {
@@ -4248,16 +3578,6 @@ public class convention_fact implements TalendJob {
 
 				/**
 				 * [tDBOutput_1 finally ] stop
-				 */
-
-				/**
-				 * [tLogRow_1 finally ] start
-				 */
-
-				currentComponent = "tLogRow_1";
-
-				/**
-				 * [tLogRow_1 finally ] stop
 				 */
 
 			} catch (java.lang.Exception e) {
@@ -5220,6 +4540,6 @@ public class convention_fact implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 160845 characters generated by Talend Open Studio for Data Integration on the
- * 24 janvier 2021 18:09:11 CET
+ * 139585 characters generated by Talend Open Studio for Data Integration on the
+ * 25 janvier 2021 23:28:43 CET
  ************************************************************************************************/
