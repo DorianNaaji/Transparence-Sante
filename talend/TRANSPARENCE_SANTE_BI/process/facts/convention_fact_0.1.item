@@ -42,7 +42,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:7r+j/Y+m78eK/BvTTrnFqS5Pjt4EdVqQe7sJQZZI" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:CdZGyVqhwgh8I4vAy0PLDDlylrfSLgxbcQYoQFoy" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -77,7 +77,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:fXEz1gCW+lGKI7mxW8EsA596HkE2uEkBHqlWJohP" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:nWrYxlYcZq9PUnFIsodEWixypkaqF4uMsJ7wrNVg" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -417,7 +417,7 @@
     <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;"/>
     <elementParameter field="TEXT" name="DBNAME" value="&quot;transparence_sante_bi&quot;"/>
     <elementParameter field="TEXT" name="USER" value="&quot;root&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:TfuPVPozyGULrMN+dqOczcH7E+TWN6Y9xggScU+9"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:mJ26wWkA0LY6bB/TcQLJi9OSx71nd+G6m45SeIMP"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;convention_fact&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CLEAR"/>
     <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
@@ -718,9 +718,9 @@
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="normalizedObjetConvention" expression="ObjetConventionIdGenerator.normalizeObjetConvention(conventions.conv_objet, conventions.conv_objet_autre); " type="id_String"/>
         <mapperTableEntries name="normalizedEvenementConvention" expression="EvenementConventionIdGenerator.normalizeEvenementConvention( conventions.conv_manifestation_nom); " type="id_String"/>
-        <mapperTableEntries name="date_debut" expression="conventions.conv_date_debut != null &amp;&amp; &#xD;&#xA;!conventions.conv_date_debut.equals(&quot;&quot;) ? &#xD;&#xA;&#xD;&#xA;TalendDate.parseDate(&quot;dd-MM-yyyy&quot;, conventions.conv_date_debut.replace(&quot;/&quot;, &quot;-&quot;)) &#xD;&#xA;: &#xD;&#xA;// if date string is null or empty, default date&#xD;&#xA;TalendDate.parseDate(&quot;dd-MM-yyyy&quot;, &quot;01-01-2000&quot;) " type="id_Date"/>
-        <mapperTableEntries name="date_fin" expression="conventions.conv_date_fin != null &amp;&amp; &#xD;&#xA;!conventions.conv_date_fin.equals(&quot;&quot;) ? &#xD;&#xA;&#xD;&#xA;TalendDate.parseDate(&quot;dd-MM-yyyy&quot;, conventions.conv_date_fin.replace(&quot;/&quot;, &quot;-&quot;)) &#xD;&#xA;: &#xD;&#xA;// if date string is null or empty, default date&#xD;&#xA;TalendDate.parseDate(&quot;dd-MM-yyyy&quot;, &quot;31-12-2099&quot;) " type="id_Date"/>
-        <mapperTableEntries name="date_signature" expression="conventions.conv_date_signature != null &amp;&amp; &#xD;&#xA;!conventions.conv_date_signature.equals(&quot;&quot;) ? &#xD;&#xA;&#xD;&#xA;TalendDate.parseDate(&quot;dd-MM-yyyy&quot;, conventions.conv_date_signature.replace(&quot;/&quot;, &quot;-&quot;)) &#xD;&#xA;: &#xD;&#xA;// if date string is null or empty, default date&#xD;&#xA;TalendDate.parseDate(&quot;dd-MM-yyyy&quot;, &quot;01-01-2000&quot;) " type="id_Date"/>
+        <mapperTableEntries name="date_debut" expression="conventions.conv_date_debut != null &amp;&amp; &#xD;&#xA;!conventions.conv_date_debut.equals(&quot;&quot;) ? &#xD;&#xA;&#xD;&#xA;TalendDate.parseDate(&quot;dd/MM/yyyy&quot;, conventions.conv_date_debut) &#xD;&#xA;: &#xD;&#xA;// if date string is null or empty, default date&#xD;&#xA;TalendDate.parseDate(&quot;dd/MM/yyyy&quot;, &quot;01/01/2000&quot;) " type="id_Date"/>
+        <mapperTableEntries name="date_fin" expression="conventions.conv_date_fin != null &amp;&amp; &#xD;&#xA;!conventions.conv_date_fin.equals(&quot;&quot;) ? &#xD;&#xA;&#xD;&#xA;TalendDate.parseDate(&quot;dd/MM/yyyy&quot;, conventions.conv_date_fin) &#xD;&#xA;: &#xD;&#xA;// if date string is null or empty, default date&#xD;&#xA;TalendDate.parseDate(&quot;dd/MM/yyyy&quot;, &quot;31/12/2099&quot;) " type="id_Date"/>
+        <mapperTableEntries name="date_signature" expression="conventions.conv_date_signature != null &amp;&amp; &#xD;&#xA;!conventions.conv_date_signature.equals(&quot;&quot;) ? &#xD;&#xA;&#xD;&#xA;TalendDate.parseDate(&quot;dd/MM/yyyy&quot;, conventions.conv_date_signature)&#xD;&#xA;: &#xD;&#xA;// if date string is null or empty, default date&#xD;&#xA;TalendDate.parseDate(&quot;dd/MM/yyyy&quot;, &quot;01/01/2000&quot;) " type="id_Date"/>
         <mapperTableEntries name="isConvMontantNumeric" expression="conventions.conv_montant_ttc != null ?&#xD;&#xA;MyStringRoutine.isNumeric(conventions.conv_montant_ttc) : false " type="id_Boolean"/>
         <mapperTableEntries name="adresse_beneficiaire" expression="!conventions.benef_codepostal.isEmpty() &amp;&amp; &#xD;&#xA;!conventions.benef_ville.isEmpty() ? &#xD;&#xA;AdressesCleanerV2.generateId(conventions.benef_codepostal, conventions.benef_ville) : &#xD;&#xA;&#xD;&#xA;!conventions.benef_etablissement_codepostal.isEmpty() &amp;&amp; &#xD;&#xA;!conventions.benef_etablissement_ville.isEmpty() ? &#xD;&#xA;AdressesCleanerV2.generateId(conventions.benef_etablissement_codepostal, conventions.benef_etablissement_ville) : AdressesCleanerV2.getNA() " type="id_String"/>
         <mapperTableEntries name="adresse_entreprise" expression="AdressesCleanerV2.generateId(entreprises.code_postal, entreprises.ville) " type="id_String"/>
@@ -728,7 +728,7 @@
       <outputTables sizeState="INTERMEDIATE" name="conventions_fact">
         <mapperTableEntries name="ligne_id" expression="conventions.ligne_identifiant " type="id_String"/>
         <mapperTableEntries name="entreprise_id" expression="conventions.entreprise_identifiant " type="id_String"/>
-        <mapperTableEntries name="beneficiaire_id" expression="conventions.benef_identifiant_valeur.isEmpty() || !MyStringRoutine.isNumeric(conventions.benef_identifiant_valeur) ? &quot;N/A&quot; : conventions.benef_identifiant_valeur.trim().replace(&quot;\&quot;&quot;, &quot;&quot;) " type="id_String"/>
+        <mapperTableEntries name="beneficiaire_id" expression="conventions.benef_identifiant_valeur.isEmpty() || !MyStringRoutine.isNumeric(conventions.benef_identifiant_valeur) ? &quot;N/A&quot; : conventions.benef_identifiant_valeur.trim() " type="id_String"/>
         <mapperTableEntries name="categorie_beneficiaire_id" expression="conventions.benef_categorie_code.equals(&quot;&quot;) ? &quot;N/A&quot; : conventions.benef_categorie_code " type="id_String"/>
         <mapperTableEntries name="qualite_beneficiaire_id" expression="conventions.benef_qualite_code.equals(&quot;&quot;) ? &quot;N/A&quot; : conventions.benef_qualite_code " type="id_String"/>
         <mapperTableEntries name="titre_beneficiaire_id" expression="conventions.benef_titre_code.equals(&quot;&quot;) ? &quot;N/A&quot; : conventions.benef_titre_code " type="id_String"/>
