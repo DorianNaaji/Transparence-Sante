@@ -294,6 +294,16 @@ public class type_avantage_dim implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tUnite_1_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tDBOutput_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -305,6 +315,16 @@ public class type_avantage_dim implements TalendJob {
 	}
 
 	public void tLogRow_1_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tRowGenerator_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -471,6 +491,189 @@ public class type_avantage_dim implements TalendJob {
 		 * Compare keys
 		 */
 		public int compareTo(logsStruct other) {
+
+			int returnValue = -1;
+
+			returnValue = checkNullsAndCompare(this.type_avantage_id, other.type_avantage_id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_type_avantage_dim = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_type_avantage_dim = new byte[0];
+		protected static final int DEFAULT_HASHCODE = 1;
+		protected static final int PRIME = 31;
+		protected int hashCode = DEFAULT_HASHCODE;
+		public boolean hashCodeDirty = true;
+
+		public String loopKey;
+
+		public int type_avantage_id;
+
+		public int getType_avantage_id() {
+			return this.type_avantage_id;
+		}
+
+		public String type_avantage_nom;
+
+		public String getType_avantage_nom() {
+			return this.type_avantage_nom;
+		}
+
+		@Override
+		public int hashCode() {
+			if (this.hashCodeDirty) {
+				final int prime = PRIME;
+				int result = DEFAULT_HASHCODE;
+
+				result = prime * result + (int) this.type_avantage_id;
+
+				this.hashCode = result;
+				this.hashCodeDirty = false;
+			}
+			return this.hashCode;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			final row1Struct other = (row1Struct) obj;
+
+			if (this.type_avantage_id != other.type_avantage_id)
+				return false;
+
+			return true;
+		}
+
+		public void copyDataTo(row1Struct other) {
+
+			other.type_avantage_id = this.type_avantage_id;
+			other.type_avantage_nom = this.type_avantage_nom;
+
+		}
+
+		public void copyKeysDataTo(row1Struct other) {
+
+			other.type_avantage_id = this.type_avantage_id;
+
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_type_avantage_dim.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_type_avantage_dim.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_type_avantage_dim = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_type_avantage_dim = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_type_avantage_dim, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_type_avantage_dim, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_type_avantage_dim) {
+
+				try {
+
+					int length = 0;
+
+					this.type_avantage_id = dis.readInt();
+
+					this.type_avantage_nom = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// int
+
+				dos.writeInt(this.type_avantage_id);
+
+				// String
+
+				writeString(this.type_avantage_nom, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("type_avantage_id=" + String.valueOf(type_avantage_id));
+			sb.append(",type_avantage_nom=" + type_avantage_nom);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row1Struct other) {
 
 			int returnValue = -1;
 
@@ -1473,6 +1676,189 @@ public class type_avantage_dim implements TalendJob {
 
 	}
 
+	public static class row2Struct implements routines.system.IPersistableRow<row2Struct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_type_avantage_dim = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_type_avantage_dim = new byte[0];
+		protected static final int DEFAULT_HASHCODE = 1;
+		protected static final int PRIME = 31;
+		protected int hashCode = DEFAULT_HASHCODE;
+		public boolean hashCodeDirty = true;
+
+		public String loopKey;
+
+		public int type_avantage_id;
+
+		public int getType_avantage_id() {
+			return this.type_avantage_id;
+		}
+
+		public String type_avantage_nom;
+
+		public String getType_avantage_nom() {
+			return this.type_avantage_nom;
+		}
+
+		@Override
+		public int hashCode() {
+			if (this.hashCodeDirty) {
+				final int prime = PRIME;
+				int result = DEFAULT_HASHCODE;
+
+				result = prime * result + (int) this.type_avantage_id;
+
+				this.hashCode = result;
+				this.hashCodeDirty = false;
+			}
+			return this.hashCode;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			final row2Struct other = (row2Struct) obj;
+
+			if (this.type_avantage_id != other.type_avantage_id)
+				return false;
+
+			return true;
+		}
+
+		public void copyDataTo(row2Struct other) {
+
+			other.type_avantage_id = this.type_avantage_id;
+			other.type_avantage_nom = this.type_avantage_nom;
+
+		}
+
+		public void copyKeysDataTo(row2Struct other) {
+
+			other.type_avantage_id = this.type_avantage_id;
+
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_type_avantage_dim.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_type_avantage_dim.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_type_avantage_dim = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_type_avantage_dim = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_type_avantage_dim, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_type_avantage_dim, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_type_avantage_dim) {
+
+				try {
+
+					int length = 0;
+
+					this.type_avantage_id = dis.readInt();
+
+					this.type_avantage_nom = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// int
+
+				dos.writeInt(this.type_avantage_id);
+
+				// String
+
+				writeString(this.type_avantage_nom, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("type_avantage_id=" + String.valueOf(type_avantage_id));
+			sb.append(",type_avantage_nom=" + type_avantage_nom);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row2Struct other) {
+
+			int returnValue = -1;
+
+			returnValue = checkNullsAndCompare(this.type_avantage_id, other.type_avantage_id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
 	public void tFileInputDelimited_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
 		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 0);
 
@@ -1496,6 +1882,10 @@ public class type_avantage_dim implements TalendJob {
 				avantages_rawStruct avantages_raw = new avantages_rawStruct();
 				avantages_cleanedStruct avantages_cleaned = new avantages_cleanedStruct();
 				avantagesStruct avantages = new avantagesStruct();
+
+				row2Struct row2 = new row2Struct();
+
+				row1Struct row1 = new row1Struct();
 				logsStruct logs = new logsStruct();
 
 				/**
@@ -1643,7 +2033,7 @@ public class type_avantage_dim implements TalendJob {
 				currentComponent = "tDBOutput_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "avantages");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row1");
 				}
 
 				int tos_count_tDBOutput_1 = 0;
@@ -1690,7 +2080,7 @@ public class type_avantage_dim implements TalendJob {
 				String dbUser_tDBOutput_1 = "root";
 
 				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:WWdgmuQSfduwSg1tdEN50Ms6qC26x3joyqSodw==");
+						.decryptPassword("enc:routine.encryption.key.v1:kIleoQ4wZc6ZduC65BHDtGw+CknIQ/dkwmYiQQ==");
 
 				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
 				java.lang.Class.forName(driverClass_tDBOutput_1);
@@ -1719,6 +2109,27 @@ public class type_avantage_dim implements TalendJob {
 
 				/**
 				 * [tDBOutput_1 begin ] stop
+				 */
+
+				/**
+				 * [tUnite_1 begin ] start
+				 */
+
+				ok_Hash.put("tUnite_1", false);
+				start_Hash.put("tUnite_1", System.currentTimeMillis());
+
+				currentComponent = "tUnite_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row2", "avantages");
+				}
+
+				int tos_count_tUnite_1 = 0;
+
+				int nb_line_tUnite_1 = 0;
+
+				/**
+				 * [tUnite_1 begin ] stop
 				 */
 
 				/**
@@ -2697,23 +3108,61 @@ public class type_avantage_dim implements TalendJob {
 								if (avantages != null) {
 
 									/**
+									 * [tUnite_1 main ] start
+									 */
+
+									currentComponent = "tUnite_1";
+
+									if (execStat) {
+										runStat.updateStatOnConnection(iterateId, 1, 1, "avantages");
+									}
+
+//////////
+
+// for output
+									row1 = new row1Struct();
+
+									row1.type_avantage_id = avantages.type_avantage_id;
+									row1.type_avantage_nom = avantages.type_avantage_nom;
+
+									nb_line_tUnite_1++;
+
+//////////
+
+									tos_count_tUnite_1++;
+
+									/**
+									 * [tUnite_1 main ] stop
+									 */
+
+									/**
+									 * [tUnite_1 process_data_begin ] start
+									 */
+
+									currentComponent = "tUnite_1";
+
+									/**
+									 * [tUnite_1 process_data_begin ] stop
+									 */
+
+									/**
 									 * [tDBOutput_1 main ] start
 									 */
 
 									currentComponent = "tDBOutput_1";
 
 									if (execStat) {
-										runStat.updateStatOnConnection(iterateId, 1, 1, "avantages");
+										runStat.updateStatOnConnection(iterateId, 1, 1, "row1");
 									}
 
 									logs = null;
 									whetherReject_tDBOutput_1 = false;
-									pstmt_tDBOutput_1.setInt(1, avantages.type_avantage_id);
+									pstmt_tDBOutput_1.setInt(1, row1.type_avantage_id);
 
-									if (avantages.type_avantage_nom == null) {
+									if (row1.type_avantage_nom == null) {
 										pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
 									} else {
-										pstmt_tDBOutput_1.setString(2, avantages.type_avantage_nom);
+										pstmt_tDBOutput_1.setString(2, row1.type_avantage_nom);
 									}
 
 									pstmt_tDBOutput_1.addBatch();
@@ -2722,8 +3171,8 @@ public class type_avantage_dim implements TalendJob {
 									batchSizeCounter_tDBOutput_1++;
 									if (!whetherReject_tDBOutput_1) {
 										logs = new logsStruct();
-										logs.type_avantage_id = avantages.type_avantage_id;
-										logs.type_avantage_nom = avantages.type_avantage_nom;
+										logs.type_avantage_id = row1.type_avantage_id;
+										logs.type_avantage_nom = row1.type_avantage_nom;
 									}
 									if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
 										try {
@@ -2856,6 +3305,16 @@ public class type_avantage_dim implements TalendJob {
 									 * [tDBOutput_1 process_data_end ] stop
 									 */
 
+									/**
+									 * [tUnite_1 process_data_end ] start
+									 */
+
+									currentComponent = "tUnite_1";
+
+									/**
+									 * [tUnite_1 process_data_end ] stop
+									 */
+
 								} // End of branch "avantages"
 
 								/**
@@ -2962,6 +3421,315 @@ public class type_avantage_dim implements TalendJob {
 				 */
 
 				/**
+				 * [tRowGenerator_1 begin ] start
+				 */
+
+				ok_Hash.put("tRowGenerator_1", false);
+				start_Hash.put("tRowGenerator_1", System.currentTimeMillis());
+
+				currentComponent = "tRowGenerator_1";
+
+				int tos_count_tRowGenerator_1 = 0;
+
+				int nb_line_tRowGenerator_1 = 0;
+				int nb_max_row_tRowGenerator_1 = 1;
+
+				class tRowGenerator_1Randomizer {
+					public int getRandomtype_avantage_id() {
+
+						return 10;
+
+					}
+
+					public String getRandomtype_avantage_nom() {
+
+						return "INCONNU";
+
+					}
+				}
+				tRowGenerator_1Randomizer randtRowGenerator_1 = new tRowGenerator_1Randomizer();
+
+				for (int itRowGenerator_1 = 0; itRowGenerator_1 < nb_max_row_tRowGenerator_1; itRowGenerator_1++) {
+					row2.type_avantage_id = randtRowGenerator_1.getRandomtype_avantage_id();
+					row2.type_avantage_nom = randtRowGenerator_1.getRandomtype_avantage_nom();
+					nb_line_tRowGenerator_1++;
+
+					/**
+					 * [tRowGenerator_1 begin ] stop
+					 */
+
+					/**
+					 * [tRowGenerator_1 main ] start
+					 */
+
+					currentComponent = "tRowGenerator_1";
+
+					tos_count_tRowGenerator_1++;
+
+					/**
+					 * [tRowGenerator_1 main ] stop
+					 */
+
+					/**
+					 * [tRowGenerator_1 process_data_begin ] start
+					 */
+
+					currentComponent = "tRowGenerator_1";
+
+					/**
+					 * [tRowGenerator_1 process_data_begin ] stop
+					 */
+
+					/**
+					 * [tUnite_1 main ] start
+					 */
+
+					currentComponent = "tUnite_1";
+
+					if (execStat) {
+						runStat.updateStatOnConnection(iterateId, 1, 1, "row2");
+					}
+
+//////////
+
+// for output
+					row1 = new row1Struct();
+
+					row1.type_avantage_id = row2.type_avantage_id;
+					row1.type_avantage_nom = row2.type_avantage_nom;
+
+					nb_line_tUnite_1++;
+
+//////////
+
+					tos_count_tUnite_1++;
+
+					/**
+					 * [tUnite_1 main ] stop
+					 */
+
+					/**
+					 * [tUnite_1 process_data_begin ] start
+					 */
+
+					currentComponent = "tUnite_1";
+
+					/**
+					 * [tUnite_1 process_data_begin ] stop
+					 */
+
+					/**
+					 * [tDBOutput_1 main ] start
+					 */
+
+					currentComponent = "tDBOutput_1";
+
+					if (execStat) {
+						runStat.updateStatOnConnection(iterateId, 1, 1, "row1");
+					}
+
+					logs = null;
+					whetherReject_tDBOutput_1 = false;
+					pstmt_tDBOutput_1.setInt(1, row1.type_avantage_id);
+
+					if (row1.type_avantage_nom == null) {
+						pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
+					} else {
+						pstmt_tDBOutput_1.setString(2, row1.type_avantage_nom);
+					}
+
+					pstmt_tDBOutput_1.addBatch();
+					nb_line_tDBOutput_1++;
+
+					batchSizeCounter_tDBOutput_1++;
+					if (!whetherReject_tDBOutput_1) {
+						logs = new logsStruct();
+						logs.type_avantage_id = row1.type_avantage_id;
+						logs.type_avantage_nom = row1.type_avantage_nom;
+					}
+					if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
+						try {
+							int countSum_tDBOutput_1 = 0;
+							for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+								countSum_tDBOutput_1 += (countEach_tDBOutput_1 == java.sql.Statement.EXECUTE_FAILED ? 0
+										: 1);
+							}
+							insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+						} catch (java.sql.BatchUpdateException e) {
+							int countSum_tDBOutput_1 = 0;
+							for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+								countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : countEach_tDBOutput_1);
+							}
+							insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+							System.err.println(e.getMessage());
+						}
+
+						batchSizeCounter_tDBOutput_1 = 0;
+					}
+					commitCounter_tDBOutput_1++;
+
+					if (commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
+
+						try {
+							int countSum_tDBOutput_1 = 0;
+							for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+								countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : 1);
+							}
+							insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+						} catch (java.sql.BatchUpdateException e) {
+							int countSum_tDBOutput_1 = 0;
+							for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+								countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : countEach_tDBOutput_1);
+							}
+							insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+							System.err.println(e.getMessage());
+
+						}
+						conn_tDBOutput_1.commit();
+						commitCounter_tDBOutput_1 = 0;
+
+					}
+
+					tos_count_tDBOutput_1++;
+
+					/**
+					 * [tDBOutput_1 main ] stop
+					 */
+
+					/**
+					 * [tDBOutput_1 process_data_begin ] start
+					 */
+
+					currentComponent = "tDBOutput_1";
+
+					/**
+					 * [tDBOutput_1 process_data_begin ] stop
+					 */
+// Start of branch "logs"
+					if (logs != null) {
+
+						/**
+						 * [tLogRow_1 main ] start
+						 */
+
+						currentComponent = "tLogRow_1";
+
+						if (execStat) {
+							runStat.updateStatOnConnection(iterateId, 1, 1, "logs");
+						}
+
+///////////////////////		
+
+						String[] row_tLogRow_1 = new String[2];
+
+						row_tLogRow_1[0] = String.valueOf(logs.type_avantage_id);
+
+						if (logs.type_avantage_nom != null) { //
+							row_tLogRow_1[1] = String.valueOf(logs.type_avantage_nom);
+
+						} //
+
+						util_tLogRow_1.addRow(row_tLogRow_1);
+						nb_line_tLogRow_1++;
+//////
+
+//////                    
+
+///////////////////////    			
+
+						tos_count_tLogRow_1++;
+
+						/**
+						 * [tLogRow_1 main ] stop
+						 */
+
+						/**
+						 * [tLogRow_1 process_data_begin ] start
+						 */
+
+						currentComponent = "tLogRow_1";
+
+						/**
+						 * [tLogRow_1 process_data_begin ] stop
+						 */
+
+						/**
+						 * [tLogRow_1 process_data_end ] start
+						 */
+
+						currentComponent = "tLogRow_1";
+
+						/**
+						 * [tLogRow_1 process_data_end ] stop
+						 */
+
+					} // End of branch "logs"
+
+					/**
+					 * [tDBOutput_1 process_data_end ] start
+					 */
+
+					currentComponent = "tDBOutput_1";
+
+					/**
+					 * [tDBOutput_1 process_data_end ] stop
+					 */
+
+					/**
+					 * [tUnite_1 process_data_end ] start
+					 */
+
+					currentComponent = "tUnite_1";
+
+					/**
+					 * [tUnite_1 process_data_end ] stop
+					 */
+
+					/**
+					 * [tRowGenerator_1 process_data_end ] start
+					 */
+
+					currentComponent = "tRowGenerator_1";
+
+					/**
+					 * [tRowGenerator_1 process_data_end ] stop
+					 */
+
+					/**
+					 * [tRowGenerator_1 end ] start
+					 */
+
+					currentComponent = "tRowGenerator_1";
+
+				}
+				globalMap.put("tRowGenerator_1_NB_LINE", nb_line_tRowGenerator_1);
+
+				ok_Hash.put("tRowGenerator_1", true);
+				end_Hash.put("tRowGenerator_1", System.currentTimeMillis());
+
+				/**
+				 * [tRowGenerator_1 end ] stop
+				 */
+
+				/**
+				 * [tUnite_1 end ] start
+				 */
+
+				currentComponent = "tUnite_1";
+
+				globalMap.put("tUnite_1_NB_LINE", nb_line_tUnite_1);
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row2", "avantages");
+				}
+
+				ok_Hash.put("tUnite_1", true);
+				end_Hash.put("tUnite_1", System.currentTimeMillis());
+
+				/**
+				 * [tUnite_1 end ] stop
+				 */
+
+				/**
 				 * [tDBOutput_1 end ] start
 				 */
 
@@ -3024,7 +3792,7 @@ public class type_avantage_dim implements TalendJob {
 				globalMap.put("tDBOutput_1_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_1);
 
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "avantages");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row1");
 				}
 
 				ok_Hash.put("tDBOutput_1", true);
@@ -3112,6 +3880,26 @@ public class type_avantage_dim implements TalendJob {
 
 				/**
 				 * [tUniqRow_1 finally ] stop
+				 */
+
+				/**
+				 * [tRowGenerator_1 finally ] start
+				 */
+
+				currentComponent = "tRowGenerator_1";
+
+				/**
+				 * [tRowGenerator_1 finally ] stop
+				 */
+
+				/**
+				 * [tUnite_1 finally ] start
+				 */
+
+				currentComponent = "tUnite_1";
+
+				/**
+				 * [tUnite_1 finally ] stop
 				 */
 
 				/**
@@ -3524,6 +4312,6 @@ public class type_avantage_dim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 110880 characters generated by Talend Open Studio for Data Integration on the
- * 25 janvier 2021 20:47:49 CET
+ * 131146 characters generated by Talend Open Studio for Data Integration on the
+ * 26 janvier 2021 15:21:27 CET
  ************************************************************************************************/
