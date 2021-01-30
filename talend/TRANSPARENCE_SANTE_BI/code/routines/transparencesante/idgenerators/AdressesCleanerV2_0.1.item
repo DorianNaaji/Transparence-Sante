@@ -1,14 +1,27 @@
 package routines;
 
 import java.text.Normalizer;
+import java.util.Arrays;
 
 public class AdressesCleanerV2 {
 	
 	private static String NA = "N/A";
+	private static String[] FORBIDDEN_CPs = new String[] {"00000", "99999", "00000000", "000000", "0000"};
 	
 	public static String generateId(String CP, String ville)
 	{
-		if(CP != null && CP.trim().chars().allMatch(Character::isDigit) && !CP.trim().equals("00000") && !CP.trim().equals("99999"))
+		String trimmedCP;
+		if(CP != null)
+		{
+			trimmedCP = CP.trim();
+		}
+		else
+		{
+			return AdressesCleanerV2.NA; 
+		}
+		
+		
+		if(trimmedCP != null && trimmedCP.trim().chars().allMatch(Character::isDigit) && !Arrays.stream(FORBIDDEN_CPs).anyMatch(trimmedCP::equals))
 		{
 			return CP.trim() + "|" + normalizeField(ville);
 		}

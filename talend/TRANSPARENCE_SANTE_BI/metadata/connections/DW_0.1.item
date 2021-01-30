@@ -234,7 +234,7 @@
     </ownedElement>
     <ownedElement xsi:type="relational:TdTable" xmi:id="_K5WTsQmHEeuvUZ6jv3Exkw" name="beneficiaire_dim" id="_K5WTsAmHEeuvUZ6jv3Exkw" label="beneficiaire_dim" tableType="TABLE">
       <taggedValue xmi:id="_K5WTsgmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K5WTswmHEeuvUZ6jv3Exkw" name="beneficiaire_id" label="beneficiaire_id" length="50" sourceType="VARCHAR" talendType="id_String" key="true" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K5WTswmHEeuvUZ6jv3Exkw" name="beneficiaire_id" label="beneficiaire_id" length="200" sourceType="VARCHAR" talendType="id_String" key="true" nullable="false">
         <taggedValue xmi:id="_K5WTtAmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5WTtQmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K5WTtgmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
@@ -267,7 +267,7 @@
     </ownedElement>
     <ownedElement xsi:type="relational:TdTable" xmi:id="_K5jIAAmHEeuvUZ6jv3Exkw" name="avantage_remuneration_fact" id="_K5ig8AmHEeuvUZ6jv3Exkw" label="avantage_remuneration_fact" tableType="TABLE">
       <taggedValue xmi:id="_K5jIAQmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K5jIAgmHEeuvUZ6jv3Exkw" name="ligne_id" label="ligne_id" length="100" sourceType="VARCHAR" talendType="id_String" key="true" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K5jIAgmHEeuvUZ6jv3Exkw" name="ligne_id" label="ligne_id" length="200" sourceType="VARCHAR" talendType="id_String" key="true" nullable="false">
         <taggedValue xmi:id="_K5jIAwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5jIBAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K5jIBQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
@@ -277,7 +277,7 @@
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5jICAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K5jICQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_K5jICgmHEeuvUZ6jv3Exkw" name="beneficiaire_id" label="beneficiaire_id" length="50" sourceType="VARCHAR" talendType="id_String" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_K5jICgmHEeuvUZ6jv3Exkw" name="beneficiaire_id" label="beneficiaire_id" length="200" sourceType="VARCHAR" talendType="id_String" nullable="false">
         <taggedValue xmi:id="_K5jICwmHEeuvUZ6jv3Exkw" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_K5jIDAmHEeuvUZ6jv3Exkw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_K5jIDQmHEeuvUZ6jv3Exkw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>

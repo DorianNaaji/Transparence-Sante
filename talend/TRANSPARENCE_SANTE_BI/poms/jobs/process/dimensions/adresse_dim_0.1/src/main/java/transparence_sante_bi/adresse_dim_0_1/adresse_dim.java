@@ -1225,58 +1225,10 @@ public class adresse_dim implements TalendJob {
 			return this.admin_name1;
 		}
 
-		public String admin_code1;
-
-		public String getAdmin_code1() {
-			return this.admin_code1;
-		}
-
 		public String admin_name2;
 
 		public String getAdmin_name2() {
 			return this.admin_name2;
-		}
-
-		public String admin_code2;
-
-		public String getAdmin_code2() {
-			return this.admin_code2;
-		}
-
-		public String admin_name3;
-
-		public String getAdmin_name3() {
-			return this.admin_name3;
-		}
-
-		public String admin_code3;
-
-		public String getAdmin_code3() {
-			return this.admin_code3;
-		}
-
-		public String latitude;
-
-		public String getLatitude() {
-			return this.latitude;
-		}
-
-		public String longitude;
-
-		public String getLongitude() {
-			return this.longitude;
-		}
-
-		public String accuracy;
-
-		public String getAccuracy() {
-			return this.accuracy;
-		}
-
-		public String coordinates;
-
-		public String getCoordinates() {
-			return this.coordinates;
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -1325,23 +1277,7 @@ public class adresse_dim implements TalendJob {
 
 					this.admin_name1 = readString(dis);
 
-					this.admin_code1 = readString(dis);
-
 					this.admin_name2 = readString(dis);
-
-					this.admin_code2 = readString(dis);
-
-					this.admin_name3 = readString(dis);
-
-					this.admin_code3 = readString(dis);
-
-					this.latitude = readString(dis);
-
-					this.longitude = readString(dis);
-
-					this.accuracy = readString(dis);
-
-					this.coordinates = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1373,39 +1309,7 @@ public class adresse_dim implements TalendJob {
 
 				// String
 
-				writeString(this.admin_code1, dos);
-
-				// String
-
 				writeString(this.admin_name2, dos);
-
-				// String
-
-				writeString(this.admin_code2, dos);
-
-				// String
-
-				writeString(this.admin_name3, dos);
-
-				// String
-
-				writeString(this.admin_code3, dos);
-
-				// String
-
-				writeString(this.latitude, dos);
-
-				// String
-
-				writeString(this.longitude, dos);
-
-				// String
-
-				writeString(this.accuracy, dos);
-
-				// String
-
-				writeString(this.coordinates, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -1422,15 +1326,7 @@ public class adresse_dim implements TalendJob {
 			sb.append(",postal_code=" + postal_code);
 			sb.append(",place_name=" + place_name);
 			sb.append(",admin_name1=" + admin_name1);
-			sb.append(",admin_code1=" + admin_code1);
 			sb.append(",admin_name2=" + admin_name2);
-			sb.append(",admin_code2=" + admin_code2);
-			sb.append(",admin_name3=" + admin_name3);
-			sb.append(",admin_code3=" + admin_code3);
-			sb.append(",latitude=" + latitude);
-			sb.append(",longitude=" + longitude);
-			sb.append(",accuracy=" + accuracy);
-			sb.append(",coordinates=" + coordinates);
 			sb.append("]");
 
 			return sb.toString();
@@ -1497,58 +1393,10 @@ public class adresse_dim implements TalendJob {
 			return this.admin_name1;
 		}
 
-		public String admin_code1;
-
-		public String getAdmin_code1() {
-			return this.admin_code1;
-		}
-
 		public String admin_name2;
 
 		public String getAdmin_name2() {
 			return this.admin_name2;
-		}
-
-		public String admin_code2;
-
-		public String getAdmin_code2() {
-			return this.admin_code2;
-		}
-
-		public String admin_name3;
-
-		public String getAdmin_name3() {
-			return this.admin_name3;
-		}
-
-		public String admin_code3;
-
-		public String getAdmin_code3() {
-			return this.admin_code3;
-		}
-
-		public String latitude;
-
-		public String getLatitude() {
-			return this.latitude;
-		}
-
-		public String longitude;
-
-		public String getLongitude() {
-			return this.longitude;
-		}
-
-		public String accuracy;
-
-		public String getAccuracy() {
-			return this.accuracy;
-		}
-
-		public String coordinates;
-
-		public String getCoordinates() {
-			return this.coordinates;
 		}
 
 		public String errorMessage;
@@ -1603,23 +1451,7 @@ public class adresse_dim implements TalendJob {
 
 					this.admin_name1 = readString(dis);
 
-					this.admin_code1 = readString(dis);
-
 					this.admin_name2 = readString(dis);
-
-					this.admin_code2 = readString(dis);
-
-					this.admin_name3 = readString(dis);
-
-					this.admin_code3 = readString(dis);
-
-					this.latitude = readString(dis);
-
-					this.longitude = readString(dis);
-
-					this.accuracy = readString(dis);
-
-					this.coordinates = readString(dis);
 
 					this.errorMessage = readString(dis);
 
@@ -1653,39 +1485,7 @@ public class adresse_dim implements TalendJob {
 
 				// String
 
-				writeString(this.admin_code1, dos);
-
-				// String
-
 				writeString(this.admin_name2, dos);
-
-				// String
-
-				writeString(this.admin_code2, dos);
-
-				// String
-
-				writeString(this.admin_name3, dos);
-
-				// String
-
-				writeString(this.admin_code3, dos);
-
-				// String
-
-				writeString(this.latitude, dos);
-
-				// String
-
-				writeString(this.longitude, dos);
-
-				// String
-
-				writeString(this.accuracy, dos);
-
-				// String
-
-				writeString(this.coordinates, dos);
 
 				// String
 
@@ -1706,15 +1506,7 @@ public class adresse_dim implements TalendJob {
 			sb.append(",postal_code=" + postal_code);
 			sb.append(",place_name=" + place_name);
 			sb.append(",admin_name1=" + admin_name1);
-			sb.append(",admin_code1=" + admin_code1);
 			sb.append(",admin_name2=" + admin_name2);
-			sb.append(",admin_code2=" + admin_code2);
-			sb.append(",admin_name3=" + admin_name3);
-			sb.append(",admin_code3=" + admin_code3);
-			sb.append(",latitude=" + latitude);
-			sb.append(",longitude=" + longitude);
-			sb.append(",accuracy=" + accuracy);
-			sb.append(",coordinates=" + coordinates);
 			sb.append(",errorMessage=" + errorMessage);
 			sb.append("]");
 
@@ -1782,58 +1574,10 @@ public class adresse_dim implements TalendJob {
 			return this.admin_name1;
 		}
 
-		public String admin_code1;
-
-		public String getAdmin_code1() {
-			return this.admin_code1;
-		}
-
 		public String admin_name2;
 
 		public String getAdmin_name2() {
 			return this.admin_name2;
-		}
-
-		public String admin_code2;
-
-		public String getAdmin_code2() {
-			return this.admin_code2;
-		}
-
-		public String admin_name3;
-
-		public String getAdmin_name3() {
-			return this.admin_name3;
-		}
-
-		public String admin_code3;
-
-		public String getAdmin_code3() {
-			return this.admin_code3;
-		}
-
-		public String latitude;
-
-		public String getLatitude() {
-			return this.latitude;
-		}
-
-		public String longitude;
-
-		public String getLongitude() {
-			return this.longitude;
-		}
-
-		public String accuracy;
-
-		public String getAccuracy() {
-			return this.accuracy;
-		}
-
-		public String coordinates;
-
-		public String getCoordinates() {
-			return this.coordinates;
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -1882,23 +1626,7 @@ public class adresse_dim implements TalendJob {
 
 					this.admin_name1 = readString(dis);
 
-					this.admin_code1 = readString(dis);
-
 					this.admin_name2 = readString(dis);
-
-					this.admin_code2 = readString(dis);
-
-					this.admin_name3 = readString(dis);
-
-					this.admin_code3 = readString(dis);
-
-					this.latitude = readString(dis);
-
-					this.longitude = readString(dis);
-
-					this.accuracy = readString(dis);
-
-					this.coordinates = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1930,39 +1658,7 @@ public class adresse_dim implements TalendJob {
 
 				// String
 
-				writeString(this.admin_code1, dos);
-
-				// String
-
 				writeString(this.admin_name2, dos);
-
-				// String
-
-				writeString(this.admin_code2, dos);
-
-				// String
-
-				writeString(this.admin_name3, dos);
-
-				// String
-
-				writeString(this.admin_code3, dos);
-
-				// String
-
-				writeString(this.latitude, dos);
-
-				// String
-
-				writeString(this.longitude, dos);
-
-				// String
-
-				writeString(this.accuracy, dos);
-
-				// String
-
-				writeString(this.coordinates, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -1979,15 +1675,7 @@ public class adresse_dim implements TalendJob {
 			sb.append(",postal_code=" + postal_code);
 			sb.append(",place_name=" + place_name);
 			sb.append(",admin_name1=" + admin_name1);
-			sb.append(",admin_code1=" + admin_code1);
 			sb.append(",admin_name2=" + admin_name2);
-			sb.append(",admin_code2=" + admin_code2);
-			sb.append(",admin_name3=" + admin_name3);
-			sb.append(",admin_code3=" + admin_code3);
-			sb.append(",latitude=" + latitude);
-			sb.append(",longitude=" + longitude);
-			sb.append(",accuracy=" + accuracy);
-			sb.append(",coordinates=" + coordinates);
 			sb.append("]");
 
 			return sb.toString();
@@ -2055,58 +1743,10 @@ public class adresse_dim implements TalendJob {
 			return this.admin_name1;
 		}
 
-		public String admin_code1;
-
-		public String getAdmin_code1() {
-			return this.admin_code1;
-		}
-
 		public String admin_name2;
 
 		public String getAdmin_name2() {
 			return this.admin_name2;
-		}
-
-		public String admin_code2;
-
-		public String getAdmin_code2() {
-			return this.admin_code2;
-		}
-
-		public String admin_name3;
-
-		public String getAdmin_name3() {
-			return this.admin_name3;
-		}
-
-		public String admin_code3;
-
-		public String getAdmin_code3() {
-			return this.admin_code3;
-		}
-
-		public String latitude;
-
-		public String getLatitude() {
-			return this.latitude;
-		}
-
-		public String longitude;
-
-		public String getLongitude() {
-			return this.longitude;
-		}
-
-		public String accuracy;
-
-		public String getAccuracy() {
-			return this.accuracy;
-		}
-
-		public String coordinates;
-
-		public String getCoordinates() {
-			return this.coordinates;
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -2155,23 +1795,7 @@ public class adresse_dim implements TalendJob {
 
 					this.admin_name1 = readString(dis);
 
-					this.admin_code1 = readString(dis);
-
 					this.admin_name2 = readString(dis);
-
-					this.admin_code2 = readString(dis);
-
-					this.admin_name3 = readString(dis);
-
-					this.admin_code3 = readString(dis);
-
-					this.latitude = readString(dis);
-
-					this.longitude = readString(dis);
-
-					this.accuracy = readString(dis);
-
-					this.coordinates = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -2203,39 +1827,7 @@ public class adresse_dim implements TalendJob {
 
 				// String
 
-				writeString(this.admin_code1, dos);
-
-				// String
-
 				writeString(this.admin_name2, dos);
-
-				// String
-
-				writeString(this.admin_code2, dos);
-
-				// String
-
-				writeString(this.admin_name3, dos);
-
-				// String
-
-				writeString(this.admin_code3, dos);
-
-				// String
-
-				writeString(this.latitude, dos);
-
-				// String
-
-				writeString(this.longitude, dos);
-
-				// String
-
-				writeString(this.accuracy, dos);
-
-				// String
-
-				writeString(this.coordinates, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -2252,15 +1844,7 @@ public class adresse_dim implements TalendJob {
 			sb.append(",postal_code=" + postal_code);
 			sb.append(",place_name=" + place_name);
 			sb.append(",admin_name1=" + admin_name1);
-			sb.append(",admin_code1=" + admin_code1);
 			sb.append(",admin_name2=" + admin_name2);
-			sb.append(",admin_code2=" + admin_code2);
-			sb.append(",admin_name3=" + admin_name3);
-			sb.append(",admin_code3=" + admin_code3);
-			sb.append(",latitude=" + latitude);
-			sb.append(",longitude=" + longitude);
-			sb.append(",accuracy=" + accuracy);
-			sb.append(",coordinates=" + coordinates);
 			sb.append("]");
 
 			return sb.toString();
@@ -2700,7 +2284,7 @@ public class adresse_dim implements TalendJob {
 				String dbUser_tDBOutput_1 = "root";
 
 				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:FXL79lnwUBoHBseAFrR7LVcpT0fV95MUVxOUQw==");
+						.decryptPassword("enc:routine.encryption.key.v1:US8T53N29KGTP52RMpa5MEQzPzZszZhybHb+WQ==");
 
 				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
 				java.lang.Class.forName(driverClass_tDBOutput_1);
@@ -2741,7 +2325,7 @@ public class adresse_dim implements TalendJob {
 				currentComponent = "tUnite_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row6", "NA");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "NA", "row6");
 				}
 
 				int tos_count_tUnite_1 = 0;
@@ -3168,39 +2752,7 @@ public class adresse_dim implements TalendJob {
 
 							columnIndexWithD_tFileInputDelimited_1 = 4;
 
-							row8.admin_code1 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 5;
-
 							row8.admin_name2 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 6;
-
-							row8.admin_code2 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 7;
-
-							row8.admin_name3 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 8;
-
-							row8.admin_code3 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 9;
-
-							row8.latitude = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 10;
-
-							row8.longitude = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 11;
-
-							row8.accuracy = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 12;
-
-							row8.coordinates = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
 							if (rowstate_tFileInputDelimited_1.getException() != null) {
 								throw rowstate_tFileInputDelimited_1.getException();
@@ -3273,6 +2825,7 @@ public class adresse_dim implements TalendJob {
 									|| !(row8.admin_name2.replaceAll("[^A-Za-z0-9]", "")).equals("")
 									|| !(row8.admin_name1.replaceAll("[^A-Za-z0-9]", "")).equals("")
 									|| !(row8.country_code.replaceAll("[^A-Za-z0-9]", "")).equals("")
+									|| row8.country_code != null
 									|| !(row8.postal_code.replaceAll("[^A-Za-z0-9]", "")).equals("")),
 									"advanced condition failed");
 
@@ -3284,15 +2837,7 @@ public class adresse_dim implements TalendJob {
 								row1.postal_code = row8.postal_code;
 								row1.place_name = row8.place_name;
 								row1.admin_name1 = row8.admin_name1;
-								row1.admin_code1 = row8.admin_code1;
 								row1.admin_name2 = row8.admin_name2;
-								row1.admin_code2 = row8.admin_code2;
-								row1.admin_name3 = row8.admin_name3;
-								row1.admin_code3 = row8.admin_code3;
-								row1.latitude = row8.latitude;
-								row1.longitude = row8.longitude;
-								row1.accuracy = row8.accuracy;
-								row1.coordinates = row8.coordinates;
 								nb_line_ok_tFilterRow_2++;
 							} else {
 								if (row9 == null) {
@@ -3302,15 +2847,7 @@ public class adresse_dim implements TalendJob {
 								row9.postal_code = row8.postal_code;
 								row9.place_name = row8.place_name;
 								row9.admin_name1 = row8.admin_name1;
-								row9.admin_code1 = row8.admin_code1;
 								row9.admin_name2 = row8.admin_name2;
-								row9.admin_code2 = row8.admin_code2;
-								row9.admin_name3 = row8.admin_name3;
-								row9.admin_code3 = row8.admin_code3;
-								row9.latitude = row8.latitude;
-								row9.longitude = row8.longitude;
-								row9.accuracy = row8.accuracy;
-								row9.coordinates = row8.coordinates;
 								row9.errorMessage = ope_tFilterRow_2.getErrorMsg();
 								nb_line_reject_tFilterRow_2++;
 							}
@@ -3407,14 +2944,16 @@ public class adresse_dim implements TalendJob {
 									adresse = null;
 
 // # Output table : 'adresse'
-									adresse_tmp.adresse_id = row1.country_code.concat(row1.postal_code)
-											.concat(row1.place_name.replaceAll("[^A-Za-z0-9]", ""));
+									adresse_tmp.adresse_id = row1.country_code == null || row1.place_name == null
+											? "N/A"
+											: row1.country_code.concat(row1.postal_code);
 									adresse_tmp.ville = row1.place_name.replaceAll("[^A-Za-z0-9]", "");
 									adresse_tmp.code_postal = row1.postal_code;
 									adresse_tmp.departement = row1.admin_name2;
 									adresse_tmp.region = row1.admin_name1;
-									adresse_tmp.pays_code = row2.ISO3166_1_Alpha_2;
-									adresse_tmp.pays = row2.official_name_fr;
+									adresse_tmp.pays_code = row2.ISO3166_1_Alpha_2 == null ? "N/A"
+											: row2.ISO3166_1_Alpha_2;
+									adresse_tmp.pays = row2.official_name_fr == null ? "N/A" : row2.official_name_fr;
 									adresse = adresse_tmp;
 // ###############################
 
@@ -3828,40 +3367,8 @@ public class adresse_dim implements TalendJob {
 									sb_tFileOutputDelimited_3.append(row9.admin_name1);
 								}
 								sb_tFileOutputDelimited_3.append(OUT_DELIM_tFileOutputDelimited_3);
-								if (row9.admin_code1 != null) {
-									sb_tFileOutputDelimited_3.append(row9.admin_code1);
-								}
-								sb_tFileOutputDelimited_3.append(OUT_DELIM_tFileOutputDelimited_3);
 								if (row9.admin_name2 != null) {
 									sb_tFileOutputDelimited_3.append(row9.admin_name2);
-								}
-								sb_tFileOutputDelimited_3.append(OUT_DELIM_tFileOutputDelimited_3);
-								if (row9.admin_code2 != null) {
-									sb_tFileOutputDelimited_3.append(row9.admin_code2);
-								}
-								sb_tFileOutputDelimited_3.append(OUT_DELIM_tFileOutputDelimited_3);
-								if (row9.admin_name3 != null) {
-									sb_tFileOutputDelimited_3.append(row9.admin_name3);
-								}
-								sb_tFileOutputDelimited_3.append(OUT_DELIM_tFileOutputDelimited_3);
-								if (row9.admin_code3 != null) {
-									sb_tFileOutputDelimited_3.append(row9.admin_code3);
-								}
-								sb_tFileOutputDelimited_3.append(OUT_DELIM_tFileOutputDelimited_3);
-								if (row9.latitude != null) {
-									sb_tFileOutputDelimited_3.append(row9.latitude);
-								}
-								sb_tFileOutputDelimited_3.append(OUT_DELIM_tFileOutputDelimited_3);
-								if (row9.longitude != null) {
-									sb_tFileOutputDelimited_3.append(row9.longitude);
-								}
-								sb_tFileOutputDelimited_3.append(OUT_DELIM_tFileOutputDelimited_3);
-								if (row9.accuracy != null) {
-									sb_tFileOutputDelimited_3.append(row9.accuracy);
-								}
-								sb_tFileOutputDelimited_3.append(OUT_DELIM_tFileOutputDelimited_3);
-								if (row9.coordinates != null) {
-									sb_tFileOutputDelimited_3.append(row9.coordinates);
 								}
 								sb_tFileOutputDelimited_3.append(OUT_DELIM_tFileOutputDelimited_3);
 								if (row9.errorMessage != null) {
@@ -4468,7 +3975,7 @@ public class adresse_dim implements TalendJob {
 
 				globalMap.put("tUnite_1_NB_LINE", nb_line_tUnite_1);
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row6", "NA");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "NA", "row6");
 				}
 
 				ok_Hash.put("tUnite_1", true);
@@ -4736,340 +4243,16 @@ public class adresse_dim implements TalendJob {
 
 		public String loopKey;
 
-		public String FIFA;
-
-		public String getFIFA() {
-			return this.FIFA;
-		}
-
-		public String Dial;
-
-		public String getDial() {
-			return this.Dial;
-		}
-
-		public String ISO3166_1_Alpha_3;
-
-		public String getISO3166_1_Alpha_3() {
-			return this.ISO3166_1_Alpha_3;
-		}
-
-		public String MARC;
-
-		public String getMARC() {
-			return this.MARC;
-		}
-
-		public String is_independent;
-
-		public String getIs_independent() {
-			return this.is_independent;
-		}
-
-		public String ISO3166_1_numeric;
-
-		public String getISO3166_1_numeric() {
-			return this.ISO3166_1_numeric;
-		}
-
-		public String GAUL;
-
-		public String getGAUL() {
-			return this.GAUL;
-		}
-
-		public String FIPS;
-
-		public String getFIPS() {
-			return this.FIPS;
-		}
-
-		public String WMO;
-
-		public String getWMO() {
-			return this.WMO;
-		}
-
 		public String ISO3166_1_Alpha_2;
 
 		public String getISO3166_1_Alpha_2() {
 			return this.ISO3166_1_Alpha_2;
 		}
 
-		public String ITU;
-
-		public String getITU() {
-			return this.ITU;
-		}
-
-		public String IOC;
-
-		public String getIOC() {
-			return this.IOC;
-		}
-
-		public String DS;
-
-		public String getDS() {
-			return this.DS;
-		}
-
-		public String UNTERM_Spanish_Formal;
-
-		public String getUNTERM_Spanish_Formal() {
-			return this.UNTERM_Spanish_Formal;
-		}
-
-		public String Global_Code;
-
-		public String getGlobal_Code() {
-			return this.Global_Code;
-		}
-
-		public String Intermediate_Region_Code;
-
-		public String getIntermediate_Region_Code() {
-			return this.Intermediate_Region_Code;
-		}
-
 		public String official_name_fr;
 
 		public String getOfficial_name_fr() {
 			return this.official_name_fr;
-		}
-
-		public String UNTERM_French_Short;
-
-		public String getUNTERM_French_Short() {
-			return this.UNTERM_French_Short;
-		}
-
-		public String ISO4217_currency_name;
-
-		public String getISO4217_currency_name() {
-			return this.ISO4217_currency_name;
-		}
-
-		public String Developed___Developing_Countries;
-
-		public String getDeveloped___Developing_Countries() {
-			return this.Developed___Developing_Countries;
-		}
-
-		public String UNTERM_Russian_Formal;
-
-		public String getUNTERM_Russian_Formal() {
-			return this.UNTERM_Russian_Formal;
-		}
-
-		public String UNTERM_English_Short;
-
-		public String getUNTERM_English_Short() {
-			return this.UNTERM_English_Short;
-		}
-
-		public String ISO4217_currency_alphabetic_code;
-
-		public String getISO4217_currency_alphabetic_code() {
-			return this.ISO4217_currency_alphabetic_code;
-		}
-
-		public String Small_Island_Developing_States__SIDS_;
-
-		public String getSmall_Island_Developing_States__SIDS_() {
-			return this.Small_Island_Developing_States__SIDS_;
-		}
-
-		public String UNTERM_Spanish_Short;
-
-		public String getUNTERM_Spanish_Short() {
-			return this.UNTERM_Spanish_Short;
-		}
-
-		public String ISO4217_currency_numeric_code;
-
-		public String getISO4217_currency_numeric_code() {
-			return this.ISO4217_currency_numeric_code;
-		}
-
-		public String UNTERM_Chinese_Formal;
-
-		public String getUNTERM_Chinese_Formal() {
-			return this.UNTERM_Chinese_Formal;
-		}
-
-		public String UNTERM_French_Formal;
-
-		public String getUNTERM_French_Formal() {
-			return this.UNTERM_French_Formal;
-		}
-
-		public String UNTERM_Russian_Short;
-
-		public String getUNTERM_Russian_Short() {
-			return this.UNTERM_Russian_Short;
-		}
-
-		public String M49;
-
-		public String getM49() {
-			return this.M49;
-		}
-
-		public String Sub_region_Code;
-
-		public String getSub_region_Code() {
-			return this.Sub_region_Code;
-		}
-
-		public String Region_Code;
-
-		public String getRegion_Code() {
-			return this.Region_Code;
-		}
-
-		public String official_name_ar;
-
-		public String getOfficial_name_ar() {
-			return this.official_name_ar;
-		}
-
-		public String ISO4217_currency_minor_unit;
-
-		public String getISO4217_currency_minor_unit() {
-			return this.ISO4217_currency_minor_unit;
-		}
-
-		public String UNTERM_Arabic_Formal;
-
-		public String getUNTERM_Arabic_Formal() {
-			return this.UNTERM_Arabic_Formal;
-		}
-
-		public String UNTERM_Chinese_Short;
-
-		public String getUNTERM_Chinese_Short() {
-			return this.UNTERM_Chinese_Short;
-		}
-
-		public String Land_Locked_Developing_Countries__LLDC_;
-
-		public String getLand_Locked_Developing_Countries__LLDC_() {
-			return this.Land_Locked_Developing_Countries__LLDC_;
-		}
-
-		public String Intermediate_Region_Name;
-
-		public String getIntermediate_Region_Name() {
-			return this.Intermediate_Region_Name;
-		}
-
-		public String official_name_es;
-
-		public String getOfficial_name_es() {
-			return this.official_name_es;
-		}
-
-		public String UNTERM_English_Formal;
-
-		public String getUNTERM_English_Formal() {
-			return this.UNTERM_English_Formal;
-		}
-
-		public String official_name_cn;
-
-		public String getOfficial_name_cn() {
-			return this.official_name_cn;
-		}
-
-		public String official_name_en;
-
-		public String getOfficial_name_en() {
-			return this.official_name_en;
-		}
-
-		public String ISO4217_currency_country_name;
-
-		public String getISO4217_currency_country_name() {
-			return this.ISO4217_currency_country_name;
-		}
-
-		public String Least_Developed_Countries__LDC_;
-
-		public String getLeast_Developed_Countries__LDC_() {
-			return this.Least_Developed_Countries__LDC_;
-		}
-
-		public String Region_Name;
-
-		public String getRegion_Name() {
-			return this.Region_Name;
-		}
-
-		public String UNTERM_Arabic_Short;
-
-		public String getUNTERM_Arabic_Short() {
-			return this.UNTERM_Arabic_Short;
-		}
-
-		public String Sub_region_Name;
-
-		public String getSub_region_Name() {
-			return this.Sub_region_Name;
-		}
-
-		public String official_name_ru;
-
-		public String getOfficial_name_ru() {
-			return this.official_name_ru;
-		}
-
-		public String Global_Name;
-
-		public String getGlobal_Name() {
-			return this.Global_Name;
-		}
-
-		public String Capital;
-
-		public String getCapital() {
-			return this.Capital;
-		}
-
-		public String Continent;
-
-		public String getContinent() {
-			return this.Continent;
-		}
-
-		public String TLD;
-
-		public String getTLD() {
-			return this.TLD;
-		}
-
-		public String Languages;
-
-		public String getLanguages() {
-			return this.Languages;
-		}
-
-		public String Geoname_ID;
-
-		public String getGeoname_ID() {
-			return this.Geoname_ID;
-		}
-
-		public String CLDR_display_name;
-
-		public String getCLDR_display_name() {
-			return this.CLDR_display_name;
-		}
-
-		public String EDGAR;
-
-		public String getEDGAR() {
-			return this.EDGAR;
 		}
 
 		@Override
@@ -5109,62 +4292,8 @@ public class adresse_dim implements TalendJob {
 
 		public void copyDataTo(row2Struct other) {
 
-			other.FIFA = this.FIFA;
-			other.Dial = this.Dial;
-			other.ISO3166_1_Alpha_3 = this.ISO3166_1_Alpha_3;
-			other.MARC = this.MARC;
-			other.is_independent = this.is_independent;
-			other.ISO3166_1_numeric = this.ISO3166_1_numeric;
-			other.GAUL = this.GAUL;
-			other.FIPS = this.FIPS;
-			other.WMO = this.WMO;
 			other.ISO3166_1_Alpha_2 = this.ISO3166_1_Alpha_2;
-			other.ITU = this.ITU;
-			other.IOC = this.IOC;
-			other.DS = this.DS;
-			other.UNTERM_Spanish_Formal = this.UNTERM_Spanish_Formal;
-			other.Global_Code = this.Global_Code;
-			other.Intermediate_Region_Code = this.Intermediate_Region_Code;
 			other.official_name_fr = this.official_name_fr;
-			other.UNTERM_French_Short = this.UNTERM_French_Short;
-			other.ISO4217_currency_name = this.ISO4217_currency_name;
-			other.Developed___Developing_Countries = this.Developed___Developing_Countries;
-			other.UNTERM_Russian_Formal = this.UNTERM_Russian_Formal;
-			other.UNTERM_English_Short = this.UNTERM_English_Short;
-			other.ISO4217_currency_alphabetic_code = this.ISO4217_currency_alphabetic_code;
-			other.Small_Island_Developing_States__SIDS_ = this.Small_Island_Developing_States__SIDS_;
-			other.UNTERM_Spanish_Short = this.UNTERM_Spanish_Short;
-			other.ISO4217_currency_numeric_code = this.ISO4217_currency_numeric_code;
-			other.UNTERM_Chinese_Formal = this.UNTERM_Chinese_Formal;
-			other.UNTERM_French_Formal = this.UNTERM_French_Formal;
-			other.UNTERM_Russian_Short = this.UNTERM_Russian_Short;
-			other.M49 = this.M49;
-			other.Sub_region_Code = this.Sub_region_Code;
-			other.Region_Code = this.Region_Code;
-			other.official_name_ar = this.official_name_ar;
-			other.ISO4217_currency_minor_unit = this.ISO4217_currency_minor_unit;
-			other.UNTERM_Arabic_Formal = this.UNTERM_Arabic_Formal;
-			other.UNTERM_Chinese_Short = this.UNTERM_Chinese_Short;
-			other.Land_Locked_Developing_Countries__LLDC_ = this.Land_Locked_Developing_Countries__LLDC_;
-			other.Intermediate_Region_Name = this.Intermediate_Region_Name;
-			other.official_name_es = this.official_name_es;
-			other.UNTERM_English_Formal = this.UNTERM_English_Formal;
-			other.official_name_cn = this.official_name_cn;
-			other.official_name_en = this.official_name_en;
-			other.ISO4217_currency_country_name = this.ISO4217_currency_country_name;
-			other.Least_Developed_Countries__LDC_ = this.Least_Developed_Countries__LDC_;
-			other.Region_Name = this.Region_Name;
-			other.UNTERM_Arabic_Short = this.UNTERM_Arabic_Short;
-			other.Sub_region_Name = this.Sub_region_Name;
-			other.official_name_ru = this.official_name_ru;
-			other.Global_Name = this.Global_Name;
-			other.Capital = this.Capital;
-			other.Continent = this.Continent;
-			other.TLD = this.TLD;
-			other.Languages = this.Languages;
-			other.Geoname_ID = this.Geoname_ID;
-			other.CLDR_display_name = this.CLDR_display_name;
-			other.EDGAR = this.EDGAR;
 
 		}
 
@@ -5172,30 +4301,6 @@ public class adresse_dim implements TalendJob {
 
 			other.ISO3166_1_Alpha_2 = this.ISO3166_1_Alpha_2;
 
-		}
-
-		private String readString(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				byte[] byteArray = new byte[length];
-				dis.read(byteArray);
-				strReturn = new String(byteArray, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -5219,6 +4324,30 @@ public class adresse_dim implements TalendJob {
 		}
 
 		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private String readString(DataInputStream dis, ObjectInputStream ois) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				byte[] byteArray = new byte[length];
+				dis.read(byteArray);
+				strReturn = new String(byteArray, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
 			if (str == null) {
 				dos.writeInt(-1);
 			} else {
@@ -5268,115 +4397,7 @@ public class adresse_dim implements TalendJob {
 
 				int length = 0;
 
-				this.FIFA = readString(dis, ois);
-
-				this.Dial = readString(dis, ois);
-
-				this.ISO3166_1_Alpha_3 = readString(dis, ois);
-
-				this.MARC = readString(dis, ois);
-
-				this.is_independent = readString(dis, ois);
-
-				this.ISO3166_1_numeric = readString(dis, ois);
-
-				this.GAUL = readString(dis, ois);
-
-				this.FIPS = readString(dis, ois);
-
-				this.WMO = readString(dis, ois);
-
-				this.ITU = readString(dis, ois);
-
-				this.IOC = readString(dis, ois);
-
-				this.DS = readString(dis, ois);
-
-				this.UNTERM_Spanish_Formal = readString(dis, ois);
-
-				this.Global_Code = readString(dis, ois);
-
-				this.Intermediate_Region_Code = readString(dis, ois);
-
 				this.official_name_fr = readString(dis, ois);
-
-				this.UNTERM_French_Short = readString(dis, ois);
-
-				this.ISO4217_currency_name = readString(dis, ois);
-
-				this.Developed___Developing_Countries = readString(dis, ois);
-
-				this.UNTERM_Russian_Formal = readString(dis, ois);
-
-				this.UNTERM_English_Short = readString(dis, ois);
-
-				this.ISO4217_currency_alphabetic_code = readString(dis, ois);
-
-				this.Small_Island_Developing_States__SIDS_ = readString(dis, ois);
-
-				this.UNTERM_Spanish_Short = readString(dis, ois);
-
-				this.ISO4217_currency_numeric_code = readString(dis, ois);
-
-				this.UNTERM_Chinese_Formal = readString(dis, ois);
-
-				this.UNTERM_French_Formal = readString(dis, ois);
-
-				this.UNTERM_Russian_Short = readString(dis, ois);
-
-				this.M49 = readString(dis, ois);
-
-				this.Sub_region_Code = readString(dis, ois);
-
-				this.Region_Code = readString(dis, ois);
-
-				this.official_name_ar = readString(dis, ois);
-
-				this.ISO4217_currency_minor_unit = readString(dis, ois);
-
-				this.UNTERM_Arabic_Formal = readString(dis, ois);
-
-				this.UNTERM_Chinese_Short = readString(dis, ois);
-
-				this.Land_Locked_Developing_Countries__LLDC_ = readString(dis, ois);
-
-				this.Intermediate_Region_Name = readString(dis, ois);
-
-				this.official_name_es = readString(dis, ois);
-
-				this.UNTERM_English_Formal = readString(dis, ois);
-
-				this.official_name_cn = readString(dis, ois);
-
-				this.official_name_en = readString(dis, ois);
-
-				this.ISO4217_currency_country_name = readString(dis, ois);
-
-				this.Least_Developed_Countries__LDC_ = readString(dis, ois);
-
-				this.Region_Name = readString(dis, ois);
-
-				this.UNTERM_Arabic_Short = readString(dis, ois);
-
-				this.Sub_region_Name = readString(dis, ois);
-
-				this.official_name_ru = readString(dis, ois);
-
-				this.Global_Name = readString(dis, ois);
-
-				this.Capital = readString(dis, ois);
-
-				this.Continent = readString(dis, ois);
-
-				this.TLD = readString(dis, ois);
-
-				this.Languages = readString(dis, ois);
-
-				this.Geoname_ID = readString(dis, ois);
-
-				this.CLDR_display_name = readString(dis, ois);
-
-				this.EDGAR = readString(dis, ois);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -5391,115 +4412,7 @@ public class adresse_dim implements TalendJob {
 		public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
 			try {
 
-				writeString(this.FIFA, dos, oos);
-
-				writeString(this.Dial, dos, oos);
-
-				writeString(this.ISO3166_1_Alpha_3, dos, oos);
-
-				writeString(this.MARC, dos, oos);
-
-				writeString(this.is_independent, dos, oos);
-
-				writeString(this.ISO3166_1_numeric, dos, oos);
-
-				writeString(this.GAUL, dos, oos);
-
-				writeString(this.FIPS, dos, oos);
-
-				writeString(this.WMO, dos, oos);
-
-				writeString(this.ITU, dos, oos);
-
-				writeString(this.IOC, dos, oos);
-
-				writeString(this.DS, dos, oos);
-
-				writeString(this.UNTERM_Spanish_Formal, dos, oos);
-
-				writeString(this.Global_Code, dos, oos);
-
-				writeString(this.Intermediate_Region_Code, dos, oos);
-
 				writeString(this.official_name_fr, dos, oos);
-
-				writeString(this.UNTERM_French_Short, dos, oos);
-
-				writeString(this.ISO4217_currency_name, dos, oos);
-
-				writeString(this.Developed___Developing_Countries, dos, oos);
-
-				writeString(this.UNTERM_Russian_Formal, dos, oos);
-
-				writeString(this.UNTERM_English_Short, dos, oos);
-
-				writeString(this.ISO4217_currency_alphabetic_code, dos, oos);
-
-				writeString(this.Small_Island_Developing_States__SIDS_, dos, oos);
-
-				writeString(this.UNTERM_Spanish_Short, dos, oos);
-
-				writeString(this.ISO4217_currency_numeric_code, dos, oos);
-
-				writeString(this.UNTERM_Chinese_Formal, dos, oos);
-
-				writeString(this.UNTERM_French_Formal, dos, oos);
-
-				writeString(this.UNTERM_Russian_Short, dos, oos);
-
-				writeString(this.M49, dos, oos);
-
-				writeString(this.Sub_region_Code, dos, oos);
-
-				writeString(this.Region_Code, dos, oos);
-
-				writeString(this.official_name_ar, dos, oos);
-
-				writeString(this.ISO4217_currency_minor_unit, dos, oos);
-
-				writeString(this.UNTERM_Arabic_Formal, dos, oos);
-
-				writeString(this.UNTERM_Chinese_Short, dos, oos);
-
-				writeString(this.Land_Locked_Developing_Countries__LLDC_, dos, oos);
-
-				writeString(this.Intermediate_Region_Name, dos, oos);
-
-				writeString(this.official_name_es, dos, oos);
-
-				writeString(this.UNTERM_English_Formal, dos, oos);
-
-				writeString(this.official_name_cn, dos, oos);
-
-				writeString(this.official_name_en, dos, oos);
-
-				writeString(this.ISO4217_currency_country_name, dos, oos);
-
-				writeString(this.Least_Developed_Countries__LDC_, dos, oos);
-
-				writeString(this.Region_Name, dos, oos);
-
-				writeString(this.UNTERM_Arabic_Short, dos, oos);
-
-				writeString(this.Sub_region_Name, dos, oos);
-
-				writeString(this.official_name_ru, dos, oos);
-
-				writeString(this.Global_Name, dos, oos);
-
-				writeString(this.Capital, dos, oos);
-
-				writeString(this.Continent, dos, oos);
-
-				writeString(this.TLD, dos, oos);
-
-				writeString(this.Languages, dos, oos);
-
-				writeString(this.Geoname_ID, dos, oos);
-
-				writeString(this.CLDR_display_name, dos, oos);
-
-				writeString(this.EDGAR, dos, oos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -5512,62 +4425,8 @@ public class adresse_dim implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("FIFA=" + FIFA);
-			sb.append(",Dial=" + Dial);
-			sb.append(",ISO3166_1_Alpha_3=" + ISO3166_1_Alpha_3);
-			sb.append(",MARC=" + MARC);
-			sb.append(",is_independent=" + is_independent);
-			sb.append(",ISO3166_1_numeric=" + ISO3166_1_numeric);
-			sb.append(",GAUL=" + GAUL);
-			sb.append(",FIPS=" + FIPS);
-			sb.append(",WMO=" + WMO);
-			sb.append(",ISO3166_1_Alpha_2=" + ISO3166_1_Alpha_2);
-			sb.append(",ITU=" + ITU);
-			sb.append(",IOC=" + IOC);
-			sb.append(",DS=" + DS);
-			sb.append(",UNTERM_Spanish_Formal=" + UNTERM_Spanish_Formal);
-			sb.append(",Global_Code=" + Global_Code);
-			sb.append(",Intermediate_Region_Code=" + Intermediate_Region_Code);
+			sb.append("ISO3166_1_Alpha_2=" + ISO3166_1_Alpha_2);
 			sb.append(",official_name_fr=" + official_name_fr);
-			sb.append(",UNTERM_French_Short=" + UNTERM_French_Short);
-			sb.append(",ISO4217_currency_name=" + ISO4217_currency_name);
-			sb.append(",Developed___Developing_Countries=" + Developed___Developing_Countries);
-			sb.append(",UNTERM_Russian_Formal=" + UNTERM_Russian_Formal);
-			sb.append(",UNTERM_English_Short=" + UNTERM_English_Short);
-			sb.append(",ISO4217_currency_alphabetic_code=" + ISO4217_currency_alphabetic_code);
-			sb.append(",Small_Island_Developing_States__SIDS_=" + Small_Island_Developing_States__SIDS_);
-			sb.append(",UNTERM_Spanish_Short=" + UNTERM_Spanish_Short);
-			sb.append(",ISO4217_currency_numeric_code=" + ISO4217_currency_numeric_code);
-			sb.append(",UNTERM_Chinese_Formal=" + UNTERM_Chinese_Formal);
-			sb.append(",UNTERM_French_Formal=" + UNTERM_French_Formal);
-			sb.append(",UNTERM_Russian_Short=" + UNTERM_Russian_Short);
-			sb.append(",M49=" + M49);
-			sb.append(",Sub_region_Code=" + Sub_region_Code);
-			sb.append(",Region_Code=" + Region_Code);
-			sb.append(",official_name_ar=" + official_name_ar);
-			sb.append(",ISO4217_currency_minor_unit=" + ISO4217_currency_minor_unit);
-			sb.append(",UNTERM_Arabic_Formal=" + UNTERM_Arabic_Formal);
-			sb.append(",UNTERM_Chinese_Short=" + UNTERM_Chinese_Short);
-			sb.append(",Land_Locked_Developing_Countries__LLDC_=" + Land_Locked_Developing_Countries__LLDC_);
-			sb.append(",Intermediate_Region_Name=" + Intermediate_Region_Name);
-			sb.append(",official_name_es=" + official_name_es);
-			sb.append(",UNTERM_English_Formal=" + UNTERM_English_Formal);
-			sb.append(",official_name_cn=" + official_name_cn);
-			sb.append(",official_name_en=" + official_name_en);
-			sb.append(",ISO4217_currency_country_name=" + ISO4217_currency_country_name);
-			sb.append(",Least_Developed_Countries__LDC_=" + Least_Developed_Countries__LDC_);
-			sb.append(",Region_Name=" + Region_Name);
-			sb.append(",UNTERM_Arabic_Short=" + UNTERM_Arabic_Short);
-			sb.append(",Sub_region_Name=" + Sub_region_Name);
-			sb.append(",official_name_ru=" + official_name_ru);
-			sb.append(",Global_Name=" + Global_Name);
-			sb.append(",Capital=" + Capital);
-			sb.append(",Continent=" + Continent);
-			sb.append(",TLD=" + TLD);
-			sb.append(",Languages=" + Languages);
-			sb.append(",Geoname_ID=" + Geoname_ID);
-			sb.append(",CLDR_display_name=" + CLDR_display_name);
-			sb.append(",EDGAR=" + EDGAR);
 			sb.append("]");
 
 			return sb.toString();
@@ -5615,340 +4474,16 @@ public class adresse_dim implements TalendJob {
 		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[0];
 		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[0];
 
-		public String FIFA;
-
-		public String getFIFA() {
-			return this.FIFA;
-		}
-
-		public String Dial;
-
-		public String getDial() {
-			return this.Dial;
-		}
-
-		public String ISO3166_1_Alpha_3;
-
-		public String getISO3166_1_Alpha_3() {
-			return this.ISO3166_1_Alpha_3;
-		}
-
-		public String MARC;
-
-		public String getMARC() {
-			return this.MARC;
-		}
-
-		public String is_independent;
-
-		public String getIs_independent() {
-			return this.is_independent;
-		}
-
-		public String ISO3166_1_numeric;
-
-		public String getISO3166_1_numeric() {
-			return this.ISO3166_1_numeric;
-		}
-
-		public String GAUL;
-
-		public String getGAUL() {
-			return this.GAUL;
-		}
-
-		public String FIPS;
-
-		public String getFIPS() {
-			return this.FIPS;
-		}
-
-		public String WMO;
-
-		public String getWMO() {
-			return this.WMO;
-		}
-
 		public String ISO3166_1_Alpha_2;
 
 		public String getISO3166_1_Alpha_2() {
 			return this.ISO3166_1_Alpha_2;
 		}
 
-		public String ITU;
-
-		public String getITU() {
-			return this.ITU;
-		}
-
-		public String IOC;
-
-		public String getIOC() {
-			return this.IOC;
-		}
-
-		public String DS;
-
-		public String getDS() {
-			return this.DS;
-		}
-
-		public String UNTERM_Spanish_Formal;
-
-		public String getUNTERM_Spanish_Formal() {
-			return this.UNTERM_Spanish_Formal;
-		}
-
-		public String Global_Code;
-
-		public String getGlobal_Code() {
-			return this.Global_Code;
-		}
-
-		public String Intermediate_Region_Code;
-
-		public String getIntermediate_Region_Code() {
-			return this.Intermediate_Region_Code;
-		}
-
 		public String official_name_fr;
 
 		public String getOfficial_name_fr() {
 			return this.official_name_fr;
-		}
-
-		public String UNTERM_French_Short;
-
-		public String getUNTERM_French_Short() {
-			return this.UNTERM_French_Short;
-		}
-
-		public String ISO4217_currency_name;
-
-		public String getISO4217_currency_name() {
-			return this.ISO4217_currency_name;
-		}
-
-		public String Developed___Developing_Countries;
-
-		public String getDeveloped___Developing_Countries() {
-			return this.Developed___Developing_Countries;
-		}
-
-		public String UNTERM_Russian_Formal;
-
-		public String getUNTERM_Russian_Formal() {
-			return this.UNTERM_Russian_Formal;
-		}
-
-		public String UNTERM_English_Short;
-
-		public String getUNTERM_English_Short() {
-			return this.UNTERM_English_Short;
-		}
-
-		public String ISO4217_currency_alphabetic_code;
-
-		public String getISO4217_currency_alphabetic_code() {
-			return this.ISO4217_currency_alphabetic_code;
-		}
-
-		public String Small_Island_Developing_States__SIDS_;
-
-		public String getSmall_Island_Developing_States__SIDS_() {
-			return this.Small_Island_Developing_States__SIDS_;
-		}
-
-		public String UNTERM_Spanish_Short;
-
-		public String getUNTERM_Spanish_Short() {
-			return this.UNTERM_Spanish_Short;
-		}
-
-		public String ISO4217_currency_numeric_code;
-
-		public String getISO4217_currency_numeric_code() {
-			return this.ISO4217_currency_numeric_code;
-		}
-
-		public String UNTERM_Chinese_Formal;
-
-		public String getUNTERM_Chinese_Formal() {
-			return this.UNTERM_Chinese_Formal;
-		}
-
-		public String UNTERM_French_Formal;
-
-		public String getUNTERM_French_Formal() {
-			return this.UNTERM_French_Formal;
-		}
-
-		public String UNTERM_Russian_Short;
-
-		public String getUNTERM_Russian_Short() {
-			return this.UNTERM_Russian_Short;
-		}
-
-		public String M49;
-
-		public String getM49() {
-			return this.M49;
-		}
-
-		public String Sub_region_Code;
-
-		public String getSub_region_Code() {
-			return this.Sub_region_Code;
-		}
-
-		public String Region_Code;
-
-		public String getRegion_Code() {
-			return this.Region_Code;
-		}
-
-		public String official_name_ar;
-
-		public String getOfficial_name_ar() {
-			return this.official_name_ar;
-		}
-
-		public String ISO4217_currency_minor_unit;
-
-		public String getISO4217_currency_minor_unit() {
-			return this.ISO4217_currency_minor_unit;
-		}
-
-		public String UNTERM_Arabic_Formal;
-
-		public String getUNTERM_Arabic_Formal() {
-			return this.UNTERM_Arabic_Formal;
-		}
-
-		public String UNTERM_Chinese_Short;
-
-		public String getUNTERM_Chinese_Short() {
-			return this.UNTERM_Chinese_Short;
-		}
-
-		public String Land_Locked_Developing_Countries__LLDC_;
-
-		public String getLand_Locked_Developing_Countries__LLDC_() {
-			return this.Land_Locked_Developing_Countries__LLDC_;
-		}
-
-		public String Intermediate_Region_Name;
-
-		public String getIntermediate_Region_Name() {
-			return this.Intermediate_Region_Name;
-		}
-
-		public String official_name_es;
-
-		public String getOfficial_name_es() {
-			return this.official_name_es;
-		}
-
-		public String UNTERM_English_Formal;
-
-		public String getUNTERM_English_Formal() {
-			return this.UNTERM_English_Formal;
-		}
-
-		public String official_name_cn;
-
-		public String getOfficial_name_cn() {
-			return this.official_name_cn;
-		}
-
-		public String official_name_en;
-
-		public String getOfficial_name_en() {
-			return this.official_name_en;
-		}
-
-		public String ISO4217_currency_country_name;
-
-		public String getISO4217_currency_country_name() {
-			return this.ISO4217_currency_country_name;
-		}
-
-		public String Least_Developed_Countries__LDC_;
-
-		public String getLeast_Developed_Countries__LDC_() {
-			return this.Least_Developed_Countries__LDC_;
-		}
-
-		public String Region_Name;
-
-		public String getRegion_Name() {
-			return this.Region_Name;
-		}
-
-		public String UNTERM_Arabic_Short;
-
-		public String getUNTERM_Arabic_Short() {
-			return this.UNTERM_Arabic_Short;
-		}
-
-		public String Sub_region_Name;
-
-		public String getSub_region_Name() {
-			return this.Sub_region_Name;
-		}
-
-		public String official_name_ru;
-
-		public String getOfficial_name_ru() {
-			return this.official_name_ru;
-		}
-
-		public String Global_Name;
-
-		public String getGlobal_Name() {
-			return this.Global_Name;
-		}
-
-		public String Capital;
-
-		public String getCapital() {
-			return this.Capital;
-		}
-
-		public String Continent;
-
-		public String getContinent() {
-			return this.Continent;
-		}
-
-		public String TLD;
-
-		public String getTLD() {
-			return this.TLD;
-		}
-
-		public String Languages;
-
-		public String getLanguages() {
-			return this.Languages;
-		}
-
-		public String Geoname_ID;
-
-		public String getGeoname_ID() {
-			return this.Geoname_ID;
-		}
-
-		public String CLDR_display_name;
-
-		public String getCLDR_display_name() {
-			return this.CLDR_display_name;
-		}
-
-		public String EDGAR;
-
-		public String getEDGAR() {
-			return this.EDGAR;
 		}
 
 		public String errorMessage;
@@ -5995,117 +4530,9 @@ public class adresse_dim implements TalendJob {
 
 					int length = 0;
 
-					this.FIFA = readString(dis);
-
-					this.Dial = readString(dis);
-
-					this.ISO3166_1_Alpha_3 = readString(dis);
-
-					this.MARC = readString(dis);
-
-					this.is_independent = readString(dis);
-
-					this.ISO3166_1_numeric = readString(dis);
-
-					this.GAUL = readString(dis);
-
-					this.FIPS = readString(dis);
-
-					this.WMO = readString(dis);
-
 					this.ISO3166_1_Alpha_2 = readString(dis);
 
-					this.ITU = readString(dis);
-
-					this.IOC = readString(dis);
-
-					this.DS = readString(dis);
-
-					this.UNTERM_Spanish_Formal = readString(dis);
-
-					this.Global_Code = readString(dis);
-
-					this.Intermediate_Region_Code = readString(dis);
-
 					this.official_name_fr = readString(dis);
-
-					this.UNTERM_French_Short = readString(dis);
-
-					this.ISO4217_currency_name = readString(dis);
-
-					this.Developed___Developing_Countries = readString(dis);
-
-					this.UNTERM_Russian_Formal = readString(dis);
-
-					this.UNTERM_English_Short = readString(dis);
-
-					this.ISO4217_currency_alphabetic_code = readString(dis);
-
-					this.Small_Island_Developing_States__SIDS_ = readString(dis);
-
-					this.UNTERM_Spanish_Short = readString(dis);
-
-					this.ISO4217_currency_numeric_code = readString(dis);
-
-					this.UNTERM_Chinese_Formal = readString(dis);
-
-					this.UNTERM_French_Formal = readString(dis);
-
-					this.UNTERM_Russian_Short = readString(dis);
-
-					this.M49 = readString(dis);
-
-					this.Sub_region_Code = readString(dis);
-
-					this.Region_Code = readString(dis);
-
-					this.official_name_ar = readString(dis);
-
-					this.ISO4217_currency_minor_unit = readString(dis);
-
-					this.UNTERM_Arabic_Formal = readString(dis);
-
-					this.UNTERM_Chinese_Short = readString(dis);
-
-					this.Land_Locked_Developing_Countries__LLDC_ = readString(dis);
-
-					this.Intermediate_Region_Name = readString(dis);
-
-					this.official_name_es = readString(dis);
-
-					this.UNTERM_English_Formal = readString(dis);
-
-					this.official_name_cn = readString(dis);
-
-					this.official_name_en = readString(dis);
-
-					this.ISO4217_currency_country_name = readString(dis);
-
-					this.Least_Developed_Countries__LDC_ = readString(dis);
-
-					this.Region_Name = readString(dis);
-
-					this.UNTERM_Arabic_Short = readString(dis);
-
-					this.Sub_region_Name = readString(dis);
-
-					this.official_name_ru = readString(dis);
-
-					this.Global_Name = readString(dis);
-
-					this.Capital = readString(dis);
-
-					this.Continent = readString(dis);
-
-					this.TLD = readString(dis);
-
-					this.Languages = readString(dis);
-
-					this.Geoname_ID = readString(dis);
-
-					this.CLDR_display_name = readString(dis);
-
-					this.EDGAR = readString(dis);
 
 					this.errorMessage = readString(dis);
 
@@ -6123,227 +4550,11 @@ public class adresse_dim implements TalendJob {
 
 				// String
 
-				writeString(this.FIFA, dos);
-
-				// String
-
-				writeString(this.Dial, dos);
-
-				// String
-
-				writeString(this.ISO3166_1_Alpha_3, dos);
-
-				// String
-
-				writeString(this.MARC, dos);
-
-				// String
-
-				writeString(this.is_independent, dos);
-
-				// String
-
-				writeString(this.ISO3166_1_numeric, dos);
-
-				// String
-
-				writeString(this.GAUL, dos);
-
-				// String
-
-				writeString(this.FIPS, dos);
-
-				// String
-
-				writeString(this.WMO, dos);
-
-				// String
-
 				writeString(this.ISO3166_1_Alpha_2, dos);
 
 				// String
 
-				writeString(this.ITU, dos);
-
-				// String
-
-				writeString(this.IOC, dos);
-
-				// String
-
-				writeString(this.DS, dos);
-
-				// String
-
-				writeString(this.UNTERM_Spanish_Formal, dos);
-
-				// String
-
-				writeString(this.Global_Code, dos);
-
-				// String
-
-				writeString(this.Intermediate_Region_Code, dos);
-
-				// String
-
 				writeString(this.official_name_fr, dos);
-
-				// String
-
-				writeString(this.UNTERM_French_Short, dos);
-
-				// String
-
-				writeString(this.ISO4217_currency_name, dos);
-
-				// String
-
-				writeString(this.Developed___Developing_Countries, dos);
-
-				// String
-
-				writeString(this.UNTERM_Russian_Formal, dos);
-
-				// String
-
-				writeString(this.UNTERM_English_Short, dos);
-
-				// String
-
-				writeString(this.ISO4217_currency_alphabetic_code, dos);
-
-				// String
-
-				writeString(this.Small_Island_Developing_States__SIDS_, dos);
-
-				// String
-
-				writeString(this.UNTERM_Spanish_Short, dos);
-
-				// String
-
-				writeString(this.ISO4217_currency_numeric_code, dos);
-
-				// String
-
-				writeString(this.UNTERM_Chinese_Formal, dos);
-
-				// String
-
-				writeString(this.UNTERM_French_Formal, dos);
-
-				// String
-
-				writeString(this.UNTERM_Russian_Short, dos);
-
-				// String
-
-				writeString(this.M49, dos);
-
-				// String
-
-				writeString(this.Sub_region_Code, dos);
-
-				// String
-
-				writeString(this.Region_Code, dos);
-
-				// String
-
-				writeString(this.official_name_ar, dos);
-
-				// String
-
-				writeString(this.ISO4217_currency_minor_unit, dos);
-
-				// String
-
-				writeString(this.UNTERM_Arabic_Formal, dos);
-
-				// String
-
-				writeString(this.UNTERM_Chinese_Short, dos);
-
-				// String
-
-				writeString(this.Land_Locked_Developing_Countries__LLDC_, dos);
-
-				// String
-
-				writeString(this.Intermediate_Region_Name, dos);
-
-				// String
-
-				writeString(this.official_name_es, dos);
-
-				// String
-
-				writeString(this.UNTERM_English_Formal, dos);
-
-				// String
-
-				writeString(this.official_name_cn, dos);
-
-				// String
-
-				writeString(this.official_name_en, dos);
-
-				// String
-
-				writeString(this.ISO4217_currency_country_name, dos);
-
-				// String
-
-				writeString(this.Least_Developed_Countries__LDC_, dos);
-
-				// String
-
-				writeString(this.Region_Name, dos);
-
-				// String
-
-				writeString(this.UNTERM_Arabic_Short, dos);
-
-				// String
-
-				writeString(this.Sub_region_Name, dos);
-
-				// String
-
-				writeString(this.official_name_ru, dos);
-
-				// String
-
-				writeString(this.Global_Name, dos);
-
-				// String
-
-				writeString(this.Capital, dos);
-
-				// String
-
-				writeString(this.Continent, dos);
-
-				// String
-
-				writeString(this.TLD, dos);
-
-				// String
-
-				writeString(this.Languages, dos);
-
-				// String
-
-				writeString(this.Geoname_ID, dos);
-
-				// String
-
-				writeString(this.CLDR_display_name, dos);
-
-				// String
-
-				writeString(this.EDGAR, dos);
 
 				// String
 
@@ -6360,62 +4571,8 @@ public class adresse_dim implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("FIFA=" + FIFA);
-			sb.append(",Dial=" + Dial);
-			sb.append(",ISO3166_1_Alpha_3=" + ISO3166_1_Alpha_3);
-			sb.append(",MARC=" + MARC);
-			sb.append(",is_independent=" + is_independent);
-			sb.append(",ISO3166_1_numeric=" + ISO3166_1_numeric);
-			sb.append(",GAUL=" + GAUL);
-			sb.append(",FIPS=" + FIPS);
-			sb.append(",WMO=" + WMO);
-			sb.append(",ISO3166_1_Alpha_2=" + ISO3166_1_Alpha_2);
-			sb.append(",ITU=" + ITU);
-			sb.append(",IOC=" + IOC);
-			sb.append(",DS=" + DS);
-			sb.append(",UNTERM_Spanish_Formal=" + UNTERM_Spanish_Formal);
-			sb.append(",Global_Code=" + Global_Code);
-			sb.append(",Intermediate_Region_Code=" + Intermediate_Region_Code);
+			sb.append("ISO3166_1_Alpha_2=" + ISO3166_1_Alpha_2);
 			sb.append(",official_name_fr=" + official_name_fr);
-			sb.append(",UNTERM_French_Short=" + UNTERM_French_Short);
-			sb.append(",ISO4217_currency_name=" + ISO4217_currency_name);
-			sb.append(",Developed___Developing_Countries=" + Developed___Developing_Countries);
-			sb.append(",UNTERM_Russian_Formal=" + UNTERM_Russian_Formal);
-			sb.append(",UNTERM_English_Short=" + UNTERM_English_Short);
-			sb.append(",ISO4217_currency_alphabetic_code=" + ISO4217_currency_alphabetic_code);
-			sb.append(",Small_Island_Developing_States__SIDS_=" + Small_Island_Developing_States__SIDS_);
-			sb.append(",UNTERM_Spanish_Short=" + UNTERM_Spanish_Short);
-			sb.append(",ISO4217_currency_numeric_code=" + ISO4217_currency_numeric_code);
-			sb.append(",UNTERM_Chinese_Formal=" + UNTERM_Chinese_Formal);
-			sb.append(",UNTERM_French_Formal=" + UNTERM_French_Formal);
-			sb.append(",UNTERM_Russian_Short=" + UNTERM_Russian_Short);
-			sb.append(",M49=" + M49);
-			sb.append(",Sub_region_Code=" + Sub_region_Code);
-			sb.append(",Region_Code=" + Region_Code);
-			sb.append(",official_name_ar=" + official_name_ar);
-			sb.append(",ISO4217_currency_minor_unit=" + ISO4217_currency_minor_unit);
-			sb.append(",UNTERM_Arabic_Formal=" + UNTERM_Arabic_Formal);
-			sb.append(",UNTERM_Chinese_Short=" + UNTERM_Chinese_Short);
-			sb.append(",Land_Locked_Developing_Countries__LLDC_=" + Land_Locked_Developing_Countries__LLDC_);
-			sb.append(",Intermediate_Region_Name=" + Intermediate_Region_Name);
-			sb.append(",official_name_es=" + official_name_es);
-			sb.append(",UNTERM_English_Formal=" + UNTERM_English_Formal);
-			sb.append(",official_name_cn=" + official_name_cn);
-			sb.append(",official_name_en=" + official_name_en);
-			sb.append(",ISO4217_currency_country_name=" + ISO4217_currency_country_name);
-			sb.append(",Least_Developed_Countries__LDC_=" + Least_Developed_Countries__LDC_);
-			sb.append(",Region_Name=" + Region_Name);
-			sb.append(",UNTERM_Arabic_Short=" + UNTERM_Arabic_Short);
-			sb.append(",Sub_region_Name=" + Sub_region_Name);
-			sb.append(",official_name_ru=" + official_name_ru);
-			sb.append(",Global_Name=" + Global_Name);
-			sb.append(",Capital=" + Capital);
-			sb.append(",Continent=" + Continent);
-			sb.append(",TLD=" + TLD);
-			sb.append(",Languages=" + Languages);
-			sb.append(",Geoname_ID=" + Geoname_ID);
-			sb.append(",CLDR_display_name=" + CLDR_display_name);
-			sb.append(",EDGAR=" + EDGAR);
 			sb.append(",errorMessage=" + errorMessage);
 			sb.append("]");
 
@@ -6459,340 +4616,16 @@ public class adresse_dim implements TalendJob {
 		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[0];
 		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_adresse_dim = new byte[0];
 
-		public String FIFA;
-
-		public String getFIFA() {
-			return this.FIFA;
-		}
-
-		public String Dial;
-
-		public String getDial() {
-			return this.Dial;
-		}
-
-		public String ISO3166_1_Alpha_3;
-
-		public String getISO3166_1_Alpha_3() {
-			return this.ISO3166_1_Alpha_3;
-		}
-
-		public String MARC;
-
-		public String getMARC() {
-			return this.MARC;
-		}
-
-		public String is_independent;
-
-		public String getIs_independent() {
-			return this.is_independent;
-		}
-
-		public String ISO3166_1_numeric;
-
-		public String getISO3166_1_numeric() {
-			return this.ISO3166_1_numeric;
-		}
-
-		public String GAUL;
-
-		public String getGAUL() {
-			return this.GAUL;
-		}
-
-		public String FIPS;
-
-		public String getFIPS() {
-			return this.FIPS;
-		}
-
-		public String WMO;
-
-		public String getWMO() {
-			return this.WMO;
-		}
-
 		public String ISO3166_1_Alpha_2;
 
 		public String getISO3166_1_Alpha_2() {
 			return this.ISO3166_1_Alpha_2;
 		}
 
-		public String ITU;
-
-		public String getITU() {
-			return this.ITU;
-		}
-
-		public String IOC;
-
-		public String getIOC() {
-			return this.IOC;
-		}
-
-		public String DS;
-
-		public String getDS() {
-			return this.DS;
-		}
-
-		public String UNTERM_Spanish_Formal;
-
-		public String getUNTERM_Spanish_Formal() {
-			return this.UNTERM_Spanish_Formal;
-		}
-
-		public String Global_Code;
-
-		public String getGlobal_Code() {
-			return this.Global_Code;
-		}
-
-		public String Intermediate_Region_Code;
-
-		public String getIntermediate_Region_Code() {
-			return this.Intermediate_Region_Code;
-		}
-
 		public String official_name_fr;
 
 		public String getOfficial_name_fr() {
 			return this.official_name_fr;
-		}
-
-		public String UNTERM_French_Short;
-
-		public String getUNTERM_French_Short() {
-			return this.UNTERM_French_Short;
-		}
-
-		public String ISO4217_currency_name;
-
-		public String getISO4217_currency_name() {
-			return this.ISO4217_currency_name;
-		}
-
-		public String Developed___Developing_Countries;
-
-		public String getDeveloped___Developing_Countries() {
-			return this.Developed___Developing_Countries;
-		}
-
-		public String UNTERM_Russian_Formal;
-
-		public String getUNTERM_Russian_Formal() {
-			return this.UNTERM_Russian_Formal;
-		}
-
-		public String UNTERM_English_Short;
-
-		public String getUNTERM_English_Short() {
-			return this.UNTERM_English_Short;
-		}
-
-		public String ISO4217_currency_alphabetic_code;
-
-		public String getISO4217_currency_alphabetic_code() {
-			return this.ISO4217_currency_alphabetic_code;
-		}
-
-		public String Small_Island_Developing_States__SIDS_;
-
-		public String getSmall_Island_Developing_States__SIDS_() {
-			return this.Small_Island_Developing_States__SIDS_;
-		}
-
-		public String UNTERM_Spanish_Short;
-
-		public String getUNTERM_Spanish_Short() {
-			return this.UNTERM_Spanish_Short;
-		}
-
-		public String ISO4217_currency_numeric_code;
-
-		public String getISO4217_currency_numeric_code() {
-			return this.ISO4217_currency_numeric_code;
-		}
-
-		public String UNTERM_Chinese_Formal;
-
-		public String getUNTERM_Chinese_Formal() {
-			return this.UNTERM_Chinese_Formal;
-		}
-
-		public String UNTERM_French_Formal;
-
-		public String getUNTERM_French_Formal() {
-			return this.UNTERM_French_Formal;
-		}
-
-		public String UNTERM_Russian_Short;
-
-		public String getUNTERM_Russian_Short() {
-			return this.UNTERM_Russian_Short;
-		}
-
-		public String M49;
-
-		public String getM49() {
-			return this.M49;
-		}
-
-		public String Sub_region_Code;
-
-		public String getSub_region_Code() {
-			return this.Sub_region_Code;
-		}
-
-		public String Region_Code;
-
-		public String getRegion_Code() {
-			return this.Region_Code;
-		}
-
-		public String official_name_ar;
-
-		public String getOfficial_name_ar() {
-			return this.official_name_ar;
-		}
-
-		public String ISO4217_currency_minor_unit;
-
-		public String getISO4217_currency_minor_unit() {
-			return this.ISO4217_currency_minor_unit;
-		}
-
-		public String UNTERM_Arabic_Formal;
-
-		public String getUNTERM_Arabic_Formal() {
-			return this.UNTERM_Arabic_Formal;
-		}
-
-		public String UNTERM_Chinese_Short;
-
-		public String getUNTERM_Chinese_Short() {
-			return this.UNTERM_Chinese_Short;
-		}
-
-		public String Land_Locked_Developing_Countries__LLDC_;
-
-		public String getLand_Locked_Developing_Countries__LLDC_() {
-			return this.Land_Locked_Developing_Countries__LLDC_;
-		}
-
-		public String Intermediate_Region_Name;
-
-		public String getIntermediate_Region_Name() {
-			return this.Intermediate_Region_Name;
-		}
-
-		public String official_name_es;
-
-		public String getOfficial_name_es() {
-			return this.official_name_es;
-		}
-
-		public String UNTERM_English_Formal;
-
-		public String getUNTERM_English_Formal() {
-			return this.UNTERM_English_Formal;
-		}
-
-		public String official_name_cn;
-
-		public String getOfficial_name_cn() {
-			return this.official_name_cn;
-		}
-
-		public String official_name_en;
-
-		public String getOfficial_name_en() {
-			return this.official_name_en;
-		}
-
-		public String ISO4217_currency_country_name;
-
-		public String getISO4217_currency_country_name() {
-			return this.ISO4217_currency_country_name;
-		}
-
-		public String Least_Developed_Countries__LDC_;
-
-		public String getLeast_Developed_Countries__LDC_() {
-			return this.Least_Developed_Countries__LDC_;
-		}
-
-		public String Region_Name;
-
-		public String getRegion_Name() {
-			return this.Region_Name;
-		}
-
-		public String UNTERM_Arabic_Short;
-
-		public String getUNTERM_Arabic_Short() {
-			return this.UNTERM_Arabic_Short;
-		}
-
-		public String Sub_region_Name;
-
-		public String getSub_region_Name() {
-			return this.Sub_region_Name;
-		}
-
-		public String official_name_ru;
-
-		public String getOfficial_name_ru() {
-			return this.official_name_ru;
-		}
-
-		public String Global_Name;
-
-		public String getGlobal_Name() {
-			return this.Global_Name;
-		}
-
-		public String Capital;
-
-		public String getCapital() {
-			return this.Capital;
-		}
-
-		public String Continent;
-
-		public String getContinent() {
-			return this.Continent;
-		}
-
-		public String TLD;
-
-		public String getTLD() {
-			return this.TLD;
-		}
-
-		public String Languages;
-
-		public String getLanguages() {
-			return this.Languages;
-		}
-
-		public String Geoname_ID;
-
-		public String getGeoname_ID() {
-			return this.Geoname_ID;
-		}
-
-		public String CLDR_display_name;
-
-		public String getCLDR_display_name() {
-			return this.CLDR_display_name;
-		}
-
-		public String EDGAR;
-
-		public String getEDGAR() {
-			return this.EDGAR;
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -6833,117 +4666,9 @@ public class adresse_dim implements TalendJob {
 
 					int length = 0;
 
-					this.FIFA = readString(dis);
-
-					this.Dial = readString(dis);
-
-					this.ISO3166_1_Alpha_3 = readString(dis);
-
-					this.MARC = readString(dis);
-
-					this.is_independent = readString(dis);
-
-					this.ISO3166_1_numeric = readString(dis);
-
-					this.GAUL = readString(dis);
-
-					this.FIPS = readString(dis);
-
-					this.WMO = readString(dis);
-
 					this.ISO3166_1_Alpha_2 = readString(dis);
 
-					this.ITU = readString(dis);
-
-					this.IOC = readString(dis);
-
-					this.DS = readString(dis);
-
-					this.UNTERM_Spanish_Formal = readString(dis);
-
-					this.Global_Code = readString(dis);
-
-					this.Intermediate_Region_Code = readString(dis);
-
 					this.official_name_fr = readString(dis);
-
-					this.UNTERM_French_Short = readString(dis);
-
-					this.ISO4217_currency_name = readString(dis);
-
-					this.Developed___Developing_Countries = readString(dis);
-
-					this.UNTERM_Russian_Formal = readString(dis);
-
-					this.UNTERM_English_Short = readString(dis);
-
-					this.ISO4217_currency_alphabetic_code = readString(dis);
-
-					this.Small_Island_Developing_States__SIDS_ = readString(dis);
-
-					this.UNTERM_Spanish_Short = readString(dis);
-
-					this.ISO4217_currency_numeric_code = readString(dis);
-
-					this.UNTERM_Chinese_Formal = readString(dis);
-
-					this.UNTERM_French_Formal = readString(dis);
-
-					this.UNTERM_Russian_Short = readString(dis);
-
-					this.M49 = readString(dis);
-
-					this.Sub_region_Code = readString(dis);
-
-					this.Region_Code = readString(dis);
-
-					this.official_name_ar = readString(dis);
-
-					this.ISO4217_currency_minor_unit = readString(dis);
-
-					this.UNTERM_Arabic_Formal = readString(dis);
-
-					this.UNTERM_Chinese_Short = readString(dis);
-
-					this.Land_Locked_Developing_Countries__LLDC_ = readString(dis);
-
-					this.Intermediate_Region_Name = readString(dis);
-
-					this.official_name_es = readString(dis);
-
-					this.UNTERM_English_Formal = readString(dis);
-
-					this.official_name_cn = readString(dis);
-
-					this.official_name_en = readString(dis);
-
-					this.ISO4217_currency_country_name = readString(dis);
-
-					this.Least_Developed_Countries__LDC_ = readString(dis);
-
-					this.Region_Name = readString(dis);
-
-					this.UNTERM_Arabic_Short = readString(dis);
-
-					this.Sub_region_Name = readString(dis);
-
-					this.official_name_ru = readString(dis);
-
-					this.Global_Name = readString(dis);
-
-					this.Capital = readString(dis);
-
-					this.Continent = readString(dis);
-
-					this.TLD = readString(dis);
-
-					this.Languages = readString(dis);
-
-					this.Geoname_ID = readString(dis);
-
-					this.CLDR_display_name = readString(dis);
-
-					this.EDGAR = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -6959,227 +4684,11 @@ public class adresse_dim implements TalendJob {
 
 				// String
 
-				writeString(this.FIFA, dos);
-
-				// String
-
-				writeString(this.Dial, dos);
-
-				// String
-
-				writeString(this.ISO3166_1_Alpha_3, dos);
-
-				// String
-
-				writeString(this.MARC, dos);
-
-				// String
-
-				writeString(this.is_independent, dos);
-
-				// String
-
-				writeString(this.ISO3166_1_numeric, dos);
-
-				// String
-
-				writeString(this.GAUL, dos);
-
-				// String
-
-				writeString(this.FIPS, dos);
-
-				// String
-
-				writeString(this.WMO, dos);
-
-				// String
-
 				writeString(this.ISO3166_1_Alpha_2, dos);
 
 				// String
 
-				writeString(this.ITU, dos);
-
-				// String
-
-				writeString(this.IOC, dos);
-
-				// String
-
-				writeString(this.DS, dos);
-
-				// String
-
-				writeString(this.UNTERM_Spanish_Formal, dos);
-
-				// String
-
-				writeString(this.Global_Code, dos);
-
-				// String
-
-				writeString(this.Intermediate_Region_Code, dos);
-
-				// String
-
 				writeString(this.official_name_fr, dos);
-
-				// String
-
-				writeString(this.UNTERM_French_Short, dos);
-
-				// String
-
-				writeString(this.ISO4217_currency_name, dos);
-
-				// String
-
-				writeString(this.Developed___Developing_Countries, dos);
-
-				// String
-
-				writeString(this.UNTERM_Russian_Formal, dos);
-
-				// String
-
-				writeString(this.UNTERM_English_Short, dos);
-
-				// String
-
-				writeString(this.ISO4217_currency_alphabetic_code, dos);
-
-				// String
-
-				writeString(this.Small_Island_Developing_States__SIDS_, dos);
-
-				// String
-
-				writeString(this.UNTERM_Spanish_Short, dos);
-
-				// String
-
-				writeString(this.ISO4217_currency_numeric_code, dos);
-
-				// String
-
-				writeString(this.UNTERM_Chinese_Formal, dos);
-
-				// String
-
-				writeString(this.UNTERM_French_Formal, dos);
-
-				// String
-
-				writeString(this.UNTERM_Russian_Short, dos);
-
-				// String
-
-				writeString(this.M49, dos);
-
-				// String
-
-				writeString(this.Sub_region_Code, dos);
-
-				// String
-
-				writeString(this.Region_Code, dos);
-
-				// String
-
-				writeString(this.official_name_ar, dos);
-
-				// String
-
-				writeString(this.ISO4217_currency_minor_unit, dos);
-
-				// String
-
-				writeString(this.UNTERM_Arabic_Formal, dos);
-
-				// String
-
-				writeString(this.UNTERM_Chinese_Short, dos);
-
-				// String
-
-				writeString(this.Land_Locked_Developing_Countries__LLDC_, dos);
-
-				// String
-
-				writeString(this.Intermediate_Region_Name, dos);
-
-				// String
-
-				writeString(this.official_name_es, dos);
-
-				// String
-
-				writeString(this.UNTERM_English_Formal, dos);
-
-				// String
-
-				writeString(this.official_name_cn, dos);
-
-				// String
-
-				writeString(this.official_name_en, dos);
-
-				// String
-
-				writeString(this.ISO4217_currency_country_name, dos);
-
-				// String
-
-				writeString(this.Least_Developed_Countries__LDC_, dos);
-
-				// String
-
-				writeString(this.Region_Name, dos);
-
-				// String
-
-				writeString(this.UNTERM_Arabic_Short, dos);
-
-				// String
-
-				writeString(this.Sub_region_Name, dos);
-
-				// String
-
-				writeString(this.official_name_ru, dos);
-
-				// String
-
-				writeString(this.Global_Name, dos);
-
-				// String
-
-				writeString(this.Capital, dos);
-
-				// String
-
-				writeString(this.Continent, dos);
-
-				// String
-
-				writeString(this.TLD, dos);
-
-				// String
-
-				writeString(this.Languages, dos);
-
-				// String
-
-				writeString(this.Geoname_ID, dos);
-
-				// String
-
-				writeString(this.CLDR_display_name, dos);
-
-				// String
-
-				writeString(this.EDGAR, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -7192,62 +4701,8 @@ public class adresse_dim implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("FIFA=" + FIFA);
-			sb.append(",Dial=" + Dial);
-			sb.append(",ISO3166_1_Alpha_3=" + ISO3166_1_Alpha_3);
-			sb.append(",MARC=" + MARC);
-			sb.append(",is_independent=" + is_independent);
-			sb.append(",ISO3166_1_numeric=" + ISO3166_1_numeric);
-			sb.append(",GAUL=" + GAUL);
-			sb.append(",FIPS=" + FIPS);
-			sb.append(",WMO=" + WMO);
-			sb.append(",ISO3166_1_Alpha_2=" + ISO3166_1_Alpha_2);
-			sb.append(",ITU=" + ITU);
-			sb.append(",IOC=" + IOC);
-			sb.append(",DS=" + DS);
-			sb.append(",UNTERM_Spanish_Formal=" + UNTERM_Spanish_Formal);
-			sb.append(",Global_Code=" + Global_Code);
-			sb.append(",Intermediate_Region_Code=" + Intermediate_Region_Code);
+			sb.append("ISO3166_1_Alpha_2=" + ISO3166_1_Alpha_2);
 			sb.append(",official_name_fr=" + official_name_fr);
-			sb.append(",UNTERM_French_Short=" + UNTERM_French_Short);
-			sb.append(",ISO4217_currency_name=" + ISO4217_currency_name);
-			sb.append(",Developed___Developing_Countries=" + Developed___Developing_Countries);
-			sb.append(",UNTERM_Russian_Formal=" + UNTERM_Russian_Formal);
-			sb.append(",UNTERM_English_Short=" + UNTERM_English_Short);
-			sb.append(",ISO4217_currency_alphabetic_code=" + ISO4217_currency_alphabetic_code);
-			sb.append(",Small_Island_Developing_States__SIDS_=" + Small_Island_Developing_States__SIDS_);
-			sb.append(",UNTERM_Spanish_Short=" + UNTERM_Spanish_Short);
-			sb.append(",ISO4217_currency_numeric_code=" + ISO4217_currency_numeric_code);
-			sb.append(",UNTERM_Chinese_Formal=" + UNTERM_Chinese_Formal);
-			sb.append(",UNTERM_French_Formal=" + UNTERM_French_Formal);
-			sb.append(",UNTERM_Russian_Short=" + UNTERM_Russian_Short);
-			sb.append(",M49=" + M49);
-			sb.append(",Sub_region_Code=" + Sub_region_Code);
-			sb.append(",Region_Code=" + Region_Code);
-			sb.append(",official_name_ar=" + official_name_ar);
-			sb.append(",ISO4217_currency_minor_unit=" + ISO4217_currency_minor_unit);
-			sb.append(",UNTERM_Arabic_Formal=" + UNTERM_Arabic_Formal);
-			sb.append(",UNTERM_Chinese_Short=" + UNTERM_Chinese_Short);
-			sb.append(",Land_Locked_Developing_Countries__LLDC_=" + Land_Locked_Developing_Countries__LLDC_);
-			sb.append(",Intermediate_Region_Name=" + Intermediate_Region_Name);
-			sb.append(",official_name_es=" + official_name_es);
-			sb.append(",UNTERM_English_Formal=" + UNTERM_English_Formal);
-			sb.append(",official_name_cn=" + official_name_cn);
-			sb.append(",official_name_en=" + official_name_en);
-			sb.append(",ISO4217_currency_country_name=" + ISO4217_currency_country_name);
-			sb.append(",Least_Developed_Countries__LDC_=" + Least_Developed_Countries__LDC_);
-			sb.append(",Region_Name=" + Region_Name);
-			sb.append(",UNTERM_Arabic_Short=" + UNTERM_Arabic_Short);
-			sb.append(",Sub_region_Name=" + Sub_region_Name);
-			sb.append(",official_name_ru=" + official_name_ru);
-			sb.append(",Global_Name=" + Global_Name);
-			sb.append(",Capital=" + Capital);
-			sb.append(",Continent=" + Continent);
-			sb.append(",TLD=" + TLD);
-			sb.append(",Languages=" + Languages);
-			sb.append(",Geoname_ID=" + Geoname_ID);
-			sb.append(",CLDR_display_name=" + CLDR_display_name);
-			sb.append(",EDGAR=" + EDGAR);
 			sb.append("]");
 
 			return sb.toString();
@@ -7670,231 +5125,15 @@ public class adresse_dim implements TalendJob {
 																														// is
 																														// '\n'
 
-								row3.FIFA = null;
-
-								row3.Dial = null;
-
-								row3.ISO3166_1_Alpha_3 = null;
-
-								row3.MARC = null;
-
-								row3.is_independent = null;
-
-								row3.ISO3166_1_numeric = null;
-
-								row3.GAUL = null;
-
-								row3.FIPS = null;
-
-								row3.WMO = null;
-
 								row3.ISO3166_1_Alpha_2 = null;
 
-								row3.ITU = null;
-
-								row3.IOC = null;
-
-								row3.DS = null;
-
-								row3.UNTERM_Spanish_Formal = null;
-
-								row3.Global_Code = null;
-
-								row3.Intermediate_Region_Code = null;
-
 								row3.official_name_fr = null;
-
-								row3.UNTERM_French_Short = null;
-
-								row3.ISO4217_currency_name = null;
-
-								row3.Developed___Developing_Countries = null;
-
-								row3.UNTERM_Russian_Formal = null;
-
-								row3.UNTERM_English_Short = null;
-
-								row3.ISO4217_currency_alphabetic_code = null;
-
-								row3.Small_Island_Developing_States__SIDS_ = null;
-
-								row3.UNTERM_Spanish_Short = null;
-
-								row3.ISO4217_currency_numeric_code = null;
-
-								row3.UNTERM_Chinese_Formal = null;
-
-								row3.UNTERM_French_Formal = null;
-
-								row3.UNTERM_Russian_Short = null;
-
-								row3.M49 = null;
-
-								row3.Sub_region_Code = null;
-
-								row3.Region_Code = null;
-
-								row3.official_name_ar = null;
-
-								row3.ISO4217_currency_minor_unit = null;
-
-								row3.UNTERM_Arabic_Formal = null;
-
-								row3.UNTERM_Chinese_Short = null;
-
-								row3.Land_Locked_Developing_Countries__LLDC_ = null;
-
-								row3.Intermediate_Region_Name = null;
-
-								row3.official_name_es = null;
-
-								row3.UNTERM_English_Formal = null;
-
-								row3.official_name_cn = null;
-
-								row3.official_name_en = null;
-
-								row3.ISO4217_currency_country_name = null;
-
-								row3.Least_Developed_Countries__LDC_ = null;
-
-								row3.Region_Name = null;
-
-								row3.UNTERM_Arabic_Short = null;
-
-								row3.Sub_region_Name = null;
-
-								row3.official_name_ru = null;
-
-								row3.Global_Name = null;
-
-								row3.Capital = null;
-
-								row3.Continent = null;
-
-								row3.TLD = null;
-
-								row3.Languages = null;
-
-								row3.Geoname_ID = null;
-
-								row3.CLDR_display_name = null;
-
-								row3.EDGAR = null;
 
 							} else {
 
 								int columnIndexWithD_tFileInputDelimited_2 = 0; // Column Index
 
 								columnIndexWithD_tFileInputDelimited_2 = 0;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.FIFA = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.FIFA = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 1;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Dial = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Dial = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 2;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.ISO3166_1_Alpha_3 = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.ISO3166_1_Alpha_3 = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 3;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.MARC = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.MARC = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 4;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.is_independent = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.is_independent = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 5;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.ISO3166_1_numeric = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.ISO3166_1_numeric = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 6;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.GAUL = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.GAUL = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 7;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.FIPS = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.FIPS = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 8;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.WMO = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.WMO = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 9;
 
 								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
 
@@ -7906,79 +5145,7 @@ public class adresse_dim implements TalendJob {
 
 								}
 
-								columnIndexWithD_tFileInputDelimited_2 = 10;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.ITU = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.ITU = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 11;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.IOC = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.IOC = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 12;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.DS = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.DS = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 13;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.UNTERM_Spanish_Formal = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.UNTERM_Spanish_Formal = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 14;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Global_Code = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Global_Code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 15;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Intermediate_Region_Code = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Intermediate_Region_Code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 16;
+								columnIndexWithD_tFileInputDelimited_2 = 1;
 
 								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
 
@@ -7987,474 +5154,6 @@ public class adresse_dim implements TalendJob {
 								} else {
 
 									row3.official_name_fr = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 17;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.UNTERM_French_Short = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.UNTERM_French_Short = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 18;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.ISO4217_currency_name = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.ISO4217_currency_name = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 19;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Developed___Developing_Countries = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Developed___Developing_Countries = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 20;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.UNTERM_Russian_Formal = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.UNTERM_Russian_Formal = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 21;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.UNTERM_English_Short = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.UNTERM_English_Short = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 22;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.ISO4217_currency_alphabetic_code = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.ISO4217_currency_alphabetic_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 23;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Small_Island_Developing_States__SIDS_ = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Small_Island_Developing_States__SIDS_ = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 24;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.UNTERM_Spanish_Short = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.UNTERM_Spanish_Short = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 25;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.ISO4217_currency_numeric_code = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.ISO4217_currency_numeric_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 26;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.UNTERM_Chinese_Formal = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.UNTERM_Chinese_Formal = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 27;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.UNTERM_French_Formal = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.UNTERM_French_Formal = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 28;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.UNTERM_Russian_Short = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.UNTERM_Russian_Short = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 29;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.M49 = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.M49 = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 30;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Sub_region_Code = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Sub_region_Code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 31;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Region_Code = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Region_Code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 32;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.official_name_ar = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.official_name_ar = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 33;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.ISO4217_currency_minor_unit = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.ISO4217_currency_minor_unit = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 34;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.UNTERM_Arabic_Formal = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.UNTERM_Arabic_Formal = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 35;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.UNTERM_Chinese_Short = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.UNTERM_Chinese_Short = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 36;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Land_Locked_Developing_Countries__LLDC_ = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Land_Locked_Developing_Countries__LLDC_ = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 37;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Intermediate_Region_Name = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Intermediate_Region_Name = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 38;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.official_name_es = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.official_name_es = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 39;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.UNTERM_English_Formal = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.UNTERM_English_Formal = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 40;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.official_name_cn = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.official_name_cn = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 41;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.official_name_en = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.official_name_en = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 42;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.ISO4217_currency_country_name = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.ISO4217_currency_country_name = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 43;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Least_Developed_Countries__LDC_ = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Least_Developed_Countries__LDC_ = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 44;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Region_Name = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Region_Name = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 45;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.UNTERM_Arabic_Short = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.UNTERM_Arabic_Short = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 46;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Sub_region_Name = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Sub_region_Name = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 47;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.official_name_ru = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.official_name_ru = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 48;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Global_Name = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Global_Name = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 49;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Capital = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Capital = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 50;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Continent = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Continent = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 51;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.TLD = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.TLD = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 52;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Languages = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Languages = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 53;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.Geoname_ID = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.Geoname_ID = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 54;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.CLDR_display_name = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.CLDR_display_name = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_2 = 55;
-
-								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
-
-									row3.EDGAR = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
-
-								} else {
-
-									row3.EDGAR = null;
 
 								}
 
@@ -8532,182 +5231,20 @@ public class adresse_dim implements TalendJob {
 								if (row2 == null) {
 									row2 = new row2Struct();
 								}
-								row2.FIFA = row3.FIFA;
-								row2.Dial = row3.Dial;
-								row2.ISO3166_1_Alpha_3 = row3.ISO3166_1_Alpha_3;
-								row2.MARC = row3.MARC;
-								row2.is_independent = row3.is_independent;
-								row2.ISO3166_1_numeric = row3.ISO3166_1_numeric;
-								row2.GAUL = row3.GAUL;
-								row2.FIPS = row3.FIPS;
-								row2.WMO = row3.WMO;
 								row2.ISO3166_1_Alpha_2 = row3.ISO3166_1_Alpha_2;
-								row2.ITU = row3.ITU;
-								row2.IOC = row3.IOC;
-								row2.DS = row3.DS;
-								row2.UNTERM_Spanish_Formal = row3.UNTERM_Spanish_Formal;
-								row2.Global_Code = row3.Global_Code;
-								row2.Intermediate_Region_Code = row3.Intermediate_Region_Code;
 								row2.official_name_fr = row3.official_name_fr;
-								row2.UNTERM_French_Short = row3.UNTERM_French_Short;
-								row2.ISO4217_currency_name = row3.ISO4217_currency_name;
-								row2.Developed___Developing_Countries = row3.Developed___Developing_Countries;
-								row2.UNTERM_Russian_Formal = row3.UNTERM_Russian_Formal;
-								row2.UNTERM_English_Short = row3.UNTERM_English_Short;
-								row2.ISO4217_currency_alphabetic_code = row3.ISO4217_currency_alphabetic_code;
-								row2.Small_Island_Developing_States__SIDS_ = row3.Small_Island_Developing_States__SIDS_;
-								row2.UNTERM_Spanish_Short = row3.UNTERM_Spanish_Short;
-								row2.ISO4217_currency_numeric_code = row3.ISO4217_currency_numeric_code;
-								row2.UNTERM_Chinese_Formal = row3.UNTERM_Chinese_Formal;
-								row2.UNTERM_French_Formal = row3.UNTERM_French_Formal;
-								row2.UNTERM_Russian_Short = row3.UNTERM_Russian_Short;
-								row2.M49 = row3.M49;
-								row2.Sub_region_Code = row3.Sub_region_Code;
-								row2.Region_Code = row3.Region_Code;
-								row2.official_name_ar = row3.official_name_ar;
-								row2.ISO4217_currency_minor_unit = row3.ISO4217_currency_minor_unit;
-								row2.UNTERM_Arabic_Formal = row3.UNTERM_Arabic_Formal;
-								row2.UNTERM_Chinese_Short = row3.UNTERM_Chinese_Short;
-								row2.Land_Locked_Developing_Countries__LLDC_ = row3.Land_Locked_Developing_Countries__LLDC_;
-								row2.Intermediate_Region_Name = row3.Intermediate_Region_Name;
-								row2.official_name_es = row3.official_name_es;
-								row2.UNTERM_English_Formal = row3.UNTERM_English_Formal;
-								row2.official_name_cn = row3.official_name_cn;
-								row2.official_name_en = row3.official_name_en;
-								row2.ISO4217_currency_country_name = row3.ISO4217_currency_country_name;
-								row2.Least_Developed_Countries__LDC_ = row3.Least_Developed_Countries__LDC_;
-								row2.Region_Name = row3.Region_Name;
-								row2.UNTERM_Arabic_Short = row3.UNTERM_Arabic_Short;
-								row2.Sub_region_Name = row3.Sub_region_Name;
-								row2.official_name_ru = row3.official_name_ru;
-								row2.Global_Name = row3.Global_Name;
-								row2.Capital = row3.Capital;
-								row2.Continent = row3.Continent;
-								row2.TLD = row3.TLD;
-								row2.Languages = row3.Languages;
-								row2.Geoname_ID = row3.Geoname_ID;
-								row2.CLDR_display_name = row3.CLDR_display_name;
-								row2.EDGAR = row3.EDGAR;
 								if (row2 == null) {
 									row2 = new row2Struct();
 								}
-								row2.FIFA = row3.FIFA;
-								row2.Dial = row3.Dial;
-								row2.ISO3166_1_Alpha_3 = row3.ISO3166_1_Alpha_3;
-								row2.MARC = row3.MARC;
-								row2.is_independent = row3.is_independent;
-								row2.ISO3166_1_numeric = row3.ISO3166_1_numeric;
-								row2.GAUL = row3.GAUL;
-								row2.FIPS = row3.FIPS;
-								row2.WMO = row3.WMO;
 								row2.ISO3166_1_Alpha_2 = row3.ISO3166_1_Alpha_2;
-								row2.ITU = row3.ITU;
-								row2.IOC = row3.IOC;
-								row2.DS = row3.DS;
-								row2.UNTERM_Spanish_Formal = row3.UNTERM_Spanish_Formal;
-								row2.Global_Code = row3.Global_Code;
-								row2.Intermediate_Region_Code = row3.Intermediate_Region_Code;
 								row2.official_name_fr = row3.official_name_fr;
-								row2.UNTERM_French_Short = row3.UNTERM_French_Short;
-								row2.ISO4217_currency_name = row3.ISO4217_currency_name;
-								row2.Developed___Developing_Countries = row3.Developed___Developing_Countries;
-								row2.UNTERM_Russian_Formal = row3.UNTERM_Russian_Formal;
-								row2.UNTERM_English_Short = row3.UNTERM_English_Short;
-								row2.ISO4217_currency_alphabetic_code = row3.ISO4217_currency_alphabetic_code;
-								row2.Small_Island_Developing_States__SIDS_ = row3.Small_Island_Developing_States__SIDS_;
-								row2.UNTERM_Spanish_Short = row3.UNTERM_Spanish_Short;
-								row2.ISO4217_currency_numeric_code = row3.ISO4217_currency_numeric_code;
-								row2.UNTERM_Chinese_Formal = row3.UNTERM_Chinese_Formal;
-								row2.UNTERM_French_Formal = row3.UNTERM_French_Formal;
-								row2.UNTERM_Russian_Short = row3.UNTERM_Russian_Short;
-								row2.M49 = row3.M49;
-								row2.Sub_region_Code = row3.Sub_region_Code;
-								row2.Region_Code = row3.Region_Code;
-								row2.official_name_ar = row3.official_name_ar;
-								row2.ISO4217_currency_minor_unit = row3.ISO4217_currency_minor_unit;
-								row2.UNTERM_Arabic_Formal = row3.UNTERM_Arabic_Formal;
-								row2.UNTERM_Chinese_Short = row3.UNTERM_Chinese_Short;
-								row2.Land_Locked_Developing_Countries__LLDC_ = row3.Land_Locked_Developing_Countries__LLDC_;
-								row2.Intermediate_Region_Name = row3.Intermediate_Region_Name;
-								row2.official_name_es = row3.official_name_es;
-								row2.UNTERM_English_Formal = row3.UNTERM_English_Formal;
-								row2.official_name_cn = row3.official_name_cn;
-								row2.official_name_en = row3.official_name_en;
-								row2.ISO4217_currency_country_name = row3.ISO4217_currency_country_name;
-								row2.Least_Developed_Countries__LDC_ = row3.Least_Developed_Countries__LDC_;
-								row2.Region_Name = row3.Region_Name;
-								row2.UNTERM_Arabic_Short = row3.UNTERM_Arabic_Short;
-								row2.Sub_region_Name = row3.Sub_region_Name;
-								row2.official_name_ru = row3.official_name_ru;
-								row2.Global_Name = row3.Global_Name;
-								row2.Capital = row3.Capital;
-								row2.Continent = row3.Continent;
-								row2.TLD = row3.TLD;
-								row2.Languages = row3.Languages;
-								row2.Geoname_ID = row3.Geoname_ID;
-								row2.CLDR_display_name = row3.CLDR_display_name;
-								row2.EDGAR = row3.EDGAR;
 								nb_line_ok_tFilterRow_3++;
 							} else {
 								if (row10 == null) {
 									row10 = new row10Struct();
 								}
-								row10.FIFA = row3.FIFA;
-								row10.Dial = row3.Dial;
-								row10.ISO3166_1_Alpha_3 = row3.ISO3166_1_Alpha_3;
-								row10.MARC = row3.MARC;
-								row10.is_independent = row3.is_independent;
-								row10.ISO3166_1_numeric = row3.ISO3166_1_numeric;
-								row10.GAUL = row3.GAUL;
-								row10.FIPS = row3.FIPS;
-								row10.WMO = row3.WMO;
 								row10.ISO3166_1_Alpha_2 = row3.ISO3166_1_Alpha_2;
-								row10.ITU = row3.ITU;
-								row10.IOC = row3.IOC;
-								row10.DS = row3.DS;
-								row10.UNTERM_Spanish_Formal = row3.UNTERM_Spanish_Formal;
-								row10.Global_Code = row3.Global_Code;
-								row10.Intermediate_Region_Code = row3.Intermediate_Region_Code;
 								row10.official_name_fr = row3.official_name_fr;
-								row10.UNTERM_French_Short = row3.UNTERM_French_Short;
-								row10.ISO4217_currency_name = row3.ISO4217_currency_name;
-								row10.Developed___Developing_Countries = row3.Developed___Developing_Countries;
-								row10.UNTERM_Russian_Formal = row3.UNTERM_Russian_Formal;
-								row10.UNTERM_English_Short = row3.UNTERM_English_Short;
-								row10.ISO4217_currency_alphabetic_code = row3.ISO4217_currency_alphabetic_code;
-								row10.Small_Island_Developing_States__SIDS_ = row3.Small_Island_Developing_States__SIDS_;
-								row10.UNTERM_Spanish_Short = row3.UNTERM_Spanish_Short;
-								row10.ISO4217_currency_numeric_code = row3.ISO4217_currency_numeric_code;
-								row10.UNTERM_Chinese_Formal = row3.UNTERM_Chinese_Formal;
-								row10.UNTERM_French_Formal = row3.UNTERM_French_Formal;
-								row10.UNTERM_Russian_Short = row3.UNTERM_Russian_Short;
-								row10.M49 = row3.M49;
-								row10.Sub_region_Code = row3.Sub_region_Code;
-								row10.Region_Code = row3.Region_Code;
-								row10.official_name_ar = row3.official_name_ar;
-								row10.ISO4217_currency_minor_unit = row3.ISO4217_currency_minor_unit;
-								row10.UNTERM_Arabic_Formal = row3.UNTERM_Arabic_Formal;
-								row10.UNTERM_Chinese_Short = row3.UNTERM_Chinese_Short;
-								row10.Land_Locked_Developing_Countries__LLDC_ = row3.Land_Locked_Developing_Countries__LLDC_;
-								row10.Intermediate_Region_Name = row3.Intermediate_Region_Name;
-								row10.official_name_es = row3.official_name_es;
-								row10.UNTERM_English_Formal = row3.UNTERM_English_Formal;
-								row10.official_name_cn = row3.official_name_cn;
-								row10.official_name_en = row3.official_name_en;
-								row10.ISO4217_currency_country_name = row3.ISO4217_currency_country_name;
-								row10.Least_Developed_Countries__LDC_ = row3.Least_Developed_Countries__LDC_;
-								row10.Region_Name = row3.Region_Name;
-								row10.UNTERM_Arabic_Short = row3.UNTERM_Arabic_Short;
-								row10.Sub_region_Name = row3.Sub_region_Name;
-								row10.official_name_ru = row3.official_name_ru;
-								row10.Global_Name = row3.Global_Name;
-								row10.Capital = row3.Capital;
-								row10.Continent = row3.Continent;
-								row10.TLD = row3.TLD;
-								row10.Languages = row3.Languages;
-								row10.Geoname_ID = row3.Geoname_ID;
-								row10.CLDR_display_name = row3.CLDR_display_name;
-								row10.EDGAR = row3.EDGAR;
 								row10.errorMessage = ope_tFilterRow_3.getErrorMsg();
 								nb_line_reject_tFilterRow_3++;
 							}
@@ -8743,228 +5280,12 @@ public class adresse_dim implements TalendJob {
 								}
 
 								StringBuilder sb_tFileOutputDelimited_4 = new StringBuilder();
-								if (row10.FIFA != null) {
-									sb_tFileOutputDelimited_4.append(row10.FIFA);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Dial != null) {
-									sb_tFileOutputDelimited_4.append(row10.Dial);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.ISO3166_1_Alpha_3 != null) {
-									sb_tFileOutputDelimited_4.append(row10.ISO3166_1_Alpha_3);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.MARC != null) {
-									sb_tFileOutputDelimited_4.append(row10.MARC);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.is_independent != null) {
-									sb_tFileOutputDelimited_4.append(row10.is_independent);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.ISO3166_1_numeric != null) {
-									sb_tFileOutputDelimited_4.append(row10.ISO3166_1_numeric);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.GAUL != null) {
-									sb_tFileOutputDelimited_4.append(row10.GAUL);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.FIPS != null) {
-									sb_tFileOutputDelimited_4.append(row10.FIPS);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.WMO != null) {
-									sb_tFileOutputDelimited_4.append(row10.WMO);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
 								if (row10.ISO3166_1_Alpha_2 != null) {
 									sb_tFileOutputDelimited_4.append(row10.ISO3166_1_Alpha_2);
 								}
 								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.ITU != null) {
-									sb_tFileOutputDelimited_4.append(row10.ITU);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.IOC != null) {
-									sb_tFileOutputDelimited_4.append(row10.IOC);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.DS != null) {
-									sb_tFileOutputDelimited_4.append(row10.DS);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.UNTERM_Spanish_Formal != null) {
-									sb_tFileOutputDelimited_4.append(row10.UNTERM_Spanish_Formal);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Global_Code != null) {
-									sb_tFileOutputDelimited_4.append(row10.Global_Code);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Intermediate_Region_Code != null) {
-									sb_tFileOutputDelimited_4.append(row10.Intermediate_Region_Code);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
 								if (row10.official_name_fr != null) {
 									sb_tFileOutputDelimited_4.append(row10.official_name_fr);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.UNTERM_French_Short != null) {
-									sb_tFileOutputDelimited_4.append(row10.UNTERM_French_Short);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.ISO4217_currency_name != null) {
-									sb_tFileOutputDelimited_4.append(row10.ISO4217_currency_name);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Developed___Developing_Countries != null) {
-									sb_tFileOutputDelimited_4.append(row10.Developed___Developing_Countries);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.UNTERM_Russian_Formal != null) {
-									sb_tFileOutputDelimited_4.append(row10.UNTERM_Russian_Formal);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.UNTERM_English_Short != null) {
-									sb_tFileOutputDelimited_4.append(row10.UNTERM_English_Short);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.ISO4217_currency_alphabetic_code != null) {
-									sb_tFileOutputDelimited_4.append(row10.ISO4217_currency_alphabetic_code);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Small_Island_Developing_States__SIDS_ != null) {
-									sb_tFileOutputDelimited_4.append(row10.Small_Island_Developing_States__SIDS_);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.UNTERM_Spanish_Short != null) {
-									sb_tFileOutputDelimited_4.append(row10.UNTERM_Spanish_Short);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.ISO4217_currency_numeric_code != null) {
-									sb_tFileOutputDelimited_4.append(row10.ISO4217_currency_numeric_code);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.UNTERM_Chinese_Formal != null) {
-									sb_tFileOutputDelimited_4.append(row10.UNTERM_Chinese_Formal);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.UNTERM_French_Formal != null) {
-									sb_tFileOutputDelimited_4.append(row10.UNTERM_French_Formal);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.UNTERM_Russian_Short != null) {
-									sb_tFileOutputDelimited_4.append(row10.UNTERM_Russian_Short);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.M49 != null) {
-									sb_tFileOutputDelimited_4.append(row10.M49);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Sub_region_Code != null) {
-									sb_tFileOutputDelimited_4.append(row10.Sub_region_Code);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Region_Code != null) {
-									sb_tFileOutputDelimited_4.append(row10.Region_Code);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.official_name_ar != null) {
-									sb_tFileOutputDelimited_4.append(row10.official_name_ar);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.ISO4217_currency_minor_unit != null) {
-									sb_tFileOutputDelimited_4.append(row10.ISO4217_currency_minor_unit);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.UNTERM_Arabic_Formal != null) {
-									sb_tFileOutputDelimited_4.append(row10.UNTERM_Arabic_Formal);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.UNTERM_Chinese_Short != null) {
-									sb_tFileOutputDelimited_4.append(row10.UNTERM_Chinese_Short);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Land_Locked_Developing_Countries__LLDC_ != null) {
-									sb_tFileOutputDelimited_4.append(row10.Land_Locked_Developing_Countries__LLDC_);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Intermediate_Region_Name != null) {
-									sb_tFileOutputDelimited_4.append(row10.Intermediate_Region_Name);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.official_name_es != null) {
-									sb_tFileOutputDelimited_4.append(row10.official_name_es);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.UNTERM_English_Formal != null) {
-									sb_tFileOutputDelimited_4.append(row10.UNTERM_English_Formal);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.official_name_cn != null) {
-									sb_tFileOutputDelimited_4.append(row10.official_name_cn);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.official_name_en != null) {
-									sb_tFileOutputDelimited_4.append(row10.official_name_en);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.ISO4217_currency_country_name != null) {
-									sb_tFileOutputDelimited_4.append(row10.ISO4217_currency_country_name);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Least_Developed_Countries__LDC_ != null) {
-									sb_tFileOutputDelimited_4.append(row10.Least_Developed_Countries__LDC_);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Region_Name != null) {
-									sb_tFileOutputDelimited_4.append(row10.Region_Name);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.UNTERM_Arabic_Short != null) {
-									sb_tFileOutputDelimited_4.append(row10.UNTERM_Arabic_Short);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Sub_region_Name != null) {
-									sb_tFileOutputDelimited_4.append(row10.Sub_region_Name);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.official_name_ru != null) {
-									sb_tFileOutputDelimited_4.append(row10.official_name_ru);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Global_Name != null) {
-									sb_tFileOutputDelimited_4.append(row10.Global_Name);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Capital != null) {
-									sb_tFileOutputDelimited_4.append(row10.Capital);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Continent != null) {
-									sb_tFileOutputDelimited_4.append(row10.Continent);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.TLD != null) {
-									sb_tFileOutputDelimited_4.append(row10.TLD);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Languages != null) {
-									sb_tFileOutputDelimited_4.append(row10.Languages);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.Geoname_ID != null) {
-									sb_tFileOutputDelimited_4.append(row10.Geoname_ID);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.CLDR_display_name != null) {
-									sb_tFileOutputDelimited_4.append(row10.CLDR_display_name);
-								}
-								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
-								if (row10.EDGAR != null) {
-									sb_tFileOutputDelimited_4.append(row10.EDGAR);
 								}
 								sb_tFileOutputDelimited_4.append(OUT_DELIM_tFileOutputDelimited_4);
 								if (row10.errorMessage != null) {
@@ -9020,117 +5341,9 @@ public class adresse_dim implements TalendJob {
 
 								row2Struct row2_HashRow = new row2Struct();
 
-								row2_HashRow.FIFA = row2.FIFA;
-
-								row2_HashRow.Dial = row2.Dial;
-
-								row2_HashRow.ISO3166_1_Alpha_3 = row2.ISO3166_1_Alpha_3;
-
-								row2_HashRow.MARC = row2.MARC;
-
-								row2_HashRow.is_independent = row2.is_independent;
-
-								row2_HashRow.ISO3166_1_numeric = row2.ISO3166_1_numeric;
-
-								row2_HashRow.GAUL = row2.GAUL;
-
-								row2_HashRow.FIPS = row2.FIPS;
-
-								row2_HashRow.WMO = row2.WMO;
-
 								row2_HashRow.ISO3166_1_Alpha_2 = row2.ISO3166_1_Alpha_2;
 
-								row2_HashRow.ITU = row2.ITU;
-
-								row2_HashRow.IOC = row2.IOC;
-
-								row2_HashRow.DS = row2.DS;
-
-								row2_HashRow.UNTERM_Spanish_Formal = row2.UNTERM_Spanish_Formal;
-
-								row2_HashRow.Global_Code = row2.Global_Code;
-
-								row2_HashRow.Intermediate_Region_Code = row2.Intermediate_Region_Code;
-
 								row2_HashRow.official_name_fr = row2.official_name_fr;
-
-								row2_HashRow.UNTERM_French_Short = row2.UNTERM_French_Short;
-
-								row2_HashRow.ISO4217_currency_name = row2.ISO4217_currency_name;
-
-								row2_HashRow.Developed___Developing_Countries = row2.Developed___Developing_Countries;
-
-								row2_HashRow.UNTERM_Russian_Formal = row2.UNTERM_Russian_Formal;
-
-								row2_HashRow.UNTERM_English_Short = row2.UNTERM_English_Short;
-
-								row2_HashRow.ISO4217_currency_alphabetic_code = row2.ISO4217_currency_alphabetic_code;
-
-								row2_HashRow.Small_Island_Developing_States__SIDS_ = row2.Small_Island_Developing_States__SIDS_;
-
-								row2_HashRow.UNTERM_Spanish_Short = row2.UNTERM_Spanish_Short;
-
-								row2_HashRow.ISO4217_currency_numeric_code = row2.ISO4217_currency_numeric_code;
-
-								row2_HashRow.UNTERM_Chinese_Formal = row2.UNTERM_Chinese_Formal;
-
-								row2_HashRow.UNTERM_French_Formal = row2.UNTERM_French_Formal;
-
-								row2_HashRow.UNTERM_Russian_Short = row2.UNTERM_Russian_Short;
-
-								row2_HashRow.M49 = row2.M49;
-
-								row2_HashRow.Sub_region_Code = row2.Sub_region_Code;
-
-								row2_HashRow.Region_Code = row2.Region_Code;
-
-								row2_HashRow.official_name_ar = row2.official_name_ar;
-
-								row2_HashRow.ISO4217_currency_minor_unit = row2.ISO4217_currency_minor_unit;
-
-								row2_HashRow.UNTERM_Arabic_Formal = row2.UNTERM_Arabic_Formal;
-
-								row2_HashRow.UNTERM_Chinese_Short = row2.UNTERM_Chinese_Short;
-
-								row2_HashRow.Land_Locked_Developing_Countries__LLDC_ = row2.Land_Locked_Developing_Countries__LLDC_;
-
-								row2_HashRow.Intermediate_Region_Name = row2.Intermediate_Region_Name;
-
-								row2_HashRow.official_name_es = row2.official_name_es;
-
-								row2_HashRow.UNTERM_English_Formal = row2.UNTERM_English_Formal;
-
-								row2_HashRow.official_name_cn = row2.official_name_cn;
-
-								row2_HashRow.official_name_en = row2.official_name_en;
-
-								row2_HashRow.ISO4217_currency_country_name = row2.ISO4217_currency_country_name;
-
-								row2_HashRow.Least_Developed_Countries__LDC_ = row2.Least_Developed_Countries__LDC_;
-
-								row2_HashRow.Region_Name = row2.Region_Name;
-
-								row2_HashRow.UNTERM_Arabic_Short = row2.UNTERM_Arabic_Short;
-
-								row2_HashRow.Sub_region_Name = row2.Sub_region_Name;
-
-								row2_HashRow.official_name_ru = row2.official_name_ru;
-
-								row2_HashRow.Global_Name = row2.Global_Name;
-
-								row2_HashRow.Capital = row2.Capital;
-
-								row2_HashRow.Continent = row2.Continent;
-
-								row2_HashRow.TLD = row2.TLD;
-
-								row2_HashRow.Languages = row2.Languages;
-
-								row2_HashRow.Geoname_ID = row2.Geoname_ID;
-
-								row2_HashRow.CLDR_display_name = row2.CLDR_display_name;
-
-								row2_HashRow.EDGAR = row2.EDGAR;
 
 								tHash_Lookup_row2.put(row2_HashRow);
 
@@ -9712,6 +5925,6 @@ public class adresse_dim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 302896 characters generated by Talend Open Studio for Data Integration on the
- * 21 janvier 2021 20:02:27 CET
+ * 177559 characters generated by Talend Open Studio for Data Integration on the
+ * 25 janvier 2021 21:21:57 CET
  ************************************************************************************************/
