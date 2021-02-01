@@ -20,8 +20,7 @@ ui <- dashboardPage(
                 menuItem("Visualisation des données", tabName = "visualization", icon = icon("line-chart")),
                 menuItem("Graphiques rémunérations", tabName = "remunerationsGraphs", icon = icon("poll")),
                 menuItem("Graphiques conventions", tabName = "conventionsGraphs", icon = icon("poll")),
-                menuItem("Graphiques avantages", tabName = "avantagesGraphs", icon = icon("poll")),
-                menuItem("Comparaison", tabName = "comparaisonGraphs", icon = icon("poll"))
+                menuItem("Graphiques avantages", tabName = "avantagesGraphs", icon = icon("poll"))
     )
   ),
   dashboardBody(
@@ -56,9 +55,10 @@ ui <- dashboardPage(
               h1("Graphiques concernant le fichier rémunérations.csv"),
               fluidRow(
                 plotOutput("plotCountryAmountRem"),
+                plotOutput("plotPaysMeanAmountRem"),
                 plotOutput("plotIdTypeAmountRem"),
                 plotOutput("plotQualiteAmountRem")
-                #plotOutput("plotPaysMeanAmountRem")
+                
                 
               )
       ),
@@ -69,8 +69,8 @@ ui <- dashboardPage(
               fluidRow(
                 plotOutput("plotCountryAmountConv"),
                 plotOutput("plotIdTypeAmountConv"),
-                plotOutput("plotQualiteAmountConv")
-                #plotOutput("plotPaysMeanAmountConv")
+                plotOutput("plotQualiteAmountConv"),
+                plotOutput("plotPaysMeanAmountConv")
                 
               )
       ),
@@ -81,22 +81,10 @@ ui <- dashboardPage(
               fluidRow(
                 plotOutput("plotCountryAmountAv"),
                 plotOutput("plotIdTypeAmountAv"),
-                plotOutput("plotQualiteAmountAv")
-                #plotOutput("plotPaysMeanAmountAv")
-                
-              )
-      ),
-      
-      # comparaisonGraphs
-      tabItem(tabName = "comparaisonGraphs",
-              h1("Graphiques"),
-              fluidRow(
-                plotOutput("plotPaysMeanAmountRem"),
-                plotOutput("plotPaysMeanAmountConv"),
+                plotOutput("plotQualiteAmountAv"),
                 plotOutput("plotPaysMeanAmountAv")
                 
               )
-              
       )
       
       
@@ -252,12 +240,95 @@ server <- function(input, output, session) {
   #--------------------EXPLORATION DU FICHIER REMUNERATIONS---------------------
   
   output$remDataTable = DT::renderDataTable({
+    
     if(!is.null(data$remtable)){
       datatable(data$remtable, filter = 'top', options = list(scrollX = TRUE , dom = 't')) %>% 
         formatStyle(
           'identifiant_type',
           backgroundColor = styleEqual(
             unique(data$remtable$identifiant_type), c('lightblue', 'lightgreen', 'lavender', 'red', 'green')
+          )
+        ) %>%
+        formatStyle(
+          'benef_identifiant_type_code',
+          backgroundColor = styleEqual(
+            unique(data$remtable$benef_identifiant_type_code), c('lightblue', 'lightgreen', 'lavender', 'red', 'green')
+          )
+        ) %>%
+        formatStyle(
+          'qualite',
+          backgroundColor = styleEqual(
+            unique(data$remtable$qualite), c('lightblue', 'lightgreen', 'lavender', 
+                                             'red', 'green', 'blue', 'purple', 
+                                             'maroon', 'teal', 'lime', 'orange', 
+                                             'aqua', 'navy', 'fuchsia', 'deepskyblue', 
+                                             'cyan', 'turquoise', 'thistle', 
+                                             'orchid', 'azure')
+          )
+        ) %>%
+        formatStyle(
+          'benef_qualite_code',
+          backgroundColor = styleEqual(
+            unique(data$remtable$benef_qualite_code), c('lightblue', 'lightgreen', 'lavender', 
+                                             'red', 'green', 'blue', 'purple', 
+                                             'maroon', 'teal', 'lime', 'orange', 
+                                             'aqua', 'navy', 'fuchsia', 'deepskyblue', 
+                                             'cyan', 'turquoise', 'thistle', 
+                                             'orchid', 'azure')
+          )
+        ) %>%
+        formatStyle(
+          'categorie',
+          backgroundColor = styleEqual(
+            unique(data$remtable$categorie), c('thistle', 'orange', 'lavender', 
+                                               'red', 'teal', 'blue', 'purple', 
+                                               'navy', 'green', 'lime', 'lightgreen', 
+                                               'aqua', 'fuchsia', 'lightblue')
+          )
+        ) %>%
+        formatStyle(
+          'benef_categorie_code',
+          backgroundColor = styleEqual(
+            unique(data$remtable$benef_categorie_code), c('thistle', 'orange', 'lavender', 
+                                               'red', 'teal', 'blue', 'purple', 
+                                               'navy', 'green', 'lime', 'lightgreen', 
+                                               'aqua', 'fuchsia', 'lightblue')
+          )
+        ) %>%
+        formatStyle(
+          'pays',
+          backgroundColor = styleEqual(
+            unique(data$remtable$pays), c('lightblue', 'lightgreen', 'lavender', 
+                                          'red', 'green', 'blue', 'purple', 
+                                          'maroon', 'teal', 'lime', 'orange', 
+                                          'aqua', 'navy', 'fuchsia', 'deepskyblue', 
+                                          'cyan', 'turquoise', 'thistle')
+          )
+        ) %>%
+        formatStyle(
+          'benef_pays_code',
+          backgroundColor = styleEqual(
+            unique(data$remtable$benef_pays_code), c('lightblue', 'lightgreen', 'lavender', 
+                                          'red', 'green', 'blue', 'purple', 
+                                          'maroon', 'teal', 'lime', 'orange', 
+                                          'aqua', 'navy', 'fuchsia', 'deepskyblue', 
+                                          'cyan', 'turquoise', 'thistle')
+          )
+        ) %>%
+        formatStyle(
+          'benef_titre_libelle',
+          backgroundColor = styleEqual(
+            unique(data$remtable$benef_titre_libelle), c('thistle', 'turquoise', 'cyan', 
+                                                     'lime', 'deepskyblue', 'aqua', 'teal', 
+                                                     'maroon')
+          )
+        ) %>%
+        formatStyle(
+          'benef_titre_code',
+          backgroundColor = styleEqual(
+            unique(data$remtable$benef_titre_code), c('thistle', 'turquoise', 'cyan', 
+                                                         'lime', 'deepskyblue', 'aqua', 'teal', 
+                                                         'maroon')
           )
         )
     }else {
@@ -269,6 +340,7 @@ server <- function(input, output, session) {
   #---------------------EXPLORATION DU FICHIER CONVENTIONS----------------------
   
   output$convDataTable = DT::renderDataTable({
+
     if(!is.null(data$convtable)){
       datatable(data$convtable, filter = 'top', options = list(scrollX = TRUE , dom = 't')) %>% 
         formatStyle(
@@ -276,9 +348,90 @@ server <- function(input, output, session) {
           backgroundColor = styleEqual(
             unique(data$convtable$identifiant_type), c('lightblue', 'lightgreen', 'lavender', 'red', 'green')
           )
+        ) %>%
+        formatStyle(
+          'benef_identifiant_type_code',
+          backgroundColor = styleEqual(
+            unique(data$convtable$benef_identifiant_type_code), c('lightblue', 'lightgreen', 'lavender', 'red', 'green')
+          )
+        ) %>%
+        formatStyle(
+          'qualite',
+          backgroundColor = styleEqual(
+            unique(data$convtable$qualite), c('lightblue', 'lightgreen', 'lavender', 
+                                             'red', 'green', 'blue', 'purple', 'pearl',
+                                             'silver', 'alabaster', 'azure',
+                                             'teal', 'lime', 'orange', 
+                                             'aqua', 'navy', 'fuchsia', 'deepskyblue', 
+                                             'cyan', 'turquoise', 'thistle', 
+                                             'orchid', 'azure')
+          )
+        ) %>%
+        formatStyle(
+          'benef_qualite_code',
+          backgroundColor = styleEqual(
+            unique(data$convtable$benef_qualite_code), c('lightblue', 'lightgreen', 'lavender', 
+                                                         'red', 'green', 'blue', 'purple', 'pearl',
+                                                         'silver', 'alabaster', 'azure',
+                                                         'teal', 'lime', 'orange', 
+                                                         'aqua', 'navy', 'fuchsia', 'deepskyblue', 
+                                                         'cyan', 'turquoise', 'thistle', 
+                                                         'orchid', 'azure')
+          )
+        ) %>%
+        formatStyle(
+          'categorie',
+          backgroundColor = styleEqual(
+            unique(data$convtable$categorie), c('thistle', 'orange', 'lavender', 
+                                               'red', 'teal', 'blue', 'purple', 
+                                               'navy', 'green', 'lime', 'lightgreen', 
+                                               'aqua', 'lightblue')
+          )
+        ) %>%
+        formatStyle(
+          'benef_categorie_code',
+          backgroundColor = styleEqual(
+            unique(data$convtable$benef_categorie_code), c('thistle', 'orange', 'lavender', 
+                                                          'red', 'teal', 'blue', 'purple', 
+                                                          'navy', 'green', 'lime', 'lightgreen', 
+                                                          'aqua', 'lightblue')
+          )
+        ) %>%
+        formatStyle(
+          'pays',
+          backgroundColor = styleEqual(
+            unique(data$convtable$pays), c('lightblue', 'lightgreen', 'lavender', 
+                                          'green', 'purple', 
+                                          'teal', 'lime', 'orange', 
+                                          'aqua', 'navy', 'deepskyblue', 
+                                          'cyan', 'turquoise', 'thistle')
+          )
+        ) %>%
+        formatStyle(
+          'benef_pays_code',
+          backgroundColor = styleEqual(
+            unique(data$convtable$benef_pays_code), c('lightblue', 'lightgreen', 'lavender', 
+                                                      'green', 'purple', 
+                                                      'teal', 'lime', 'orange', 
+                                                      'aqua', 'navy', 'deepskyblue', 
+                                                      'cyan', 'turquoise', 'thistle')
+          )
+        ) %>%
+        formatStyle(
+          'benef_titre_libelle',
+          backgroundColor = styleEqual(
+            unique(data$convtable$benef_titre_libelle), c('thistle', 'turquoise', 'cyan', 
+                                                         'lime', 'deepskyblue', 'aqua', 'teal')
+          )
+        ) %>%
+        formatStyle(
+          'benef_titre_code',
+          backgroundColor = styleEqual(
+            unique(data$convtable$benef_titre_code), c('thistle', 'turquoise', 'cyan', 
+                                                      'lime', 'deepskyblue', 'aqua', 'teal')
+          )
         )
-      
-    }else {
+    } else {
       NULL
     }
   })
@@ -286,12 +439,95 @@ server <- function(input, output, session) {
   #----------------------EXPLORATION DU FICHIER AVANTAGES-----------------------
   
   output$avDataTable = DT::renderDataTable({
+    
     if(!is.null(data$avtable)){
       datatable(data$avtable, filter = 'top', options = list(scrollX = TRUE , dom = 't')) %>% 
         formatStyle(
           'identifiant_type',
           backgroundColor = styleEqual(
             unique(data$avtable$identifiant_type), c('lightblue', 'lightgreen', 'lavender', 'red', 'green')
+          )
+        ) %>%
+        formatStyle(
+          'benef_identifiant_type_code',
+          backgroundColor = styleEqual(
+            unique(data$avtable$benef_identifiant_type_code), c('lightblue', 'lightgreen', 'lavender', 'red', 'green')
+          )
+        ) %>%
+        formatStyle(
+          'qualite',
+          backgroundColor = styleEqual(
+            unique(data$avtable$qualite), c('lightblue', 'lightgreen', 'lavender', 
+                                              'red', 'green', 'blue', 'purple', 'pearl',
+                                              'silver', 'alabaster', 'azure',
+                                              'teal', 'lime', 'orange', 
+                                              'aqua', 'navy', 'deepskyblue', 
+                                              'cyan', 'turquoise', 'thistle', 
+                                              'orchid', 'azure')
+          )
+        ) %>%
+        formatStyle(
+          'benef_qualite_code',
+          backgroundColor = styleEqual(
+            unique(data$avtable$benef_qualite_code), c('lightblue', 'lightgreen', 'lavender', 
+                                                         'red', 'green', 'blue', 'purple', 'pearl',
+                                                         'silver', 'alabaster', 'azure',
+                                                         'teal', 'lime', 'orange', 
+                                                         'aqua', 'navy', 'deepskyblue', 
+                                                         'cyan', 'turquoise', 'thistle', 
+                                                         'orchid', 'azure')
+          )
+        ) %>%
+        formatStyle(
+          'categorie',
+          backgroundColor = styleEqual(
+            unique(data$avtable$categorie), c('thistle', 'orange', 'lavender', 
+                                                'teal', 'lime', 'lightgreen', 
+                                                'aqua', 'lightblue')
+          )
+        ) %>%
+        formatStyle(
+          'benef_categorie_code',
+          backgroundColor = styleEqual(
+            unique(data$avtable$benef_categorie_code), c('thistle', 'orange', 'lavender', 
+                                                         'teal', 'lime', 'lightgreen', 
+                                                         'aqua', 'lightblue')
+          )
+        ) %>%
+        formatStyle(
+          'pays',
+          backgroundColor = styleEqual(
+            unique(data$avtable$pays), c('lightblue', 'lightgreen', 'lavender', 
+                                           'green', 'purple', 
+                                           'teal', 'lime', 'orange', 
+                                           'aqua', 'navy', 'deepskyblue', 
+                                           'cyan', 'turquoise', 'thistle', 'red')
+          )
+        ) %>%
+        formatStyle(
+          'benef_pays_code',
+          backgroundColor = styleEqual(
+            unique(data$avtable$benef_pays_code), c('lightblue', 'lightgreen', 'lavender', 
+                                                      'green', 'purple', 
+                                                      'teal', 'lime', 'orange', 
+                                                      'aqua', 'navy', 'deepskyblue', 
+                                                      'cyan', 'turquoise', 'thistle', 'red')
+          )
+        ) %>%
+        formatStyle(
+          'benef_titre_libelle',
+          backgroundColor = styleEqual(
+            unique(data$avtable$benef_titre_libelle), c('thistle', 'turquoise', 'cyan', 
+                                                          'lime', 'deepskyblue', 
+                                                        'aqua', 'teal', 'orange')
+          )
+        ) %>%
+        formatStyle(
+          'benef_titre_code',
+          backgroundColor = styleEqual(
+            unique(data$avtable$benef_titre_code), c('thistle', 'turquoise', 'cyan', 
+                                                       'lime', 'deepskyblue', 
+                                                     'aqua', 'teal', 'orange')
           )
         )
       
@@ -312,7 +548,7 @@ server <- function(input, output, session) {
         
         list_country_amount_rem <- aggregate(data$remtable$remu_montant_ttc, by=list(Pays = data$remtable$benef_pays_code), FUN=sum)
         
-        list_country_amount_rem[14, 2] <- 0 # Montant du pays "[FR]" mis à 0 car trop elevée et nous ne voyons pas la reste (Premier)
+        list_country_amount_rem[7, 2] <- 0 # Montant du pays "[FR]" mis à 0 car trop elevée et nous ne voyons pas la reste (Premier)
         
         ggplot(data = list_country_amount_rem, 
                aes(x=Pays, y=x,  fill=factor(Pays))) + 
@@ -351,10 +587,10 @@ server <- function(input, output, session) {
       
       if(!is.null(data$remtable)){
         
-        list_qualite_amount_rem <- aggregate(data$remtable$remu_montant_ttc, by=list(Qualite = data$remtable$qualite), FUN=sum)
+        list_qualite_amount_rem <- aggregate(data$remtable$remu_montant_ttc, by=list(Qualite = data$remtable$qualite), FUN=mean)
         
         list_qualite_amount_rem[1, 2] <- 0 # Qualité "" mise à 0 car trop elevée et nous ne voyons pas la reste (Premier)
-        list_qualite_amount_rem[13, 2] <- 0 # Qualité "Médecin" mise à 0 car trop elevée et nous ne voyons pas la reste (Deuxième)
+        list_qualite_amount_rem[11, 2] <- 0 # Qualité "Médecin" mise à 0 car trop elevée et nous ne voyons pas la reste (Deuxième)
         
         ggplot(data = list_qualite_amount_rem, 
                aes(x=Qualite, y=x,  fill=factor(Qualite))) + 
@@ -549,29 +785,6 @@ server <- function(input, output, session) {
         xlab("Pays") + theme(legend.position="bottom" 
                              ,plot.title = element_text(size=15, face="bold")) +
         ggtitle("Moyenne du montant de l'avantage en fonction du pays") + labs(fill = "Pays")
-      
-    }else {
-      NULL
-    }
-    
-  })
-  
-  #--------------------------------COMPARAISONS---------------------------------
-  
-  output$plotComp <- renderPlot({
-    
-    if(!is.null(data$remtable) && !is.null(data$convtable) && !is.null(data$avtable)){
-
-      list_rem <- aggregate(data$remtable$remu_montant_ttc, by=list(Pays = data$remtable$benef_pays_code), FUN=mean)
-      list_conv <- aggregate(data$convtable$conv_montant_ttc, by=list(Pays = data$convtable$benef_pays_code), FUN=mean)
-      list_av <- aggregate(data$avtable$avant_montant_ttc, by=list(Pays = data$avtable$benef_pays_code), FUN=mean)
-          
-      ggplot(data = c(list_rem, list_conv,list_av), 
-             aes(x=Pays, y=x,  fill=factor(Pays))) + 
-        geom_bar(position = "dodge", stat = "identity") + ylab("Montant (en Euros)") + 
-        xlab("Pays") + theme(legend.position="bottom" 
-                             ,plot.title = element_text(size=15, face="bold")) + 
-        ggtitle("Montant de l'avantage en fonction pays") + labs(fill = "Pays")
       
     }else {
       NULL
