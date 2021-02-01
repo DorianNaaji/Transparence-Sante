@@ -268,14 +268,24 @@ public class convention_fact implements TalendJob {
 		}
 	}
 
-	public void tFileInputDelimited_3_error(Exception exception, String errorComponent,
+	public void tFileInputDelimited_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
 
 		status = "failure";
 
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tFilterRow_1_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
 	public void tMap_2_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
@@ -285,7 +295,27 @@ public class convention_fact implements TalendJob {
 
 		status = "failure";
 
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tUniqRow_1_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tMap_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
 	public void tDBOutput_2_error(Exception exception, String errorComponent,
@@ -295,7 +325,7 @@ public class convention_fact implements TalendJob {
 
 		status = "failure";
 
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
 	public void tFileInputDelimited_4_error(Exception exception, String errorComponent,
@@ -305,7 +335,17 @@ public class convention_fact implements TalendJob {
 
 		status = "failure";
 
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+		tFileInputDelimited_4_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tFilterRow_2_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_4_onSubJobError(exception, errorComponent, globalMap);
 	}
 
 	public void tAdvancedHash_entreprises_error(Exception exception, String errorComponent,
@@ -315,10 +355,10 @@ public class convention_fact implements TalendJob {
 
 		status = "failure";
 
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+		tFileInputDelimited_4_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tFileInputDelimited_3_onSubJobError(Exception exception, String errorComponent,
+	public void tFileInputDelimited_1_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
@@ -326,7 +366,16 @@ public class convention_fact implements TalendJob {
 
 	}
 
-	public static class conventions_factStruct implements routines.system.IPersistableRow<conventions_factStruct> {
+	public void tFileInputDelimited_4_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public static class conventions_uniquesStruct
+			implements routines.system.IPersistableRow<conventions_uniquesStruct> {
 		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_convention_fact = new byte[0];
 		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[0];
 		protected static final int DEFAULT_HASHCODE = 1;
@@ -448,6 +497,9 @@ public class convention_fact implements TalendJob {
 
 				result = prime * result + ((this.entreprise_id == null) ? 0 : this.entreprise_id.hashCode());
 
+				result = prime * result
+						+ ((this.date_signature_convention == null) ? 0 : this.date_signature_convention.hashCode());
+
 				this.hashCode = result;
 				this.hashCodeDirty = false;
 			}
@@ -462,7 +514,7 @@ public class convention_fact implements TalendJob {
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
-			final conventions_factStruct other = (conventions_factStruct) obj;
+			final conventions_uniquesStruct other = (conventions_uniquesStruct) obj;
 
 			if (this.ligne_id == null) {
 				if (other.ligne_id != null)
@@ -480,10 +532,18 @@ public class convention_fact implements TalendJob {
 
 				return false;
 
+			if (this.date_signature_convention == null) {
+				if (other.date_signature_convention != null)
+					return false;
+
+			} else if (!this.date_signature_convention.equals(other.date_signature_convention))
+
+				return false;
+
 			return true;
 		}
 
-		public void copyDataTo(conventions_factStruct other) {
+		public void copyDataTo(conventions_uniquesStruct other) {
 
 			other.ligne_id = this.ligne_id;
 			other.entreprise_id = this.entreprise_id;
@@ -505,10 +565,11 @@ public class convention_fact implements TalendJob {
 
 		}
 
-		public void copyKeysDataTo(conventions_factStruct other) {
+		public void copyKeysDataTo(conventions_uniquesStruct other) {
 
 			other.ligne_id = this.ligne_id;
 			other.entreprise_id = this.entreprise_id;
+			other.date_signature_convention = this.date_signature_convention;
 
 		}
 
@@ -721,6 +782,830 @@ public class convention_fact implements TalendJob {
 		/**
 		 * Compare keys
 		 */
+		public int compareTo(conventions_uniquesStruct other) {
+
+			int returnValue = -1;
+
+			returnValue = checkNullsAndCompare(this.ligne_id, other.ligne_id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			returnValue = checkNullsAndCompare(this.entreprise_id, other.entreprise_id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			returnValue = checkNullsAndCompare(this.date_signature_convention, other.date_signature_convention);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_convention_fact = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[0];
+
+		public String ligne_id;
+
+		public String getLigne_id() {
+			return this.ligne_id;
+		}
+
+		public String entreprise_id;
+
+		public String getEntreprise_id() {
+			return this.entreprise_id;
+		}
+
+		public String beneficiaire_id;
+
+		public String getBeneficiaire_id() {
+			return this.beneficiaire_id;
+		}
+
+		public String categorie_beneficiaire_id;
+
+		public String getCategorie_beneficiaire_id() {
+			return this.categorie_beneficiaire_id;
+		}
+
+		public String qualite_beneficiaire_id;
+
+		public String getQualite_beneficiaire_id() {
+			return this.qualite_beneficiaire_id;
+		}
+
+		public String titre_beneficiaire_id;
+
+		public String getTitre_beneficiaire_id() {
+			return this.titre_beneficiaire_id;
+		}
+
+		public String adresse_beneficiaire_id;
+
+		public String getAdresse_beneficiaire_id() {
+			return this.adresse_beneficiaire_id;
+		}
+
+		public String adresse_entreprise_id;
+
+		public String getAdresse_entreprise_id() {
+			return this.adresse_entreprise_id;
+		}
+
+		public String specialite_beneficiaire_id;
+
+		public String getSpecialite_beneficiaire_id() {
+			return this.specialite_beneficiaire_id;
+		}
+
+		public String secteur_activite_entreprise_id;
+
+		public String getSecteur_activite_entreprise_id() {
+			return this.secteur_activite_entreprise_id;
+		}
+
+		public int objet_convention_id;
+
+		public int getObjet_convention_id() {
+			return this.objet_convention_id;
+		}
+
+		public int evenement_convention_id;
+
+		public int getEvenement_convention_id() {
+			return this.evenement_convention_id;
+		}
+
+		public java.util.Date date_debut_convention;
+
+		public java.util.Date getDate_debut_convention() {
+			return this.date_debut_convention;
+		}
+
+		public java.util.Date date_fin_convention;
+
+		public java.util.Date getDate_fin_convention() {
+			return this.date_fin_convention;
+		}
+
+		public java.util.Date date_signature_convention;
+
+		public java.util.Date getDate_signature_convention() {
+			return this.date_signature_convention;
+		}
+
+		public int montant_convention;
+
+		public int getMontant_convention() {
+			return this.montant_convention;
+		}
+
+		public int duree_convention;
+
+		public int getDuree_convention() {
+			return this.duree_convention;
+		}
+
+		public String composite_key;
+
+		public String getComposite_key() {
+			return this.composite_key;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_convention_fact) {
+
+				try {
+
+					int length = 0;
+
+					this.ligne_id = readString(dis);
+
+					this.entreprise_id = readString(dis);
+
+					this.beneficiaire_id = readString(dis);
+
+					this.categorie_beneficiaire_id = readString(dis);
+
+					this.qualite_beneficiaire_id = readString(dis);
+
+					this.titre_beneficiaire_id = readString(dis);
+
+					this.adresse_beneficiaire_id = readString(dis);
+
+					this.adresse_entreprise_id = readString(dis);
+
+					this.specialite_beneficiaire_id = readString(dis);
+
+					this.secteur_activite_entreprise_id = readString(dis);
+
+					this.objet_convention_id = dis.readInt();
+
+					this.evenement_convention_id = dis.readInt();
+
+					this.date_debut_convention = readDate(dis);
+
+					this.date_fin_convention = readDate(dis);
+
+					this.date_signature_convention = readDate(dis);
+
+					this.montant_convention = dis.readInt();
+
+					this.duree_convention = dis.readInt();
+
+					this.composite_key = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.ligne_id, dos);
+
+				// String
+
+				writeString(this.entreprise_id, dos);
+
+				// String
+
+				writeString(this.beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.categorie_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.qualite_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.titre_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.adresse_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.adresse_entreprise_id, dos);
+
+				// String
+
+				writeString(this.specialite_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.secteur_activite_entreprise_id, dos);
+
+				// int
+
+				dos.writeInt(this.objet_convention_id);
+
+				// int
+
+				dos.writeInt(this.evenement_convention_id);
+
+				// java.util.Date
+
+				writeDate(this.date_debut_convention, dos);
+
+				// java.util.Date
+
+				writeDate(this.date_fin_convention, dos);
+
+				// java.util.Date
+
+				writeDate(this.date_signature_convention, dos);
+
+				// int
+
+				dos.writeInt(this.montant_convention);
+
+				// int
+
+				dos.writeInt(this.duree_convention);
+
+				// String
+
+				writeString(this.composite_key, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("ligne_id=" + ligne_id);
+			sb.append(",entreprise_id=" + entreprise_id);
+			sb.append(",beneficiaire_id=" + beneficiaire_id);
+			sb.append(",categorie_beneficiaire_id=" + categorie_beneficiaire_id);
+			sb.append(",qualite_beneficiaire_id=" + qualite_beneficiaire_id);
+			sb.append(",titre_beneficiaire_id=" + titre_beneficiaire_id);
+			sb.append(",adresse_beneficiaire_id=" + adresse_beneficiaire_id);
+			sb.append(",adresse_entreprise_id=" + adresse_entreprise_id);
+			sb.append(",specialite_beneficiaire_id=" + specialite_beneficiaire_id);
+			sb.append(",secteur_activite_entreprise_id=" + secteur_activite_entreprise_id);
+			sb.append(",objet_convention_id=" + String.valueOf(objet_convention_id));
+			sb.append(",evenement_convention_id=" + String.valueOf(evenement_convention_id));
+			sb.append(",date_debut_convention=" + String.valueOf(date_debut_convention));
+			sb.append(",date_fin_convention=" + String.valueOf(date_fin_convention));
+			sb.append(",date_signature_convention=" + String.valueOf(date_signature_convention));
+			sb.append(",montant_convention=" + String.valueOf(montant_convention));
+			sb.append(",duree_convention=" + String.valueOf(duree_convention));
+			sb.append(",composite_key=" + composite_key);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row1Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class conventions_factStruct implements routines.system.IPersistableRow<conventions_factStruct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_convention_fact = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[0];
+		protected static final int DEFAULT_HASHCODE = 1;
+		protected static final int PRIME = 31;
+		protected int hashCode = DEFAULT_HASHCODE;
+		public boolean hashCodeDirty = true;
+
+		public String loopKey;
+
+		public String ligne_id;
+
+		public String getLigne_id() {
+			return this.ligne_id;
+		}
+
+		public String entreprise_id;
+
+		public String getEntreprise_id() {
+			return this.entreprise_id;
+		}
+
+		public String beneficiaire_id;
+
+		public String getBeneficiaire_id() {
+			return this.beneficiaire_id;
+		}
+
+		public String categorie_beneficiaire_id;
+
+		public String getCategorie_beneficiaire_id() {
+			return this.categorie_beneficiaire_id;
+		}
+
+		public String qualite_beneficiaire_id;
+
+		public String getQualite_beneficiaire_id() {
+			return this.qualite_beneficiaire_id;
+		}
+
+		public String titre_beneficiaire_id;
+
+		public String getTitre_beneficiaire_id() {
+			return this.titre_beneficiaire_id;
+		}
+
+		public String adresse_beneficiaire_id;
+
+		public String getAdresse_beneficiaire_id() {
+			return this.adresse_beneficiaire_id;
+		}
+
+		public String adresse_entreprise_id;
+
+		public String getAdresse_entreprise_id() {
+			return this.adresse_entreprise_id;
+		}
+
+		public String specialite_beneficiaire_id;
+
+		public String getSpecialite_beneficiaire_id() {
+			return this.specialite_beneficiaire_id;
+		}
+
+		public String secteur_activite_entreprise_id;
+
+		public String getSecteur_activite_entreprise_id() {
+			return this.secteur_activite_entreprise_id;
+		}
+
+		public int objet_convention_id;
+
+		public int getObjet_convention_id() {
+			return this.objet_convention_id;
+		}
+
+		public int evenement_convention_id;
+
+		public int getEvenement_convention_id() {
+			return this.evenement_convention_id;
+		}
+
+		public java.util.Date date_debut_convention;
+
+		public java.util.Date getDate_debut_convention() {
+			return this.date_debut_convention;
+		}
+
+		public java.util.Date date_fin_convention;
+
+		public java.util.Date getDate_fin_convention() {
+			return this.date_fin_convention;
+		}
+
+		public java.util.Date date_signature_convention;
+
+		public java.util.Date getDate_signature_convention() {
+			return this.date_signature_convention;
+		}
+
+		public int montant_convention;
+
+		public int getMontant_convention() {
+			return this.montant_convention;
+		}
+
+		public int duree_convention;
+
+		public int getDuree_convention() {
+			return this.duree_convention;
+		}
+
+		public String composite_key;
+
+		public String getComposite_key() {
+			return this.composite_key;
+		}
+
+		@Override
+		public int hashCode() {
+			if (this.hashCodeDirty) {
+				final int prime = PRIME;
+				int result = DEFAULT_HASHCODE;
+
+				result = prime * result + ((this.ligne_id == null) ? 0 : this.ligne_id.hashCode());
+
+				result = prime * result + ((this.entreprise_id == null) ? 0 : this.entreprise_id.hashCode());
+
+				result = prime * result
+						+ ((this.date_signature_convention == null) ? 0 : this.date_signature_convention.hashCode());
+
+				this.hashCode = result;
+				this.hashCodeDirty = false;
+			}
+			return this.hashCode;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			final conventions_factStruct other = (conventions_factStruct) obj;
+
+			if (this.ligne_id == null) {
+				if (other.ligne_id != null)
+					return false;
+
+			} else if (!this.ligne_id.equals(other.ligne_id))
+
+				return false;
+
+			if (this.entreprise_id == null) {
+				if (other.entreprise_id != null)
+					return false;
+
+			} else if (!this.entreprise_id.equals(other.entreprise_id))
+
+				return false;
+
+			if (this.date_signature_convention == null) {
+				if (other.date_signature_convention != null)
+					return false;
+
+			} else if (!this.date_signature_convention.equals(other.date_signature_convention))
+
+				return false;
+
+			return true;
+		}
+
+		public void copyDataTo(conventions_factStruct other) {
+
+			other.ligne_id = this.ligne_id;
+			other.entreprise_id = this.entreprise_id;
+			other.beneficiaire_id = this.beneficiaire_id;
+			other.categorie_beneficiaire_id = this.categorie_beneficiaire_id;
+			other.qualite_beneficiaire_id = this.qualite_beneficiaire_id;
+			other.titre_beneficiaire_id = this.titre_beneficiaire_id;
+			other.adresse_beneficiaire_id = this.adresse_beneficiaire_id;
+			other.adresse_entreprise_id = this.adresse_entreprise_id;
+			other.specialite_beneficiaire_id = this.specialite_beneficiaire_id;
+			other.secteur_activite_entreprise_id = this.secteur_activite_entreprise_id;
+			other.objet_convention_id = this.objet_convention_id;
+			other.evenement_convention_id = this.evenement_convention_id;
+			other.date_debut_convention = this.date_debut_convention;
+			other.date_fin_convention = this.date_fin_convention;
+			other.date_signature_convention = this.date_signature_convention;
+			other.montant_convention = this.montant_convention;
+			other.duree_convention = this.duree_convention;
+			other.composite_key = this.composite_key;
+
+		}
+
+		public void copyKeysDataTo(conventions_factStruct other) {
+
+			other.ligne_id = this.ligne_id;
+			other.entreprise_id = this.entreprise_id;
+			other.date_signature_convention = this.date_signature_convention;
+
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_convention_fact) {
+
+				try {
+
+					int length = 0;
+
+					this.ligne_id = readString(dis);
+
+					this.entreprise_id = readString(dis);
+
+					this.beneficiaire_id = readString(dis);
+
+					this.categorie_beneficiaire_id = readString(dis);
+
+					this.qualite_beneficiaire_id = readString(dis);
+
+					this.titre_beneficiaire_id = readString(dis);
+
+					this.adresse_beneficiaire_id = readString(dis);
+
+					this.adresse_entreprise_id = readString(dis);
+
+					this.specialite_beneficiaire_id = readString(dis);
+
+					this.secteur_activite_entreprise_id = readString(dis);
+
+					this.objet_convention_id = dis.readInt();
+
+					this.evenement_convention_id = dis.readInt();
+
+					this.date_debut_convention = readDate(dis);
+
+					this.date_fin_convention = readDate(dis);
+
+					this.date_signature_convention = readDate(dis);
+
+					this.montant_convention = dis.readInt();
+
+					this.duree_convention = dis.readInt();
+
+					this.composite_key = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.ligne_id, dos);
+
+				// String
+
+				writeString(this.entreprise_id, dos);
+
+				// String
+
+				writeString(this.beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.categorie_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.qualite_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.titre_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.adresse_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.adresse_entreprise_id, dos);
+
+				// String
+
+				writeString(this.specialite_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.secteur_activite_entreprise_id, dos);
+
+				// int
+
+				dos.writeInt(this.objet_convention_id);
+
+				// int
+
+				dos.writeInt(this.evenement_convention_id);
+
+				// java.util.Date
+
+				writeDate(this.date_debut_convention, dos);
+
+				// java.util.Date
+
+				writeDate(this.date_fin_convention, dos);
+
+				// java.util.Date
+
+				writeDate(this.date_signature_convention, dos);
+
+				// int
+
+				dos.writeInt(this.montant_convention);
+
+				// int
+
+				dos.writeInt(this.duree_convention);
+
+				// String
+
+				writeString(this.composite_key, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("ligne_id=" + ligne_id);
+			sb.append(",entreprise_id=" + entreprise_id);
+			sb.append(",beneficiaire_id=" + beneficiaire_id);
+			sb.append(",categorie_beneficiaire_id=" + categorie_beneficiaire_id);
+			sb.append(",qualite_beneficiaire_id=" + qualite_beneficiaire_id);
+			sb.append(",titre_beneficiaire_id=" + titre_beneficiaire_id);
+			sb.append(",adresse_beneficiaire_id=" + adresse_beneficiaire_id);
+			sb.append(",adresse_entreprise_id=" + adresse_entreprise_id);
+			sb.append(",specialite_beneficiaire_id=" + specialite_beneficiaire_id);
+			sb.append(",secteur_activite_entreprise_id=" + secteur_activite_entreprise_id);
+			sb.append(",objet_convention_id=" + String.valueOf(objet_convention_id));
+			sb.append(",evenement_convention_id=" + String.valueOf(evenement_convention_id));
+			sb.append(",date_debut_convention=" + String.valueOf(date_debut_convention));
+			sb.append(",date_fin_convention=" + String.valueOf(date_fin_convention));
+			sb.append(",date_signature_convention=" + String.valueOf(date_signature_convention));
+			sb.append(",montant_convention=" + String.valueOf(montant_convention));
+			sb.append(",duree_convention=" + String.valueOf(duree_convention));
+			sb.append(",composite_key=" + composite_key);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
 		public int compareTo(conventions_factStruct other) {
 
 			int returnValue = -1;
@@ -731,6 +1616,11 @@ public class convention_fact implements TalendJob {
 			}
 
 			returnValue = checkNullsAndCompare(this.entreprise_id, other.entreprise_id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			returnValue = checkNullsAndCompare(this.date_signature_convention, other.date_signature_convention);
 			if (returnValue != 0) {
 				return returnValue;
 			}
@@ -1407,8 +2297,7 @@ public class convention_fact implements TalendJob {
 
 	}
 
-	public static class after_tFileInputDelimited_3Struct
-			implements routines.system.IPersistableRow<after_tFileInputDelimited_3Struct> {
+	public static class row2Struct implements routines.system.IPersistableRow<row2Struct> {
 		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_convention_fact = new byte[0];
 		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[0];
 
@@ -2024,7 +2913,7 @@ public class convention_fact implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(after_tFileInputDelimited_3Struct other) {
+		public int compareTo(row2Struct other) {
 
 			int returnValue = -1;
 
@@ -2054,8 +2943,655 @@ public class convention_fact implements TalendJob {
 
 	}
 
-	public void tFileInputDelimited_3Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", 0);
+	public static class after_tFileInputDelimited_1Struct
+			implements routines.system.IPersistableRow<after_tFileInputDelimited_1Struct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_convention_fact = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[0];
+
+		public String entreprise_identifiant;
+
+		public String getEntreprise_identifiant() {
+			return this.entreprise_identifiant;
+		}
+
+		public String denomination_sociale;
+
+		public String getDenomination_sociale() {
+			return this.denomination_sociale;
+		}
+
+		public String ligne_identifiant;
+
+		public String getLigne_identifiant() {
+			return this.ligne_identifiant;
+		}
+
+		public Character ligne_rectification;
+
+		public Character getLigne_rectification() {
+			return this.ligne_rectification;
+		}
+
+		public String benef_categorie_code;
+
+		public String getBenef_categorie_code() {
+			return this.benef_categorie_code;
+		}
+
+		public String categorie;
+
+		public String getCategorie() {
+			return this.categorie;
+		}
+
+		public String benef_nom;
+
+		public String getBenef_nom() {
+			return this.benef_nom;
+		}
+
+		public String benef_prenom;
+
+		public String getBenef_prenom() {
+			return this.benef_prenom;
+		}
+
+		public String benef_qualite_code;
+
+		public String getBenef_qualite_code() {
+			return this.benef_qualite_code;
+		}
+
+		public String qualite;
+
+		public String getQualite() {
+			return this.qualite;
+		}
+
+		public String benef_adresse1;
+
+		public String getBenef_adresse1() {
+			return this.benef_adresse1;
+		}
+
+		public String benef_adresse2;
+
+		public String getBenef_adresse2() {
+			return this.benef_adresse2;
+		}
+
+		public String benef_adresse3;
+
+		public String getBenef_adresse3() {
+			return this.benef_adresse3;
+		}
+
+		public String benef_adresse4;
+
+		public String getBenef_adresse4() {
+			return this.benef_adresse4;
+		}
+
+		public String benef_codepostal;
+
+		public String getBenef_codepostal() {
+			return this.benef_codepostal;
+		}
+
+		public String benef_ville;
+
+		public String getBenef_ville() {
+			return this.benef_ville;
+		}
+
+		public String benef_pays_code;
+
+		public String getBenef_pays_code() {
+			return this.benef_pays_code;
+		}
+
+		public String pays;
+
+		public String getPays() {
+			return this.pays;
+		}
+
+		public String benef_titre_code;
+
+		public String getBenef_titre_code() {
+			return this.benef_titre_code;
+		}
+
+		public String benef_titre_libelle;
+
+		public String getBenef_titre_libelle() {
+			return this.benef_titre_libelle;
+		}
+
+		public String benef_specialite_code;
+
+		public String getBenef_specialite_code() {
+			return this.benef_specialite_code;
+		}
+
+		public String benef_speicalite_libelle;
+
+		public String getBenef_speicalite_libelle() {
+			return this.benef_speicalite_libelle;
+		}
+
+		public String benef_identifiant_type_code;
+
+		public String getBenef_identifiant_type_code() {
+			return this.benef_identifiant_type_code;
+		}
+
+		public String identifiant_type;
+
+		public String getIdentifiant_type() {
+			return this.identifiant_type;
+		}
+
+		public String benef_identifiant_valeur;
+
+		public String getBenef_identifiant_valeur() {
+			return this.benef_identifiant_valeur;
+		}
+
+		public String benef_etablissement;
+
+		public String getBenef_etablissement() {
+			return this.benef_etablissement;
+		}
+
+		public String benef_etablissement_codepostal;
+
+		public String getBenef_etablissement_codepostal() {
+			return this.benef_etablissement_codepostal;
+		}
+
+		public String benef_etablissement_ville;
+
+		public String getBenef_etablissement_ville() {
+			return this.benef_etablissement_ville;
+		}
+
+		public String benef_denomination_sociale;
+
+		public String getBenef_denomination_sociale() {
+			return this.benef_denomination_sociale;
+		}
+
+		public String benef_objet_social;
+
+		public String getBenef_objet_social() {
+			return this.benef_objet_social;
+		}
+
+		public String ligne_type;
+
+		public String getLigne_type() {
+			return this.ligne_type;
+		}
+
+		public String conv_date_signature;
+
+		public String getConv_date_signature() {
+			return this.conv_date_signature;
+		}
+
+		public String conv_objet;
+
+		public String getConv_objet() {
+			return this.conv_objet;
+		}
+
+		public String conv_objet_autre;
+
+		public String getConv_objet_autre() {
+			return this.conv_objet_autre;
+		}
+
+		public String conv_date_debut;
+
+		public String getConv_date_debut() {
+			return this.conv_date_debut;
+		}
+
+		public String conv_date_fin;
+
+		public String getConv_date_fin() {
+			return this.conv_date_fin;
+		}
+
+		public String conv_montant_ttc;
+
+		public String getConv_montant_ttc() {
+			return this.conv_montant_ttc;
+		}
+
+		public String conv_manifestation_date;
+
+		public String getConv_manifestation_date() {
+			return this.conv_manifestation_date;
+		}
+
+		public String conv_manifestation_nom;
+
+		public String getConv_manifestation_nom() {
+			return this.conv_manifestation_nom;
+		}
+
+		public String conv_manifestation_lieu;
+
+		public String getConv_manifestation_lieu() {
+			return this.conv_manifestation_lieu;
+		}
+
+		public String conv_manifestation_organisateur;
+
+		public String getConv_manifestation_organisateur() {
+			return this.conv_manifestation_organisateur;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_convention_fact) {
+
+				try {
+
+					int length = 0;
+
+					this.entreprise_identifiant = readString(dis);
+
+					this.denomination_sociale = readString(dis);
+
+					this.ligne_identifiant = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.ligne_rectification = null;
+					} else {
+						this.ligne_rectification = dis.readChar();
+					}
+
+					this.benef_categorie_code = readString(dis);
+
+					this.categorie = readString(dis);
+
+					this.benef_nom = readString(dis);
+
+					this.benef_prenom = readString(dis);
+
+					this.benef_qualite_code = readString(dis);
+
+					this.qualite = readString(dis);
+
+					this.benef_adresse1 = readString(dis);
+
+					this.benef_adresse2 = readString(dis);
+
+					this.benef_adresse3 = readString(dis);
+
+					this.benef_adresse4 = readString(dis);
+
+					this.benef_codepostal = readString(dis);
+
+					this.benef_ville = readString(dis);
+
+					this.benef_pays_code = readString(dis);
+
+					this.pays = readString(dis);
+
+					this.benef_titre_code = readString(dis);
+
+					this.benef_titre_libelle = readString(dis);
+
+					this.benef_specialite_code = readString(dis);
+
+					this.benef_speicalite_libelle = readString(dis);
+
+					this.benef_identifiant_type_code = readString(dis);
+
+					this.identifiant_type = readString(dis);
+
+					this.benef_identifiant_valeur = readString(dis);
+
+					this.benef_etablissement = readString(dis);
+
+					this.benef_etablissement_codepostal = readString(dis);
+
+					this.benef_etablissement_ville = readString(dis);
+
+					this.benef_denomination_sociale = readString(dis);
+
+					this.benef_objet_social = readString(dis);
+
+					this.ligne_type = readString(dis);
+
+					this.conv_date_signature = readString(dis);
+
+					this.conv_objet = readString(dis);
+
+					this.conv_objet_autre = readString(dis);
+
+					this.conv_date_debut = readString(dis);
+
+					this.conv_date_fin = readString(dis);
+
+					this.conv_montant_ttc = readString(dis);
+
+					this.conv_manifestation_date = readString(dis);
+
+					this.conv_manifestation_nom = readString(dis);
+
+					this.conv_manifestation_lieu = readString(dis);
+
+					this.conv_manifestation_organisateur = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.entreprise_identifiant, dos);
+
+				// String
+
+				writeString(this.denomination_sociale, dos);
+
+				// String
+
+				writeString(this.ligne_identifiant, dos);
+
+				// Character
+
+				if (this.ligne_rectification == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeChar(this.ligne_rectification);
+				}
+
+				// String
+
+				writeString(this.benef_categorie_code, dos);
+
+				// String
+
+				writeString(this.categorie, dos);
+
+				// String
+
+				writeString(this.benef_nom, dos);
+
+				// String
+
+				writeString(this.benef_prenom, dos);
+
+				// String
+
+				writeString(this.benef_qualite_code, dos);
+
+				// String
+
+				writeString(this.qualite, dos);
+
+				// String
+
+				writeString(this.benef_adresse1, dos);
+
+				// String
+
+				writeString(this.benef_adresse2, dos);
+
+				// String
+
+				writeString(this.benef_adresse3, dos);
+
+				// String
+
+				writeString(this.benef_adresse4, dos);
+
+				// String
+
+				writeString(this.benef_codepostal, dos);
+
+				// String
+
+				writeString(this.benef_ville, dos);
+
+				// String
+
+				writeString(this.benef_pays_code, dos);
+
+				// String
+
+				writeString(this.pays, dos);
+
+				// String
+
+				writeString(this.benef_titre_code, dos);
+
+				// String
+
+				writeString(this.benef_titre_libelle, dos);
+
+				// String
+
+				writeString(this.benef_specialite_code, dos);
+
+				// String
+
+				writeString(this.benef_speicalite_libelle, dos);
+
+				// String
+
+				writeString(this.benef_identifiant_type_code, dos);
+
+				// String
+
+				writeString(this.identifiant_type, dos);
+
+				// String
+
+				writeString(this.benef_identifiant_valeur, dos);
+
+				// String
+
+				writeString(this.benef_etablissement, dos);
+
+				// String
+
+				writeString(this.benef_etablissement_codepostal, dos);
+
+				// String
+
+				writeString(this.benef_etablissement_ville, dos);
+
+				// String
+
+				writeString(this.benef_denomination_sociale, dos);
+
+				// String
+
+				writeString(this.benef_objet_social, dos);
+
+				// String
+
+				writeString(this.ligne_type, dos);
+
+				// String
+
+				writeString(this.conv_date_signature, dos);
+
+				// String
+
+				writeString(this.conv_objet, dos);
+
+				// String
+
+				writeString(this.conv_objet_autre, dos);
+
+				// String
+
+				writeString(this.conv_date_debut, dos);
+
+				// String
+
+				writeString(this.conv_date_fin, dos);
+
+				// String
+
+				writeString(this.conv_montant_ttc, dos);
+
+				// String
+
+				writeString(this.conv_manifestation_date, dos);
+
+				// String
+
+				writeString(this.conv_manifestation_nom, dos);
+
+				// String
+
+				writeString(this.conv_manifestation_lieu, dos);
+
+				// String
+
+				writeString(this.conv_manifestation_organisateur, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("entreprise_identifiant=" + entreprise_identifiant);
+			sb.append(",denomination_sociale=" + denomination_sociale);
+			sb.append(",ligne_identifiant=" + ligne_identifiant);
+			sb.append(",ligne_rectification=" + String.valueOf(ligne_rectification));
+			sb.append(",benef_categorie_code=" + benef_categorie_code);
+			sb.append(",categorie=" + categorie);
+			sb.append(",benef_nom=" + benef_nom);
+			sb.append(",benef_prenom=" + benef_prenom);
+			sb.append(",benef_qualite_code=" + benef_qualite_code);
+			sb.append(",qualite=" + qualite);
+			sb.append(",benef_adresse1=" + benef_adresse1);
+			sb.append(",benef_adresse2=" + benef_adresse2);
+			sb.append(",benef_adresse3=" + benef_adresse3);
+			sb.append(",benef_adresse4=" + benef_adresse4);
+			sb.append(",benef_codepostal=" + benef_codepostal);
+			sb.append(",benef_ville=" + benef_ville);
+			sb.append(",benef_pays_code=" + benef_pays_code);
+			sb.append(",pays=" + pays);
+			sb.append(",benef_titre_code=" + benef_titre_code);
+			sb.append(",benef_titre_libelle=" + benef_titre_libelle);
+			sb.append(",benef_specialite_code=" + benef_specialite_code);
+			sb.append(",benef_speicalite_libelle=" + benef_speicalite_libelle);
+			sb.append(",benef_identifiant_type_code=" + benef_identifiant_type_code);
+			sb.append(",identifiant_type=" + identifiant_type);
+			sb.append(",benef_identifiant_valeur=" + benef_identifiant_valeur);
+			sb.append(",benef_etablissement=" + benef_etablissement);
+			sb.append(",benef_etablissement_codepostal=" + benef_etablissement_codepostal);
+			sb.append(",benef_etablissement_ville=" + benef_etablissement_ville);
+			sb.append(",benef_denomination_sociale=" + benef_denomination_sociale);
+			sb.append(",benef_objet_social=" + benef_objet_social);
+			sb.append(",ligne_type=" + ligne_type);
+			sb.append(",conv_date_signature=" + conv_date_signature);
+			sb.append(",conv_objet=" + conv_objet);
+			sb.append(",conv_objet_autre=" + conv_objet_autre);
+			sb.append(",conv_date_debut=" + conv_date_debut);
+			sb.append(",conv_date_fin=" + conv_date_fin);
+			sb.append(",conv_montant_ttc=" + conv_montant_ttc);
+			sb.append(",conv_manifestation_date=" + conv_manifestation_date);
+			sb.append(",conv_manifestation_nom=" + conv_manifestation_nom);
+			sb.append(",conv_manifestation_lieu=" + conv_manifestation_lieu);
+			sb.append(",conv_manifestation_organisateur=" + conv_manifestation_organisateur);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(after_tFileInputDelimited_1Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public void tFileInputDelimited_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 0);
 
 		final boolean execStat = this.execStat;
 
@@ -2076,8 +3612,11 @@ public class convention_fact implements TalendJob {
 
 				tFileInputDelimited_4Process(globalMap);
 
+				row2Struct row2 = new row2Struct();
 				conventionsStruct conventions = new conventionsStruct();
 				conventions_factStruct conventions_fact = new conventions_factStruct();
+				row1Struct row1 = new row1Struct();
+				conventions_uniquesStruct conventions_uniques = new conventions_uniquesStruct();
 
 				/**
 				 * [tDBOutput_2 begin ] start
@@ -2089,7 +3628,7 @@ public class convention_fact implements TalendJob {
 				currentComponent = "tDBOutput_2";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "conventions_fact");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "conventions_uniques");
 				}
 
 				int tos_count_tDBOutput_2 = 0;
@@ -2136,7 +3675,7 @@ public class convention_fact implements TalendJob {
 				String dbUser_tDBOutput_2 = "root";
 
 				final String decryptedPassword_tDBOutput_2 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:xqSOXNnp1EAo3yYPPAWrJchZ171Y+eCA45wKYA==");
+						.decryptPassword("enc:routine.encryption.key.v1:zWwO1IVkQ4WXjedACaZrLaHzefzeqzUGE5fxrg==");
 
 				String dbPwd_tDBOutput_2 = decryptedPassword_tDBOutput_2;
 				java.lang.Class.forName(driverClass_tDBOutput_2);
@@ -2168,6 +3707,112 @@ public class convention_fact implements TalendJob {
 				 */
 
 				/**
+				 * [tMap_1 begin ] start
+				 */
+
+				ok_Hash.put("tMap_1", false);
+				start_Hash.put("tMap_1", System.currentTimeMillis());
+
+				currentComponent = "tMap_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row1");
+				}
+
+				int tos_count_tMap_1 = 0;
+
+// ###############################
+// # Lookup's keys initialization
+// ###############################        
+
+// ###############################
+// # Vars initialization
+				class Var__tMap_1__Struct {
+				}
+				Var__tMap_1__Struct Var__tMap_1 = new Var__tMap_1__Struct();
+// ###############################
+
+// ###############################
+// # Outputs initialization
+				conventions_uniquesStruct conventions_uniques_tmp = new conventions_uniquesStruct();
+// ###############################
+
+				/**
+				 * [tMap_1 begin ] stop
+				 */
+
+				/**
+				 * [tUniqRow_1 begin ] start
+				 */
+
+				ok_Hash.put("tUniqRow_1", false);
+				start_Hash.put("tUniqRow_1", System.currentTimeMillis());
+
+				currentComponent = "tUniqRow_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "conventions_fact");
+				}
+
+				int tos_count_tUniqRow_1 = 0;
+
+				class KeyStruct_tUniqRow_1 {
+
+					private static final int DEFAULT_HASHCODE = 1;
+					private static final int PRIME = 31;
+					private int hashCode = DEFAULT_HASHCODE;
+					public boolean hashCodeDirty = true;
+
+					String composite_key;
+
+					@Override
+					public int hashCode() {
+						if (this.hashCodeDirty) {
+							final int prime = PRIME;
+							int result = DEFAULT_HASHCODE;
+
+							result = prime * result
+									+ ((this.composite_key == null) ? 0 : this.composite_key.hashCode());
+
+							this.hashCode = result;
+							this.hashCodeDirty = false;
+						}
+						return this.hashCode;
+					}
+
+					@Override
+					public boolean equals(Object obj) {
+						if (this == obj)
+							return true;
+						if (obj == null)
+							return false;
+						if (getClass() != obj.getClass())
+							return false;
+						final KeyStruct_tUniqRow_1 other = (KeyStruct_tUniqRow_1) obj;
+
+						if (this.composite_key == null) {
+							if (other.composite_key != null)
+								return false;
+
+						} else if (!this.composite_key.equals(other.composite_key))
+
+							return false;
+
+						return true;
+					}
+
+				}
+
+				int nb_uniques_tUniqRow_1 = 0;
+				int nb_duplicates_tUniqRow_1 = 0;
+				KeyStruct_tUniqRow_1 finder_tUniqRow_1 = new KeyStruct_tUniqRow_1();
+				java.util.Set<KeyStruct_tUniqRow_1> keystUniqRow_1 = new java.util.HashSet<KeyStruct_tUniqRow_1>();
+
+				/**
+				 * [tUniqRow_1 begin ] stop
+				 */
+
+				/**
 				 * [tMap_2 begin ] start
 				 */
 
@@ -2187,6 +3832,8 @@ public class convention_fact implements TalendJob {
 
 				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<entreprisesStruct> tHash_Lookup_entreprises = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<entreprisesStruct>) ((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<entreprisesStruct>) globalMap
 						.get("tHash_Lookup_entreprises"));
+
+				tHash_Lookup_entreprises.initGet();
 
 				entreprisesStruct entreprisesHashKey = new entreprisesStruct();
 				entreprisesStruct entreprisesDefault = new entreprisesStruct();
@@ -2217,1248 +3864,1130 @@ public class convention_fact implements TalendJob {
 				 */
 
 				/**
-				 * [tFileInputDelimited_3 begin ] start
+				 * [tFilterRow_1 begin ] start
 				 */
 
-				ok_Hash.put("tFileInputDelimited_3", false);
-				start_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
+				ok_Hash.put("tFilterRow_1", false);
+				start_Hash.put("tFilterRow_1", System.currentTimeMillis());
 
-				currentComponent = "tFileInputDelimited_3";
+				currentComponent = "tFilterRow_1";
 
-				int tos_count_tFileInputDelimited_3 = 0;
-
-				final routines.system.RowState rowstate_tFileInputDelimited_3 = new routines.system.RowState();
-
-				int nb_line_tFileInputDelimited_3 = 0;
-				int footer_tFileInputDelimited_3 = 0;
-				int totalLinetFileInputDelimited_3 = 0;
-				int limittFileInputDelimited_3 = -1;
-				int lastLinetFileInputDelimited_3 = -1;
-
-				char fieldSeparator_tFileInputDelimited_3[] = null;
-
-				// support passing value (property: Field Separator) by 'context.fs' or
-				// 'globalMap.get("fs")'.
-				if (((String) ";").length() > 0) {
-					fieldSeparator_tFileInputDelimited_3 = ((String) ";").toCharArray();
-				} else {
-					throw new IllegalArgumentException("Field Separator must be assigned a char.");
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row2");
 				}
 
-				char rowSeparator_tFileInputDelimited_3[] = null;
+				int tos_count_tFilterRow_1 = 0;
 
-				// support passing value (property: Row Separator) by 'context.rs' or
-				// 'globalMap.get("rs")'.
-				if (((String) "\n").length() > 0) {
-					rowSeparator_tFileInputDelimited_3 = ((String) "\n").toCharArray();
-				} else {
-					throw new IllegalArgumentException("Row Separator must be assigned a char.");
+				int nb_line_tFilterRow_1 = 0;
+				int nb_line_ok_tFilterRow_1 = 0;
+				int nb_line_reject_tFilterRow_1 = 0;
+
+				class Operator_tFilterRow_1 {
+					private String sErrorMsg = "";
+					private boolean bMatchFlag = true;
+					private String sUnionFlag = "&&";
+
+					public Operator_tFilterRow_1(String unionFlag) {
+						sUnionFlag = unionFlag;
+						bMatchFlag = "||".equals(unionFlag) ? false : true;
+					}
+
+					public String getErrorMsg() {
+						if (sErrorMsg != null && sErrorMsg.length() > 1)
+							return sErrorMsg.substring(1);
+						else
+							return null;
+					}
+
+					public boolean getMatchFlag() {
+						return bMatchFlag;
+					}
+
+					public void matches(boolean partMatched, String reason) {
+						// no need to care about the next judgement
+						if ("||".equals(sUnionFlag) && bMatchFlag) {
+							return;
+						}
+
+						if (!partMatched) {
+							sErrorMsg += "|" + reason;
+						}
+
+						if ("||".equals(sUnionFlag))
+							bMatchFlag = bMatchFlag || partMatched;
+						else
+							bMatchFlag = bMatchFlag && partMatched;
+					}
 				}
 
-				Object filename_tFileInputDelimited_3 = /** Start field tFileInputDelimited_3:FILENAME */
-						"C:/BI/transparence-sante/data/data.gouv/conventions.csv"/**
-																					 * End field
-																					 * tFileInputDelimited_3:FILENAME
-																					 */
-				;
-				com.talend.csv.CSVReader csvReadertFileInputDelimited_3 = null;
+				/**
+				 * [tFilterRow_1 begin ] stop
+				 */
 
+				/**
+				 * [tFileInputDelimited_1 begin ] start
+				 */
+
+				ok_Hash.put("tFileInputDelimited_1", false);
+				start_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
+
+				currentComponent = "tFileInputDelimited_1";
+
+				int tos_count_tFileInputDelimited_1 = 0;
+
+				final routines.system.RowState rowstate_tFileInputDelimited_1 = new routines.system.RowState();
+
+				int nb_line_tFileInputDelimited_1 = 0;
+				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
+				int limit_tFileInputDelimited_1 = -1;
 				try {
 
-					String[] rowtFileInputDelimited_3 = null;
-					int currentLinetFileInputDelimited_3 = 0;
-					int outputLinetFileInputDelimited_3 = 0;
-					try {// TD110 begin
-						if (filename_tFileInputDelimited_3 instanceof java.io.InputStream) {
+					Object filename_tFileInputDelimited_1 = "C:/BI/transparence-sante/data/data.gouv/conventions.csv";
+					if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
 
-							int footer_value_tFileInputDelimited_3 = 0;
-							if (footer_value_tFileInputDelimited_3 > 0) {
-								throw new java.lang.Exception(
-										"When the input source is a stream,footer shouldn't be bigger than 0.");
-							}
-
-							csvReadertFileInputDelimited_3 = new com.talend.csv.CSVReader(
-									(java.io.InputStream) filename_tFileInputDelimited_3,
-									fieldSeparator_tFileInputDelimited_3[0], "UTF-8");
-						} else {
-							csvReadertFileInputDelimited_3 = new com.talend.csv.CSVReader(
-									new java.io.BufferedReader(new java.io.InputStreamReader(
-											new java.io.FileInputStream(String.valueOf(filename_tFileInputDelimited_3)),
-											"UTF-8")),
-									fieldSeparator_tFileInputDelimited_3[0]);
+						int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
+						if (footer_value_tFileInputDelimited_1 > 0 || random_value_tFileInputDelimited_1 > 0) {
+							throw new java.lang.Exception(
+									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
 						}
 
-						csvReadertFileInputDelimited_3.setTrimWhitespace(false);
-						if ((rowSeparator_tFileInputDelimited_3[0] != '\n')
-								&& (rowSeparator_tFileInputDelimited_3[0] != '\r'))
-							csvReadertFileInputDelimited_3.setLineEnd("" + rowSeparator_tFileInputDelimited_3[0]);
-
-						csvReadertFileInputDelimited_3.setQuoteChar('"');
-
-						csvReadertFileInputDelimited_3.setEscapeChar(csvReadertFileInputDelimited_3.getQuoteChar());
-
-						if (footer_tFileInputDelimited_3 > 0) {
-							for (totalLinetFileInputDelimited_3 = 0; totalLinetFileInputDelimited_3 < 1; totalLinetFileInputDelimited_3++) {
-								csvReadertFileInputDelimited_3.readNext();
-							}
-							csvReadertFileInputDelimited_3.setSkipEmptyRecords(false);
-							while (csvReadertFileInputDelimited_3.readNext()) {
-
-								totalLinetFileInputDelimited_3++;
-
-							}
-							int lastLineTemptFileInputDelimited_3 = totalLinetFileInputDelimited_3
-									- footer_tFileInputDelimited_3 < 0 ? 0
-											: totalLinetFileInputDelimited_3 - footer_tFileInputDelimited_3;
-							if (lastLinetFileInputDelimited_3 > 0) {
-								lastLinetFileInputDelimited_3 = lastLinetFileInputDelimited_3 < lastLineTemptFileInputDelimited_3
-										? lastLinetFileInputDelimited_3
-										: lastLineTemptFileInputDelimited_3;
-							} else {
-								lastLinetFileInputDelimited_3 = lastLineTemptFileInputDelimited_3;
-							}
-
-							csvReadertFileInputDelimited_3.close();
-							if (filename_tFileInputDelimited_3 instanceof java.io.InputStream) {
-								csvReadertFileInputDelimited_3 = new com.talend.csv.CSVReader(
-										(java.io.InputStream) filename_tFileInputDelimited_3,
-										fieldSeparator_tFileInputDelimited_3[0], "UTF-8");
-							} else {
-								csvReadertFileInputDelimited_3 = new com.talend.csv.CSVReader(
-										new java.io.BufferedReader(
-												new java.io.InputStreamReader(
-														new java.io.FileInputStream(
-																String.valueOf(filename_tFileInputDelimited_3)),
-														"UTF-8")),
-										fieldSeparator_tFileInputDelimited_3[0]);
-							}
-							csvReadertFileInputDelimited_3.setTrimWhitespace(false);
-							if ((rowSeparator_tFileInputDelimited_3[0] != '\n')
-									&& (rowSeparator_tFileInputDelimited_3[0] != '\r'))
-								csvReadertFileInputDelimited_3.setLineEnd("" + rowSeparator_tFileInputDelimited_3[0]);
-
-							csvReadertFileInputDelimited_3.setQuoteChar('"');
-
-							csvReadertFileInputDelimited_3.setEscapeChar(csvReadertFileInputDelimited_3.getQuoteChar());
-
-						}
-
-						if (limittFileInputDelimited_3 != 0) {
-							for (currentLinetFileInputDelimited_3 = 0; currentLinetFileInputDelimited_3 < 1; currentLinetFileInputDelimited_3++) {
-								csvReadertFileInputDelimited_3.readNext();
-							}
-						}
-						csvReadertFileInputDelimited_3.setSkipEmptyRecords(false);
-
+					}
+					try {
+						fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(
+								"C:/BI/transparence-sante/data/data.gouv/conventions.csv", "UTF-8", ";", "\n", false, 1,
+								0, limit_tFileInputDelimited_1, -1, false);
 					} catch (java.lang.Exception e) {
 
 						System.err.println(e.getMessage());
 
-					} // TD110 end
+					}
 
-					while (limittFileInputDelimited_3 != 0 && csvReadertFileInputDelimited_3 != null
-							&& csvReadertFileInputDelimited_3.readNext()) {
-						rowstate_tFileInputDelimited_3.reset();
+					while (fid_tFileInputDelimited_1 != null && fid_tFileInputDelimited_1.nextRecord()) {
+						rowstate_tFileInputDelimited_1.reset();
 
-						rowtFileInputDelimited_3 = csvReadertFileInputDelimited_3.getValues();
+						row2 = null;
 
-						currentLinetFileInputDelimited_3++;
-
-						if (lastLinetFileInputDelimited_3 > -1
-								&& currentLinetFileInputDelimited_3 > lastLinetFileInputDelimited_3) {
-							break;
-						}
-						outputLinetFileInputDelimited_3++;
-						if (limittFileInputDelimited_3 > 0
-								&& outputLinetFileInputDelimited_3 > limittFileInputDelimited_3) {
-							break;
-						}
-
-						conventions = null;
-
-						boolean whetherReject_tFileInputDelimited_3 = false;
-						conventions = new conventionsStruct();
+						boolean whetherReject_tFileInputDelimited_1 = false;
+						row2 = new row2Struct();
 						try {
 
-							char fieldSeparator_tFileInputDelimited_3_ListType[] = null;
-							// support passing value (property: Field Separator) by 'context.fs' or
-							// 'globalMap.get("fs")'.
-							if (((String) ";").length() > 0) {
-								fieldSeparator_tFileInputDelimited_3_ListType = ((String) ";").toCharArray();
-							} else {
-								throw new IllegalArgumentException("Field Separator must be assigned a char.");
-							}
-							if (rowtFileInputDelimited_3.length == 1 && ("\015").equals(rowtFileInputDelimited_3[0])) {// empty
-																														// line
-																														// when
-																														// row
-																														// separator
-																														// is
-																														// '\n'
+							int columnIndexWithD_tFileInputDelimited_1 = 0;
 
-								conventions.entreprise_identifiant = null;
+							String temp = "";
 
-								conventions.denomination_sociale = null;
+							columnIndexWithD_tFileInputDelimited_1 = 0;
 
-								conventions.ligne_identifiant = null;
+							row2.entreprise_identifiant = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.ligne_rectification = null;
+							columnIndexWithD_tFileInputDelimited_1 = 1;
 
-								conventions.benef_categorie_code = null;
+							row2.denomination_sociale = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.categorie = null;
+							columnIndexWithD_tFileInputDelimited_1 = 2;
 
-								conventions.benef_nom = null;
+							row2.ligne_identifiant = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
 
-								conventions.benef_prenom = null;
+							columnIndexWithD_tFileInputDelimited_1 = 3;
 
-								conventions.benef_qualite_code = null;
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
 
-								conventions.qualite = null;
+								try {
 
-								conventions.benef_adresse1 = null;
+									row2.ligne_rectification = ParserUtils.parseTo_Character(temp);
 
-								conventions.benef_adresse2 = null;
-
-								conventions.benef_adresse3 = null;
-
-								conventions.benef_adresse4 = null;
-
-								conventions.benef_codepostal = null;
-
-								conventions.benef_ville = null;
-
-								conventions.benef_pays_code = null;
-
-								conventions.pays = null;
-
-								conventions.benef_titre_code = null;
-
-								conventions.benef_titre_libelle = null;
-
-								conventions.benef_specialite_code = null;
-
-								conventions.benef_speicalite_libelle = null;
-
-								conventions.benef_identifiant_type_code = null;
-
-								conventions.identifiant_type = null;
-
-								conventions.benef_identifiant_valeur = null;
-
-								conventions.benef_etablissement = null;
-
-								conventions.benef_etablissement_codepostal = null;
-
-								conventions.benef_etablissement_ville = null;
-
-								conventions.benef_denomination_sociale = null;
-
-								conventions.benef_objet_social = null;
-
-								conventions.ligne_type = null;
-
-								conventions.conv_date_signature = null;
-
-								conventions.conv_objet = null;
-
-								conventions.conv_objet_autre = null;
-
-								conventions.conv_date_debut = null;
-
-								conventions.conv_date_fin = null;
-
-								conventions.conv_montant_ttc = null;
-
-								conventions.conv_manifestation_date = null;
-
-								conventions.conv_manifestation_nom = null;
-
-								conventions.conv_manifestation_lieu = null;
-
-								conventions.conv_manifestation_organisateur = null;
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"ligne_rectification", "row2", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
 
 							} else {
 
-								int columnIndexWithD_tFileInputDelimited_3 = 0; // Column Index
-
-								columnIndexWithD_tFileInputDelimited_3 = 0;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.entreprise_identifiant = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.entreprise_identifiant = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 1;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.denomination_sociale = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.denomination_sociale = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 2;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.ligne_identifiant = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.ligne_identifiant = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 3;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									if (rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3].length() > 0) {
-										try {
-
-											conventions.ligne_rectification = ParserUtils.parseTo_Character(
-													rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3]);
-
-										} catch (java.lang.Exception ex_tFileInputDelimited_3) {
-											rowstate_tFileInputDelimited_3.setException(new RuntimeException(String
-													.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-															"ligne_rectification", "conventions",
-															rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3],
-															ex_tFileInputDelimited_3),
-													ex_tFileInputDelimited_3));
-										}
-									} else {
-
-										conventions.ligne_rectification = null;
-
-									}
-
-								} else {
-
-									conventions.ligne_rectification = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 4;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_categorie_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_categorie_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 5;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.categorie = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.categorie = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 6;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_nom = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_nom = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 7;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_prenom = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_prenom = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 8;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_qualite_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_qualite_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 9;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.qualite = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.qualite = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 10;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_adresse1 = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_adresse1 = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 11;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_adresse2 = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_adresse2 = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 12;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_adresse3 = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_adresse3 = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 13;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_adresse4 = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_adresse4 = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 14;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_codepostal = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_codepostal = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 15;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_ville = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_ville = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 16;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_pays_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_pays_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 17;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.pays = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.pays = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 18;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_titre_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_titre_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 19;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_titre_libelle = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_titre_libelle = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 20;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_specialite_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_specialite_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 21;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_speicalite_libelle = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_speicalite_libelle = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 22;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_identifiant_type_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_identifiant_type_code = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 23;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.identifiant_type = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.identifiant_type = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 24;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_identifiant_valeur = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_identifiant_valeur = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 25;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_etablissement = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_etablissement = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 26;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_etablissement_codepostal = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_etablissement_codepostal = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 27;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_etablissement_ville = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_etablissement_ville = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 28;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_denomination_sociale = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_denomination_sociale = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 29;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.benef_objet_social = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.benef_objet_social = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 30;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.ligne_type = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.ligne_type = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 31;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.conv_date_signature = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.conv_date_signature = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 32;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.conv_objet = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.conv_objet = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 33;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.conv_objet_autre = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.conv_objet_autre = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 34;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.conv_date_debut = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.conv_date_debut = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 35;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.conv_date_fin = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.conv_date_fin = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 36;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.conv_montant_ttc = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.conv_montant_ttc = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 37;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.conv_manifestation_date = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.conv_manifestation_date = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 38;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.conv_manifestation_nom = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.conv_manifestation_nom = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 39;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.conv_manifestation_lieu = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.conv_manifestation_lieu = null;
-
-								}
-
-								columnIndexWithD_tFileInputDelimited_3 = 40;
-
-								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
-
-									conventions.conv_manifestation_organisateur = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
-
-								} else {
-
-									conventions.conv_manifestation_organisateur = null;
-
-								}
+								row2.ligne_rectification = null;
 
 							}
 
-							if (rowstate_tFileInputDelimited_3.getException() != null) {
-								throw rowstate_tFileInputDelimited_3.getException();
+							columnIndexWithD_tFileInputDelimited_1 = 4;
+
+							row2.benef_categorie_code = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 5;
+
+							row2.categorie = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 6;
+
+							row2.benef_nom = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 7;
+
+							row2.benef_prenom = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 8;
+
+							row2.benef_qualite_code = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 9;
+
+							row2.qualite = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 10;
+
+							row2.benef_adresse1 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 11;
+
+							row2.benef_adresse2 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 12;
+
+							row2.benef_adresse3 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 13;
+
+							row2.benef_adresse4 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 14;
+
+							row2.benef_codepostal = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 15;
+
+							row2.benef_ville = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 16;
+
+							row2.benef_pays_code = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 17;
+
+							row2.pays = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 18;
+
+							row2.benef_titre_code = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 19;
+
+							row2.benef_titre_libelle = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 20;
+
+							row2.benef_specialite_code = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 21;
+
+							row2.benef_speicalite_libelle = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 22;
+
+							row2.benef_identifiant_type_code = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 23;
+
+							row2.identifiant_type = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 24;
+
+							row2.benef_identifiant_valeur = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 25;
+
+							row2.benef_etablissement = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 26;
+
+							row2.benef_etablissement_codepostal = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 27;
+
+							row2.benef_etablissement_ville = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 28;
+
+							row2.benef_denomination_sociale = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 29;
+
+							row2.benef_objet_social = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 30;
+
+							row2.ligne_type = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 31;
+
+							row2.conv_date_signature = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 32;
+
+							row2.conv_objet = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 33;
+
+							row2.conv_objet_autre = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 34;
+
+							row2.conv_date_debut = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 35;
+
+							row2.conv_date_fin = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 36;
+
+							row2.conv_montant_ttc = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 37;
+
+							row2.conv_manifestation_date = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 38;
+
+							row2.conv_manifestation_nom = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 39;
+
+							row2.conv_manifestation_lieu = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 40;
+
+							row2.conv_manifestation_organisateur = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							if (rowstate_tFileInputDelimited_1.getException() != null) {
+								throw rowstate_tFileInputDelimited_1.getException();
 							}
 
 						} catch (java.lang.Exception e) {
-							whetherReject_tFileInputDelimited_3 = true;
+							whetherReject_tFileInputDelimited_1 = true;
 
 							System.err.println(e.getMessage());
-							conventions = null;
+							row2 = null;
 
 						}
 
 						/**
-						 * [tFileInputDelimited_3 begin ] stop
+						 * [tFileInputDelimited_1 begin ] stop
 						 */
 
 						/**
-						 * [tFileInputDelimited_3 main ] start
+						 * [tFileInputDelimited_1 main ] start
 						 */
 
-						currentComponent = "tFileInputDelimited_3";
+						currentComponent = "tFileInputDelimited_1";
 
-						tos_count_tFileInputDelimited_3++;
+						tos_count_tFileInputDelimited_1++;
 
 						/**
-						 * [tFileInputDelimited_3 main ] stop
+						 * [tFileInputDelimited_1 main ] stop
 						 */
 
 						/**
-						 * [tFileInputDelimited_3 process_data_begin ] start
+						 * [tFileInputDelimited_1 process_data_begin ] start
 						 */
 
-						currentComponent = "tFileInputDelimited_3";
+						currentComponent = "tFileInputDelimited_1";
 
 						/**
-						 * [tFileInputDelimited_3 process_data_begin ] stop
+						 * [tFileInputDelimited_1 process_data_begin ] stop
 						 */
-// Start of branch "conventions"
-						if (conventions != null) {
+// Start of branch "row2"
+						if (row2 != null) {
 
 							/**
-							 * [tMap_2 main ] start
+							 * [tFilterRow_1 main ] start
 							 */
 
-							currentComponent = "tMap_2";
+							currentComponent = "tFilterRow_1";
 
 							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1, "conventions");
+								runStat.updateStatOnConnection(iterateId, 1, 1, "row2");
 							}
 
-							boolean hasCasePrimitiveKeyWithNull_tMap_2 = false;
+							conventions = null;
+							Operator_tFilterRow_1 ope_tFilterRow_1 = new Operator_tFilterRow_1("&&");
+							ope_tFilterRow_1.matches(
+									(row2.entreprise_identifiant == null ? false
+											: row2.entreprise_identifiant.length() > 0),
+									" entreprise_identifiant.length() > 0 failed");
+							ope_tFilterRow_1.matches((// code sample : use row2 to define the condition.
+// row2.columnName1.equals("foo") ||!(row2.columnName2.equals("bar"))
+// replace the following expression by your own filter condition 
+							row2.benef_pays_code != null && row2.benef_codepostal != null
+									&& !row2.benef_pays_code.replaceAll("[^a-zA-Z]", "").equals("")
+									&& !row2.benef_codepostal.replaceAll("[^0-9\\-]", "").equals("")
+									&& !row2.conv_montant_ttc.replaceAll("[^0-9]", "").equals("")
+									&& row2.conv_montant_ttc != null), "advanced condition failed");
 
-							// ###############################
-							// # Input tables (lookups)
-							boolean rejectedInnerJoin_tMap_2 = false;
-							boolean mainRowRejected_tMap_2 = false;
-
-							///////////////////////////////////////////////
-							// Starting Lookup Table "entreprises"
-							///////////////////////////////////////////////
-
-							boolean forceLoopentreprises = false;
-
-							entreprisesStruct entreprisesObjectFromLookup = null;
-
-							if (!rejectedInnerJoin_tMap_2) { // G_TM_M_020
-
-								hasCasePrimitiveKeyWithNull_tMap_2 = false;
-
-								entreprisesHashKey.identifiant = conventions.entreprise_identifiant;
-
-								entreprisesHashKey.hashCodeDirty = true;
-
-								tHash_Lookup_entreprises.lookup(entreprisesHashKey);
-
-							} // G_TM_M_020
-
-							if (tHash_Lookup_entreprises != null
-									&& tHash_Lookup_entreprises.getCount(entreprisesHashKey) > 1) { // G 071
-
-								// System.out.println("WARNING: UNIQUE MATCH is configured for the lookup
-								// 'entreprises' and it contains more one result from keys :
-								// entreprises.identifiant = '" + entreprisesHashKey.identifiant + "'");
-							} // G 071
-
-							entreprisesStruct entreprises = null;
-
-							entreprisesStruct fromLookup_entreprises = null;
-							entreprises = entreprisesDefault;
-
-							if (tHash_Lookup_entreprises != null && tHash_Lookup_entreprises.hasNext()) { // G 099
-
-								fromLookup_entreprises = tHash_Lookup_entreprises.next();
-
-							} // G 099
-
-							if (fromLookup_entreprises != null) {
-								entreprises = fromLookup_entreprises;
+							if (ope_tFilterRow_1.getMatchFlag()) {
+								if (conventions == null) {
+									conventions = new conventionsStruct();
+								}
+								conventions.entreprise_identifiant = row2.entreprise_identifiant;
+								conventions.denomination_sociale = row2.denomination_sociale;
+								conventions.ligne_identifiant = row2.ligne_identifiant;
+								conventions.ligne_rectification = row2.ligne_rectification;
+								conventions.benef_categorie_code = row2.benef_categorie_code;
+								conventions.categorie = row2.categorie;
+								conventions.benef_nom = row2.benef_nom;
+								conventions.benef_prenom = row2.benef_prenom;
+								conventions.benef_qualite_code = row2.benef_qualite_code;
+								conventions.qualite = row2.qualite;
+								conventions.benef_adresse1 = row2.benef_adresse1;
+								conventions.benef_adresse2 = row2.benef_adresse2;
+								conventions.benef_adresse3 = row2.benef_adresse3;
+								conventions.benef_adresse4 = row2.benef_adresse4;
+								conventions.benef_codepostal = row2.benef_codepostal;
+								conventions.benef_ville = row2.benef_ville;
+								conventions.benef_pays_code = row2.benef_pays_code;
+								conventions.pays = row2.pays;
+								conventions.benef_titre_code = row2.benef_titre_code;
+								conventions.benef_titre_libelle = row2.benef_titre_libelle;
+								conventions.benef_specialite_code = row2.benef_specialite_code;
+								conventions.benef_speicalite_libelle = row2.benef_speicalite_libelle;
+								conventions.benef_identifiant_type_code = row2.benef_identifiant_type_code;
+								conventions.identifiant_type = row2.identifiant_type;
+								conventions.benef_identifiant_valeur = row2.benef_identifiant_valeur;
+								conventions.benef_etablissement = row2.benef_etablissement;
+								conventions.benef_etablissement_codepostal = row2.benef_etablissement_codepostal;
+								conventions.benef_etablissement_ville = row2.benef_etablissement_ville;
+								conventions.benef_denomination_sociale = row2.benef_denomination_sociale;
+								conventions.benef_objet_social = row2.benef_objet_social;
+								conventions.ligne_type = row2.ligne_type;
+								conventions.conv_date_signature = row2.conv_date_signature;
+								conventions.conv_objet = row2.conv_objet;
+								conventions.conv_objet_autre = row2.conv_objet_autre;
+								conventions.conv_date_debut = row2.conv_date_debut;
+								conventions.conv_date_fin = row2.conv_date_fin;
+								conventions.conv_montant_ttc = row2.conv_montant_ttc;
+								conventions.conv_manifestation_date = row2.conv_manifestation_date;
+								conventions.conv_manifestation_nom = row2.conv_manifestation_nom;
+								conventions.conv_manifestation_lieu = row2.conv_manifestation_lieu;
+								conventions.conv_manifestation_organisateur = row2.conv_manifestation_organisateur;
+								nb_line_ok_tFilterRow_1++;
+							} else {
+								nb_line_reject_tFilterRow_1++;
 							}
 
-							// ###############################
-							{ // start of Var scope
+							nb_line_tFilterRow_1++;
 
-								// ###############################
-								// # Vars tables
-
-								Var__tMap_2__Struct Var = Var__tMap_2;
-								Var.normalizedObjetConvention = ObjetConventionIdGenerator
-										.normalizeObjetConvention(conventions.conv_objet, conventions.conv_objet_autre);
-								;
-								Var.normalizedEvenementConvention = EvenementConventionIdGenerator
-										.normalizeEvenementConvention(conventions.conv_manifestation_nom);
-								;
-								Var.date_debut = conventions.conv_date_debut != null
-										&& !conventions.conv_date_debut.equals("") ?
-
-												TalendDate.parseDate("dd/MM/yyyy", conventions.conv_date_debut) :
-// if date string is null or empty, default date
-												TalendDate.parseDate("dd/MM/yyyy", "01/01/2000");
-								Var.date_fin = conventions.conv_date_fin != null
-										&& !conventions.conv_date_fin.equals("") ?
-
-												TalendDate.parseDate("dd/MM/yyyy", conventions.conv_date_fin) :
-// if date string is null or empty, default date
-												TalendDate.parseDate("dd/MM/yyyy", "31/12/2099");
-								Var.date_signature = conventions.conv_date_signature != null
-										&& !conventions.conv_date_signature.equals("") ?
-
-												TalendDate.parseDate("dd/MM/yyyy", conventions.conv_date_signature) :
-// if date string is null or empty, default date
-												TalendDate.parseDate("dd/MM/yyyy", "01/01/2000");
-								Var.isConvMontantNumeric = conventions.conv_montant_ttc != null
-										? MyStringRoutine.isNumeric(conventions.conv_montant_ttc)
-										: false;
-								Var.adresse_beneficiaire = !conventions.benef_codepostal.isEmpty()
-										&& !conventions.benef_ville.isEmpty()
-												? AdressesCleanerV2.generateId(conventions.benef_codepostal,
-														conventions.benef_ville)
-												:
-
-												!conventions.benef_etablissement_codepostal.isEmpty()
-														&& !conventions.benef_etablissement_ville.isEmpty()
-																? AdressesCleanerV2.generateId(
-																		conventions.benef_etablissement_codepostal,
-																		conventions.benef_etablissement_ville)
-																: AdressesCleanerV2.getNA();
-								Var.adresse_entreprise = AdressesCleanerV2.generateId(entreprises.code_postal,
-										entreprises.ville);// ###############################
-								// ###############################
-								// # Output tables
-
-								conventions_fact = null;
-
-// # Output table : 'conventions_fact'
-								conventions_fact_tmp.ligne_id = conventions.ligne_identifiant;
-								conventions_fact_tmp.entreprise_id = conventions.entreprise_identifiant;
-								conventions_fact_tmp.beneficiaire_id = conventions.benef_identifiant_valeur.isEmpty()
-										|| !MyStringRoutine.isNumeric(conventions.benef_identifiant_valeur) ? "N/A"
-												: conventions.benef_identifiant_valeur.trim();
-								conventions_fact_tmp.categorie_beneficiaire_id = conventions.benef_categorie_code
-										.equals("") ? "N/A" : conventions.benef_categorie_code;
-								conventions_fact_tmp.qualite_beneficiaire_id = conventions.benef_qualite_code.equals("")
-										? "N/A"
-										: conventions.benef_qualite_code;
-								conventions_fact_tmp.titre_beneficiaire_id = conventions.benef_titre_code.equals("")
-										? "N/A"
-										: conventions.benef_titre_code;
-								conventions_fact_tmp.adresse_beneficiaire_id = Var.adresse_beneficiaire;
-								conventions_fact_tmp.adresse_entreprise_id = Var.adresse_entreprise;
-								conventions_fact_tmp.specialite_beneficiaire_id = conventions.benef_specialite_code
-										.equals("") ? "N/A" : conventions.benef_specialite_code;
-								conventions_fact_tmp.secteur_activite_entreprise_id = entreprises.secteur_activite_code;
-								conventions_fact_tmp.objet_convention_id = ObjetConventionIdGenerator
-										.getObjetConventionId(Var.normalizedObjetConvention);
-								conventions_fact_tmp.evenement_convention_id = EvenementConventionIdGenerator
-										.getEvenementConventionId(Var.normalizedEvenementConvention);
-								conventions_fact_tmp.date_debut_convention = (DateTransformations
-										.getAnnee(Var.date_debut) >= 1980
-										&& DateTransformations.getAnnee(Var.date_debut) <= 2100) ? Var.date_debut
-												: TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
-								conventions_fact_tmp.date_fin_convention = (DateTransformations
-										.getAnnee(Var.date_fin) >= 1980
-										&& DateTransformations.getAnnee(Var.date_fin) <= 2100) ? Var.date_fin
-												: TalendDate.parseDate("dd-MM-yyyy", "31-12-2099");
-								conventions_fact_tmp.date_signature_convention = (DateTransformations
-										.getAnnee(Var.date_signature) >= 1980
-										&& DateTransformations.getAnnee(Var.date_signature) <= 2100)
-												? Var.date_signature
-												: TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
-								conventions_fact_tmp.montant_convention = Var.isConvMontantNumeric
-										? Math.round(Float.parseFloat(conventions.conv_montant_ttc))
-										: 0;
-								conventions_fact_tmp.duree_convention = (DateTransformations
-										.getAnnee(Var.date_fin) >= 1980
-										&& DateTransformations.getAnnee(Var.date_debut) >= 1980
-										&& DateTransformations.getAnnee(Var.date_fin) <= 2100
-										&& DateTransformations.getAnnee(Var.date_debut) <= 2100)
-												? (int) TalendDate.diffDate(Var.date_fin, Var.date_debut, "dd")
-												: 0;
-								conventions_fact = conventions_fact_tmp;
-// ###############################
-
-							} // end of Var scope
-
-							rejectedInnerJoin_tMap_2 = false;
-
-							tos_count_tMap_2++;
+							tos_count_tFilterRow_1++;
 
 							/**
-							 * [tMap_2 main ] stop
+							 * [tFilterRow_1 main ] stop
 							 */
 
 							/**
-							 * [tMap_2 process_data_begin ] start
+							 * [tFilterRow_1 process_data_begin ] start
 							 */
 
-							currentComponent = "tMap_2";
+							currentComponent = "tFilterRow_1";
 
 							/**
-							 * [tMap_2 process_data_begin ] stop
+							 * [tFilterRow_1 process_data_begin ] stop
 							 */
-// Start of branch "conventions_fact"
-							if (conventions_fact != null) {
+// Start of branch "conventions"
+							if (conventions != null) {
 
 								/**
-								 * [tDBOutput_2 main ] start
+								 * [tMap_2 main ] start
 								 */
 
-								currentComponent = "tDBOutput_2";
+								currentComponent = "tMap_2";
 
 								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1, "conventions_fact");
+									runStat.updateStatOnConnection(iterateId, 1, 1, "conventions");
 								}
 
-								whetherReject_tDBOutput_2 = false;
-								if (conventions_fact.ligne_id == null) {
-									pstmt_tDBOutput_2.setNull(1, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_2.setString(1, conventions_fact.ligne_id);
-								}
+								boolean hasCasePrimitiveKeyWithNull_tMap_2 = false;
 
-								if (conventions_fact.entreprise_id == null) {
-									pstmt_tDBOutput_2.setNull(2, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_2.setString(2, conventions_fact.entreprise_id);
-								}
+								// ###############################
+								// # Input tables (lookups)
+								boolean rejectedInnerJoin_tMap_2 = false;
+								boolean mainRowRejected_tMap_2 = false;
 
-								if (conventions_fact.beneficiaire_id == null) {
-									pstmt_tDBOutput_2.setNull(3, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_2.setString(3, conventions_fact.beneficiaire_id);
-								}
+								///////////////////////////////////////////////
+								// Starting Lookup Table "entreprises"
+								///////////////////////////////////////////////
 
-								if (conventions_fact.categorie_beneficiaire_id == null) {
-									pstmt_tDBOutput_2.setNull(4, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_2.setString(4, conventions_fact.categorie_beneficiaire_id);
-								}
+								boolean forceLoopentreprises = false;
 
-								if (conventions_fact.qualite_beneficiaire_id == null) {
-									pstmt_tDBOutput_2.setNull(5, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_2.setString(5, conventions_fact.qualite_beneficiaire_id);
-								}
+								entreprisesStruct entreprisesObjectFromLookup = null;
 
-								if (conventions_fact.titre_beneficiaire_id == null) {
-									pstmt_tDBOutput_2.setNull(6, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_2.setString(6, conventions_fact.titre_beneficiaire_id);
-								}
+								if (!rejectedInnerJoin_tMap_2) { // G_TM_M_020
 
-								if (conventions_fact.adresse_beneficiaire_id == null) {
-									pstmt_tDBOutput_2.setNull(7, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_2.setString(7, conventions_fact.adresse_beneficiaire_id);
-								}
+									tHash_Lookup_entreprises.lookup(entreprisesHashKey);
 
-								if (conventions_fact.adresse_entreprise_id == null) {
-									pstmt_tDBOutput_2.setNull(8, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_2.setString(8, conventions_fact.adresse_entreprise_id);
-								}
+									if (!tHash_Lookup_entreprises.hasNext()) { // G_TM_M_090
 
-								if (conventions_fact.specialite_beneficiaire_id == null) {
-									pstmt_tDBOutput_2.setNull(9, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_2.setString(9, conventions_fact.specialite_beneficiaire_id);
-								}
+										forceLoopentreprises = true;
 
-								if (conventions_fact.secteur_activite_entreprise_id == null) {
-									pstmt_tDBOutput_2.setNull(10, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_2.setString(10, conventions_fact.secteur_activite_entreprise_id);
-								}
+									} // G_TM_M_090
 
-								pstmt_tDBOutput_2.setInt(11, conventions_fact.objet_convention_id);
+								} // G_TM_M_020
 
-								pstmt_tDBOutput_2.setInt(12, conventions_fact.evenement_convention_id);
+								else { // G 20 - G 21
+									forceLoopentreprises = true;
+								} // G 21
 
-								if (conventions_fact.date_debut_convention != null) {
-									date_tDBOutput_2 = conventions_fact.date_debut_convention.getTime();
-									if (date_tDBOutput_2 < year1_tDBOutput_2
-											|| date_tDBOutput_2 >= year10000_tDBOutput_2) {
-										pstmt_tDBOutput_2.setString(13, "0000-00-00 00:00:00");
-									} else {
-										pstmt_tDBOutput_2.setTimestamp(13, new java.sql.Timestamp(date_tDBOutput_2));
-									}
-								} else {
-									pstmt_tDBOutput_2.setNull(13, java.sql.Types.DATE);
-								}
+								entreprisesStruct entreprises = null;
 
-								if (conventions_fact.date_fin_convention != null) {
-									date_tDBOutput_2 = conventions_fact.date_fin_convention.getTime();
-									if (date_tDBOutput_2 < year1_tDBOutput_2
-											|| date_tDBOutput_2 >= year10000_tDBOutput_2) {
-										pstmt_tDBOutput_2.setString(14, "0000-00-00 00:00:00");
-									} else {
-										pstmt_tDBOutput_2.setTimestamp(14, new java.sql.Timestamp(date_tDBOutput_2));
-									}
-								} else {
-									pstmt_tDBOutput_2.setNull(14, java.sql.Types.DATE);
-								}
+								while ((tHash_Lookup_entreprises != null && tHash_Lookup_entreprises.hasNext())
+										|| forceLoopentreprises) { // G_TM_M_043
 
-								if (conventions_fact.date_signature_convention != null) {
-									date_tDBOutput_2 = conventions_fact.date_signature_convention.getTime();
-									if (date_tDBOutput_2 < year1_tDBOutput_2
-											|| date_tDBOutput_2 >= year10000_tDBOutput_2) {
-										pstmt_tDBOutput_2.setString(15, "0000-00-00 00:00:00");
-									} else {
-										pstmt_tDBOutput_2.setTimestamp(15, new java.sql.Timestamp(date_tDBOutput_2));
-									}
-								} else {
-									pstmt_tDBOutput_2.setNull(15, java.sql.Types.DATE);
-								}
+									// CALL close loop of lookup 'entreprises'
 
-								pstmt_tDBOutput_2.setInt(16, conventions_fact.montant_convention);
+									entreprisesStruct fromLookup_entreprises = null;
+									entreprises = entreprisesDefault;
 
-								pstmt_tDBOutput_2.setInt(17, conventions_fact.duree_convention);
+									if (!forceLoopentreprises) { // G 46
 
-								pstmt_tDBOutput_2.addBatch();
-								nb_line_tDBOutput_2++;
+										fromLookup_entreprises = tHash_Lookup_entreprises.next();
 
-								batchSizeCounter_tDBOutput_2++;
-								if (batchSize_tDBOutput_2 <= batchSizeCounter_tDBOutput_2) {
-									try {
-										int countSum_tDBOutput_2 = 0;
-										for (int countEach_tDBOutput_2 : pstmt_tDBOutput_2.executeBatch()) {
-											countSum_tDBOutput_2 += (countEach_tDBOutput_2 == java.sql.Statement.EXECUTE_FAILED
-													? 0
-													: 1);
+										if (fromLookup_entreprises != null) {
+											entreprises = fromLookup_entreprises;
 										}
-										insertedCount_tDBOutput_2 += countSum_tDBOutput_2;
-									} catch (java.sql.BatchUpdateException e) {
-										int countSum_tDBOutput_2 = 0;
-										for (int countEach_tDBOutput_2 : e.getUpdateCounts()) {
-											countSum_tDBOutput_2 += (countEach_tDBOutput_2 < 0 ? 0
-													: countEach_tDBOutput_2);
+
+									} // G 46
+
+									forceLoopentreprises = false;
+
+									// ###############################
+									{ // start of Var scope
+
+										// ###############################
+										// # Vars tables
+
+										Var__tMap_2__Struct Var = Var__tMap_2;
+										Var.normalizedObjetConvention = ObjetConventionIdGenerator
+												.normalizeObjetConvention(conventions.conv_objet,
+														conventions.conv_objet_autre);
+										;
+										Var.normalizedEvenementConvention = EvenementConventionIdGenerator
+												.normalizeEvenementConvention(conventions.conv_manifestation_nom);
+										;
+										Var.date_debut = conventions.conv_date_debut != null
+												&& !conventions.conv_date_debut.replaceAll("[^\\-\\/0-9]", "").isEmpty()
+												&&
+//enleve tous les elements que ne sont pas de nombre ou des  - et / 
+												MyStringRoutine.isDate(
+														conventions.conv_date_debut.replaceAll("[^\\-\\/0-9]", ""))
+																? TalendDate.parseDate("dd-MM-yyyy", (
+//make a date with the string  with only number and -  matches a date format
+																conventions.conv_date_debut.replaceAll("[^\\-\\/0-9]",
+																		"")).replace("/", "-"))
+																:
+// if date string is null or empty, default date
+																TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
+										Var.date_fin = conventions.conv_date_fin != null
+												&& !conventions.conv_date_fin.replaceAll("[^\\-\\/0-9]", "").isEmpty()
+												&&
+//check if the string only number, - and / matches a date format
+												MyStringRoutine.isDate(
+														conventions.conv_date_fin.replaceAll("[^0-9\\/\\-]", ""))
+																? TalendDate.parseDate("dd-MM-yyyy",
+//make a date with the string  with only number and -  matches a date format
+																		(conventions.conv_date_fin
+																				.replaceAll("[^\\-\\/0-9]", ""))
+																						.replace("/", "-"))
+																:
+// if date string is null or empty, default date
+																TalendDate.parseDate("dd-MM-yyyy", "31-12-2099");
+										Var.date_signature = conventions.conv_date_signature != null
+												&& !conventions.conv_date_signature.replaceAll("[^\\-\\/0-9]", "")
+														.isEmpty()
+												&&
+//check if the string only number, - and / matches a date format
+												MyStringRoutine.isDate(
+														conventions.conv_date_fin.replaceAll("[^0-9\\/\\-]", ""))
+																? TalendDate.parseDate("dd-MM-yyyy",
+//make a date with the string  with only number and -  matches a date format
+																		(conventions.conv_date_signature
+																				.replaceAll("[^0-9\\/\\-]", ""))
+																						.replace("/", "-"))
+																:
+// if date string is null or empty, default date
+																TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
+										Var.isConvMontantNumeric = conventions.conv_montant_ttc != null
+												&& !conventions.conv_montant_ttc.isEmpty()
+														? MyStringRoutine.isFloat(conventions.conv_montant_ttc)
+														: false;
+										Var.adresse_beneficiaire = conventions.benef_codepostal + "|"
+												+ conventions.benef_pays_code;
+										Var.adresse_entreprise = entreprises.code_postal + "|" + entreprises.pays_code;// ###############################
+										// ###############################
+										// # Output tables
+
+										conventions_fact = null;
+
+// # Output table : 'conventions_fact'
+										conventions_fact_tmp.ligne_id = conventions.ligne_identifiant;
+										conventions_fact_tmp.entreprise_id = conventions.entreprise_identifiant;
+										conventions_fact_tmp.beneficiaire_id = conventions.benef_identifiant_valeur == null
+												|| conventions.benef_identifiant_valeur.isEmpty()
+												|| !MyStringRoutine.isNumeric(conventions.benef_identifiant_valeur)
+														? "N/A"
+														: conventions.benef_identifiant_valeur.trim();
+										conventions_fact_tmp.categorie_beneficiaire_id = conventions.benef_categorie_code
+												.equals("") ? "N/A" : conventions.benef_categorie_code;
+										conventions_fact_tmp.qualite_beneficiaire_id = conventions.benef_qualite_code
+												.equals("") ? "N/A" : conventions.benef_qualite_code;
+										conventions_fact_tmp.titre_beneficiaire_id = conventions.benef_titre_code
+												.equals("") ? "N/A" : conventions.benef_titre_code;
+										conventions_fact_tmp.adresse_beneficiaire_id = Var.adresse_beneficiaire;
+										conventions_fact_tmp.adresse_entreprise_id = Var.adresse_entreprise;
+										conventions_fact_tmp.specialite_beneficiaire_id = conventions.benef_specialite_code
+												.equals("") ? "N/A" : conventions.benef_specialite_code;
+										conventions_fact_tmp.secteur_activite_entreprise_id = entreprises.secteur_activite_code == null
+												? "N/A"
+												: entreprises.secteur_activite_code;
+										conventions_fact_tmp.objet_convention_id = ObjetConventionIdGenerator
+												.getObjetConventionId(Var.normalizedObjetConvention);
+										conventions_fact_tmp.evenement_convention_id = EvenementConventionIdGenerator
+												.getEvenementConventionId(Var.normalizedEvenementConvention);
+										conventions_fact_tmp.date_debut_convention = (DateTransformations
+												.getAnnee(Var.date_debut) >= 1980
+												&& DateTransformations.getAnnee(Var.date_debut) <= 2100)
+														? Var.date_debut
+														: TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
+										conventions_fact_tmp.date_fin_convention = (DateTransformations
+												.getAnnee(Var.date_fin) >= 1980
+												&& DateTransformations.getAnnee(Var.date_fin) <= 2100) ? Var.date_fin
+														: TalendDate.parseDate("dd-MM-yyyy", "31-12-2099");
+										conventions_fact_tmp.date_signature_convention = (DateTransformations
+												.getAnnee(Var.date_signature) >= 1980
+												&& DateTransformations.getAnnee(Var.date_signature) <= 2100)
+														? Var.date_signature
+														: TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
+										conventions_fact_tmp.montant_convention = Var.isConvMontantNumeric
+												? Math.round(Float.parseFloat(conventions.conv_montant_ttc))
+												: 0;
+										conventions_fact_tmp.duree_convention = (DateTransformations
+												.getAnnee(Var.date_fin) >= 1980
+												&& DateTransformations.getAnnee(Var.date_debut) >= 1980
+												&& DateTransformations.getAnnee(Var.date_fin) <= 2100
+												&& DateTransformations.getAnnee(Var.date_debut) <= 2100)
+														? (int) TalendDate.diffDate(Var.date_fin, Var.date_debut, "dd")
+														: 0;
+										conventions_fact_tmp.composite_key = MyStringRoutine.concat(
+												conventions.entreprise_identifiant, conventions.ligne_identifiant,
+												conventions.conv_date_signature);
+										conventions_fact = conventions_fact_tmp;
+// ###############################
+
+									} // end of Var scope
+
+									rejectedInnerJoin_tMap_2 = false;
+
+									tos_count_tMap_2++;
+
+									/**
+									 * [tMap_2 main ] stop
+									 */
+
+									/**
+									 * [tMap_2 process_data_begin ] start
+									 */
+
+									currentComponent = "tMap_2";
+
+									/**
+									 * [tMap_2 process_data_begin ] stop
+									 */
+// Start of branch "conventions_fact"
+									if (conventions_fact != null) {
+
+										/**
+										 * [tUniqRow_1 main ] start
+										 */
+
+										currentComponent = "tUniqRow_1";
+
+										if (execStat) {
+											runStat.updateStatOnConnection(iterateId, 1, 1, "conventions_fact");
 										}
-										insertedCount_tDBOutput_2 += countSum_tDBOutput_2;
-										System.err.println(e.getMessage());
-									}
 
-									batchSizeCounter_tDBOutput_2 = 0;
-								}
-								commitCounter_tDBOutput_2++;
-
-								if (commitEvery_tDBOutput_2 <= commitCounter_tDBOutput_2) {
-
-									try {
-										int countSum_tDBOutput_2 = 0;
-										for (int countEach_tDBOutput_2 : pstmt_tDBOutput_2.executeBatch()) {
-											countSum_tDBOutput_2 += (countEach_tDBOutput_2 < 0 ? 0 : 1);
+										row1 = null;
+										if (conventions_fact.composite_key == null) {
+											finder_tUniqRow_1.composite_key = null;
+										} else {
+											finder_tUniqRow_1.composite_key = conventions_fact.composite_key
+													.toLowerCase();
 										}
-										insertedCount_tDBOutput_2 += countSum_tDBOutput_2;
-									} catch (java.sql.BatchUpdateException e) {
-										int countSum_tDBOutput_2 = 0;
-										for (int countEach_tDBOutput_2 : e.getUpdateCounts()) {
-											countSum_tDBOutput_2 += (countEach_tDBOutput_2 < 0 ? 0
-													: countEach_tDBOutput_2);
+										finder_tUniqRow_1.hashCodeDirty = true;
+										if (!keystUniqRow_1.contains(finder_tUniqRow_1)) {
+											KeyStruct_tUniqRow_1 new_tUniqRow_1 = new KeyStruct_tUniqRow_1();
+
+											if (conventions_fact.composite_key == null) {
+												new_tUniqRow_1.composite_key = null;
+											} else {
+												new_tUniqRow_1.composite_key = conventions_fact.composite_key
+														.toLowerCase();
+											}
+
+											keystUniqRow_1.add(new_tUniqRow_1);
+											if (row1 == null) {
+
+												row1 = new row1Struct();
+											}
+											row1.ligne_id = conventions_fact.ligne_id;
+											row1.entreprise_id = conventions_fact.entreprise_id;
+											row1.beneficiaire_id = conventions_fact.beneficiaire_id;
+											row1.categorie_beneficiaire_id = conventions_fact.categorie_beneficiaire_id;
+											row1.qualite_beneficiaire_id = conventions_fact.qualite_beneficiaire_id;
+											row1.titre_beneficiaire_id = conventions_fact.titre_beneficiaire_id;
+											row1.adresse_beneficiaire_id = conventions_fact.adresse_beneficiaire_id;
+											row1.adresse_entreprise_id = conventions_fact.adresse_entreprise_id;
+											row1.specialite_beneficiaire_id = conventions_fact.specialite_beneficiaire_id;
+											row1.secteur_activite_entreprise_id = conventions_fact.secteur_activite_entreprise_id;
+											row1.objet_convention_id = conventions_fact.objet_convention_id;
+											row1.evenement_convention_id = conventions_fact.evenement_convention_id;
+											row1.date_debut_convention = conventions_fact.date_debut_convention;
+											row1.date_fin_convention = conventions_fact.date_fin_convention;
+											row1.date_signature_convention = conventions_fact.date_signature_convention;
+											row1.montant_convention = conventions_fact.montant_convention;
+											row1.duree_convention = conventions_fact.duree_convention;
+											row1.composite_key = conventions_fact.composite_key;
+											nb_uniques_tUniqRow_1++;
+										} else {
+											nb_duplicates_tUniqRow_1++;
 										}
-										insertedCount_tDBOutput_2 += countSum_tDBOutput_2;
-										System.err.println(e.getMessage());
 
-									}
-									conn_tDBOutput_2.commit();
-									commitCounter_tDBOutput_2 = 0;
+										tos_count_tUniqRow_1++;
 
-								}
+										/**
+										 * [tUniqRow_1 main ] stop
+										 */
 
-								tos_count_tDBOutput_2++;
+										/**
+										 * [tUniqRow_1 process_data_begin ] start
+										 */
+
+										currentComponent = "tUniqRow_1";
+
+										/**
+										 * [tUniqRow_1 process_data_begin ] stop
+										 */
+// Start of branch "row1"
+										if (row1 != null) {
+
+											/**
+											 * [tMap_1 main ] start
+											 */
+
+											currentComponent = "tMap_1";
+
+											if (execStat) {
+												runStat.updateStatOnConnection(iterateId, 1, 1, "row1");
+											}
+
+											boolean hasCasePrimitiveKeyWithNull_tMap_1 = false;
+
+											// ###############################
+											// # Input tables (lookups)
+											boolean rejectedInnerJoin_tMap_1 = false;
+											boolean mainRowRejected_tMap_1 = false;
+
+											// ###############################
+											{ // start of Var scope
+
+												// ###############################
+												// # Vars tables
+
+												Var__tMap_1__Struct Var = Var__tMap_1;// ###############################
+												// ###############################
+												// # Output tables
+
+												conventions_uniques = null;
+
+// # Output table : 'conventions_uniques'
+												conventions_uniques_tmp.ligne_id = row1.ligne_id;
+												conventions_uniques_tmp.entreprise_id = row1.entreprise_id;
+												conventions_uniques_tmp.beneficiaire_id = row1.beneficiaire_id;
+												conventions_uniques_tmp.categorie_beneficiaire_id = row1.categorie_beneficiaire_id;
+												conventions_uniques_tmp.qualite_beneficiaire_id = row1.qualite_beneficiaire_id;
+												conventions_uniques_tmp.titre_beneficiaire_id = row1.titre_beneficiaire_id;
+												conventions_uniques_tmp.adresse_beneficiaire_id = row1.adresse_beneficiaire_id;
+												conventions_uniques_tmp.adresse_entreprise_id = row1.adresse_entreprise_id;
+												conventions_uniques_tmp.specialite_beneficiaire_id = row1.specialite_beneficiaire_id;
+												conventions_uniques_tmp.secteur_activite_entreprise_id = row1.secteur_activite_entreprise_id;
+												conventions_uniques_tmp.objet_convention_id = row1.objet_convention_id;
+												conventions_uniques_tmp.evenement_convention_id = row1.evenement_convention_id;
+												conventions_uniques_tmp.date_debut_convention = row1.date_debut_convention;
+												conventions_uniques_tmp.date_fin_convention = row1.date_fin_convention;
+												conventions_uniques_tmp.date_signature_convention = row1.date_signature_convention;
+												conventions_uniques_tmp.montant_convention = row1.montant_convention;
+												conventions_uniques_tmp.duree_convention = row1.duree_convention;
+												conventions_uniques = conventions_uniques_tmp;
+// ###############################
+
+											} // end of Var scope
+
+											rejectedInnerJoin_tMap_1 = false;
+
+											tos_count_tMap_1++;
+
+											/**
+											 * [tMap_1 main ] stop
+											 */
+
+											/**
+											 * [tMap_1 process_data_begin ] start
+											 */
+
+											currentComponent = "tMap_1";
+
+											/**
+											 * [tMap_1 process_data_begin ] stop
+											 */
+// Start of branch "conventions_uniques"
+											if (conventions_uniques != null) {
+
+												/**
+												 * [tDBOutput_2 main ] start
+												 */
+
+												currentComponent = "tDBOutput_2";
+
+												if (execStat) {
+													runStat.updateStatOnConnection(iterateId, 1, 1,
+															"conventions_uniques");
+												}
+
+												whetherReject_tDBOutput_2 = false;
+												if (conventions_uniques.ligne_id == null) {
+													pstmt_tDBOutput_2.setNull(1, java.sql.Types.VARCHAR);
+												} else {
+													pstmt_tDBOutput_2.setString(1, conventions_uniques.ligne_id);
+												}
+
+												if (conventions_uniques.entreprise_id == null) {
+													pstmt_tDBOutput_2.setNull(2, java.sql.Types.VARCHAR);
+												} else {
+													pstmt_tDBOutput_2.setString(2, conventions_uniques.entreprise_id);
+												}
+
+												if (conventions_uniques.beneficiaire_id == null) {
+													pstmt_tDBOutput_2.setNull(3, java.sql.Types.VARCHAR);
+												} else {
+													pstmt_tDBOutput_2.setString(3, conventions_uniques.beneficiaire_id);
+												}
+
+												if (conventions_uniques.categorie_beneficiaire_id == null) {
+													pstmt_tDBOutput_2.setNull(4, java.sql.Types.VARCHAR);
+												} else {
+													pstmt_tDBOutput_2.setString(4,
+															conventions_uniques.categorie_beneficiaire_id);
+												}
+
+												if (conventions_uniques.qualite_beneficiaire_id == null) {
+													pstmt_tDBOutput_2.setNull(5, java.sql.Types.VARCHAR);
+												} else {
+													pstmt_tDBOutput_2.setString(5,
+															conventions_uniques.qualite_beneficiaire_id);
+												}
+
+												if (conventions_uniques.titre_beneficiaire_id == null) {
+													pstmt_tDBOutput_2.setNull(6, java.sql.Types.VARCHAR);
+												} else {
+													pstmt_tDBOutput_2.setString(6,
+															conventions_uniques.titre_beneficiaire_id);
+												}
+
+												if (conventions_uniques.adresse_beneficiaire_id == null) {
+													pstmt_tDBOutput_2.setNull(7, java.sql.Types.VARCHAR);
+												} else {
+													pstmt_tDBOutput_2.setString(7,
+															conventions_uniques.adresse_beneficiaire_id);
+												}
+
+												if (conventions_uniques.adresse_entreprise_id == null) {
+													pstmt_tDBOutput_2.setNull(8, java.sql.Types.VARCHAR);
+												} else {
+													pstmt_tDBOutput_2.setString(8,
+															conventions_uniques.adresse_entreprise_id);
+												}
+
+												if (conventions_uniques.specialite_beneficiaire_id == null) {
+													pstmt_tDBOutput_2.setNull(9, java.sql.Types.VARCHAR);
+												} else {
+													pstmt_tDBOutput_2.setString(9,
+															conventions_uniques.specialite_beneficiaire_id);
+												}
+
+												if (conventions_uniques.secteur_activite_entreprise_id == null) {
+													pstmt_tDBOutput_2.setNull(10, java.sql.Types.VARCHAR);
+												} else {
+													pstmt_tDBOutput_2.setString(10,
+															conventions_uniques.secteur_activite_entreprise_id);
+												}
+
+												pstmt_tDBOutput_2.setInt(11, conventions_uniques.objet_convention_id);
+
+												pstmt_tDBOutput_2.setInt(12,
+														conventions_uniques.evenement_convention_id);
+
+												if (conventions_uniques.date_debut_convention != null) {
+													date_tDBOutput_2 = conventions_uniques.date_debut_convention
+															.getTime();
+													if (date_tDBOutput_2 < year1_tDBOutput_2
+															|| date_tDBOutput_2 >= year10000_tDBOutput_2) {
+														pstmt_tDBOutput_2.setString(13, "0000-00-00 00:00:00");
+													} else {
+														pstmt_tDBOutput_2.setTimestamp(13,
+																new java.sql.Timestamp(date_tDBOutput_2));
+													}
+												} else {
+													pstmt_tDBOutput_2.setNull(13, java.sql.Types.DATE);
+												}
+
+												if (conventions_uniques.date_fin_convention != null) {
+													date_tDBOutput_2 = conventions_uniques.date_fin_convention
+															.getTime();
+													if (date_tDBOutput_2 < year1_tDBOutput_2
+															|| date_tDBOutput_2 >= year10000_tDBOutput_2) {
+														pstmt_tDBOutput_2.setString(14, "0000-00-00 00:00:00");
+													} else {
+														pstmt_tDBOutput_2.setTimestamp(14,
+																new java.sql.Timestamp(date_tDBOutput_2));
+													}
+												} else {
+													pstmt_tDBOutput_2.setNull(14, java.sql.Types.DATE);
+												}
+
+												if (conventions_uniques.date_signature_convention != null) {
+													date_tDBOutput_2 = conventions_uniques.date_signature_convention
+															.getTime();
+													if (date_tDBOutput_2 < year1_tDBOutput_2
+															|| date_tDBOutput_2 >= year10000_tDBOutput_2) {
+														pstmt_tDBOutput_2.setString(15, "0000-00-00 00:00:00");
+													} else {
+														pstmt_tDBOutput_2.setTimestamp(15,
+																new java.sql.Timestamp(date_tDBOutput_2));
+													}
+												} else {
+													pstmt_tDBOutput_2.setNull(15, java.sql.Types.DATE);
+												}
+
+												pstmt_tDBOutput_2.setInt(16, conventions_uniques.montant_convention);
+
+												pstmt_tDBOutput_2.setInt(17, conventions_uniques.duree_convention);
+
+												pstmt_tDBOutput_2.addBatch();
+												nb_line_tDBOutput_2++;
+
+												batchSizeCounter_tDBOutput_2++;
+												if (batchSize_tDBOutput_2 <= batchSizeCounter_tDBOutput_2) {
+													try {
+														int countSum_tDBOutput_2 = 0;
+														for (int countEach_tDBOutput_2 : pstmt_tDBOutput_2
+																.executeBatch()) {
+															countSum_tDBOutput_2 += (countEach_tDBOutput_2 == java.sql.Statement.EXECUTE_FAILED
+																	? 0
+																	: 1);
+														}
+														insertedCount_tDBOutput_2 += countSum_tDBOutput_2;
+													} catch (java.sql.BatchUpdateException e) {
+														int countSum_tDBOutput_2 = 0;
+														for (int countEach_tDBOutput_2 : e.getUpdateCounts()) {
+															countSum_tDBOutput_2 += (countEach_tDBOutput_2 < 0 ? 0
+																	: countEach_tDBOutput_2);
+														}
+														insertedCount_tDBOutput_2 += countSum_tDBOutput_2;
+														System.err.println(e.getMessage());
+													}
+
+													batchSizeCounter_tDBOutput_2 = 0;
+												}
+												commitCounter_tDBOutput_2++;
+
+												if (commitEvery_tDBOutput_2 <= commitCounter_tDBOutput_2) {
+
+													try {
+														int countSum_tDBOutput_2 = 0;
+														for (int countEach_tDBOutput_2 : pstmt_tDBOutput_2
+																.executeBatch()) {
+															countSum_tDBOutput_2 += (countEach_tDBOutput_2 < 0 ? 0 : 1);
+														}
+														insertedCount_tDBOutput_2 += countSum_tDBOutput_2;
+													} catch (java.sql.BatchUpdateException e) {
+														int countSum_tDBOutput_2 = 0;
+														for (int countEach_tDBOutput_2 : e.getUpdateCounts()) {
+															countSum_tDBOutput_2 += (countEach_tDBOutput_2 < 0 ? 0
+																	: countEach_tDBOutput_2);
+														}
+														insertedCount_tDBOutput_2 += countSum_tDBOutput_2;
+														System.err.println(e.getMessage());
+
+													}
+													conn_tDBOutput_2.commit();
+													commitCounter_tDBOutput_2 = 0;
+
+												}
+
+												tos_count_tDBOutput_2++;
+
+												/**
+												 * [tDBOutput_2 main ] stop
+												 */
+
+												/**
+												 * [tDBOutput_2 process_data_begin ] start
+												 */
+
+												currentComponent = "tDBOutput_2";
+
+												/**
+												 * [tDBOutput_2 process_data_begin ] stop
+												 */
+
+												/**
+												 * [tDBOutput_2 process_data_end ] start
+												 */
+
+												currentComponent = "tDBOutput_2";
+
+												/**
+												 * [tDBOutput_2 process_data_end ] stop
+												 */
+
+											} // End of branch "conventions_uniques"
+
+											/**
+											 * [tMap_1 process_data_end ] start
+											 */
+
+											currentComponent = "tMap_1";
+
+											/**
+											 * [tMap_1 process_data_end ] stop
+											 */
+
+										} // End of branch "row1"
+
+										/**
+										 * [tUniqRow_1 process_data_end ] start
+										 */
+
+										currentComponent = "tUniqRow_1";
+
+										/**
+										 * [tUniqRow_1 process_data_end ] stop
+										 */
+
+									} // End of branch "conventions_fact"
+
+								} // close loop of lookup 'entreprises' // G_TM_M_043
 
 								/**
-								 * [tDBOutput_2 main ] stop
+								 * [tMap_2 process_data_end ] start
 								 */
+
+								currentComponent = "tMap_2";
 
 								/**
-								 * [tDBOutput_2 process_data_begin ] start
+								 * [tMap_2 process_data_end ] stop
 								 */
 
-								currentComponent = "tDBOutput_2";
-
-								/**
-								 * [tDBOutput_2 process_data_begin ] stop
-								 */
-
-								/**
-								 * [tDBOutput_2 process_data_end ] start
-								 */
-
-								currentComponent = "tDBOutput_2";
-
-								/**
-								 * [tDBOutput_2 process_data_end ] stop
-								 */
-
-							} // End of branch "conventions_fact"
+							} // End of branch "conventions"
 
 							/**
-							 * [tMap_2 process_data_end ] start
+							 * [tFilterRow_1 process_data_end ] start
 							 */
 
-							currentComponent = "tMap_2";
+							currentComponent = "tFilterRow_1";
 
 							/**
-							 * [tMap_2 process_data_end ] stop
+							 * [tFilterRow_1 process_data_end ] stop
 							 */
 
-						} // End of branch "conventions"
+						} // End of branch "row2"
 
 						/**
-						 * [tFileInputDelimited_3 process_data_end ] start
+						 * [tFileInputDelimited_1 process_data_end ] start
 						 */
 
-						currentComponent = "tFileInputDelimited_3";
+						currentComponent = "tFileInputDelimited_1";
 
 						/**
-						 * [tFileInputDelimited_3 process_data_end ] stop
+						 * [tFileInputDelimited_1 process_data_end ] stop
 						 */
 
 						/**
-						 * [tFileInputDelimited_3 end ] start
+						 * [tFileInputDelimited_1 end ] start
 						 */
 
-						currentComponent = "tFileInputDelimited_3";
+						currentComponent = "tFileInputDelimited_1";
 
-						nb_line_tFileInputDelimited_3++;
 					}
-
 				} finally {
-					if (!(filename_tFileInputDelimited_3 instanceof java.io.InputStream)) {
-						if (csvReadertFileInputDelimited_3 != null) {
-							csvReadertFileInputDelimited_3.close();
+					if (!((Object) ("C:/BI/transparence-sante/data/data.gouv/conventions.csv") instanceof java.io.InputStream)) {
+						if (fid_tFileInputDelimited_1 != null) {
+							fid_tFileInputDelimited_1.close();
 						}
 					}
-					if (csvReadertFileInputDelimited_3 != null) {
-						globalMap.put("tFileInputDelimited_3_NB_LINE", nb_line_tFileInputDelimited_3);
-					}
+					if (fid_tFileInputDelimited_1 != null) {
+						globalMap.put("tFileInputDelimited_1_NB_LINE", fid_tFileInputDelimited_1.getRowNumber());
 
+					}
 				}
 
-				ok_Hash.put("tFileInputDelimited_3", true);
-				end_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
+				ok_Hash.put("tFileInputDelimited_1", true);
+				end_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
 
 				/**
-				 * [tFileInputDelimited_3 end ] stop
+				 * [tFileInputDelimited_1 end ] stop
+				 */
+
+				/**
+				 * [tFilterRow_1 end ] start
+				 */
+
+				currentComponent = "tFilterRow_1";
+
+				globalMap.put("tFilterRow_1_NB_LINE", nb_line_tFilterRow_1);
+				globalMap.put("tFilterRow_1_NB_LINE_OK", nb_line_ok_tFilterRow_1);
+				globalMap.put("tFilterRow_1_NB_LINE_REJECT", nb_line_reject_tFilterRow_1);
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row2");
+				}
+
+				ok_Hash.put("tFilterRow_1", true);
+				end_Hash.put("tFilterRow_1", System.currentTimeMillis());
+
+				/**
+				 * [tFilterRow_1 end ] stop
 				 */
 
 				/**
@@ -3485,6 +5014,47 @@ public class convention_fact implements TalendJob {
 
 				/**
 				 * [tMap_2 end ] stop
+				 */
+
+				/**
+				 * [tUniqRow_1 end ] start
+				 */
+
+				currentComponent = "tUniqRow_1";
+
+				globalMap.put("tUniqRow_1_NB_UNIQUES", nb_uniques_tUniqRow_1);
+				globalMap.put("tUniqRow_1_NB_DUPLICATES", nb_duplicates_tUniqRow_1);
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "conventions_fact");
+				}
+
+				ok_Hash.put("tUniqRow_1", true);
+				end_Hash.put("tUniqRow_1", System.currentTimeMillis());
+
+				/**
+				 * [tUniqRow_1 end ] stop
+				 */
+
+				/**
+				 * [tMap_1 end ] start
+				 */
+
+				currentComponent = "tMap_1";
+
+// ###############################
+// # Lookup hashes releasing
+// ###############################      
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row1");
+				}
+
+				ok_Hash.put("tMap_1", true);
+				end_Hash.put("tMap_1", System.currentTimeMillis());
+
+				/**
+				 * [tMap_1 end ] stop
 				 */
 
 				/**
@@ -3550,7 +5120,7 @@ public class convention_fact implements TalendJob {
 				globalMap.put("tDBOutput_2_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_2);
 
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "conventions_fact");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "conventions_uniques");
 				}
 
 				ok_Hash.put("tDBOutput_2", true);
@@ -3580,13 +5150,23 @@ public class convention_fact implements TalendJob {
 			try {
 
 				/**
-				 * [tFileInputDelimited_3 finally ] start
+				 * [tFileInputDelimited_1 finally ] start
 				 */
 
-				currentComponent = "tFileInputDelimited_3";
+				currentComponent = "tFileInputDelimited_1";
 
 				/**
-				 * [tFileInputDelimited_3 finally ] stop
+				 * [tFileInputDelimited_1 finally ] stop
+				 */
+
+				/**
+				 * [tFilterRow_1 finally ] start
+				 */
+
+				currentComponent = "tFilterRow_1";
+
+				/**
+				 * [tFilterRow_1 finally ] stop
 				 */
 
 				/**
@@ -3597,6 +5177,26 @@ public class convention_fact implements TalendJob {
 
 				/**
 				 * [tMap_2 finally ] stop
+				 */
+
+				/**
+				 * [tUniqRow_1 finally ] start
+				 */
+
+				currentComponent = "tUniqRow_1";
+
+				/**
+				 * [tUniqRow_1 finally ] stop
+				 */
+
+				/**
+				 * [tMap_1 finally ] start
+				 */
+
+				currentComponent = "tMap_1";
+
+				/**
+				 * [tMap_1 finally ] stop
 				 */
 
 				/**
@@ -3640,19 +5240,12 @@ public class convention_fact implements TalendJob {
 			resourceMap = null;
 		}
 
-		globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", 1);
+		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 1);
 	}
 
-	public static class entreprisesStruct
-			implements routines.system.IPersistableComparableLookupRow<entreprisesStruct> {
+	public static class entreprisesStruct implements routines.system.IPersistableRow<entreprisesStruct> {
 		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_convention_fact = new byte[0];
 		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[0];
-		protected static final int DEFAULT_HASHCODE = 1;
-		protected static final int PRIME = 31;
-		protected int hashCode = DEFAULT_HASHCODE;
-		public boolean hashCodeDirty = true;
-
-		public String loopKey;
 
 		public String identifiant;
 
@@ -3726,64 +5319,6 @@ public class convention_fact implements TalendJob {
 			return this.ville;
 		}
 
-		@Override
-		public int hashCode() {
-			if (this.hashCodeDirty) {
-				final int prime = PRIME;
-				int result = DEFAULT_HASHCODE;
-
-				result = prime * result + ((this.identifiant == null) ? 0 : this.identifiant.hashCode());
-
-				this.hashCode = result;
-				this.hashCodeDirty = false;
-			}
-			return this.hashCode;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			final entreprisesStruct other = (entreprisesStruct) obj;
-
-			if (this.identifiant == null) {
-				if (other.identifiant != null)
-					return false;
-
-			} else if (!this.identifiant.equals(other.identifiant))
-
-				return false;
-
-			return true;
-		}
-
-		public void copyDataTo(entreprisesStruct other) {
-
-			other.identifiant = this.identifiant;
-			other.pays_code = this.pays_code;
-			other.pays = this.pays;
-			other.secteur_activite_code = this.secteur_activite_code;
-			other.secteur = this.secteur;
-			other.denomination_sociale = this.denomination_sociale;
-			other.adresse_1 = this.adresse_1;
-			other.adresse_2 = this.adresse_2;
-			other.adresse_3 = this.adresse_3;
-			other.adresse_4 = this.adresse_4;
-			other.code_postal = this.code_postal;
-			other.ville = this.ville;
-
-		}
-
-		public void copyKeysDataTo(entreprisesStruct other) {
-
-			other.identifiant = this.identifiant;
-
-		}
-
 		private String readString(ObjectInputStream dis) throws IOException {
 			String strReturn = null;
 			int length = 0;
@@ -3814,31 +5349,7 @@ public class convention_fact implements TalendJob {
 			}
 		}
 
-		private String readString(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				byte[] byteArray = new byte[length];
-				dis.read(byteArray);
-				strReturn = new String(byteArray, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		public void readKeysData(ObjectInputStream dis) {
+		public void readData(ObjectInputStream dis) {
 
 			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_convention_fact) {
 
@@ -3847,6 +5358,28 @@ public class convention_fact implements TalendJob {
 					int length = 0;
 
 					this.identifiant = readString(dis);
+
+					this.pays_code = readString(dis);
+
+					this.pays = readString(dis);
+
+					this.secteur_activite_code = readString(dis);
+
+					this.secteur = readString(dis);
+
+					this.denomination_sociale = readString(dis);
+
+					this.adresse_1 = readString(dis);
+
+					this.adresse_2 = readString(dis);
+
+					this.adresse_3 = readString(dis);
+
+					this.adresse_4 = readString(dis);
+
+					this.code_postal = readString(dis);
+
+					this.ville = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -3857,83 +5390,56 @@ public class convention_fact implements TalendJob {
 
 		}
 
-		public void writeKeysData(ObjectOutputStream dos) {
+		public void writeData(ObjectOutputStream dos) {
 			try {
 
 				// String
 
 				writeString(this.identifiant, dos);
 
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
+				// String
 
-		}
+				writeString(this.pays_code, dos);
 
-		/**
-		 * Fill Values data by reading ObjectInputStream.
-		 */
-		public void readValuesData(DataInputStream dis, ObjectInputStream ois) {
-			try {
+				// String
 
-				int length = 0;
+				writeString(this.pays, dos);
 
-				this.pays_code = readString(dis, ois);
+				// String
 
-				this.pays = readString(dis, ois);
+				writeString(this.secteur_activite_code, dos);
 
-				this.secteur_activite_code = readString(dis, ois);
+				// String
 
-				this.secteur = readString(dis, ois);
+				writeString(this.secteur, dos);
 
-				this.denomination_sociale = readString(dis, ois);
+				// String
 
-				this.adresse_1 = readString(dis, ois);
+				writeString(this.denomination_sociale, dos);
 
-				this.adresse_2 = readString(dis, ois);
+				// String
 
-				this.adresse_3 = readString(dis, ois);
+				writeString(this.adresse_1, dos);
 
-				this.adresse_4 = readString(dis, ois);
+				// String
 
-				this.code_postal = readString(dis, ois);
+				writeString(this.adresse_2, dos);
 
-				this.ville = readString(dis, ois);
+				// String
 
-			} catch (IOException e) {
-				throw new RuntimeException(e);
+				writeString(this.adresse_3, dos);
 
-			}
+				// String
 
-		}
+				writeString(this.adresse_4, dos);
 
-		/**
-		 * Return a byte array which represents Values data.
-		 */
-		public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
-			try {
+				// String
 
-				writeString(this.pays_code, dos, oos);
+				writeString(this.code_postal, dos);
 
-				writeString(this.pays, dos, oos);
+				// String
 
-				writeString(this.secteur_activite_code, dos, oos);
-
-				writeString(this.secteur, dos, oos);
-
-				writeString(this.denomination_sociale, dos, oos);
-
-				writeString(this.adresse_1, dos, oos);
-
-				writeString(this.adresse_2, dos, oos);
-
-				writeString(this.adresse_3, dos, oos);
-
-				writeString(this.adresse_4, dos, oos);
-
-				writeString(this.code_postal, dos, oos);
-
-				writeString(this.ville, dos, oos);
+				writeString(this.ville, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -3970,10 +5476,264 @@ public class convention_fact implements TalendJob {
 
 			int returnValue = -1;
 
-			returnValue = checkNullsAndCompare(this.identifiant, other.identifiant);
-			if (returnValue != 0) {
-				return returnValue;
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
 			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row3Struct implements routines.system.IPersistableRow<row3Struct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_convention_fact = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[0];
+
+		public String identifiant;
+
+		public String getIdentifiant() {
+			return this.identifiant;
+		}
+
+		public String pays_code;
+
+		public String getPays_code() {
+			return this.pays_code;
+		}
+
+		public String pays;
+
+		public String getPays() {
+			return this.pays;
+		}
+
+		public String secteur_activite_code;
+
+		public String getSecteur_activite_code() {
+			return this.secteur_activite_code;
+		}
+
+		public String secteur;
+
+		public String getSecteur() {
+			return this.secteur;
+		}
+
+		public String denomination_sociale;
+
+		public String getDenomination_sociale() {
+			return this.denomination_sociale;
+		}
+
+		public String adresse_1;
+
+		public String getAdresse_1() {
+			return this.adresse_1;
+		}
+
+		public String adresse_2;
+
+		public String getAdresse_2() {
+			return this.adresse_2;
+		}
+
+		public String adresse_3;
+
+		public String getAdresse_3() {
+			return this.adresse_3;
+		}
+
+		public String adresse_4;
+
+		public String getAdresse_4() {
+			return this.adresse_4;
+		}
+
+		public String code_postal;
+
+		public String getCode_postal() {
+			return this.code_postal;
+		}
+
+		public String ville;
+
+		public String getVille() {
+			return this.ville;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_convention_fact, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_convention_fact) {
+
+				try {
+
+					int length = 0;
+
+					this.identifiant = readString(dis);
+
+					this.pays_code = readString(dis);
+
+					this.pays = readString(dis);
+
+					this.secteur_activite_code = readString(dis);
+
+					this.secteur = readString(dis);
+
+					this.denomination_sociale = readString(dis);
+
+					this.adresse_1 = readString(dis);
+
+					this.adresse_2 = readString(dis);
+
+					this.adresse_3 = readString(dis);
+
+					this.adresse_4 = readString(dis);
+
+					this.code_postal = readString(dis);
+
+					this.ville = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.identifiant, dos);
+
+				// String
+
+				writeString(this.pays_code, dos);
+
+				// String
+
+				writeString(this.pays, dos);
+
+				// String
+
+				writeString(this.secteur_activite_code, dos);
+
+				// String
+
+				writeString(this.secteur, dos);
+
+				// String
+
+				writeString(this.denomination_sociale, dos);
+
+				// String
+
+				writeString(this.adresse_1, dos);
+
+				// String
+
+				writeString(this.adresse_2, dos);
+
+				// String
+
+				writeString(this.adresse_3, dos);
+
+				// String
+
+				writeString(this.adresse_4, dos);
+
+				// String
+
+				writeString(this.code_postal, dos);
+
+				// String
+
+				writeString(this.ville, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("identifiant=" + identifiant);
+			sb.append(",pays_code=" + pays_code);
+			sb.append(",pays=" + pays);
+			sb.append(",secteur_activite_code=" + secteur_activite_code);
+			sb.append(",secteur=" + secteur);
+			sb.append(",denomination_sociale=" + denomination_sociale);
+			sb.append(",adresse_1=" + adresse_1);
+			sb.append(",adresse_2=" + adresse_2);
+			sb.append(",adresse_3=" + adresse_3);
+			sb.append(",adresse_4=" + adresse_4);
+			sb.append(",code_postal=" + code_postal);
+			sb.append(",ville=" + ville);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row3Struct other) {
+
+			int returnValue = -1;
 
 			return returnValue;
 		}
@@ -4021,6 +5781,7 @@ public class convention_fact implements TalendJob {
 			if (resumeIt || globalResumeTicket) { // start the resume
 				globalResumeTicket = true;
 
+				row3Struct row3 = new row3Struct();
 				entreprisesStruct entreprises = new entreprisesStruct();
 
 				/**
@@ -4039,13 +5800,12 @@ public class convention_fact implements TalendJob {
 				int tos_count_tAdvancedHash_entreprises = 0;
 
 				// connection name:entreprises
-				// source node:tFileInputDelimited_4 - inputs:(after_tFileInputDelimited_3)
-				// outputs:(entreprises,entreprises) | target node:tAdvancedHash_entreprises -
-				// inputs:(entreprises) outputs:()
+				// source node:tFilterRow_2 - inputs:(row3) outputs:(entreprises,entreprises) |
+				// target node:tAdvancedHash_entreprises - inputs:(entreprises) outputs:()
 				// linked node: tMap_2 - inputs:(conventions,entreprises)
 				// outputs:(conventions_fact)
 
-				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_entreprises = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
+				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_entreprises = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.ALL_ROWS;
 
 				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<entreprisesStruct> tHash_Lookup_entreprises = org.talend.designer.components.lookup.memory.AdvancedMemoryLookup
 						.<entreprisesStruct>getLookup(matchingModeEnum_entreprises);
@@ -4054,6 +5814,67 @@ public class convention_fact implements TalendJob {
 
 				/**
 				 * [tAdvancedHash_entreprises begin ] stop
+				 */
+
+				/**
+				 * [tFilterRow_2 begin ] start
+				 */
+
+				ok_Hash.put("tFilterRow_2", false);
+				start_Hash.put("tFilterRow_2", System.currentTimeMillis());
+
+				currentComponent = "tFilterRow_2";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row3");
+				}
+
+				int tos_count_tFilterRow_2 = 0;
+
+				int nb_line_tFilterRow_2 = 0;
+				int nb_line_ok_tFilterRow_2 = 0;
+				int nb_line_reject_tFilterRow_2 = 0;
+
+				class Operator_tFilterRow_2 {
+					private String sErrorMsg = "";
+					private boolean bMatchFlag = true;
+					private String sUnionFlag = "&&";
+
+					public Operator_tFilterRow_2(String unionFlag) {
+						sUnionFlag = unionFlag;
+						bMatchFlag = "||".equals(unionFlag) ? false : true;
+					}
+
+					public String getErrorMsg() {
+						if (sErrorMsg != null && sErrorMsg.length() > 1)
+							return sErrorMsg.substring(1);
+						else
+							return null;
+					}
+
+					public boolean getMatchFlag() {
+						return bMatchFlag;
+					}
+
+					public void matches(boolean partMatched, String reason) {
+						// no need to care about the next judgement
+						if ("||".equals(sUnionFlag) && bMatchFlag) {
+							return;
+						}
+
+						if (!partMatched) {
+							sErrorMsg += "|" + reason;
+						}
+
+						if ("||".equals(sUnionFlag))
+							bMatchFlag = bMatchFlag || partMatched;
+						else
+							bMatchFlag = bMatchFlag && partMatched;
+					}
+				}
+
+				/**
+				 * [tFilterRow_2 begin ] stop
 				 */
 
 				/**
@@ -4097,72 +5918,63 @@ public class convention_fact implements TalendJob {
 					while (fid_tFileInputDelimited_4 != null && fid_tFileInputDelimited_4.nextRecord()) {
 						rowstate_tFileInputDelimited_4.reset();
 
-						entreprises = null;
-
-						entreprises = null;
+						row3 = null;
 
 						boolean whetherReject_tFileInputDelimited_4 = false;
-						entreprises = new entreprisesStruct();
+						row3 = new row3Struct();
 						try {
 
 							int columnIndexWithD_tFileInputDelimited_4 = 0;
 
 							columnIndexWithD_tFileInputDelimited_4 = 0;
 
-							entreprises.identifiant = fid_tFileInputDelimited_4
-									.get(columnIndexWithD_tFileInputDelimited_4);
+							row3.identifiant = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
 
 							columnIndexWithD_tFileInputDelimited_4 = 1;
 
-							entreprises.pays_code = fid_tFileInputDelimited_4
-									.get(columnIndexWithD_tFileInputDelimited_4);
+							row3.pays_code = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
 
 							columnIndexWithD_tFileInputDelimited_4 = 2;
 
-							entreprises.pays = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
+							row3.pays = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
 
 							columnIndexWithD_tFileInputDelimited_4 = 3;
 
-							entreprises.secteur_activite_code = fid_tFileInputDelimited_4
+							row3.secteur_activite_code = fid_tFileInputDelimited_4
 									.get(columnIndexWithD_tFileInputDelimited_4);
 
 							columnIndexWithD_tFileInputDelimited_4 = 4;
 
-							entreprises.secteur = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
+							row3.secteur = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
 
 							columnIndexWithD_tFileInputDelimited_4 = 5;
 
-							entreprises.denomination_sociale = fid_tFileInputDelimited_4
+							row3.denomination_sociale = fid_tFileInputDelimited_4
 									.get(columnIndexWithD_tFileInputDelimited_4);
 
 							columnIndexWithD_tFileInputDelimited_4 = 6;
 
-							entreprises.adresse_1 = fid_tFileInputDelimited_4
-									.get(columnIndexWithD_tFileInputDelimited_4);
+							row3.adresse_1 = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
 
 							columnIndexWithD_tFileInputDelimited_4 = 7;
 
-							entreprises.adresse_2 = fid_tFileInputDelimited_4
-									.get(columnIndexWithD_tFileInputDelimited_4);
+							row3.adresse_2 = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
 
 							columnIndexWithD_tFileInputDelimited_4 = 8;
 
-							entreprises.adresse_3 = fid_tFileInputDelimited_4
-									.get(columnIndexWithD_tFileInputDelimited_4);
+							row3.adresse_3 = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
 
 							columnIndexWithD_tFileInputDelimited_4 = 9;
 
-							entreprises.adresse_4 = fid_tFileInputDelimited_4
-									.get(columnIndexWithD_tFileInputDelimited_4);
+							row3.adresse_4 = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
 
 							columnIndexWithD_tFileInputDelimited_4 = 10;
 
-							entreprises.code_postal = fid_tFileInputDelimited_4
-									.get(columnIndexWithD_tFileInputDelimited_4);
+							row3.code_postal = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
 
 							columnIndexWithD_tFileInputDelimited_4 = 11;
 
-							entreprises.ville = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
+							row3.ville = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
 
 							if (rowstate_tFileInputDelimited_4.getException() != null) {
 								throw rowstate_tFileInputDelimited_4.getException();
@@ -4172,7 +5984,7 @@ public class convention_fact implements TalendJob {
 							whetherReject_tFileInputDelimited_4 = true;
 
 							System.err.println(e.getMessage());
-							entreprises = null;
+							row3 = null;
 
 						}
 
@@ -4201,74 +6013,163 @@ public class convention_fact implements TalendJob {
 						/**
 						 * [tFileInputDelimited_4 process_data_begin ] stop
 						 */
-// Start of branch "entreprises"
-						if (entreprises != null) {
+// Start of branch "row3"
+						if (row3 != null) {
 
 							/**
-							 * [tAdvancedHash_entreprises main ] start
+							 * [tFilterRow_2 main ] start
 							 */
 
-							currentComponent = "tAdvancedHash_entreprises";
+							currentComponent = "tFilterRow_2";
 
 							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1, "entreprises");
+								runStat.updateStatOnConnection(iterateId, 1, 1, "row3");
 							}
 
-							entreprisesStruct entreprises_HashRow = new entreprisesStruct();
+							entreprises = null;
+							entreprises = null;
+							Operator_tFilterRow_2 ope_tFilterRow_2 = new Operator_tFilterRow_2("&&");
+							ope_tFilterRow_2.matches((// code sample : use row3 to define the condition.
+// row3.columnName1.equals("foo") ||!(row3.columnName2.equals("bar"))
+// replace the following expression by your own filter condition 
+							row3.pays_code != null && row3.code_postal != null
+									&& !row3.code_postal.replaceAll("[^0-9]", "").isEmpty()
+									&& !row3.pays_code.replaceAll("[^a-zA-Z\\-]", "").isEmpty()),
+									"advanced condition failed");
 
-							entreprises_HashRow.identifiant = entreprises.identifiant;
+							if (ope_tFilterRow_2.getMatchFlag()) {
+								if (entreprises == null) {
+									entreprises = new entreprisesStruct();
+								}
+								entreprises.identifiant = row3.identifiant;
+								entreprises.pays_code = row3.pays_code;
+								entreprises.pays = row3.pays;
+								entreprises.secteur_activite_code = row3.secteur_activite_code;
+								entreprises.secteur = row3.secteur;
+								entreprises.denomination_sociale = row3.denomination_sociale;
+								entreprises.adresse_1 = row3.adresse_1;
+								entreprises.adresse_2 = row3.adresse_2;
+								entreprises.adresse_3 = row3.adresse_3;
+								entreprises.adresse_4 = row3.adresse_4;
+								entreprises.code_postal = row3.code_postal;
+								entreprises.ville = row3.ville;
+								if (entreprises == null) {
+									entreprises = new entreprisesStruct();
+								}
+								entreprises.identifiant = row3.identifiant;
+								entreprises.pays_code = row3.pays_code;
+								entreprises.pays = row3.pays;
+								entreprises.secteur_activite_code = row3.secteur_activite_code;
+								entreprises.secteur = row3.secteur;
+								entreprises.denomination_sociale = row3.denomination_sociale;
+								entreprises.adresse_1 = row3.adresse_1;
+								entreprises.adresse_2 = row3.adresse_2;
+								entreprises.adresse_3 = row3.adresse_3;
+								entreprises.adresse_4 = row3.adresse_4;
+								entreprises.code_postal = row3.code_postal;
+								entreprises.ville = row3.ville;
+								nb_line_ok_tFilterRow_2++;
+							} else {
+								nb_line_reject_tFilterRow_2++;
+							}
 
-							entreprises_HashRow.pays_code = entreprises.pays_code;
+							nb_line_tFilterRow_2++;
 
-							entreprises_HashRow.pays = entreprises.pays;
-
-							entreprises_HashRow.secteur_activite_code = entreprises.secteur_activite_code;
-
-							entreprises_HashRow.secteur = entreprises.secteur;
-
-							entreprises_HashRow.denomination_sociale = entreprises.denomination_sociale;
-
-							entreprises_HashRow.adresse_1 = entreprises.adresse_1;
-
-							entreprises_HashRow.adresse_2 = entreprises.adresse_2;
-
-							entreprises_HashRow.adresse_3 = entreprises.adresse_3;
-
-							entreprises_HashRow.adresse_4 = entreprises.adresse_4;
-
-							entreprises_HashRow.code_postal = entreprises.code_postal;
-
-							entreprises_HashRow.ville = entreprises.ville;
-
-							tHash_Lookup_entreprises.put(entreprises_HashRow);
-
-							tos_count_tAdvancedHash_entreprises++;
+							tos_count_tFilterRow_2++;
 
 							/**
-							 * [tAdvancedHash_entreprises main ] stop
+							 * [tFilterRow_2 main ] stop
 							 */
 
 							/**
-							 * [tAdvancedHash_entreprises process_data_begin ] start
+							 * [tFilterRow_2 process_data_begin ] start
 							 */
 
-							currentComponent = "tAdvancedHash_entreprises";
+							currentComponent = "tFilterRow_2";
 
 							/**
-							 * [tAdvancedHash_entreprises process_data_begin ] stop
+							 * [tFilterRow_2 process_data_begin ] stop
 							 */
+// Start of branch "entreprises"
+							if (entreprises != null) {
+
+								/**
+								 * [tAdvancedHash_entreprises main ] start
+								 */
+
+								currentComponent = "tAdvancedHash_entreprises";
+
+								if (execStat) {
+									runStat.updateStatOnConnection(iterateId, 1, 1, "entreprises");
+								}
+
+								entreprisesStruct entreprises_HashRow = new entreprisesStruct();
+
+								entreprises_HashRow.identifiant = entreprises.identifiant;
+
+								entreprises_HashRow.pays_code = entreprises.pays_code;
+
+								entreprises_HashRow.pays = entreprises.pays;
+
+								entreprises_HashRow.secteur_activite_code = entreprises.secteur_activite_code;
+
+								entreprises_HashRow.secteur = entreprises.secteur;
+
+								entreprises_HashRow.denomination_sociale = entreprises.denomination_sociale;
+
+								entreprises_HashRow.adresse_1 = entreprises.adresse_1;
+
+								entreprises_HashRow.adresse_2 = entreprises.adresse_2;
+
+								entreprises_HashRow.adresse_3 = entreprises.adresse_3;
+
+								entreprises_HashRow.adresse_4 = entreprises.adresse_4;
+
+								entreprises_HashRow.code_postal = entreprises.code_postal;
+
+								entreprises_HashRow.ville = entreprises.ville;
+
+								tHash_Lookup_entreprises.put(entreprises_HashRow);
+
+								tos_count_tAdvancedHash_entreprises++;
+
+								/**
+								 * [tAdvancedHash_entreprises main ] stop
+								 */
+
+								/**
+								 * [tAdvancedHash_entreprises process_data_begin ] start
+								 */
+
+								currentComponent = "tAdvancedHash_entreprises";
+
+								/**
+								 * [tAdvancedHash_entreprises process_data_begin ] stop
+								 */
+
+								/**
+								 * [tAdvancedHash_entreprises process_data_end ] start
+								 */
+
+								currentComponent = "tAdvancedHash_entreprises";
+
+								/**
+								 * [tAdvancedHash_entreprises process_data_end ] stop
+								 */
+
+							} // End of branch "entreprises"
 
 							/**
-							 * [tAdvancedHash_entreprises process_data_end ] start
+							 * [tFilterRow_2 process_data_end ] start
 							 */
 
-							currentComponent = "tAdvancedHash_entreprises";
+							currentComponent = "tFilterRow_2";
 
 							/**
-							 * [tAdvancedHash_entreprises process_data_end ] stop
+							 * [tFilterRow_2 process_data_end ] stop
 							 */
 
-						} // End of branch "entreprises"
+						} // End of branch "row3"
 
 						/**
 						 * [tFileInputDelimited_4 process_data_end ] start
@@ -4304,6 +6205,27 @@ public class convention_fact implements TalendJob {
 
 				/**
 				 * [tFileInputDelimited_4 end ] stop
+				 */
+
+				/**
+				 * [tFilterRow_2 end ] start
+				 */
+
+				currentComponent = "tFilterRow_2";
+
+				globalMap.put("tFilterRow_2_NB_LINE", nb_line_tFilterRow_2);
+				globalMap.put("tFilterRow_2_NB_LINE_OK", nb_line_ok_tFilterRow_2);
+				globalMap.put("tFilterRow_2_NB_LINE_REJECT", nb_line_reject_tFilterRow_2);
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row3");
+				}
+
+				ok_Hash.put("tFilterRow_2", true);
+				end_Hash.put("tFilterRow_2", System.currentTimeMillis());
+
+				/**
+				 * [tFilterRow_2 end ] stop
 				 */
 
 				/**
@@ -4349,6 +6271,16 @@ public class convention_fact implements TalendJob {
 
 				/**
 				 * [tFileInputDelimited_4 finally ] stop
+				 */
+
+				/**
+				 * [tFilterRow_2 finally ] start
+				 */
+
+				currentComponent = "tFilterRow_2";
+
+				/**
+				 * [tFilterRow_2 finally ] stop
 				 */
 
 				/**
@@ -4566,14 +6498,14 @@ public class convention_fact implements TalendJob {
 
 		try {
 			errorCode = null;
-			tFileInputDelimited_3Process(globalMap);
+			tFileInputDelimited_1Process(globalMap);
 			if (!"failure".equals(status)) {
 				status = "end";
 			}
-		} catch (TalendException e_tFileInputDelimited_3) {
-			globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", -1);
+		} catch (TalendException e_tFileInputDelimited_1) {
+			globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", -1);
 
-			e_tFileInputDelimited_3.printStackTrace();
+			e_tFileInputDelimited_1.printStackTrace();
 
 		}
 
@@ -4728,6 +6660,6 @@ public class convention_fact implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 149539 characters generated by Talend Open Studio for Data Integration on the
- * 26 janvier 2021 14:47:52 CET
+ * 199764 characters generated by Talend Open Studio for Data Integration on the
+ * 31 janvier 2021 18:36:34 CET
  ************************************************************************************************/

@@ -67,10 +67,11 @@ public class MyStringRoutine {
      * {example} string.toString() = "1998.01" -->  isFloat(string) = true
 	 */
 	public static boolean isFloat(String string) {
-		String resultat = string.replaceAll("[^0-9\\.]", "");
-		//nombre de points
-		long count = string.chars().filter(ch -> ch == '.').count();
-		return resultat.length() != 0 && !resultat.equals(".") && count <2;
+		String floatRegex="^([+-]?\\d*\\.?\\d*)$";
+		if(string.matches(floatRegex)) {
+			 return true;
+		 }
+		 return false;
 	}
 	
 	
@@ -88,14 +89,14 @@ public class MyStringRoutine {
 	 *  
 	 */
 	public static boolean isDate(String string) {
-		 if(string.matches(dateRegex)) {
+		 if(string.matches(dateRegex) && string.length() > 0) {
 			 return true;
 		 }
 		 return false;
 	 }
 	
 	/**
-	 * concat: concat 2 string, replace the string which is null with N/A
+	 * concat: concat 3 string, replace the string which is null with N/A
      * 
      * 
      * {talendTypes} Boolean
@@ -104,21 +105,18 @@ public class MyStringRoutine {
      * 
      * {param} String string: The processed string
      * {param} String string2: The processed string
+     * {param} String string3: The processed string
      * 
-     * {example} string = null  && string2 = null -->  concat(String string, String string2) = N/AN/A
-     * {example} string = a  && string2 = null -->  concat(String string, String string2) = aN/A
-	 * {example} string = null  && string2 = b -->  concat(String string, String string2) = N/Ab
-	 * {example} string = a  && string2 = b -->  concat(String string, String string2) = ab
+     * {example} string = null  && string2 = null && string3 = c -->  concat(String string, String string2, String string3) = N/AN/Ac
+     * {example} string = a  && string2 = null && string3 = c  -->  concat(String string, String string2, String string3) = aN/Ac
+	 * {example} string = null  && string2 = b && string3 = c  -->  concat(String string, String string2, String string3) = N/Abc
+	 * {example} string = a  && string2 = b && string3 = c  -->  concat(String string, String string2, String string3) = abc
 	 */
-	public static String concat(String string, String string2) {
-		if(string == null && string2 == null ) {
-			return "N/A" + "N/A";
-		} else if (string == null) {
-			return "N/A" + string2;
-		}else if (string2 == null) {
-			return string + "N/A" ;
-		}
-		return string + string2;
+	public static String concat(String string, String string2, String string3) {
+		string = string == null ? "N/A" : string;
+		string2 = string2 == null ? "N/A" : string2;
+		string3 = string3 == null ? "N/A" : string3;
+		return string + string2 + string3;
 	}
 	
 }

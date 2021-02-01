@@ -275,6 +275,16 @@ public class avantage_remuneration_fact implements TalendJob {
 		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tFilterRow_4_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tMap_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
 			throws TalendException {
 
@@ -305,7 +315,7 @@ public class avantage_remuneration_fact implements TalendJob {
 		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tFileInputDelimited_2_error(Exception exception, String errorComponent,
+	public void tLogRow_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -315,7 +325,37 @@ public class avantage_remuneration_fact implements TalendJob {
 		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tFileInputDelimited_2_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tFilterRow_2_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tFileInputDelimited_3_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tFilterRow_3_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -342,7 +382,17 @@ public class avantage_remuneration_fact implements TalendJob {
 
 		status = "failure";
 
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+		tFileInputDelimited_4_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tFilterRow_1_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_4_onSubJobError(exception, errorComponent, globalMap);
 	}
 
 	public void tAdvancedHash_entreprises_1_error(Exception exception, String errorComponent,
@@ -352,7 +402,7 @@ public class avantage_remuneration_fact implements TalendJob {
 
 		status = "failure";
 
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
 	}
 
 	public void tAdvancedHash_entreprises_2_error(Exception exception, String errorComponent,
@@ -362,10 +412,26 @@ public class avantage_remuneration_fact implements TalendJob {
 
 		status = "failure";
 
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+		tFileInputDelimited_4_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tFileInputDelimited_2_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
 	}
 
 	public void tFileInputDelimited_3_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public void tFileInputDelimited_4_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
@@ -732,6 +798,266 @@ public class avantage_remuneration_fact implements TalendJob {
 
 	}
 
+	public static class row3Struct implements routines.system.IPersistableRow<row3Struct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[0];
+
+		public String identifiant;
+
+		public String getIdentifiant() {
+			return this.identifiant;
+		}
+
+		public String pays_code;
+
+		public String getPays_code() {
+			return this.pays_code;
+		}
+
+		public String pays;
+
+		public String getPays() {
+			return this.pays;
+		}
+
+		public String secteur_activite_code;
+
+		public String getSecteur_activite_code() {
+			return this.secteur_activite_code;
+		}
+
+		public String secteur;
+
+		public String getSecteur() {
+			return this.secteur;
+		}
+
+		public String denomination_sociale;
+
+		public String getDenomination_sociale() {
+			return this.denomination_sociale;
+		}
+
+		public String adresse_1;
+
+		public String getAdresse_1() {
+			return this.adresse_1;
+		}
+
+		public String adresse_2;
+
+		public String getAdresse_2() {
+			return this.adresse_2;
+		}
+
+		public String adresse_3;
+
+		public String getAdresse_3() {
+			return this.adresse_3;
+		}
+
+		public String adresse_4;
+
+		public String getAdresse_4() {
+			return this.adresse_4;
+		}
+
+		public String code_postal;
+
+		public String getCode_postal() {
+			return this.code_postal;
+		}
+
+		public String ville;
+
+		public String getVille() {
+			return this.ville;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact, 0, length,
+						utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact) {
+
+				try {
+
+					int length = 0;
+
+					this.identifiant = readString(dis);
+
+					this.pays_code = readString(dis);
+
+					this.pays = readString(dis);
+
+					this.secteur_activite_code = readString(dis);
+
+					this.secteur = readString(dis);
+
+					this.denomination_sociale = readString(dis);
+
+					this.adresse_1 = readString(dis);
+
+					this.adresse_2 = readString(dis);
+
+					this.adresse_3 = readString(dis);
+
+					this.adresse_4 = readString(dis);
+
+					this.code_postal = readString(dis);
+
+					this.ville = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.identifiant, dos);
+
+				// String
+
+				writeString(this.pays_code, dos);
+
+				// String
+
+				writeString(this.pays, dos);
+
+				// String
+
+				writeString(this.secteur_activite_code, dos);
+
+				// String
+
+				writeString(this.secteur, dos);
+
+				// String
+
+				writeString(this.denomination_sociale, dos);
+
+				// String
+
+				writeString(this.adresse_1, dos);
+
+				// String
+
+				writeString(this.adresse_2, dos);
+
+				// String
+
+				writeString(this.adresse_3, dos);
+
+				// String
+
+				writeString(this.adresse_4, dos);
+
+				// String
+
+				writeString(this.code_postal, dos);
+
+				// String
+
+				writeString(this.ville, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("identifiant=" + identifiant);
+			sb.append(",pays_code=" + pays_code);
+			sb.append(",pays=" + pays);
+			sb.append(",secteur_activite_code=" + secteur_activite_code);
+			sb.append(",secteur=" + secteur);
+			sb.append(",denomination_sociale=" + denomination_sociale);
+			sb.append(",adresse_1=" + adresse_1);
+			sb.append(",adresse_2=" + adresse_2);
+			sb.append(",adresse_3=" + adresse_3);
+			sb.append(",adresse_4=" + adresse_4);
+			sb.append(",code_postal=" + code_postal);
+			sb.append(",ville=" + ville);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row3Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
 	public void tFileInputDelimited_2Process(final java.util.Map<String, Object> globalMap) throws TalendException {
 		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 0);
 
@@ -752,6 +1078,7 @@ public class avantage_remuneration_fact implements TalendJob {
 			if (resumeIt || globalResumeTicket) { // start the resume
 				globalResumeTicket = true;
 
+				row3Struct row3 = new row3Struct();
 				entreprises_1Struct entreprises_1 = new entreprises_1Struct();
 
 				/**
@@ -770,7 +1097,7 @@ public class avantage_remuneration_fact implements TalendJob {
 				int tos_count_tAdvancedHash_entreprises_1 = 0;
 
 				// connection name:entreprises_1
-				// source node:tFileInputDelimited_2 - inputs:(after_tFileInputDelimited_1)
+				// source node:tFilterRow_2 - inputs:(row3)
 				// outputs:(entreprises_1,entreprises_1) | target
 				// node:tAdvancedHash_entreprises_1 - inputs:(entreprises_1) outputs:()
 				// linked node: tMap_1 - inputs:(avantages,entreprises_1)
@@ -785,6 +1112,67 @@ public class avantage_remuneration_fact implements TalendJob {
 
 				/**
 				 * [tAdvancedHash_entreprises_1 begin ] stop
+				 */
+
+				/**
+				 * [tFilterRow_2 begin ] start
+				 */
+
+				ok_Hash.put("tFilterRow_2", false);
+				start_Hash.put("tFilterRow_2", System.currentTimeMillis());
+
+				currentComponent = "tFilterRow_2";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row3");
+				}
+
+				int tos_count_tFilterRow_2 = 0;
+
+				int nb_line_tFilterRow_2 = 0;
+				int nb_line_ok_tFilterRow_2 = 0;
+				int nb_line_reject_tFilterRow_2 = 0;
+
+				class Operator_tFilterRow_2 {
+					private String sErrorMsg = "";
+					private boolean bMatchFlag = true;
+					private String sUnionFlag = "&&";
+
+					public Operator_tFilterRow_2(String unionFlag) {
+						sUnionFlag = unionFlag;
+						bMatchFlag = "||".equals(unionFlag) ? false : true;
+					}
+
+					public String getErrorMsg() {
+						if (sErrorMsg != null && sErrorMsg.length() > 1)
+							return sErrorMsg.substring(1);
+						else
+							return null;
+					}
+
+					public boolean getMatchFlag() {
+						return bMatchFlag;
+					}
+
+					public void matches(boolean partMatched, String reason) {
+						// no need to care about the next judgement
+						if ("||".equals(sUnionFlag) && bMatchFlag) {
+							return;
+						}
+
+						if (!partMatched) {
+							sErrorMsg += "|" + reason;
+						}
+
+						if ("||".equals(sUnionFlag))
+							bMatchFlag = bMatchFlag || partMatched;
+						else
+							bMatchFlag = bMatchFlag && partMatched;
+					}
+				}
+
+				/**
+				 * [tFilterRow_2 begin ] stop
 				 */
 
 				/**
@@ -945,12 +1333,10 @@ public class avantage_remuneration_fact implements TalendJob {
 							break;
 						}
 
-						entreprises_1 = null;
-
-						entreprises_1 = null;
+						row3 = null;
 
 						boolean whetherReject_tFileInputDelimited_2 = false;
-						entreprises_1 = new entreprises_1Struct();
+						row3 = new row3Struct();
 						try {
 
 							char fieldSeparator_tFileInputDelimited_2_ListType[] = null;
@@ -969,29 +1355,29 @@ public class avantage_remuneration_fact implements TalendJob {
 																														// is
 																														// '\n'
 
-								entreprises_1.identifiant = null;
+								row3.identifiant = null;
 
-								entreprises_1.pays_code = null;
+								row3.pays_code = null;
 
-								entreprises_1.pays = null;
+								row3.pays = null;
 
-								entreprises_1.secteur_activite_code = null;
+								row3.secteur_activite_code = null;
 
-								entreprises_1.secteur = null;
+								row3.secteur = null;
 
-								entreprises_1.denomination_sociale = null;
+								row3.denomination_sociale = null;
 
-								entreprises_1.adresse_1 = null;
+								row3.adresse_1 = null;
 
-								entreprises_1.adresse_2 = null;
+								row3.adresse_2 = null;
 
-								entreprises_1.adresse_3 = null;
+								row3.adresse_3 = null;
 
-								entreprises_1.adresse_4 = null;
+								row3.adresse_4 = null;
 
-								entreprises_1.code_postal = null;
+								row3.code_postal = null;
 
-								entreprises_1.ville = null;
+								row3.ville = null;
 
 							} else {
 
@@ -1001,11 +1387,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
 
-									entreprises_1.identifiant = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									row3.identifiant = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
 
 								} else {
 
-									entreprises_1.identifiant = null;
+									row3.identifiant = null;
 
 								}
 
@@ -1013,11 +1399,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
 
-									entreprises_1.pays_code = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									row3.pays_code = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
 
 								} else {
 
-									entreprises_1.pays_code = null;
+									row3.pays_code = null;
 
 								}
 
@@ -1025,11 +1411,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
 
-									entreprises_1.pays = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									row3.pays = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
 
 								} else {
 
-									entreprises_1.pays = null;
+									row3.pays = null;
 
 								}
 
@@ -1037,11 +1423,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
 
-									entreprises_1.secteur_activite_code = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									row3.secteur_activite_code = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
 
 								} else {
 
-									entreprises_1.secteur_activite_code = null;
+									row3.secteur_activite_code = null;
 
 								}
 
@@ -1049,11 +1435,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
 
-									entreprises_1.secteur = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									row3.secteur = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
 
 								} else {
 
-									entreprises_1.secteur = null;
+									row3.secteur = null;
 
 								}
 
@@ -1061,11 +1447,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
 
-									entreprises_1.denomination_sociale = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									row3.denomination_sociale = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
 
 								} else {
 
-									entreprises_1.denomination_sociale = null;
+									row3.denomination_sociale = null;
 
 								}
 
@@ -1073,11 +1459,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
 
-									entreprises_1.adresse_1 = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									row3.adresse_1 = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
 
 								} else {
 
-									entreprises_1.adresse_1 = null;
+									row3.adresse_1 = null;
 
 								}
 
@@ -1085,11 +1471,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
 
-									entreprises_1.adresse_2 = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									row3.adresse_2 = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
 
 								} else {
 
-									entreprises_1.adresse_2 = null;
+									row3.adresse_2 = null;
 
 								}
 
@@ -1097,11 +1483,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
 
-									entreprises_1.adresse_3 = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									row3.adresse_3 = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
 
 								} else {
 
-									entreprises_1.adresse_3 = null;
+									row3.adresse_3 = null;
 
 								}
 
@@ -1109,11 +1495,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
 
-									entreprises_1.adresse_4 = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									row3.adresse_4 = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
 
 								} else {
 
-									entreprises_1.adresse_4 = null;
+									row3.adresse_4 = null;
 
 								}
 
@@ -1121,11 +1507,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
 
-									entreprises_1.code_postal = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									row3.code_postal = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
 
 								} else {
 
-									entreprises_1.code_postal = null;
+									row3.code_postal = null;
 
 								}
 
@@ -1133,11 +1519,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length) {
 
-									entreprises_1.ville = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									row3.ville = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
 
 								} else {
 
-									entreprises_1.ville = null;
+									row3.ville = null;
 
 								}
 
@@ -1151,7 +1537,7 @@ public class avantage_remuneration_fact implements TalendJob {
 							whetherReject_tFileInputDelimited_2 = true;
 
 							System.err.println(e.getMessage());
-							entreprises_1 = null;
+							row3 = null;
 
 						}
 
@@ -1180,74 +1566,164 @@ public class avantage_remuneration_fact implements TalendJob {
 						/**
 						 * [tFileInputDelimited_2 process_data_begin ] stop
 						 */
-// Start of branch "entreprises_1"
-						if (entreprises_1 != null) {
+// Start of branch "row3"
+						if (row3 != null) {
 
 							/**
-							 * [tAdvancedHash_entreprises_1 main ] start
+							 * [tFilterRow_2 main ] start
 							 */
 
-							currentComponent = "tAdvancedHash_entreprises_1";
+							currentComponent = "tFilterRow_2";
 
 							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1, "entreprises_1");
+								runStat.updateStatOnConnection(iterateId, 1, 1, "row3");
 							}
 
-							entreprises_1Struct entreprises_1_HashRow = new entreprises_1Struct();
+							entreprises_1 = null;
+							entreprises_1 = null;
+							Operator_tFilterRow_2 ope_tFilterRow_2 = new Operator_tFilterRow_2("&&");
+							ope_tFilterRow_2.matches((// code sample : use row3 to define the condition.
+// row3.columnName1.equals("foo") ||!(row3.columnName2.equals("bar"))
+// replace the following expression by your own filter condition 
 
-							entreprises_1_HashRow.identifiant = entreprises_1.identifiant;
+							!(row3.pays_code.replaceAll("[^A-Za-z0-9]", "")).equals("") && row3.pays_code != null
+									&& row3.code_postal != null
+									&& !(row3.code_postal.replaceAll("[^A-Za-z0-9]", "")).equals("")),
+									"advanced condition failed");
 
-							entreprises_1_HashRow.pays_code = entreprises_1.pays_code;
+							if (ope_tFilterRow_2.getMatchFlag()) {
+								if (entreprises_1 == null) {
+									entreprises_1 = new entreprises_1Struct();
+								}
+								entreprises_1.identifiant = row3.identifiant;
+								entreprises_1.pays_code = row3.pays_code;
+								entreprises_1.pays = row3.pays;
+								entreprises_1.secteur_activite_code = row3.secteur_activite_code;
+								entreprises_1.secteur = row3.secteur;
+								entreprises_1.denomination_sociale = row3.denomination_sociale;
+								entreprises_1.adresse_1 = row3.adresse_1;
+								entreprises_1.adresse_2 = row3.adresse_2;
+								entreprises_1.adresse_3 = row3.adresse_3;
+								entreprises_1.adresse_4 = row3.adresse_4;
+								entreprises_1.code_postal = row3.code_postal;
+								entreprises_1.ville = row3.ville;
+								if (entreprises_1 == null) {
+									entreprises_1 = new entreprises_1Struct();
+								}
+								entreprises_1.identifiant = row3.identifiant;
+								entreprises_1.pays_code = row3.pays_code;
+								entreprises_1.pays = row3.pays;
+								entreprises_1.secteur_activite_code = row3.secteur_activite_code;
+								entreprises_1.secteur = row3.secteur;
+								entreprises_1.denomination_sociale = row3.denomination_sociale;
+								entreprises_1.adresse_1 = row3.adresse_1;
+								entreprises_1.adresse_2 = row3.adresse_2;
+								entreprises_1.adresse_3 = row3.adresse_3;
+								entreprises_1.adresse_4 = row3.adresse_4;
+								entreprises_1.code_postal = row3.code_postal;
+								entreprises_1.ville = row3.ville;
+								nb_line_ok_tFilterRow_2++;
+							} else {
+								nb_line_reject_tFilterRow_2++;
+							}
 
-							entreprises_1_HashRow.pays = entreprises_1.pays;
+							nb_line_tFilterRow_2++;
 
-							entreprises_1_HashRow.secteur_activite_code = entreprises_1.secteur_activite_code;
-
-							entreprises_1_HashRow.secteur = entreprises_1.secteur;
-
-							entreprises_1_HashRow.denomination_sociale = entreprises_1.denomination_sociale;
-
-							entreprises_1_HashRow.adresse_1 = entreprises_1.adresse_1;
-
-							entreprises_1_HashRow.adresse_2 = entreprises_1.adresse_2;
-
-							entreprises_1_HashRow.adresse_3 = entreprises_1.adresse_3;
-
-							entreprises_1_HashRow.adresse_4 = entreprises_1.adresse_4;
-
-							entreprises_1_HashRow.code_postal = entreprises_1.code_postal;
-
-							entreprises_1_HashRow.ville = entreprises_1.ville;
-
-							tHash_Lookup_entreprises_1.put(entreprises_1_HashRow);
-
-							tos_count_tAdvancedHash_entreprises_1++;
+							tos_count_tFilterRow_2++;
 
 							/**
-							 * [tAdvancedHash_entreprises_1 main ] stop
+							 * [tFilterRow_2 main ] stop
 							 */
 
 							/**
-							 * [tAdvancedHash_entreprises_1 process_data_begin ] start
+							 * [tFilterRow_2 process_data_begin ] start
 							 */
 
-							currentComponent = "tAdvancedHash_entreprises_1";
+							currentComponent = "tFilterRow_2";
 
 							/**
-							 * [tAdvancedHash_entreprises_1 process_data_begin ] stop
+							 * [tFilterRow_2 process_data_begin ] stop
 							 */
+// Start of branch "entreprises_1"
+							if (entreprises_1 != null) {
+
+								/**
+								 * [tAdvancedHash_entreprises_1 main ] start
+								 */
+
+								currentComponent = "tAdvancedHash_entreprises_1";
+
+								if (execStat) {
+									runStat.updateStatOnConnection(iterateId, 1, 1, "entreprises_1");
+								}
+
+								entreprises_1Struct entreprises_1_HashRow = new entreprises_1Struct();
+
+								entreprises_1_HashRow.identifiant = entreprises_1.identifiant;
+
+								entreprises_1_HashRow.pays_code = entreprises_1.pays_code;
+
+								entreprises_1_HashRow.pays = entreprises_1.pays;
+
+								entreprises_1_HashRow.secteur_activite_code = entreprises_1.secteur_activite_code;
+
+								entreprises_1_HashRow.secteur = entreprises_1.secteur;
+
+								entreprises_1_HashRow.denomination_sociale = entreprises_1.denomination_sociale;
+
+								entreprises_1_HashRow.adresse_1 = entreprises_1.adresse_1;
+
+								entreprises_1_HashRow.adresse_2 = entreprises_1.adresse_2;
+
+								entreprises_1_HashRow.adresse_3 = entreprises_1.adresse_3;
+
+								entreprises_1_HashRow.adresse_4 = entreprises_1.adresse_4;
+
+								entreprises_1_HashRow.code_postal = entreprises_1.code_postal;
+
+								entreprises_1_HashRow.ville = entreprises_1.ville;
+
+								tHash_Lookup_entreprises_1.put(entreprises_1_HashRow);
+
+								tos_count_tAdvancedHash_entreprises_1++;
+
+								/**
+								 * [tAdvancedHash_entreprises_1 main ] stop
+								 */
+
+								/**
+								 * [tAdvancedHash_entreprises_1 process_data_begin ] start
+								 */
+
+								currentComponent = "tAdvancedHash_entreprises_1";
+
+								/**
+								 * [tAdvancedHash_entreprises_1 process_data_begin ] stop
+								 */
+
+								/**
+								 * [tAdvancedHash_entreprises_1 process_data_end ] start
+								 */
+
+								currentComponent = "tAdvancedHash_entreprises_1";
+
+								/**
+								 * [tAdvancedHash_entreprises_1 process_data_end ] stop
+								 */
+
+							} // End of branch "entreprises_1"
 
 							/**
-							 * [tAdvancedHash_entreprises_1 process_data_end ] start
+							 * [tFilterRow_2 process_data_end ] start
 							 */
 
-							currentComponent = "tAdvancedHash_entreprises_1";
+							currentComponent = "tFilterRow_2";
 
 							/**
-							 * [tAdvancedHash_entreprises_1 process_data_end ] stop
+							 * [tFilterRow_2 process_data_end ] stop
 							 */
 
-						} // End of branch "entreprises_1"
+						} // End of branch "row3"
 
 						/**
 						 * [tFileInputDelimited_2 process_data_end ] start
@@ -1285,6 +1761,27 @@ public class avantage_remuneration_fact implements TalendJob {
 
 				/**
 				 * [tFileInputDelimited_2 end ] stop
+				 */
+
+				/**
+				 * [tFilterRow_2 end ] start
+				 */
+
+				currentComponent = "tFilterRow_2";
+
+				globalMap.put("tFilterRow_2_NB_LINE", nb_line_tFilterRow_2);
+				globalMap.put("tFilterRow_2_NB_LINE_OK", nb_line_ok_tFilterRow_2);
+				globalMap.put("tFilterRow_2_NB_LINE_REJECT", nb_line_reject_tFilterRow_2);
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row3");
+				}
+
+				ok_Hash.put("tFilterRow_2", true);
+				end_Hash.put("tFilterRow_2", System.currentTimeMillis());
+
+				/**
+				 * [tFilterRow_2 end ] stop
 				 */
 
 				/**
@@ -1333,6 +1830,16 @@ public class avantage_remuneration_fact implements TalendJob {
 				 */
 
 				/**
+				 * [tFilterRow_2 finally ] start
+				 */
+
+				currentComponent = "tFilterRow_2";
+
+				/**
+				 * [tFilterRow_2 finally ] stop
+				 */
+
+				/**
 				 * [tAdvancedHash_entreprises_1 finally ] start
 				 */
 
@@ -1353,7 +1860,7 @@ public class avantage_remuneration_fact implements TalendJob {
 		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 1);
 	}
 
-	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
+	public static class row6Struct implements routines.system.IPersistableRow<row6Struct> {
 		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[0];
 		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[0];
 		protected static final int DEFAULT_HASHCODE = 1;
@@ -1471,6 +1978,405 @@ public class avantage_remuneration_fact implements TalendJob {
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
+			final row6Struct other = (row6Struct) obj;
+
+			if (this.ligne_id == null) {
+				if (other.ligne_id != null)
+					return false;
+
+			} else if (!this.ligne_id.equals(other.ligne_id))
+
+				return false;
+
+			if (this.entreprise_id == null) {
+				if (other.entreprise_id != null)
+					return false;
+
+			} else if (!this.entreprise_id.equals(other.entreprise_id))
+
+				return false;
+
+			return true;
+		}
+
+		public void copyDataTo(row6Struct other) {
+
+			other.ligne_id = this.ligne_id;
+			other.entreprise_id = this.entreprise_id;
+			other.beneficiaire_id = this.beneficiaire_id;
+			other.categorie_beneficiaire_id = this.categorie_beneficiaire_id;
+			other.qualite_beneficiaire_id = this.qualite_beneficiaire_id;
+			other.titre_beneficiaire_id = this.titre_beneficiaire_id;
+			other.adresse_beneficiaire_id = this.adresse_beneficiaire_id;
+			other.adresse_entreprise_id = this.adresse_entreprise_id;
+			other.specialite_beneficiaire_id = this.specialite_beneficiaire_id;
+			other.secteur_activite_entreprise_id = this.secteur_activite_entreprise_id;
+			other.type_avantage_id = this.type_avantage_id;
+			other.date_id = this.date_id;
+			other.is_avantage = this.is_avantage;
+			other.montant_ttc = this.montant_ttc;
+
+		}
+
+		public void copyKeysDataTo(row6Struct other) {
+
+			other.ligne_id = this.ligne_id;
+			other.entreprise_id = this.entreprise_id;
+
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact, 0, length,
+						utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact) {
+
+				try {
+
+					int length = 0;
+
+					this.ligne_id = readString(dis);
+
+					this.entreprise_id = readString(dis);
+
+					this.beneficiaire_id = readString(dis);
+
+					this.categorie_beneficiaire_id = readString(dis);
+
+					this.qualite_beneficiaire_id = readString(dis);
+
+					this.titre_beneficiaire_id = readString(dis);
+
+					this.adresse_beneficiaire_id = readString(dis);
+
+					this.adresse_entreprise_id = readString(dis);
+
+					this.specialite_beneficiaire_id = readString(dis);
+
+					this.secteur_activite_entreprise_id = readString(dis);
+
+					this.type_avantage_id = dis.readInt();
+
+					this.date_id = readDate(dis);
+
+					this.is_avantage = dis.readBoolean();
+
+					this.montant_ttc = (BigDecimal) dis.readObject();
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				} catch (ClassNotFoundException eCNFE) {
+					throw new RuntimeException(eCNFE);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.ligne_id, dos);
+
+				// String
+
+				writeString(this.entreprise_id, dos);
+
+				// String
+
+				writeString(this.beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.categorie_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.qualite_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.titre_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.adresse_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.adresse_entreprise_id, dos);
+
+				// String
+
+				writeString(this.specialite_beneficiaire_id, dos);
+
+				// String
+
+				writeString(this.secteur_activite_entreprise_id, dos);
+
+				// int
+
+				dos.writeInt(this.type_avantage_id);
+
+				// java.util.Date
+
+				writeDate(this.date_id, dos);
+
+				// boolean
+
+				dos.writeBoolean(this.is_avantage);
+
+				// BigDecimal
+
+				dos.writeObject(this.montant_ttc);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("ligne_id=" + ligne_id);
+			sb.append(",entreprise_id=" + entreprise_id);
+			sb.append(",beneficiaire_id=" + beneficiaire_id);
+			sb.append(",categorie_beneficiaire_id=" + categorie_beneficiaire_id);
+			sb.append(",qualite_beneficiaire_id=" + qualite_beneficiaire_id);
+			sb.append(",titre_beneficiaire_id=" + titre_beneficiaire_id);
+			sb.append(",adresse_beneficiaire_id=" + adresse_beneficiaire_id);
+			sb.append(",adresse_entreprise_id=" + adresse_entreprise_id);
+			sb.append(",specialite_beneficiaire_id=" + specialite_beneficiaire_id);
+			sb.append(",secteur_activite_entreprise_id=" + secteur_activite_entreprise_id);
+			sb.append(",type_avantage_id=" + String.valueOf(type_avantage_id));
+			sb.append(",date_id=" + String.valueOf(date_id));
+			sb.append(",is_avantage=" + String.valueOf(is_avantage));
+			sb.append(",montant_ttc=" + String.valueOf(montant_ttc));
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row6Struct other) {
+
+			int returnValue = -1;
+
+			returnValue = checkNullsAndCompare(this.ligne_id, other.ligne_id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			returnValue = checkNullsAndCompare(this.entreprise_id, other.entreprise_id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[0];
+		protected static final int DEFAULT_HASHCODE = 1;
+		protected static final int PRIME = 31;
+		protected int hashCode = DEFAULT_HASHCODE;
+		public boolean hashCodeDirty = true;
+
+		public String loopKey;
+
+		public String ligne_id;
+
+		public String getLigne_id() {
+			return this.ligne_id;
+		}
+
+		public String entreprise_id;
+
+		public String getEntreprise_id() {
+			return this.entreprise_id;
+		}
+
+		public String beneficiaire_id;
+
+		public String getBeneficiaire_id() {
+			return this.beneficiaire_id;
+		}
+
+		public String categorie_beneficiaire_id;
+
+		public String getCategorie_beneficiaire_id() {
+			return this.categorie_beneficiaire_id;
+		}
+
+		public String qualite_beneficiaire_id;
+
+		public String getQualite_beneficiaire_id() {
+			return this.qualite_beneficiaire_id;
+		}
+
+		public String titre_beneficiaire_id;
+
+		public String getTitre_beneficiaire_id() {
+			return this.titre_beneficiaire_id;
+		}
+
+		public String adresse_beneficiaire_id;
+
+		public String getAdresse_beneficiaire_id() {
+			return this.adresse_beneficiaire_id;
+		}
+
+		public String adresse_entreprise_id;
+
+		public String getAdresse_entreprise_id() {
+			return this.adresse_entreprise_id;
+		}
+
+		public String specialite_beneficiaire_id;
+
+		public String getSpecialite_beneficiaire_id() {
+			return this.specialite_beneficiaire_id;
+		}
+
+		public String secteur_activite_entreprise_id;
+
+		public String getSecteur_activite_entreprise_id() {
+			return this.secteur_activite_entreprise_id;
+		}
+
+		public int type_avantage_id;
+
+		public int getType_avantage_id() {
+			return this.type_avantage_id;
+		}
+
+		public java.util.Date date_id;
+
+		public java.util.Date getDate_id() {
+			return this.date_id;
+		}
+
+		public boolean is_avantage;
+
+		public boolean getIs_avantage() {
+			return this.is_avantage;
+		}
+
+		public BigDecimal montant_ttc;
+
+		public BigDecimal getMontant_ttc() {
+			return this.montant_ttc;
+		}
+
+		@Override
+		public int hashCode() {
+			if (this.hashCodeDirty) {
+				final int prime = PRIME;
+				int result = DEFAULT_HASHCODE;
+
+				result = prime * result + ((this.ligne_id == null) ? 0 : this.ligne_id.hashCode());
+
+				result = prime * result + ((this.entreprise_id == null) ? 0 : this.entreprise_id.hashCode());
+
+				result = prime * result + ((this.date_id == null) ? 0 : this.date_id.hashCode());
+
+				this.hashCode = result;
+				this.hashCodeDirty = false;
+			}
+			return this.hashCode;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
 			final row1Struct other = (row1Struct) obj;
 
 			if (this.ligne_id == null) {
@@ -1486,6 +2392,14 @@ public class avantage_remuneration_fact implements TalendJob {
 					return false;
 
 			} else if (!this.entreprise_id.equals(other.entreprise_id))
+
+				return false;
+
+			if (this.date_id == null) {
+				if (other.date_id != null)
+					return false;
+
+			} else if (!this.date_id.equals(other.date_id))
 
 				return false;
 
@@ -1515,6 +2429,7 @@ public class avantage_remuneration_fact implements TalendJob {
 
 			other.ligne_id = this.ligne_id;
 			other.entreprise_id = this.entreprise_id;
+			other.date_id = this.date_id;
 
 		}
 
@@ -1724,6 +2639,11 @@ public class avantage_remuneration_fact implements TalendJob {
 				return returnValue;
 			}
 
+			returnValue = checkNullsAndCompare(this.date_id, other.date_id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
 			return returnValue;
 		}
 
@@ -1854,6 +2774,8 @@ public class avantage_remuneration_fact implements TalendJob {
 
 				result = prime * result + ((this.entreprise_id == null) ? 0 : this.entreprise_id.hashCode());
 
+				result = prime * result + ((this.date_id == null) ? 0 : this.date_id.hashCode());
+
 				this.hashCode = result;
 				this.hashCodeDirty = false;
 			}
@@ -1886,6 +2808,14 @@ public class avantage_remuneration_fact implements TalendJob {
 
 				return false;
 
+			if (this.date_id == null) {
+				if (other.date_id != null)
+					return false;
+
+			} else if (!this.date_id.equals(other.date_id))
+
+				return false;
+
 			return true;
 		}
 
@@ -1912,6 +2842,7 @@ public class avantage_remuneration_fact implements TalendJob {
 
 			other.ligne_id = this.ligne_id;
 			other.entreprise_id = this.entreprise_id;
+			other.date_id = this.date_id;
 
 		}
 
@@ -2117,6 +3048,11 @@ public class avantage_remuneration_fact implements TalendJob {
 			}
 
 			returnValue = checkNullsAndCompare(this.entreprise_id, other.entreprise_id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			returnValue = checkNullsAndCompare(this.date_id, other.date_id);
 			if (returnValue != 0) {
 				return returnValue;
 			}
@@ -2682,6 +3618,570 @@ public class avantage_remuneration_fact implements TalendJob {
 		 * Compare keys
 		 */
 		public int compareTo(remunerationsStruct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row4Struct implements routines.system.IPersistableRow<row4Struct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[0];
+
+		public String entreprise_identifiant;
+
+		public String getEntreprise_identifiant() {
+			return this.entreprise_identifiant;
+		}
+
+		public String denomination_sociale;
+
+		public String getDenomination_sociale() {
+			return this.denomination_sociale;
+		}
+
+		public String ligne_identifiant;
+
+		public String getLigne_identifiant() {
+			return this.ligne_identifiant;
+		}
+
+		public Character ligne_rectification;
+
+		public Character getLigne_rectification() {
+			return this.ligne_rectification;
+		}
+
+		public String benef_categorie_code;
+
+		public String getBenef_categorie_code() {
+			return this.benef_categorie_code;
+		}
+
+		public String categorie;
+
+		public String getCategorie() {
+			return this.categorie;
+		}
+
+		public String benef_nom;
+
+		public String getBenef_nom() {
+			return this.benef_nom;
+		}
+
+		public String benef_prenom;
+
+		public String getBenef_prenom() {
+			return this.benef_prenom;
+		}
+
+		public String benef_qualite_code;
+
+		public String getBenef_qualite_code() {
+			return this.benef_qualite_code;
+		}
+
+		public String qualite;
+
+		public String getQualite() {
+			return this.qualite;
+		}
+
+		public String benef_adresse1;
+
+		public String getBenef_adresse1() {
+			return this.benef_adresse1;
+		}
+
+		public String benef_adresse2;
+
+		public String getBenef_adresse2() {
+			return this.benef_adresse2;
+		}
+
+		public String benef_adresse3;
+
+		public String getBenef_adresse3() {
+			return this.benef_adresse3;
+		}
+
+		public String benef_adresse4;
+
+		public String getBenef_adresse4() {
+			return this.benef_adresse4;
+		}
+
+		public String benef_codepostal;
+
+		public String getBenef_codepostal() {
+			return this.benef_codepostal;
+		}
+
+		public String benef_ville;
+
+		public String getBenef_ville() {
+			return this.benef_ville;
+		}
+
+		public String benef_pays_code;
+
+		public String getBenef_pays_code() {
+			return this.benef_pays_code;
+		}
+
+		public String pays;
+
+		public String getPays() {
+			return this.pays;
+		}
+
+		public String benef_titre_code;
+
+		public String getBenef_titre_code() {
+			return this.benef_titre_code;
+		}
+
+		public String benef_titre_libelle;
+
+		public String getBenef_titre_libelle() {
+			return this.benef_titre_libelle;
+		}
+
+		public String benef_specialite_code;
+
+		public String getBenef_specialite_code() {
+			return this.benef_specialite_code;
+		}
+
+		public String benef_speicalite_libelle;
+
+		public String getBenef_speicalite_libelle() {
+			return this.benef_speicalite_libelle;
+		}
+
+		public String benef_identifiant_type_code;
+
+		public String getBenef_identifiant_type_code() {
+			return this.benef_identifiant_type_code;
+		}
+
+		public String identifiant_type;
+
+		public String getIdentifiant_type() {
+			return this.identifiant_type;
+		}
+
+		public String benef_identifiant_valeur;
+
+		public String getBenef_identifiant_valeur() {
+			return this.benef_identifiant_valeur;
+		}
+
+		public String benef_etablissement;
+
+		public String getBenef_etablissement() {
+			return this.benef_etablissement;
+		}
+
+		public String benef_etablissement_codepostal;
+
+		public String getBenef_etablissement_codepostal() {
+			return this.benef_etablissement_codepostal;
+		}
+
+		public String benef_etablissement_ville;
+
+		public String getBenef_etablissement_ville() {
+			return this.benef_etablissement_ville;
+		}
+
+		public String benef_denomination_sociale;
+
+		public String getBenef_denomination_sociale() {
+			return this.benef_denomination_sociale;
+		}
+
+		public String benef_objet_social;
+
+		public String getBenef_objet_social() {
+			return this.benef_objet_social;
+		}
+
+		public String ligne_type;
+
+		public String getLigne_type() {
+			return this.ligne_type;
+		}
+
+		public String remu_date;
+
+		public String getRemu_date() {
+			return this.remu_date;
+		}
+
+		public Integer remu_montant_ttc;
+
+		public Integer getRemu_montant_ttc() {
+			return this.remu_montant_ttc;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact, 0, length,
+						utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact) {
+
+				try {
+
+					int length = 0;
+
+					this.entreprise_identifiant = readString(dis);
+
+					this.denomination_sociale = readString(dis);
+
+					this.ligne_identifiant = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.ligne_rectification = null;
+					} else {
+						this.ligne_rectification = dis.readChar();
+					}
+
+					this.benef_categorie_code = readString(dis);
+
+					this.categorie = readString(dis);
+
+					this.benef_nom = readString(dis);
+
+					this.benef_prenom = readString(dis);
+
+					this.benef_qualite_code = readString(dis);
+
+					this.qualite = readString(dis);
+
+					this.benef_adresse1 = readString(dis);
+
+					this.benef_adresse2 = readString(dis);
+
+					this.benef_adresse3 = readString(dis);
+
+					this.benef_adresse4 = readString(dis);
+
+					this.benef_codepostal = readString(dis);
+
+					this.benef_ville = readString(dis);
+
+					this.benef_pays_code = readString(dis);
+
+					this.pays = readString(dis);
+
+					this.benef_titre_code = readString(dis);
+
+					this.benef_titre_libelle = readString(dis);
+
+					this.benef_specialite_code = readString(dis);
+
+					this.benef_speicalite_libelle = readString(dis);
+
+					this.benef_identifiant_type_code = readString(dis);
+
+					this.identifiant_type = readString(dis);
+
+					this.benef_identifiant_valeur = readString(dis);
+
+					this.benef_etablissement = readString(dis);
+
+					this.benef_etablissement_codepostal = readString(dis);
+
+					this.benef_etablissement_ville = readString(dis);
+
+					this.benef_denomination_sociale = readString(dis);
+
+					this.benef_objet_social = readString(dis);
+
+					this.ligne_type = readString(dis);
+
+					this.remu_date = readString(dis);
+
+					this.remu_montant_ttc = readInteger(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.entreprise_identifiant, dos);
+
+				// String
+
+				writeString(this.denomination_sociale, dos);
+
+				// String
+
+				writeString(this.ligne_identifiant, dos);
+
+				// Character
+
+				if (this.ligne_rectification == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeChar(this.ligne_rectification);
+				}
+
+				// String
+
+				writeString(this.benef_categorie_code, dos);
+
+				// String
+
+				writeString(this.categorie, dos);
+
+				// String
+
+				writeString(this.benef_nom, dos);
+
+				// String
+
+				writeString(this.benef_prenom, dos);
+
+				// String
+
+				writeString(this.benef_qualite_code, dos);
+
+				// String
+
+				writeString(this.qualite, dos);
+
+				// String
+
+				writeString(this.benef_adresse1, dos);
+
+				// String
+
+				writeString(this.benef_adresse2, dos);
+
+				// String
+
+				writeString(this.benef_adresse3, dos);
+
+				// String
+
+				writeString(this.benef_adresse4, dos);
+
+				// String
+
+				writeString(this.benef_codepostal, dos);
+
+				// String
+
+				writeString(this.benef_ville, dos);
+
+				// String
+
+				writeString(this.benef_pays_code, dos);
+
+				// String
+
+				writeString(this.pays, dos);
+
+				// String
+
+				writeString(this.benef_titre_code, dos);
+
+				// String
+
+				writeString(this.benef_titre_libelle, dos);
+
+				// String
+
+				writeString(this.benef_specialite_code, dos);
+
+				// String
+
+				writeString(this.benef_speicalite_libelle, dos);
+
+				// String
+
+				writeString(this.benef_identifiant_type_code, dos);
+
+				// String
+
+				writeString(this.identifiant_type, dos);
+
+				// String
+
+				writeString(this.benef_identifiant_valeur, dos);
+
+				// String
+
+				writeString(this.benef_etablissement, dos);
+
+				// String
+
+				writeString(this.benef_etablissement_codepostal, dos);
+
+				// String
+
+				writeString(this.benef_etablissement_ville, dos);
+
+				// String
+
+				writeString(this.benef_denomination_sociale, dos);
+
+				// String
+
+				writeString(this.benef_objet_social, dos);
+
+				// String
+
+				writeString(this.ligne_type, dos);
+
+				// String
+
+				writeString(this.remu_date, dos);
+
+				// Integer
+
+				writeInteger(this.remu_montant_ttc, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("entreprise_identifiant=" + entreprise_identifiant);
+			sb.append(",denomination_sociale=" + denomination_sociale);
+			sb.append(",ligne_identifiant=" + ligne_identifiant);
+			sb.append(",ligne_rectification=" + String.valueOf(ligne_rectification));
+			sb.append(",benef_categorie_code=" + benef_categorie_code);
+			sb.append(",categorie=" + categorie);
+			sb.append(",benef_nom=" + benef_nom);
+			sb.append(",benef_prenom=" + benef_prenom);
+			sb.append(",benef_qualite_code=" + benef_qualite_code);
+			sb.append(",qualite=" + qualite);
+			sb.append(",benef_adresse1=" + benef_adresse1);
+			sb.append(",benef_adresse2=" + benef_adresse2);
+			sb.append(",benef_adresse3=" + benef_adresse3);
+			sb.append(",benef_adresse4=" + benef_adresse4);
+			sb.append(",benef_codepostal=" + benef_codepostal);
+			sb.append(",benef_ville=" + benef_ville);
+			sb.append(",benef_pays_code=" + benef_pays_code);
+			sb.append(",pays=" + pays);
+			sb.append(",benef_titre_code=" + benef_titre_code);
+			sb.append(",benef_titre_libelle=" + benef_titre_libelle);
+			sb.append(",benef_specialite_code=" + benef_specialite_code);
+			sb.append(",benef_speicalite_libelle=" + benef_speicalite_libelle);
+			sb.append(",benef_identifiant_type_code=" + benef_identifiant_type_code);
+			sb.append(",identifiant_type=" + identifiant_type);
+			sb.append(",benef_identifiant_valeur=" + benef_identifiant_valeur);
+			sb.append(",benef_etablissement=" + benef_etablissement);
+			sb.append(",benef_etablissement_codepostal=" + benef_etablissement_codepostal);
+			sb.append(",benef_etablissement_ville=" + benef_etablissement_ville);
+			sb.append(",benef_denomination_sociale=" + benef_denomination_sociale);
+			sb.append(",benef_objet_social=" + benef_objet_social);
+			sb.append(",ligne_type=" + ligne_type);
+			sb.append(",remu_date=" + remu_date);
+			sb.append(",remu_montant_ttc=" + String.valueOf(remu_montant_ttc));
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row4Struct other) {
 
 			int returnValue = -1;
 
@@ -3380,6 +4880,8 @@ public class avantage_remuneration_fact implements TalendJob {
 
 				result = prime * result + ((this.entreprise_id == null) ? 0 : this.entreprise_id.hashCode());
 
+				result = prime * result + ((this.date_id == null) ? 0 : this.date_id.hashCode());
+
 				this.hashCode = result;
 				this.hashCodeDirty = false;
 			}
@@ -3412,6 +4914,14 @@ public class avantage_remuneration_fact implements TalendJob {
 
 				return false;
 
+			if (this.date_id == null) {
+				if (other.date_id != null)
+					return false;
+
+			} else if (!this.date_id.equals(other.date_id))
+
+				return false;
+
 			return true;
 		}
 
@@ -3438,6 +4948,7 @@ public class avantage_remuneration_fact implements TalendJob {
 
 			other.ligne_id = this.ligne_id;
 			other.entreprise_id = this.entreprise_id;
+			other.date_id = this.date_id;
 
 		}
 
@@ -3643,6 +5154,11 @@ public class avantage_remuneration_fact implements TalendJob {
 			}
 
 			returnValue = checkNullsAndCompare(this.entreprise_id, other.entreprise_id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			returnValue = checkNullsAndCompare(this.date_id, other.date_id);
 			if (returnValue != 0) {
 				return returnValue;
 			}
@@ -4247,6 +5763,609 @@ public class avantage_remuneration_fact implements TalendJob {
 		 * Compare keys
 		 */
 		public int compareTo(avantagesStruct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row5Struct implements routines.system.IPersistableRow<row5Struct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[0];
+
+		public String entreprise_identifiant;
+
+		public String getEntreprise_identifiant() {
+			return this.entreprise_identifiant;
+		}
+
+		public String denomination_sociale;
+
+		public String getDenomination_sociale() {
+			return this.denomination_sociale;
+		}
+
+		public String ligne_identifiant;
+
+		public String getLigne_identifiant() {
+			return this.ligne_identifiant;
+		}
+
+		public Character ligne_rectification;
+
+		public Character getLigne_rectification() {
+			return this.ligne_rectification;
+		}
+
+		public String benef_categorie_code;
+
+		public String getBenef_categorie_code() {
+			return this.benef_categorie_code;
+		}
+
+		public String categorie;
+
+		public String getCategorie() {
+			return this.categorie;
+		}
+
+		public String benef_nom;
+
+		public String getBenef_nom() {
+			return this.benef_nom;
+		}
+
+		public String benef_prenom;
+
+		public String getBenef_prenom() {
+			return this.benef_prenom;
+		}
+
+		public String benef_qualite_code;
+
+		public String getBenef_qualite_code() {
+			return this.benef_qualite_code;
+		}
+
+		public String qualite;
+
+		public String getQualite() {
+			return this.qualite;
+		}
+
+		public String benef_adresse1;
+
+		public String getBenef_adresse1() {
+			return this.benef_adresse1;
+		}
+
+		public String benef_adresse2;
+
+		public String getBenef_adresse2() {
+			return this.benef_adresse2;
+		}
+
+		public String benef_adresse3;
+
+		public String getBenef_adresse3() {
+			return this.benef_adresse3;
+		}
+
+		public String benef_adresse4;
+
+		public String getBenef_adresse4() {
+			return this.benef_adresse4;
+		}
+
+		public String benef_codepostal;
+
+		public String getBenef_codepostal() {
+			return this.benef_codepostal;
+		}
+
+		public String benef_ville;
+
+		public String getBenef_ville() {
+			return this.benef_ville;
+		}
+
+		public String benef_pays_code;
+
+		public String getBenef_pays_code() {
+			return this.benef_pays_code;
+		}
+
+		public String pays;
+
+		public String getPays() {
+			return this.pays;
+		}
+
+		public String benef_titre_code;
+
+		public String getBenef_titre_code() {
+			return this.benef_titre_code;
+		}
+
+		public String benef_titre_libelle;
+
+		public String getBenef_titre_libelle() {
+			return this.benef_titre_libelle;
+		}
+
+		public String benef_specialite_code;
+
+		public String getBenef_specialite_code() {
+			return this.benef_specialite_code;
+		}
+
+		public String benef_speicalite_libelle;
+
+		public String getBenef_speicalite_libelle() {
+			return this.benef_speicalite_libelle;
+		}
+
+		public String benef_identifiant_type_code;
+
+		public String getBenef_identifiant_type_code() {
+			return this.benef_identifiant_type_code;
+		}
+
+		public String identifiant_type;
+
+		public String getIdentifiant_type() {
+			return this.identifiant_type;
+		}
+
+		public String benef_identifiant_valeur;
+
+		public String getBenef_identifiant_valeur() {
+			return this.benef_identifiant_valeur;
+		}
+
+		public String benef_etablissement;
+
+		public String getBenef_etablissement() {
+			return this.benef_etablissement;
+		}
+
+		public String benef_etablissement_codepostal;
+
+		public String getBenef_etablissement_codepostal() {
+			return this.benef_etablissement_codepostal;
+		}
+
+		public String benef_etablissement_ville;
+
+		public String getBenef_etablissement_ville() {
+			return this.benef_etablissement_ville;
+		}
+
+		public String benef_denomination_sociale;
+
+		public String getBenef_denomination_sociale() {
+			return this.benef_denomination_sociale;
+		}
+
+		public String benef_objet_social;
+
+		public String getBenef_objet_social() {
+			return this.benef_objet_social;
+		}
+
+		public String ligne_type;
+
+		public String getLigne_type() {
+			return this.ligne_type;
+		}
+
+		public String avant_date_signature;
+
+		public String getAvant_date_signature() {
+			return this.avant_date_signature;
+		}
+
+		public Integer avant_montant_ttc;
+
+		public Integer getAvant_montant_ttc() {
+			return this.avant_montant_ttc;
+		}
+
+		public String avant_nature;
+
+		public String getAvant_nature() {
+			return this.avant_nature;
+		}
+
+		public String avant_convention_lie;
+
+		public String getAvant_convention_lie() {
+			return this.avant_convention_lie;
+		}
+
+		public String semestre;
+
+		public String getSemestre() {
+			return this.semestre;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact, 0, length,
+						utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact) {
+
+				try {
+
+					int length = 0;
+
+					this.entreprise_identifiant = readString(dis);
+
+					this.denomination_sociale = readString(dis);
+
+					this.ligne_identifiant = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.ligne_rectification = null;
+					} else {
+						this.ligne_rectification = dis.readChar();
+					}
+
+					this.benef_categorie_code = readString(dis);
+
+					this.categorie = readString(dis);
+
+					this.benef_nom = readString(dis);
+
+					this.benef_prenom = readString(dis);
+
+					this.benef_qualite_code = readString(dis);
+
+					this.qualite = readString(dis);
+
+					this.benef_adresse1 = readString(dis);
+
+					this.benef_adresse2 = readString(dis);
+
+					this.benef_adresse3 = readString(dis);
+
+					this.benef_adresse4 = readString(dis);
+
+					this.benef_codepostal = readString(dis);
+
+					this.benef_ville = readString(dis);
+
+					this.benef_pays_code = readString(dis);
+
+					this.pays = readString(dis);
+
+					this.benef_titre_code = readString(dis);
+
+					this.benef_titre_libelle = readString(dis);
+
+					this.benef_specialite_code = readString(dis);
+
+					this.benef_speicalite_libelle = readString(dis);
+
+					this.benef_identifiant_type_code = readString(dis);
+
+					this.identifiant_type = readString(dis);
+
+					this.benef_identifiant_valeur = readString(dis);
+
+					this.benef_etablissement = readString(dis);
+
+					this.benef_etablissement_codepostal = readString(dis);
+
+					this.benef_etablissement_ville = readString(dis);
+
+					this.benef_denomination_sociale = readString(dis);
+
+					this.benef_objet_social = readString(dis);
+
+					this.ligne_type = readString(dis);
+
+					this.avant_date_signature = readString(dis);
+
+					this.avant_montant_ttc = readInteger(dis);
+
+					this.avant_nature = readString(dis);
+
+					this.avant_convention_lie = readString(dis);
+
+					this.semestre = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.entreprise_identifiant, dos);
+
+				// String
+
+				writeString(this.denomination_sociale, dos);
+
+				// String
+
+				writeString(this.ligne_identifiant, dos);
+
+				// Character
+
+				if (this.ligne_rectification == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeChar(this.ligne_rectification);
+				}
+
+				// String
+
+				writeString(this.benef_categorie_code, dos);
+
+				// String
+
+				writeString(this.categorie, dos);
+
+				// String
+
+				writeString(this.benef_nom, dos);
+
+				// String
+
+				writeString(this.benef_prenom, dos);
+
+				// String
+
+				writeString(this.benef_qualite_code, dos);
+
+				// String
+
+				writeString(this.qualite, dos);
+
+				// String
+
+				writeString(this.benef_adresse1, dos);
+
+				// String
+
+				writeString(this.benef_adresse2, dos);
+
+				// String
+
+				writeString(this.benef_adresse3, dos);
+
+				// String
+
+				writeString(this.benef_adresse4, dos);
+
+				// String
+
+				writeString(this.benef_codepostal, dos);
+
+				// String
+
+				writeString(this.benef_ville, dos);
+
+				// String
+
+				writeString(this.benef_pays_code, dos);
+
+				// String
+
+				writeString(this.pays, dos);
+
+				// String
+
+				writeString(this.benef_titre_code, dos);
+
+				// String
+
+				writeString(this.benef_titre_libelle, dos);
+
+				// String
+
+				writeString(this.benef_specialite_code, dos);
+
+				// String
+
+				writeString(this.benef_speicalite_libelle, dos);
+
+				// String
+
+				writeString(this.benef_identifiant_type_code, dos);
+
+				// String
+
+				writeString(this.identifiant_type, dos);
+
+				// String
+
+				writeString(this.benef_identifiant_valeur, dos);
+
+				// String
+
+				writeString(this.benef_etablissement, dos);
+
+				// String
+
+				writeString(this.benef_etablissement_codepostal, dos);
+
+				// String
+
+				writeString(this.benef_etablissement_ville, dos);
+
+				// String
+
+				writeString(this.benef_denomination_sociale, dos);
+
+				// String
+
+				writeString(this.benef_objet_social, dos);
+
+				// String
+
+				writeString(this.ligne_type, dos);
+
+				// String
+
+				writeString(this.avant_date_signature, dos);
+
+				// Integer
+
+				writeInteger(this.avant_montant_ttc, dos);
+
+				// String
+
+				writeString(this.avant_nature, dos);
+
+				// String
+
+				writeString(this.avant_convention_lie, dos);
+
+				// String
+
+				writeString(this.semestre, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("entreprise_identifiant=" + entreprise_identifiant);
+			sb.append(",denomination_sociale=" + denomination_sociale);
+			sb.append(",ligne_identifiant=" + ligne_identifiant);
+			sb.append(",ligne_rectification=" + String.valueOf(ligne_rectification));
+			sb.append(",benef_categorie_code=" + benef_categorie_code);
+			sb.append(",categorie=" + categorie);
+			sb.append(",benef_nom=" + benef_nom);
+			sb.append(",benef_prenom=" + benef_prenom);
+			sb.append(",benef_qualite_code=" + benef_qualite_code);
+			sb.append(",qualite=" + qualite);
+			sb.append(",benef_adresse1=" + benef_adresse1);
+			sb.append(",benef_adresse2=" + benef_adresse2);
+			sb.append(",benef_adresse3=" + benef_adresse3);
+			sb.append(",benef_adresse4=" + benef_adresse4);
+			sb.append(",benef_codepostal=" + benef_codepostal);
+			sb.append(",benef_ville=" + benef_ville);
+			sb.append(",benef_pays_code=" + benef_pays_code);
+			sb.append(",pays=" + pays);
+			sb.append(",benef_titre_code=" + benef_titre_code);
+			sb.append(",benef_titre_libelle=" + benef_titre_libelle);
+			sb.append(",benef_specialite_code=" + benef_specialite_code);
+			sb.append(",benef_speicalite_libelle=" + benef_speicalite_libelle);
+			sb.append(",benef_identifiant_type_code=" + benef_identifiant_type_code);
+			sb.append(",identifiant_type=" + identifiant_type);
+			sb.append(",benef_identifiant_valeur=" + benef_identifiant_valeur);
+			sb.append(",benef_etablissement=" + benef_etablissement);
+			sb.append(",benef_etablissement_codepostal=" + benef_etablissement_codepostal);
+			sb.append(",benef_etablissement_ville=" + benef_etablissement_ville);
+			sb.append(",benef_denomination_sociale=" + benef_denomination_sociale);
+			sb.append(",benef_objet_social=" + benef_objet_social);
+			sb.append(",ligne_type=" + ligne_type);
+			sb.append(",avant_date_signature=" + avant_date_signature);
+			sb.append(",avant_montant_ttc=" + String.valueOf(avant_montant_ttc));
+			sb.append(",avant_nature=" + avant_nature);
+			sb.append(",avant_convention_lie=" + avant_convention_lie);
+			sb.append(",semestre=" + semestre);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row5Struct other) {
 
 			int returnValue = -1;
 
@@ -4903,13 +7022,44 @@ public class avantage_remuneration_fact implements TalendJob {
 				tFileInputDelimited_4Process(globalMap);
 				tFileInputDelimited_2Process(globalMap);
 
+				row4Struct row4 = new row4Struct();
 				remunerationsStruct remunerations = new remunerationsStruct();
 				remuneration_factStruct remuneration_fact = new remuneration_factStruct();
 
+				row5Struct row5 = new row5Struct();
 				avantagesStruct avantages = new avantagesStruct();
 				avantage_factStruct avantage_fact = new avantage_factStruct();
 
 				row1Struct row1 = new row1Struct();
+				row6Struct row6 = new row6Struct();
+
+				/**
+				 * [tLogRow_1 begin ] start
+				 */
+
+				ok_Hash.put("tLogRow_1", false);
+				start_Hash.put("tLogRow_1", System.currentTimeMillis());
+
+				currentComponent = "tLogRow_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row6");
+				}
+
+				int tos_count_tLogRow_1 = 0;
+
+				///////////////////////
+
+				final String OUTPUT_FIELD_SEPARATOR_tLogRow_1 = "|";
+				java.io.PrintStream consoleOut_tLogRow_1 = null;
+
+				StringBuilder strBuffer_tLogRow_1 = null;
+				int nb_line_tLogRow_1 = 0;
+///////////////////////    			
+
+				/**
+				 * [tLogRow_1 begin ] stop
+				 */
 
 				/**
 				 * [tDBOutput_1 begin ] start
@@ -4968,7 +7118,7 @@ public class avantage_remuneration_fact implements TalendJob {
 				String dbUser_tDBOutput_1 = "root";
 
 				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:uvyMUvy0OMxq1tzUp0MigRw0i5cE6dYExGPNXw==");
+						.decryptPassword("enc:routine.encryption.key.v1:RrsyGxc2jXgH/a87IqM1L6N0pm2RLQ9sXTnVgg==");
 
 				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
 				java.lang.Class.forName(driverClass_tDBOutput_1);
@@ -4982,10 +7132,6 @@ public class avantage_remuneration_fact implements TalendJob {
 				int commitCounter_tDBOutput_1 = 0;
 
 				int count_tDBOutput_1 = 0;
-
-				try (java.sql.Statement stmtClear_tDBOutput_1 = conn_tDBOutput_1.createStatement()) {
-					stmtClear_tDBOutput_1.executeUpdate("DELETE FROM `" + tableName_tDBOutput_1 + "`");
-				}
 
 				String insert_tDBOutput_1 = "INSERT INTO `" + "avantage_remuneration_fact"
 						+ "` (`ligne_id`,`entreprise_id`,`beneficiaire_id`,`categorie_beneficiaire_id`,`qualite_beneficiaire_id`,`titre_beneficiaire_id`,`adresse_beneficiaire_id`,`adresse_entreprise_id`,`specialite_beneficiaire_id`,`secteur_activite_entreprise_id`,`type_avantage_id`,`date_id`,`is_avantage`,`montant_ttc`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -5062,6 +7208,67 @@ public class avantage_remuneration_fact implements TalendJob {
 
 				/**
 				 * [tMap_2 begin ] stop
+				 */
+
+				/**
+				 * [tFilterRow_3 begin ] start
+				 */
+
+				ok_Hash.put("tFilterRow_3", false);
+				start_Hash.put("tFilterRow_3", System.currentTimeMillis());
+
+				currentComponent = "tFilterRow_3";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row4");
+				}
+
+				int tos_count_tFilterRow_3 = 0;
+
+				int nb_line_tFilterRow_3 = 0;
+				int nb_line_ok_tFilterRow_3 = 0;
+				int nb_line_reject_tFilterRow_3 = 0;
+
+				class Operator_tFilterRow_3 {
+					private String sErrorMsg = "";
+					private boolean bMatchFlag = true;
+					private String sUnionFlag = "&&";
+
+					public Operator_tFilterRow_3(String unionFlag) {
+						sUnionFlag = unionFlag;
+						bMatchFlag = "||".equals(unionFlag) ? false : true;
+					}
+
+					public String getErrorMsg() {
+						if (sErrorMsg != null && sErrorMsg.length() > 1)
+							return sErrorMsg.substring(1);
+						else
+							return null;
+					}
+
+					public boolean getMatchFlag() {
+						return bMatchFlag;
+					}
+
+					public void matches(boolean partMatched, String reason) {
+						// no need to care about the next judgement
+						if ("||".equals(sUnionFlag) && bMatchFlag) {
+							return;
+						}
+
+						if (!partMatched) {
+							sErrorMsg += "|" + reason;
+						}
+
+						if ("||".equals(sUnionFlag))
+							bMatchFlag = bMatchFlag || partMatched;
+						else
+							bMatchFlag = bMatchFlag && partMatched;
+					}
+				}
+
+				/**
+				 * [tFilterRow_3 begin ] stop
 				 */
 
 				/**
@@ -5222,10 +7429,10 @@ public class avantage_remuneration_fact implements TalendJob {
 							break;
 						}
 
-						remunerations = null;
+						row4 = null;
 
 						boolean whetherReject_tFileInputDelimited_3 = false;
-						remunerations = new remunerationsStruct();
+						row4 = new row4Struct();
 						try {
 
 							char fieldSeparator_tFileInputDelimited_3_ListType[] = null;
@@ -5244,71 +7451,71 @@ public class avantage_remuneration_fact implements TalendJob {
 																														// is
 																														// '\n'
 
-								remunerations.entreprise_identifiant = null;
+								row4.entreprise_identifiant = null;
 
-								remunerations.denomination_sociale = null;
+								row4.denomination_sociale = null;
 
-								remunerations.ligne_identifiant = null;
+								row4.ligne_identifiant = null;
 
-								remunerations.ligne_rectification = null;
+								row4.ligne_rectification = null;
 
-								remunerations.benef_categorie_code = null;
+								row4.benef_categorie_code = null;
 
-								remunerations.categorie = null;
+								row4.categorie = null;
 
-								remunerations.benef_nom = null;
+								row4.benef_nom = null;
 
-								remunerations.benef_prenom = null;
+								row4.benef_prenom = null;
 
-								remunerations.benef_qualite_code = null;
+								row4.benef_qualite_code = null;
 
-								remunerations.qualite = null;
+								row4.qualite = null;
 
-								remunerations.benef_adresse1 = null;
+								row4.benef_adresse1 = null;
 
-								remunerations.benef_adresse2 = null;
+								row4.benef_adresse2 = null;
 
-								remunerations.benef_adresse3 = null;
+								row4.benef_adresse3 = null;
 
-								remunerations.benef_adresse4 = null;
+								row4.benef_adresse4 = null;
 
-								remunerations.benef_codepostal = null;
+								row4.benef_codepostal = null;
 
-								remunerations.benef_ville = null;
+								row4.benef_ville = null;
 
-								remunerations.benef_pays_code = null;
+								row4.benef_pays_code = null;
 
-								remunerations.pays = null;
+								row4.pays = null;
 
-								remunerations.benef_titre_code = null;
+								row4.benef_titre_code = null;
 
-								remunerations.benef_titre_libelle = null;
+								row4.benef_titre_libelle = null;
 
-								remunerations.benef_specialite_code = null;
+								row4.benef_specialite_code = null;
 
-								remunerations.benef_speicalite_libelle = null;
+								row4.benef_speicalite_libelle = null;
 
-								remunerations.benef_identifiant_type_code = null;
+								row4.benef_identifiant_type_code = null;
 
-								remunerations.identifiant_type = null;
+								row4.identifiant_type = null;
 
-								remunerations.benef_identifiant_valeur = null;
+								row4.benef_identifiant_valeur = null;
 
-								remunerations.benef_etablissement = null;
+								row4.benef_etablissement = null;
 
-								remunerations.benef_etablissement_codepostal = null;
+								row4.benef_etablissement_codepostal = null;
 
-								remunerations.benef_etablissement_ville = null;
+								row4.benef_etablissement_ville = null;
 
-								remunerations.benef_denomination_sociale = null;
+								row4.benef_denomination_sociale = null;
 
-								remunerations.benef_objet_social = null;
+								row4.benef_objet_social = null;
 
-								remunerations.ligne_type = null;
+								row4.ligne_type = null;
 
-								remunerations.remu_date = null;
+								row4.remu_date = null;
 
-								remunerations.remu_montant_ttc = null;
+								row4.remu_montant_ttc = null;
 
 							} else {
 
@@ -5318,11 +7525,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.entreprise_identifiant = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.entreprise_identifiant = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.entreprise_identifiant = null;
+									row4.entreprise_identifiant = null;
 
 								}
 
@@ -5330,11 +7537,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.denomination_sociale = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.denomination_sociale = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.denomination_sociale = null;
+									row4.denomination_sociale = null;
 
 								}
 
@@ -5342,11 +7549,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.ligne_identifiant = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.ligne_identifiant = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.ligne_identifiant = null;
+									row4.ligne_identifiant = null;
 
 								}
 
@@ -5357,26 +7564,26 @@ public class avantage_remuneration_fact implements TalendJob {
 									if (rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3].length() > 0) {
 										try {
 
-											remunerations.ligne_rectification = ParserUtils.parseTo_Character(
+											row4.ligne_rectification = ParserUtils.parseTo_Character(
 													rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3]);
 
 										} catch (java.lang.Exception ex_tFileInputDelimited_3) {
 											rowstate_tFileInputDelimited_3.setException(new RuntimeException(String
 													.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-															"ligne_rectification", "remunerations",
+															"ligne_rectification", "row4",
 															rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3],
 															ex_tFileInputDelimited_3),
 													ex_tFileInputDelimited_3));
 										}
 									} else {
 
-										remunerations.ligne_rectification = null;
+										row4.ligne_rectification = null;
 
 									}
 
 								} else {
 
-									remunerations.ligne_rectification = null;
+									row4.ligne_rectification = null;
 
 								}
 
@@ -5384,11 +7591,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_categorie_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_categorie_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_categorie_code = null;
+									row4.benef_categorie_code = null;
 
 								}
 
@@ -5396,11 +7603,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.categorie = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.categorie = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.categorie = null;
+									row4.categorie = null;
 
 								}
 
@@ -5408,11 +7615,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_nom = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_nom = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_nom = null;
+									row4.benef_nom = null;
 
 								}
 
@@ -5420,11 +7627,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_prenom = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_prenom = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_prenom = null;
+									row4.benef_prenom = null;
 
 								}
 
@@ -5432,11 +7639,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_qualite_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_qualite_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_qualite_code = null;
+									row4.benef_qualite_code = null;
 
 								}
 
@@ -5444,11 +7651,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.qualite = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.qualite = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.qualite = null;
+									row4.qualite = null;
 
 								}
 
@@ -5456,11 +7663,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_adresse1 = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_adresse1 = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_adresse1 = null;
+									row4.benef_adresse1 = null;
 
 								}
 
@@ -5468,11 +7675,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_adresse2 = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_adresse2 = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_adresse2 = null;
+									row4.benef_adresse2 = null;
 
 								}
 
@@ -5480,11 +7687,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_adresse3 = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_adresse3 = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_adresse3 = null;
+									row4.benef_adresse3 = null;
 
 								}
 
@@ -5492,11 +7699,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_adresse4 = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_adresse4 = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_adresse4 = null;
+									row4.benef_adresse4 = null;
 
 								}
 
@@ -5504,11 +7711,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_codepostal = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_codepostal = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_codepostal = null;
+									row4.benef_codepostal = null;
 
 								}
 
@@ -5516,11 +7723,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_ville = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_ville = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_ville = null;
+									row4.benef_ville = null;
 
 								}
 
@@ -5528,11 +7735,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_pays_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_pays_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_pays_code = null;
+									row4.benef_pays_code = null;
 
 								}
 
@@ -5540,11 +7747,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.pays = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.pays = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.pays = null;
+									row4.pays = null;
 
 								}
 
@@ -5552,11 +7759,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_titre_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_titre_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_titre_code = null;
+									row4.benef_titre_code = null;
 
 								}
 
@@ -5564,11 +7771,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_titre_libelle = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_titre_libelle = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_titre_libelle = null;
+									row4.benef_titre_libelle = null;
 
 								}
 
@@ -5576,11 +7783,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_specialite_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_specialite_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_specialite_code = null;
+									row4.benef_specialite_code = null;
 
 								}
 
@@ -5588,11 +7795,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_speicalite_libelle = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_speicalite_libelle = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_speicalite_libelle = null;
+									row4.benef_speicalite_libelle = null;
 
 								}
 
@@ -5600,11 +7807,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_identifiant_type_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_identifiant_type_code = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_identifiant_type_code = null;
+									row4.benef_identifiant_type_code = null;
 
 								}
 
@@ -5612,11 +7819,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.identifiant_type = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.identifiant_type = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.identifiant_type = null;
+									row4.identifiant_type = null;
 
 								}
 
@@ -5624,11 +7831,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_identifiant_valeur = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_identifiant_valeur = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_identifiant_valeur = null;
+									row4.benef_identifiant_valeur = null;
 
 								}
 
@@ -5636,11 +7843,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_etablissement = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_etablissement = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_etablissement = null;
+									row4.benef_etablissement = null;
 
 								}
 
@@ -5648,11 +7855,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_etablissement_codepostal = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_etablissement_codepostal = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_etablissement_codepostal = null;
+									row4.benef_etablissement_codepostal = null;
 
 								}
 
@@ -5660,11 +7867,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_etablissement_ville = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_etablissement_ville = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_etablissement_ville = null;
+									row4.benef_etablissement_ville = null;
 
 								}
 
@@ -5672,11 +7879,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_denomination_sociale = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_denomination_sociale = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_denomination_sociale = null;
+									row4.benef_denomination_sociale = null;
 
 								}
 
@@ -5684,11 +7891,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.benef_objet_social = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.benef_objet_social = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.benef_objet_social = null;
+									row4.benef_objet_social = null;
 
 								}
 
@@ -5696,11 +7903,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.ligne_type = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.ligne_type = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.ligne_type = null;
+									row4.ligne_type = null;
 
 								}
 
@@ -5708,11 +7915,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length) {
 
-									remunerations.remu_date = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									row4.remu_date = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
 
 								} else {
 
-									remunerations.remu_date = null;
+									row4.remu_date = null;
 
 								}
 
@@ -5723,26 +7930,26 @@ public class avantage_remuneration_fact implements TalendJob {
 									if (rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3].length() > 0) {
 										try {
 
-											remunerations.remu_montant_ttc = ParserUtils.parseTo_Integer(
+											row4.remu_montant_ttc = ParserUtils.parseTo_Integer(
 													rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3]);
 
 										} catch (java.lang.Exception ex_tFileInputDelimited_3) {
 											rowstate_tFileInputDelimited_3.setException(new RuntimeException(String
 													.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-															"remu_montant_ttc", "remunerations",
+															"remu_montant_ttc", "row4",
 															rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3],
 															ex_tFileInputDelimited_3),
 													ex_tFileInputDelimited_3));
 										}
 									} else {
 
-										remunerations.remu_montant_ttc = null;
+										row4.remu_montant_ttc = null;
 
 									}
 
 								} else {
 
-									remunerations.remu_montant_ttc = null;
+									row4.remu_montant_ttc = null;
 
 								}
 
@@ -5756,7 +7963,7 @@ public class avantage_remuneration_fact implements TalendJob {
 							whetherReject_tFileInputDelimited_3 = true;
 
 							System.err.println(e.getMessage());
-							remunerations = null;
+							row4 = null;
 
 						}
 
@@ -5785,382 +7992,669 @@ public class avantage_remuneration_fact implements TalendJob {
 						/**
 						 * [tFileInputDelimited_3 process_data_begin ] stop
 						 */
-// Start of branch "remunerations"
-						if (remunerations != null) {
+// Start of branch "row4"
+						if (row4 != null) {
 
 							/**
-							 * [tMap_2 main ] start
+							 * [tFilterRow_3 main ] start
 							 */
 
-							currentComponent = "tMap_2";
+							currentComponent = "tFilterRow_3";
 
 							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1, "remunerations");
+								runStat.updateStatOnConnection(iterateId, 1, 1, "row4");
 							}
 
-							boolean hasCasePrimitiveKeyWithNull_tMap_2 = false;
+							remunerations = null;
+							Operator_tFilterRow_3 ope_tFilterRow_3 = new Operator_tFilterRow_3("&&");
+							ope_tFilterRow_3.matches((// code sample : use row4 to define the condition.
+// row4.columnName1.equals("foo") ||!(row4.columnName2.equals("bar"))
+// replace the following expression by your own filter condition 
+							row4.remu_montant_ttc != null
+									&& !("" + row4.remu_montant_ttc).replaceAll("[^0-9]", "").equals("")
+									&& row4.benef_pays_code != null
+									&& !row4.benef_pays_code.replaceAll("[^A-Za-z0-9]", "").equals("")
+									&& ((row4.benef_codepostal != null
+											&& !row4.benef_codepostal.replaceAll("[^A-Za-z0-9]", "").equals(""))
+											|| (!row4.benef_etablissement_codepostal.replaceAll("[^A-Za-z0-9]", "")
+													.equals("") && row4.benef_etablissement_codepostal != null))
 
-							// ###############################
-							// # Input tables (lookups)
-							boolean rejectedInnerJoin_tMap_2 = false;
-							boolean mainRowRejected_tMap_2 = false;
+							), "advanced condition failed");
 
-							///////////////////////////////////////////////
-							// Starting Lookup Table "entreprises_2"
-							///////////////////////////////////////////////
-
-							boolean forceLoopentreprises_2 = false;
-
-							entreprises_2Struct entreprises_2ObjectFromLookup = null;
-
-							if (!rejectedInnerJoin_tMap_2) { // G_TM_M_020
-
-								hasCasePrimitiveKeyWithNull_tMap_2 = false;
-
-								entreprises_2HashKey.identifiant = remunerations.entreprise_identifiant;
-
-								entreprises_2HashKey.hashCodeDirty = true;
-
-								tHash_Lookup_entreprises_2.lookup(entreprises_2HashKey);
-
-							} // G_TM_M_020
-
-							entreprises_2Struct entreprises_2 = null;
-
-							entreprises_2Struct fromLookup_entreprises_2 = null;
-							entreprises_2 = entreprises_2Default;
-
-							if (tHash_Lookup_entreprises_2 != null && tHash_Lookup_entreprises_2.hasNext()) { // G 099
-
-								fromLookup_entreprises_2 = tHash_Lookup_entreprises_2.next();
-
-							} // G 099
-
-							if (fromLookup_entreprises_2 != null) {
-								entreprises_2 = fromLookup_entreprises_2;
+							if (ope_tFilterRow_3.getMatchFlag()) {
+								if (remunerations == null) {
+									remunerations = new remunerationsStruct();
+								}
+								remunerations.entreprise_identifiant = row4.entreprise_identifiant;
+								remunerations.denomination_sociale = row4.denomination_sociale;
+								remunerations.ligne_identifiant = row4.ligne_identifiant;
+								remunerations.ligne_rectification = row4.ligne_rectification;
+								remunerations.benef_categorie_code = row4.benef_categorie_code;
+								remunerations.categorie = row4.categorie;
+								remunerations.benef_nom = row4.benef_nom;
+								remunerations.benef_prenom = row4.benef_prenom;
+								remunerations.benef_qualite_code = row4.benef_qualite_code;
+								remunerations.qualite = row4.qualite;
+								remunerations.benef_adresse1 = row4.benef_adresse1;
+								remunerations.benef_adresse2 = row4.benef_adresse2;
+								remunerations.benef_adresse3 = row4.benef_adresse3;
+								remunerations.benef_adresse4 = row4.benef_adresse4;
+								remunerations.benef_codepostal = row4.benef_codepostal;
+								remunerations.benef_ville = row4.benef_ville;
+								remunerations.benef_pays_code = row4.benef_pays_code;
+								remunerations.pays = row4.pays;
+								remunerations.benef_titre_code = row4.benef_titre_code;
+								remunerations.benef_titre_libelle = row4.benef_titre_libelle;
+								remunerations.benef_specialite_code = row4.benef_specialite_code;
+								remunerations.benef_speicalite_libelle = row4.benef_speicalite_libelle;
+								remunerations.benef_identifiant_type_code = row4.benef_identifiant_type_code;
+								remunerations.identifiant_type = row4.identifiant_type;
+								remunerations.benef_identifiant_valeur = row4.benef_identifiant_valeur;
+								remunerations.benef_etablissement = row4.benef_etablissement;
+								remunerations.benef_etablissement_codepostal = row4.benef_etablissement_codepostal;
+								remunerations.benef_etablissement_ville = row4.benef_etablissement_ville;
+								remunerations.benef_denomination_sociale = row4.benef_denomination_sociale;
+								remunerations.benef_objet_social = row4.benef_objet_social;
+								remunerations.ligne_type = row4.ligne_type;
+								remunerations.remu_date = row4.remu_date;
+								remunerations.remu_montant_ttc = row4.remu_montant_ttc;
+								nb_line_ok_tFilterRow_3++;
+							} else {
+								nb_line_reject_tFilterRow_3++;
 							}
 
-							// ###############################
-							{ // start of Var scope
+							nb_line_tFilterRow_3++;
 
-								// ###############################
-								// # Vars tables
-
-								Var__tMap_2__Struct Var = Var__tMap_2;
-								Var.adresse_beneficiaire = !remunerations.benef_codepostal.isEmpty()
-										&& !remunerations.benef_ville.isEmpty()
-												? AdressesCleanerV2.generateId(remunerations.benef_codepostal,
-														remunerations.benef_ville)
-												:
-
-												!remunerations.benef_etablissement_codepostal.isEmpty()
-														&& !remunerations.benef_etablissement_ville.isEmpty()
-																? AdressesCleanerV2.generateId(
-																		remunerations.benef_etablissement_codepostal,
-																		remunerations.benef_etablissement_ville)
-																: AdressesCleanerV2.getNA();
-								Var.adresse_entreprise = AdressesCleanerV2.generateId(entreprises_2.code_postal,
-										entreprises_2.ville);
-								Var.date = remunerations.remu_date != null && !remunerations.remu_date.equals("") ?
-
-										TalendDate.parseDate("dd-MM-yyyy", remunerations.remu_date.replace("/", "-")) :
-// if date string is null or empty, default date
-										TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");// ###############################
-								// ###############################
-								// # Output tables
-
-								remuneration_fact = null;
-
-// # Output table : 'remuneration_fact'
-								remuneration_fact_tmp.ligne_id = remunerations.ligne_identifiant;
-								remuneration_fact_tmp.entreprise_id = remunerations.entreprise_identifiant;
-								remuneration_fact_tmp.beneficiaire_id = remunerations.benef_identifiant_valeur == null
-										|| remunerations.benef_identifiant_valeur.isEmpty()
-										|| !MyStringRoutine.isNumeric(remunerations.benef_identifiant_valeur) ? "N/A"
-												: remunerations.benef_identifiant_valeur.trim();
-								remuneration_fact_tmp.categorie_beneficiaire_id = remunerations.benef_categorie_code
-										.equals("") ? "N/A" : remunerations.benef_categorie_code;
-								remuneration_fact_tmp.qualite_beneficiaire_id = remunerations.benef_qualite_code
-										.equals("") ? "N/A" : remunerations.benef_qualite_code;
-								remuneration_fact_tmp.titre_beneficiaire_id = remunerations.benef_titre_code.equals("")
-										? "N/A"
-										: remunerations.benef_titre_code;
-								remuneration_fact_tmp.adresse_beneficiaire_id = Var.adresse_beneficiaire;
-								remuneration_fact_tmp.adresse_entreprise_id = Var.adresse_entreprise;
-								remuneration_fact_tmp.specialite_beneficiaire_id = remunerations.benef_specialite_code
-										.equals("") ? "N/A" : remunerations.benef_specialite_code;
-								remuneration_fact_tmp.secteur_activite_entreprise_id = entreprises_2.secteur_activite_code;
-								remuneration_fact_tmp.type_avantage_id = 10;
-								remuneration_fact_tmp.date_id = (DateTransformations.getAnnee(Var.date) >= 1980
-										& DateTransformations.getAnnee(Var.date) <= 2100) ? Var.date
-												: TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
-								remuneration_fact_tmp.is_avantage = false;
-								remuneration_fact_tmp.montant_ttc = remunerations.remu_montant_ttc != null
-										? new BigDecimal(remunerations.remu_montant_ttc)
-										: BigDecimal.ZERO;
-								remuneration_fact = remuneration_fact_tmp;
-// ###############################
-
-							} // end of Var scope
-
-							rejectedInnerJoin_tMap_2 = false;
-
-							tos_count_tMap_2++;
+							tos_count_tFilterRow_3++;
 
 							/**
-							 * [tMap_2 main ] stop
+							 * [tFilterRow_3 main ] stop
 							 */
 
 							/**
-							 * [tMap_2 process_data_begin ] start
+							 * [tFilterRow_3 process_data_begin ] start
 							 */
 
-							currentComponent = "tMap_2";
+							currentComponent = "tFilterRow_3";
 
 							/**
-							 * [tMap_2 process_data_begin ] stop
+							 * [tFilterRow_3 process_data_begin ] stop
 							 */
-// Start of branch "remuneration_fact"
-							if (remuneration_fact != null) {
+// Start of branch "remunerations"
+							if (remunerations != null) {
 
 								/**
-								 * [tUnite_1 main ] start
+								 * [tMap_2 main ] start
 								 */
 
-								currentComponent = "tUnite_1";
+								currentComponent = "tMap_2";
 
 								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1, "remuneration_fact");
+									runStat.updateStatOnConnection(iterateId, 1, 1, "remunerations");
 								}
+
+								boolean hasCasePrimitiveKeyWithNull_tMap_2 = false;
+
+								// ###############################
+								// # Input tables (lookups)
+								boolean rejectedInnerJoin_tMap_2 = false;
+								boolean mainRowRejected_tMap_2 = false;
+
+								///////////////////////////////////////////////
+								// Starting Lookup Table "entreprises_2"
+								///////////////////////////////////////////////
+
+								boolean forceLoopentreprises_2 = false;
+
+								entreprises_2Struct entreprises_2ObjectFromLookup = null;
+
+								if (!rejectedInnerJoin_tMap_2) { // G_TM_M_020
+
+									hasCasePrimitiveKeyWithNull_tMap_2 = false;
+
+									entreprises_2HashKey.identifiant = remunerations.entreprise_identifiant;
+
+									entreprises_2HashKey.hashCodeDirty = true;
+
+									tHash_Lookup_entreprises_2.lookup(entreprises_2HashKey);
+
+								} // G_TM_M_020
+
+								if (tHash_Lookup_entreprises_2 != null
+										&& tHash_Lookup_entreprises_2.getCount(entreprises_2HashKey) > 1) { // G 071
+
+									// System.out.println("WARNING: UNIQUE MATCH is configured for the lookup
+									// 'entreprises_2' and it contains more one result from keys :
+									// entreprises_2.identifiant = '" + entreprises_2HashKey.identifiant + "'");
+								} // G 071
+
+								entreprises_2Struct entreprises_2 = null;
+
+								entreprises_2Struct fromLookup_entreprises_2 = null;
+								entreprises_2 = entreprises_2Default;
+
+								if (tHash_Lookup_entreprises_2 != null && tHash_Lookup_entreprises_2.hasNext()) { // G
+																													// 099
+
+									fromLookup_entreprises_2 = tHash_Lookup_entreprises_2.next();
+
+								} // G 099
+
+								if (fromLookup_entreprises_2 != null) {
+									entreprises_2 = fromLookup_entreprises_2;
+								}
+
+								// ###############################
+								{ // start of Var scope
+
+									// ###############################
+									// # Vars tables
+
+									Var__tMap_2__Struct Var = Var__tMap_2;
+									Var.adresse_beneficiaire = remunerations.benef_codepostal + "|"
+											+ remunerations.benef_pays_code.replaceAll("[0-9a-zA-Z]", "");
+									Var.adresse_entreprise = entreprises_2.code_postal + "|"
+											+ entreprises_2.pays_code.replaceAll("[0-9a-zA-Z]", "");
+									Var.date = remunerations.remu_date != null && !remunerations.remu_date.equals("")
+											&& MyStringRoutine.isDate(remunerations.remu_date) ?
+
+													TalendDate.parseDate("dd-MM-yyyy",
+															remunerations.remu_date.replace("/", "-"))
+													:
+// if date string is null or empty, default date
+													TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");// ###############################
+									// ###############################
+									// # Output tables
+
+									remuneration_fact = null;
+
+// # Output table : 'remuneration_fact'
+									remuneration_fact_tmp.ligne_id = remunerations.ligne_identifiant;
+									remuneration_fact_tmp.entreprise_id = remunerations.entreprise_identifiant;
+									remuneration_fact_tmp.beneficiaire_id = remunerations.benef_identifiant_valeur == null
+											|| remunerations.benef_identifiant_valeur.isEmpty()
+											|| !MyStringRoutine.isNumeric(remunerations.benef_identifiant_valeur)
+													? "N/A"
+													: remunerations.benef_identifiant_valeur.replace("\"", "");
+									remuneration_fact_tmp.categorie_beneficiaire_id = remunerations.benef_categorie_code
+											.equals("") ? "N/A" : remunerations.benef_categorie_code;
+									remuneration_fact_tmp.qualite_beneficiaire_id = remunerations.benef_qualite_code
+											.equals("") ? "N/A" : remunerations.benef_qualite_code;
+									remuneration_fact_tmp.titre_beneficiaire_id = remunerations.benef_titre_code
+											.equals("") ? "N/A" : remunerations.benef_titre_code;
+									remuneration_fact_tmp.adresse_beneficiaire_id = Var.adresse_beneficiaire;
+									remuneration_fact_tmp.adresse_entreprise_id = Var.adresse_entreprise;
+									remuneration_fact_tmp.specialite_beneficiaire_id = remunerations.benef_specialite_code
+											.equals("") ? "N/A" : remunerations.benef_specialite_code;
+									remuneration_fact_tmp.secteur_activite_entreprise_id = entreprises_2.secteur_activite_code;
+									remuneration_fact_tmp.type_avantage_id = 10;
+									remuneration_fact_tmp.date_id = (DateTransformations.getAnnee(Var.date) >= 1980
+											& DateTransformations.getAnnee(Var.date) <= 2100) ? Var.date
+													: TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
+									remuneration_fact_tmp.is_avantage = false;
+									remuneration_fact_tmp.montant_ttc = remunerations.remu_montant_ttc != null
+											? new BigDecimal(remunerations.remu_montant_ttc)
+											: BigDecimal.ZERO;
+									remuneration_fact = remuneration_fact_tmp;
+// ###############################
+
+								} // end of Var scope
+
+								rejectedInnerJoin_tMap_2 = false;
+
+								tos_count_tMap_2++;
+
+								/**
+								 * [tMap_2 main ] stop
+								 */
+
+								/**
+								 * [tMap_2 process_data_begin ] start
+								 */
+
+								currentComponent = "tMap_2";
+
+								/**
+								 * [tMap_2 process_data_begin ] stop
+								 */
+// Start of branch "remuneration_fact"
+								if (remuneration_fact != null) {
+
+									/**
+									 * [tUnite_1 main ] start
+									 */
+
+									currentComponent = "tUnite_1";
+
+									if (execStat) {
+										runStat.updateStatOnConnection(iterateId, 1, 1, "remuneration_fact");
+									}
 
 //////////
 
 // for output
-								row1 = new row1Struct();
+									row1 = new row1Struct();
 
-								row1.ligne_id = remuneration_fact.ligne_id;
-								row1.entreprise_id = remuneration_fact.entreprise_id;
-								row1.beneficiaire_id = remuneration_fact.beneficiaire_id;
-								row1.categorie_beneficiaire_id = remuneration_fact.categorie_beneficiaire_id;
-								row1.qualite_beneficiaire_id = remuneration_fact.qualite_beneficiaire_id;
-								row1.titre_beneficiaire_id = remuneration_fact.titre_beneficiaire_id;
-								row1.adresse_beneficiaire_id = remuneration_fact.adresse_beneficiaire_id;
-								row1.adresse_entreprise_id = remuneration_fact.adresse_entreprise_id;
-								row1.specialite_beneficiaire_id = remuneration_fact.specialite_beneficiaire_id;
-								row1.secteur_activite_entreprise_id = remuneration_fact.secteur_activite_entreprise_id;
-								row1.type_avantage_id = remuneration_fact.type_avantage_id;
-								row1.date_id = remuneration_fact.date_id;
-								row1.is_avantage = remuneration_fact.is_avantage;
-								row1.montant_ttc = remuneration_fact.montant_ttc;
+									row1.ligne_id = remuneration_fact.ligne_id;
+									row1.entreprise_id = remuneration_fact.entreprise_id;
+									row1.beneficiaire_id = remuneration_fact.beneficiaire_id;
+									row1.categorie_beneficiaire_id = remuneration_fact.categorie_beneficiaire_id;
+									row1.qualite_beneficiaire_id = remuneration_fact.qualite_beneficiaire_id;
+									row1.titre_beneficiaire_id = remuneration_fact.titre_beneficiaire_id;
+									row1.adresse_beneficiaire_id = remuneration_fact.adresse_beneficiaire_id;
+									row1.adresse_entreprise_id = remuneration_fact.adresse_entreprise_id;
+									row1.specialite_beneficiaire_id = remuneration_fact.specialite_beneficiaire_id;
+									row1.secteur_activite_entreprise_id = remuneration_fact.secteur_activite_entreprise_id;
+									row1.type_avantage_id = remuneration_fact.type_avantage_id;
+									row1.date_id = remuneration_fact.date_id;
+									row1.is_avantage = remuneration_fact.is_avantage;
+									row1.montant_ttc = remuneration_fact.montant_ttc;
 
-								nb_line_tUnite_1++;
+									nb_line_tUnite_1++;
 
 //////////
 
-								tos_count_tUnite_1++;
+									tos_count_tUnite_1++;
 
-								/**
-								 * [tUnite_1 main ] stop
-								 */
+									/**
+									 * [tUnite_1 main ] stop
+									 */
 
-								/**
-								 * [tUnite_1 process_data_begin ] start
-								 */
+									/**
+									 * [tUnite_1 process_data_begin ] start
+									 */
 
-								currentComponent = "tUnite_1";
+									currentComponent = "tUnite_1";
 
-								/**
-								 * [tUnite_1 process_data_begin ] stop
-								 */
+									/**
+									 * [tUnite_1 process_data_begin ] stop
+									 */
 
-								/**
-								 * [tDBOutput_1 main ] start
-								 */
+									/**
+									 * [tDBOutput_1 main ] start
+									 */
 
-								currentComponent = "tDBOutput_1";
+									currentComponent = "tDBOutput_1";
 
-								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1, "row1");
-								}
+									if (execStat) {
+										runStat.updateStatOnConnection(iterateId, 1, 1, "row1");
+									}
 
-								whetherReject_tDBOutput_1 = false;
-								if (row1.ligne_id == null) {
-									pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(1, row1.ligne_id);
-								}
-
-								if (row1.entreprise_id == null) {
-									pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(2, row1.entreprise_id);
-								}
-
-								if (row1.beneficiaire_id == null) {
-									pstmt_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(3, row1.beneficiaire_id);
-								}
-
-								if (row1.categorie_beneficiaire_id == null) {
-									pstmt_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(4, row1.categorie_beneficiaire_id);
-								}
-
-								if (row1.qualite_beneficiaire_id == null) {
-									pstmt_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(5, row1.qualite_beneficiaire_id);
-								}
-
-								if (row1.titre_beneficiaire_id == null) {
-									pstmt_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(6, row1.titre_beneficiaire_id);
-								}
-
-								if (row1.adresse_beneficiaire_id == null) {
-									pstmt_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(7, row1.adresse_beneficiaire_id);
-								}
-
-								if (row1.adresse_entreprise_id == null) {
-									pstmt_tDBOutput_1.setNull(8, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(8, row1.adresse_entreprise_id);
-								}
-
-								if (row1.specialite_beneficiaire_id == null) {
-									pstmt_tDBOutput_1.setNull(9, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(9, row1.specialite_beneficiaire_id);
-								}
-
-								if (row1.secteur_activite_entreprise_id == null) {
-									pstmt_tDBOutput_1.setNull(10, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(10, row1.secteur_activite_entreprise_id);
-								}
-
-								pstmt_tDBOutput_1.setInt(11, row1.type_avantage_id);
-
-								if (row1.date_id != null) {
-									date_tDBOutput_1 = row1.date_id.getTime();
-									if (date_tDBOutput_1 < year1_tDBOutput_1
-											|| date_tDBOutput_1 >= year10000_tDBOutput_1) {
-										pstmt_tDBOutput_1.setString(12, "0000-00-00 00:00:00");
+									row6 = null;
+									whetherReject_tDBOutput_1 = false;
+									if (row1.ligne_id == null) {
+										pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
 									} else {
-										pstmt_tDBOutput_1.setTimestamp(12, new java.sql.Timestamp(date_tDBOutput_1));
-									}
-								} else {
-									pstmt_tDBOutput_1.setNull(12, java.sql.Types.DATE);
-								}
-
-								pstmt_tDBOutput_1.setBoolean(13, row1.is_avantage);
-
-								pstmt_tDBOutput_1.setBigDecimal(14, row1.montant_ttc);
-
-								pstmt_tDBOutput_1.addBatch();
-								nb_line_tDBOutput_1++;
-
-								batchSizeCounter_tDBOutput_1++;
-								if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
-									try {
-										int countSum_tDBOutput_1 = 0;
-										for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
-											countSum_tDBOutput_1 += (countEach_tDBOutput_1 == java.sql.Statement.EXECUTE_FAILED
-													? 0
-													: 1);
-										}
-										insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
-									} catch (java.sql.BatchUpdateException e) {
-										int countSum_tDBOutput_1 = 0;
-										for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
-											countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
-													: countEach_tDBOutput_1);
-										}
-										insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
-										System.err.println(e.getMessage());
+										pstmt_tDBOutput_1.setString(1, row1.ligne_id);
 									}
 
-									batchSizeCounter_tDBOutput_1 = 0;
-								}
-								commitCounter_tDBOutput_1++;
+									if (row1.entreprise_id == null) {
+										pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(2, row1.entreprise_id);
+									}
 
-								if (commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
+									if (row1.beneficiaire_id == null) {
+										pstmt_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(3, row1.beneficiaire_id);
+									}
 
-									try {
-										int countSum_tDBOutput_1 = 0;
-										for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
-											countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : 1);
+									if (row1.categorie_beneficiaire_id == null) {
+										pstmt_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(4, row1.categorie_beneficiaire_id);
+									}
+
+									if (row1.qualite_beneficiaire_id == null) {
+										pstmt_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(5, row1.qualite_beneficiaire_id);
+									}
+
+									if (row1.titre_beneficiaire_id == null) {
+										pstmt_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(6, row1.titre_beneficiaire_id);
+									}
+
+									if (row1.adresse_beneficiaire_id == null) {
+										pstmt_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(7, row1.adresse_beneficiaire_id);
+									}
+
+									if (row1.adresse_entreprise_id == null) {
+										pstmt_tDBOutput_1.setNull(8, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(8, row1.adresse_entreprise_id);
+									}
+
+									if (row1.specialite_beneficiaire_id == null) {
+										pstmt_tDBOutput_1.setNull(9, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(9, row1.specialite_beneficiaire_id);
+									}
+
+									if (row1.secteur_activite_entreprise_id == null) {
+										pstmt_tDBOutput_1.setNull(10, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(10, row1.secteur_activite_entreprise_id);
+									}
+
+									pstmt_tDBOutput_1.setInt(11, row1.type_avantage_id);
+
+									if (row1.date_id != null) {
+										date_tDBOutput_1 = row1.date_id.getTime();
+										if (date_tDBOutput_1 < year1_tDBOutput_1
+												|| date_tDBOutput_1 >= year10000_tDBOutput_1) {
+											pstmt_tDBOutput_1.setString(12, "0000-00-00 00:00:00");
+										} else {
+											pstmt_tDBOutput_1.setTimestamp(12,
+													new java.sql.Timestamp(date_tDBOutput_1));
 										}
-										insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
-									} catch (java.sql.BatchUpdateException e) {
-										int countSum_tDBOutput_1 = 0;
-										for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
-											countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
-													: countEach_tDBOutput_1);
+									} else {
+										pstmt_tDBOutput_1.setNull(12, java.sql.Types.DATE);
+									}
+
+									pstmt_tDBOutput_1.setBoolean(13, row1.is_avantage);
+
+									pstmt_tDBOutput_1.setBigDecimal(14, row1.montant_ttc);
+
+									pstmt_tDBOutput_1.addBatch();
+									nb_line_tDBOutput_1++;
+
+									batchSizeCounter_tDBOutput_1++;
+									if (!whetherReject_tDBOutput_1) {
+										row6 = new row6Struct();
+										row6.ligne_id = row1.ligne_id;
+										row6.entreprise_id = row1.entreprise_id;
+										row6.beneficiaire_id = row1.beneficiaire_id;
+										row6.categorie_beneficiaire_id = row1.categorie_beneficiaire_id;
+										row6.qualite_beneficiaire_id = row1.qualite_beneficiaire_id;
+										row6.titre_beneficiaire_id = row1.titre_beneficiaire_id;
+										row6.adresse_beneficiaire_id = row1.adresse_beneficiaire_id;
+										row6.adresse_entreprise_id = row1.adresse_entreprise_id;
+										row6.specialite_beneficiaire_id = row1.specialite_beneficiaire_id;
+										row6.secteur_activite_entreprise_id = row1.secteur_activite_entreprise_id;
+										row6.type_avantage_id = row1.type_avantage_id;
+										row6.date_id = row1.date_id;
+										row6.is_avantage = row1.is_avantage;
+										row6.montant_ttc = row1.montant_ttc;
+									}
+									if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
+										try {
+											int countSum_tDBOutput_1 = 0;
+											for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+												countSum_tDBOutput_1 += (countEach_tDBOutput_1 == java.sql.Statement.EXECUTE_FAILED
+														? 0
+														: 1);
+											}
+											insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+										} catch (java.sql.BatchUpdateException e) {
+											int countSum_tDBOutput_1 = 0;
+											for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+												countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
+														: countEach_tDBOutput_1);
+											}
+											insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+											System.err.println(e.getMessage());
 										}
-										insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
-										System.err.println(e.getMessage());
+
+										batchSizeCounter_tDBOutput_1 = 0;
+									}
+									commitCounter_tDBOutput_1++;
+
+									if (commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
+
+										try {
+											int countSum_tDBOutput_1 = 0;
+											for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+												countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : 1);
+											}
+											insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+										} catch (java.sql.BatchUpdateException e) {
+											int countSum_tDBOutput_1 = 0;
+											for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+												countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
+														: countEach_tDBOutput_1);
+											}
+											insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+											System.err.println(e.getMessage());
+
+										}
+										conn_tDBOutput_1.commit();
+										commitCounter_tDBOutput_1 = 0;
 
 									}
-									conn_tDBOutput_1.commit();
-									commitCounter_tDBOutput_1 = 0;
 
-								}
+									tos_count_tDBOutput_1++;
 
-								tos_count_tDBOutput_1++;
+									/**
+									 * [tDBOutput_1 main ] stop
+									 */
+
+									/**
+									 * [tDBOutput_1 process_data_begin ] start
+									 */
+
+									currentComponent = "tDBOutput_1";
+
+									/**
+									 * [tDBOutput_1 process_data_begin ] stop
+									 */
+// Start of branch "row6"
+									if (row6 != null) {
+
+										/**
+										 * [tLogRow_1 main ] start
+										 */
+
+										currentComponent = "tLogRow_1";
+
+										if (execStat) {
+											runStat.updateStatOnConnection(iterateId, 1, 1, "row6");
+										}
+
+///////////////////////		
+
+										strBuffer_tLogRow_1 = new StringBuilder();
+
+										if (row6.ligne_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.ligne_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.entreprise_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.entreprise_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.beneficiaire_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.beneficiaire_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.categorie_beneficiaire_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.categorie_beneficiaire_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.qualite_beneficiaire_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.qualite_beneficiaire_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.titre_beneficiaire_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.titre_beneficiaire_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.adresse_beneficiaire_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.adresse_beneficiaire_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.adresse_entreprise_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.adresse_entreprise_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.specialite_beneficiaire_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.specialite_beneficiaire_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.secteur_activite_entreprise_id != null) { //
+
+											strBuffer_tLogRow_1
+													.append(String.valueOf(row6.secteur_activite_entreprise_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										strBuffer_tLogRow_1.append(String.valueOf(row6.type_avantage_id));
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.date_id != null) { //
+
+											strBuffer_tLogRow_1
+													.append(FormatterUtils.format_Date(row6.date_id, "dd-MM-yyyy"));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										strBuffer_tLogRow_1.append(String.valueOf(row6.is_avantage));
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.montant_ttc != null) { //
+
+											strBuffer_tLogRow_1.append(row6.montant_ttc
+													.setScale(0, java.math.RoundingMode.HALF_UP).toPlainString());
+
+										} //
+
+										if (globalMap.get("tLogRow_CONSOLE") != null) {
+											consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap
+													.get("tLogRow_CONSOLE");
+										} else {
+											consoleOut_tLogRow_1 = new java.io.PrintStream(
+													new java.io.BufferedOutputStream(System.out));
+											globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_1);
+										}
+										consoleOut_tLogRow_1.println(strBuffer_tLogRow_1.toString());
+										consoleOut_tLogRow_1.flush();
+										nb_line_tLogRow_1++;
+//////
+
+//////                    
+
+///////////////////////    			
+
+										tos_count_tLogRow_1++;
+
+										/**
+										 * [tLogRow_1 main ] stop
+										 */
+
+										/**
+										 * [tLogRow_1 process_data_begin ] start
+										 */
+
+										currentComponent = "tLogRow_1";
+
+										/**
+										 * [tLogRow_1 process_data_begin ] stop
+										 */
+
+										/**
+										 * [tLogRow_1 process_data_end ] start
+										 */
+
+										currentComponent = "tLogRow_1";
+
+										/**
+										 * [tLogRow_1 process_data_end ] stop
+										 */
+
+									} // End of branch "row6"
+
+									/**
+									 * [tDBOutput_1 process_data_end ] start
+									 */
+
+									currentComponent = "tDBOutput_1";
+
+									/**
+									 * [tDBOutput_1 process_data_end ] stop
+									 */
+
+									/**
+									 * [tUnite_1 process_data_end ] start
+									 */
+
+									currentComponent = "tUnite_1";
+
+									/**
+									 * [tUnite_1 process_data_end ] stop
+									 */
+
+								} // End of branch "remuneration_fact"
 
 								/**
-								 * [tDBOutput_1 main ] stop
+								 * [tMap_2 process_data_end ] start
 								 */
+
+								currentComponent = "tMap_2";
 
 								/**
-								 * [tDBOutput_1 process_data_begin ] start
+								 * [tMap_2 process_data_end ] stop
 								 */
 
-								currentComponent = "tDBOutput_1";
-
-								/**
-								 * [tDBOutput_1 process_data_begin ] stop
-								 */
-
-								/**
-								 * [tDBOutput_1 process_data_end ] start
-								 */
-
-								currentComponent = "tDBOutput_1";
-
-								/**
-								 * [tDBOutput_1 process_data_end ] stop
-								 */
-
-								/**
-								 * [tUnite_1 process_data_end ] start
-								 */
-
-								currentComponent = "tUnite_1";
-
-								/**
-								 * [tUnite_1 process_data_end ] stop
-								 */
-
-							} // End of branch "remuneration_fact"
+							} // End of branch "remunerations"
 
 							/**
-							 * [tMap_2 process_data_end ] start
+							 * [tFilterRow_3 process_data_end ] start
 							 */
 
-							currentComponent = "tMap_2";
+							currentComponent = "tFilterRow_3";
 
 							/**
-							 * [tMap_2 process_data_end ] stop
+							 * [tFilterRow_3 process_data_end ] stop
 							 */
 
-						} // End of branch "remunerations"
+						} // End of branch "row4"
 
 						/**
 						 * [tFileInputDelimited_3 process_data_end ] start
@@ -6198,6 +8692,27 @@ public class avantage_remuneration_fact implements TalendJob {
 
 				/**
 				 * [tFileInputDelimited_3 end ] stop
+				 */
+
+				/**
+				 * [tFilterRow_3 end ] start
+				 */
+
+				currentComponent = "tFilterRow_3";
+
+				globalMap.put("tFilterRow_3_NB_LINE", nb_line_tFilterRow_3);
+				globalMap.put("tFilterRow_3_NB_LINE_OK", nb_line_ok_tFilterRow_3);
+				globalMap.put("tFilterRow_3_NB_LINE_REJECT", nb_line_reject_tFilterRow_3);
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row4");
+				}
+
+				ok_Hash.put("tFilterRow_3", true);
+				end_Hash.put("tFilterRow_3", System.currentTimeMillis());
+
+				/**
+				 * [tFilterRow_3 end ] stop
 				 */
 
 				/**
@@ -6269,6 +8784,67 @@ public class avantage_remuneration_fact implements TalendJob {
 
 				/**
 				 * [tMap_1 begin ] stop
+				 */
+
+				/**
+				 * [tFilterRow_4 begin ] start
+				 */
+
+				ok_Hash.put("tFilterRow_4", false);
+				start_Hash.put("tFilterRow_4", System.currentTimeMillis());
+
+				currentComponent = "tFilterRow_4";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row5");
+				}
+
+				int tos_count_tFilterRow_4 = 0;
+
+				int nb_line_tFilterRow_4 = 0;
+				int nb_line_ok_tFilterRow_4 = 0;
+				int nb_line_reject_tFilterRow_4 = 0;
+
+				class Operator_tFilterRow_4 {
+					private String sErrorMsg = "";
+					private boolean bMatchFlag = true;
+					private String sUnionFlag = "&&";
+
+					public Operator_tFilterRow_4(String unionFlag) {
+						sUnionFlag = unionFlag;
+						bMatchFlag = "||".equals(unionFlag) ? false : true;
+					}
+
+					public String getErrorMsg() {
+						if (sErrorMsg != null && sErrorMsg.length() > 1)
+							return sErrorMsg.substring(1);
+						else
+							return null;
+					}
+
+					public boolean getMatchFlag() {
+						return bMatchFlag;
+					}
+
+					public void matches(boolean partMatched, String reason) {
+						// no need to care about the next judgement
+						if ("||".equals(sUnionFlag) && bMatchFlag) {
+							return;
+						}
+
+						if (!partMatched) {
+							sErrorMsg += "|" + reason;
+						}
+
+						if ("||".equals(sUnionFlag))
+							bMatchFlag = bMatchFlag || partMatched;
+						else
+							bMatchFlag = bMatchFlag && partMatched;
+					}
+				}
+
+				/**
+				 * [tFilterRow_4 begin ] stop
 				 */
 
 				/**
@@ -6429,10 +9005,10 @@ public class avantage_remuneration_fact implements TalendJob {
 							break;
 						}
 
-						avantages = null;
+						row5 = null;
 
 						boolean whetherReject_tFileInputDelimited_1 = false;
-						avantages = new avantagesStruct();
+						row5 = new row5Struct();
 						try {
 
 							char fieldSeparator_tFileInputDelimited_1_ListType[] = null;
@@ -6451,77 +9027,77 @@ public class avantage_remuneration_fact implements TalendJob {
 																														// is
 																														// '\n'
 
-								avantages.entreprise_identifiant = null;
+								row5.entreprise_identifiant = null;
 
-								avantages.denomination_sociale = null;
+								row5.denomination_sociale = null;
 
-								avantages.ligne_identifiant = null;
+								row5.ligne_identifiant = null;
 
-								avantages.ligne_rectification = null;
+								row5.ligne_rectification = null;
 
-								avantages.benef_categorie_code = null;
+								row5.benef_categorie_code = null;
 
-								avantages.categorie = null;
+								row5.categorie = null;
 
-								avantages.benef_nom = null;
+								row5.benef_nom = null;
 
-								avantages.benef_prenom = null;
+								row5.benef_prenom = null;
 
-								avantages.benef_qualite_code = null;
+								row5.benef_qualite_code = null;
 
-								avantages.qualite = null;
+								row5.qualite = null;
 
-								avantages.benef_adresse1 = null;
+								row5.benef_adresse1 = null;
 
-								avantages.benef_adresse2 = null;
+								row5.benef_adresse2 = null;
 
-								avantages.benef_adresse3 = null;
+								row5.benef_adresse3 = null;
 
-								avantages.benef_adresse4 = null;
+								row5.benef_adresse4 = null;
 
-								avantages.benef_codepostal = null;
+								row5.benef_codepostal = null;
 
-								avantages.benef_ville = null;
+								row5.benef_ville = null;
 
-								avantages.benef_pays_code = null;
+								row5.benef_pays_code = null;
 
-								avantages.pays = null;
+								row5.pays = null;
 
-								avantages.benef_titre_code = null;
+								row5.benef_titre_code = null;
 
-								avantages.benef_titre_libelle = null;
+								row5.benef_titre_libelle = null;
 
-								avantages.benef_specialite_code = null;
+								row5.benef_specialite_code = null;
 
-								avantages.benef_speicalite_libelle = null;
+								row5.benef_speicalite_libelle = null;
 
-								avantages.benef_identifiant_type_code = null;
+								row5.benef_identifiant_type_code = null;
 
-								avantages.identifiant_type = null;
+								row5.identifiant_type = null;
 
-								avantages.benef_identifiant_valeur = null;
+								row5.benef_identifiant_valeur = null;
 
-								avantages.benef_etablissement = null;
+								row5.benef_etablissement = null;
 
-								avantages.benef_etablissement_codepostal = null;
+								row5.benef_etablissement_codepostal = null;
 
-								avantages.benef_etablissement_ville = null;
+								row5.benef_etablissement_ville = null;
 
-								avantages.benef_denomination_sociale = null;
+								row5.benef_denomination_sociale = null;
 
-								avantages.benef_objet_social = null;
+								row5.benef_objet_social = null;
 
-								avantages.ligne_type = null;
+								row5.ligne_type = null;
 
-								avantages.avant_date_signature = null;
+								row5.avant_date_signature = null;
 
-								avantages.avant_montant_ttc = null;
+								row5.avant_montant_ttc = null;
 
-								avantages.avant_nature = null;
+								row5.avant_nature = null;
 
-								avantages.avant_convention_lie = null;
+								row5.avant_convention_lie = null;
 
-								avantages.semestre = null;
+								row5.semestre = null;
 
 							} else {
 
@@ -6531,11 +9107,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.entreprise_identifiant = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.entreprise_identifiant = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.entreprise_identifiant = null;
+									row5.entreprise_identifiant = null;
 
 								}
 
@@ -6543,11 +9119,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.denomination_sociale = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.denomination_sociale = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.denomination_sociale = null;
+									row5.denomination_sociale = null;
 
 								}
 
@@ -6555,11 +9131,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.ligne_identifiant = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.ligne_identifiant = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.ligne_identifiant = null;
+									row5.ligne_identifiant = null;
 
 								}
 
@@ -6570,26 +9146,26 @@ public class avantage_remuneration_fact implements TalendJob {
 									if (rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
 										try {
 
-											avantages.ligne_rectification = ParserUtils.parseTo_Character(
+											row5.ligne_rectification = ParserUtils.parseTo_Character(
 													rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
 
 										} catch (java.lang.Exception ex_tFileInputDelimited_1) {
 											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String
 													.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-															"ligne_rectification", "avantages",
+															"ligne_rectification", "row5",
 															rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1],
 															ex_tFileInputDelimited_1),
 													ex_tFileInputDelimited_1));
 										}
 									} else {
 
-										avantages.ligne_rectification = null;
+										row5.ligne_rectification = null;
 
 									}
 
 								} else {
 
-									avantages.ligne_rectification = null;
+									row5.ligne_rectification = null;
 
 								}
 
@@ -6597,11 +9173,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_categorie_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_categorie_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_categorie_code = null;
+									row5.benef_categorie_code = null;
 
 								}
 
@@ -6609,11 +9185,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.categorie = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.categorie = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.categorie = null;
+									row5.categorie = null;
 
 								}
 
@@ -6621,11 +9197,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_nom = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_nom = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_nom = null;
+									row5.benef_nom = null;
 
 								}
 
@@ -6633,11 +9209,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_prenom = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_prenom = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_prenom = null;
+									row5.benef_prenom = null;
 
 								}
 
@@ -6645,11 +9221,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_qualite_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_qualite_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_qualite_code = null;
+									row5.benef_qualite_code = null;
 
 								}
 
@@ -6657,11 +9233,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.qualite = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.qualite = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.qualite = null;
+									row5.qualite = null;
 
 								}
 
@@ -6669,11 +9245,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_adresse1 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_adresse1 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_adresse1 = null;
+									row5.benef_adresse1 = null;
 
 								}
 
@@ -6681,11 +9257,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_adresse2 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_adresse2 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_adresse2 = null;
+									row5.benef_adresse2 = null;
 
 								}
 
@@ -6693,11 +9269,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_adresse3 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_adresse3 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_adresse3 = null;
+									row5.benef_adresse3 = null;
 
 								}
 
@@ -6705,11 +9281,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_adresse4 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_adresse4 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_adresse4 = null;
+									row5.benef_adresse4 = null;
 
 								}
 
@@ -6717,11 +9293,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_codepostal = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_codepostal = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_codepostal = null;
+									row5.benef_codepostal = null;
 
 								}
 
@@ -6729,11 +9305,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_ville = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_ville = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_ville = null;
+									row5.benef_ville = null;
 
 								}
 
@@ -6741,11 +9317,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_pays_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_pays_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_pays_code = null;
+									row5.benef_pays_code = null;
 
 								}
 
@@ -6753,11 +9329,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.pays = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.pays = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.pays = null;
+									row5.pays = null;
 
 								}
 
@@ -6765,11 +9341,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_titre_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_titre_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_titre_code = null;
+									row5.benef_titre_code = null;
 
 								}
 
@@ -6777,11 +9353,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_titre_libelle = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_titre_libelle = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_titre_libelle = null;
+									row5.benef_titre_libelle = null;
 
 								}
 
@@ -6789,11 +9365,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_specialite_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_specialite_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_specialite_code = null;
+									row5.benef_specialite_code = null;
 
 								}
 
@@ -6801,11 +9377,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_speicalite_libelle = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_speicalite_libelle = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_speicalite_libelle = null;
+									row5.benef_speicalite_libelle = null;
 
 								}
 
@@ -6813,11 +9389,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_identifiant_type_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_identifiant_type_code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_identifiant_type_code = null;
+									row5.benef_identifiant_type_code = null;
 
 								}
 
@@ -6825,11 +9401,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.identifiant_type = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.identifiant_type = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.identifiant_type = null;
+									row5.identifiant_type = null;
 
 								}
 
@@ -6837,11 +9413,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_identifiant_valeur = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_identifiant_valeur = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_identifiant_valeur = null;
+									row5.benef_identifiant_valeur = null;
 
 								}
 
@@ -6849,11 +9425,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_etablissement = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_etablissement = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_etablissement = null;
+									row5.benef_etablissement = null;
 
 								}
 
@@ -6861,11 +9437,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_etablissement_codepostal = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_etablissement_codepostal = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_etablissement_codepostal = null;
+									row5.benef_etablissement_codepostal = null;
 
 								}
 
@@ -6873,11 +9449,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_etablissement_ville = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_etablissement_ville = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_etablissement_ville = null;
+									row5.benef_etablissement_ville = null;
 
 								}
 
@@ -6885,11 +9461,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_denomination_sociale = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_denomination_sociale = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_denomination_sociale = null;
+									row5.benef_denomination_sociale = null;
 
 								}
 
@@ -6897,11 +9473,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.benef_objet_social = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.benef_objet_social = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.benef_objet_social = null;
+									row5.benef_objet_social = null;
 
 								}
 
@@ -6909,11 +9485,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.ligne_type = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.ligne_type = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.ligne_type = null;
+									row5.ligne_type = null;
 
 								}
 
@@ -6921,11 +9497,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.avant_date_signature = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.avant_date_signature = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.avant_date_signature = null;
+									row5.avant_date_signature = null;
 
 								}
 
@@ -6936,26 +9512,26 @@ public class avantage_remuneration_fact implements TalendJob {
 									if (rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
 										try {
 
-											avantages.avant_montant_ttc = ParserUtils.parseTo_Integer(
+											row5.avant_montant_ttc = ParserUtils.parseTo_Integer(
 													rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
 
 										} catch (java.lang.Exception ex_tFileInputDelimited_1) {
 											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String
 													.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-															"avant_montant_ttc", "avantages",
+															"avant_montant_ttc", "row5",
 															rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1],
 															ex_tFileInputDelimited_1),
 													ex_tFileInputDelimited_1));
 										}
 									} else {
 
-										avantages.avant_montant_ttc = null;
+										row5.avant_montant_ttc = null;
 
 									}
 
 								} else {
 
-									avantages.avant_montant_ttc = null;
+									row5.avant_montant_ttc = null;
 
 								}
 
@@ -6963,11 +9539,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.avant_nature = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.avant_nature = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.avant_nature = null;
+									row5.avant_nature = null;
 
 								}
 
@@ -6975,11 +9551,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.avant_convention_lie = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.avant_convention_lie = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.avant_convention_lie = null;
+									row5.avant_convention_lie = null;
 
 								}
 
@@ -6987,11 +9563,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length) {
 
-									avantages.semestre = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									row5.semestre = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
 
 								} else {
 
-									avantages.semestre = null;
+									row5.semestre = null;
 
 								}
 
@@ -7005,7 +9581,7 @@ public class avantage_remuneration_fact implements TalendJob {
 							whetherReject_tFileInputDelimited_1 = true;
 
 							System.err.println(e.getMessage());
-							avantages = null;
+							row5 = null;
 
 						}
 
@@ -7034,397 +9610,672 @@ public class avantage_remuneration_fact implements TalendJob {
 						/**
 						 * [tFileInputDelimited_1 process_data_begin ] stop
 						 */
-// Start of branch "avantages"
-						if (avantages != null) {
+// Start of branch "row5"
+						if (row5 != null) {
 
 							/**
-							 * [tMap_1 main ] start
+							 * [tFilterRow_4 main ] start
 							 */
 
-							currentComponent = "tMap_1";
+							currentComponent = "tFilterRow_4";
 
 							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1, "avantages");
+								runStat.updateStatOnConnection(iterateId, 1, 1, "row5");
 							}
 
-							boolean hasCasePrimitiveKeyWithNull_tMap_1 = false;
+							avantages = null;
+							Operator_tFilterRow_4 ope_tFilterRow_4 = new Operator_tFilterRow_4("&&");
+							ope_tFilterRow_4.matches((// code sample : use row5 to define the condition.
+// row5.columnName1.equals("foo") ||!(row5.columnName2.equals("bar"))
+// replace the following expression by your own filter condition 
+							!row5.benef_pays_code.replaceAll("[^A-Za-z0-9]", "").equals("")
+									&& ((!row5.benef_codepostal.replaceAll("[^A-Za-z0-9]", "").equals("")
+											&& row5.benef_codepostal != null))
+									&& row5.benef_pays_code != null && row5.avant_montant_ttc != null),
+									"advanced condition failed");
 
-							// ###############################
-							// # Input tables (lookups)
-							boolean rejectedInnerJoin_tMap_1 = false;
-							boolean mainRowRejected_tMap_1 = false;
-
-							///////////////////////////////////////////////
-							// Starting Lookup Table "entreprises_1"
-							///////////////////////////////////////////////
-
-							boolean forceLoopentreprises_1 = false;
-
-							entreprises_1Struct entreprises_1ObjectFromLookup = null;
-
-							if (!rejectedInnerJoin_tMap_1) { // G_TM_M_020
-
-								hasCasePrimitiveKeyWithNull_tMap_1 = false;
-
-								entreprises_1HashKey.identifiant = avantages.entreprise_identifiant;
-
-								entreprises_1HashKey.hashCodeDirty = true;
-
-								tHash_Lookup_entreprises_1.lookup(entreprises_1HashKey);
-
-							} // G_TM_M_020
-
-							if (tHash_Lookup_entreprises_1 != null
-									&& tHash_Lookup_entreprises_1.getCount(entreprises_1HashKey) > 1) { // G 071
-
-								// System.out.println("WARNING: UNIQUE MATCH is configured for the lookup
-								// 'entreprises_1' and it contains more one result from keys :
-								// entreprises_1.identifiant = '" + entreprises_1HashKey.identifiant + "'");
-							} // G 071
-
-							entreprises_1Struct entreprises_1 = null;
-
-							entreprises_1Struct fromLookup_entreprises_1 = null;
-							entreprises_1 = entreprises_1Default;
-
-							if (tHash_Lookup_entreprises_1 != null && tHash_Lookup_entreprises_1.hasNext()) { // G 099
-
-								fromLookup_entreprises_1 = tHash_Lookup_entreprises_1.next();
-
-							} // G 099
-
-							if (fromLookup_entreprises_1 != null) {
-								entreprises_1 = fromLookup_entreprises_1;
+							if (ope_tFilterRow_4.getMatchFlag()) {
+								if (avantages == null) {
+									avantages = new avantagesStruct();
+								}
+								avantages.entreprise_identifiant = row5.entreprise_identifiant;
+								avantages.denomination_sociale = row5.denomination_sociale;
+								avantages.ligne_identifiant = row5.ligne_identifiant;
+								avantages.ligne_rectification = row5.ligne_rectification;
+								avantages.benef_categorie_code = row5.benef_categorie_code;
+								avantages.categorie = row5.categorie;
+								avantages.benef_nom = row5.benef_nom;
+								avantages.benef_prenom = row5.benef_prenom;
+								avantages.benef_qualite_code = row5.benef_qualite_code;
+								avantages.qualite = row5.qualite;
+								avantages.benef_adresse1 = row5.benef_adresse1;
+								avantages.benef_adresse2 = row5.benef_adresse2;
+								avantages.benef_adresse3 = row5.benef_adresse3;
+								avantages.benef_adresse4 = row5.benef_adresse4;
+								avantages.benef_codepostal = row5.benef_codepostal;
+								avantages.benef_ville = row5.benef_ville;
+								avantages.benef_pays_code = row5.benef_pays_code;
+								avantages.pays = row5.pays;
+								avantages.benef_titre_code = row5.benef_titre_code;
+								avantages.benef_titre_libelle = row5.benef_titre_libelle;
+								avantages.benef_specialite_code = row5.benef_specialite_code;
+								avantages.benef_speicalite_libelle = row5.benef_speicalite_libelle;
+								avantages.benef_identifiant_type_code = row5.benef_identifiant_type_code;
+								avantages.identifiant_type = row5.identifiant_type;
+								avantages.benef_identifiant_valeur = row5.benef_identifiant_valeur;
+								avantages.benef_etablissement = row5.benef_etablissement;
+								avantages.benef_etablissement_codepostal = row5.benef_etablissement_codepostal;
+								avantages.benef_etablissement_ville = row5.benef_etablissement_ville;
+								avantages.benef_denomination_sociale = row5.benef_denomination_sociale;
+								avantages.benef_objet_social = row5.benef_objet_social;
+								avantages.ligne_type = row5.ligne_type;
+								avantages.avant_date_signature = row5.avant_date_signature;
+								avantages.avant_montant_ttc = row5.avant_montant_ttc;
+								avantages.avant_nature = row5.avant_nature;
+								avantages.avant_convention_lie = row5.avant_convention_lie;
+								avantages.semestre = row5.semestre;
+								nb_line_ok_tFilterRow_4++;
+							} else {
+								nb_line_reject_tFilterRow_4++;
 							}
 
-							// ###############################
-							{ // start of Var scope
+							nb_line_tFilterRow_4++;
 
-								// ###############################
-								// # Vars tables
-
-								Var__tMap_1__Struct Var = Var__tMap_1;
-								Var.adresse_beneficiaire = !avantages.benef_codepostal.isEmpty()
-										&& !avantages.benef_ville.isEmpty()
-												? AdressesCleanerV2.generateId(avantages.benef_codepostal,
-														avantages.benef_ville)
-												:
-
-												!avantages.benef_etablissement_codepostal.isEmpty()
-														&& !avantages.benef_etablissement_ville.isEmpty()
-																? AdressesCleanerV2.generateId(
-																		avantages.benef_etablissement_codepostal,
-																		avantages.benef_etablissement_ville)
-																: AdressesCleanerV2.getNA();
-								Var.adresse_entreprise = AdressesCleanerV2.generateId(entreprises_1.code_postal,
-										entreprises_1.ville);
-								Var.normalizedNatureAvantage = NatureAvantageIdGenerator
-										.normalizeNatureAvantage(avantages.avant_nature);
-								Var.date = avantages.avant_date_signature != null
-										&& !avantages.avant_date_signature.equals("") ?
-
-												TalendDate.parseDate("dd-MM-yyyy",
-														avantages.avant_date_signature.replace("/", "-"))
-												:
-// if date string is null or empty, default date
-												TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");// ###############################
-								// ###############################
-								// # Output tables
-
-								avantage_fact = null;
-
-// # Output table : 'avantage_fact'
-								avantage_fact_tmp.ligne_id = avantages.ligne_identifiant;
-								avantage_fact_tmp.entreprise_id = avantages.entreprise_identifiant;
-								avantage_fact_tmp.beneficiaire_id = avantages.benef_identifiant_valeur == null
-										|| avantages.benef_identifiant_valeur.isEmpty()
-										|| !MyStringRoutine.isNumeric(avantages.benef_identifiant_valeur) ? "N/A"
-												: avantages.benef_identifiant_valeur.trim();
-								avantage_fact_tmp.categorie_beneficiaire_id = avantages.benef_categorie_code.equals("")
-										? "N/A"
-										: avantages.benef_categorie_code;
-								avantage_fact_tmp.qualite_beneficiaire_id = avantages.benef_qualite_code.equals("")
-										? "N/A"
-										: avantages.benef_qualite_code;
-								avantage_fact_tmp.titre_beneficiaire_id = avantages.benef_titre_code.equals("") ? "N/A"
-										: avantages.benef_titre_code;
-								avantage_fact_tmp.adresse_beneficiaire_id = Var.adresse_beneficiaire;
-								avantage_fact_tmp.adresse_entreprise_id = Var.adresse_entreprise;
-								avantage_fact_tmp.specialite_beneficiaire_id = avantages.benef_specialite_code
-										.equals("") ? "N/A" : avantages.benef_specialite_code;
-								avantage_fact_tmp.secteur_activite_entreprise_id = entreprises_1.secteur_activite_code;
-								avantage_fact_tmp.type_avantage_id = NatureAvantageIdGenerator
-										.getNatureAvantageId(Var.normalizedNatureAvantage);
-								avantage_fact_tmp.date_id = (DateTransformations.getAnnee(Var.date) >= 1980
-										& DateTransformations.getAnnee(Var.date) <= 2100) ? Var.date
-												: TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
-								avantage_fact_tmp.is_avantage = true;
-								avantage_fact_tmp.montant_ttc = avantages.avant_montant_ttc != null
-										? new BigDecimal(avantages.avant_montant_ttc)
-										: BigDecimal.ZERO;
-								avantage_fact = avantage_fact_tmp;
-// ###############################
-
-							} // end of Var scope
-
-							rejectedInnerJoin_tMap_1 = false;
-
-							tos_count_tMap_1++;
+							tos_count_tFilterRow_4++;
 
 							/**
-							 * [tMap_1 main ] stop
+							 * [tFilterRow_4 main ] stop
 							 */
 
 							/**
-							 * [tMap_1 process_data_begin ] start
+							 * [tFilterRow_4 process_data_begin ] start
 							 */
 
-							currentComponent = "tMap_1";
+							currentComponent = "tFilterRow_4";
 
 							/**
-							 * [tMap_1 process_data_begin ] stop
+							 * [tFilterRow_4 process_data_begin ] stop
 							 */
-// Start of branch "avantage_fact"
-							if (avantage_fact != null) {
+// Start of branch "avantages"
+							if (avantages != null) {
 
 								/**
-								 * [tUnite_1 main ] start
+								 * [tMap_1 main ] start
 								 */
 
-								currentComponent = "tUnite_1";
+								currentComponent = "tMap_1";
 
 								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1, "avantage_fact");
+									runStat.updateStatOnConnection(iterateId, 1, 1, "avantages");
 								}
+
+								boolean hasCasePrimitiveKeyWithNull_tMap_1 = false;
+
+								// ###############################
+								// # Input tables (lookups)
+								boolean rejectedInnerJoin_tMap_1 = false;
+								boolean mainRowRejected_tMap_1 = false;
+
+								///////////////////////////////////////////////
+								// Starting Lookup Table "entreprises_1"
+								///////////////////////////////////////////////
+
+								boolean forceLoopentreprises_1 = false;
+
+								entreprises_1Struct entreprises_1ObjectFromLookup = null;
+
+								if (!rejectedInnerJoin_tMap_1) { // G_TM_M_020
+
+									hasCasePrimitiveKeyWithNull_tMap_1 = false;
+
+									entreprises_1HashKey.identifiant = avantages.entreprise_identifiant;
+
+									entreprises_1HashKey.hashCodeDirty = true;
+
+									tHash_Lookup_entreprises_1.lookup(entreprises_1HashKey);
+
+								} // G_TM_M_020
+
+								if (tHash_Lookup_entreprises_1 != null
+										&& tHash_Lookup_entreprises_1.getCount(entreprises_1HashKey) > 1) { // G 071
+
+									// System.out.println("WARNING: UNIQUE MATCH is configured for the lookup
+									// 'entreprises_1' and it contains more one result from keys :
+									// entreprises_1.identifiant = '" + entreprises_1HashKey.identifiant + "'");
+								} // G 071
+
+								entreprises_1Struct entreprises_1 = null;
+
+								entreprises_1Struct fromLookup_entreprises_1 = null;
+								entreprises_1 = entreprises_1Default;
+
+								if (tHash_Lookup_entreprises_1 != null && tHash_Lookup_entreprises_1.hasNext()) { // G
+																													// 099
+
+									fromLookup_entreprises_1 = tHash_Lookup_entreprises_1.next();
+
+								} // G 099
+
+								if (fromLookup_entreprises_1 != null) {
+									entreprises_1 = fromLookup_entreprises_1;
+								}
+
+								// ###############################
+								{ // start of Var scope
+
+									// ###############################
+									// # Vars tables
+
+									Var__tMap_1__Struct Var = Var__tMap_1;
+									Var.adresse_beneficiaire = avantages.benef_codepostal + "|"
+											+ avantages.benef_pays_code.replaceAll("[0-9a-zA-Z]", "");
+									Var.adresse_entreprise = entreprises_1.code_postal + "|"
+											+ entreprises_1.pays_code.replaceAll("[0-9a-zA-Z]", "");
+									Var.normalizedNatureAvantage = NatureAvantageIdGenerator
+											.normalizeNatureAvantage(avantages.avant_nature);
+									Var.date = avantages.avant_date_signature != null
+											&& !avantages.avant_date_signature.equals("")
+											&& MyStringRoutine.isDate(avantages.avant_date_signature) ?
+
+													TalendDate.parseDate("dd-MM-yyyy",
+															avantages.avant_date_signature.replace("/", "-"))
+													:
+// if date string is null or empty, default date
+													TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");// ###############################
+									// ###############################
+									// # Output tables
+
+									avantage_fact = null;
+
+// # Output table : 'avantage_fact'
+									avantage_fact_tmp.ligne_id = avantages.ligne_identifiant;
+									avantage_fact_tmp.entreprise_id = avantages.entreprise_identifiant;
+									avantage_fact_tmp.beneficiaire_id = avantages.benef_identifiant_valeur == null
+											|| avantages.benef_identifiant_valeur.isEmpty()
+											|| !MyStringRoutine.isNumeric(avantages.benef_identifiant_valeur) ? "N/A"
+													: avantages.benef_identifiant_valeur.trim();
+									avantage_fact_tmp.categorie_beneficiaire_id = avantages.benef_categorie_code
+											.equals("") ? "N/A" : avantages.benef_categorie_code;
+									avantage_fact_tmp.qualite_beneficiaire_id = avantages.benef_qualite_code.equals("")
+											? "N/A"
+											: avantages.benef_qualite_code;
+									avantage_fact_tmp.titre_beneficiaire_id = avantages.benef_titre_code.equals("")
+											? "N/A"
+											: avantages.benef_titre_code;
+									avantage_fact_tmp.adresse_beneficiaire_id = Var.adresse_beneficiaire;
+									avantage_fact_tmp.adresse_entreprise_id = Var.adresse_entreprise;
+									avantage_fact_tmp.specialite_beneficiaire_id = avantages.benef_specialite_code
+											.equals("") ? "N/A" : avantages.benef_specialite_code;
+									avantage_fact_tmp.secteur_activite_entreprise_id = entreprises_1.secteur_activite_code;
+									avantage_fact_tmp.type_avantage_id = NatureAvantageIdGenerator
+											.getNatureAvantageId(Var.normalizedNatureAvantage);
+									avantage_fact_tmp.date_id = (DateTransformations.getAnnee(Var.date) >= 1980
+											& DateTransformations.getAnnee(Var.date) <= 2100) ? Var.date
+													: TalendDate.parseDate("dd-MM-yyyy", "01-01-2000");
+									avantage_fact_tmp.is_avantage = true;
+									avantage_fact_tmp.montant_ttc = avantages.avant_montant_ttc != null
+											? new BigDecimal(avantages.avant_montant_ttc)
+											: BigDecimal.ZERO;
+									avantage_fact = avantage_fact_tmp;
+// ###############################
+
+								} // end of Var scope
+
+								rejectedInnerJoin_tMap_1 = false;
+
+								tos_count_tMap_1++;
+
+								/**
+								 * [tMap_1 main ] stop
+								 */
+
+								/**
+								 * [tMap_1 process_data_begin ] start
+								 */
+
+								currentComponent = "tMap_1";
+
+								/**
+								 * [tMap_1 process_data_begin ] stop
+								 */
+// Start of branch "avantage_fact"
+								if (avantage_fact != null) {
+
+									/**
+									 * [tUnite_1 main ] start
+									 */
+
+									currentComponent = "tUnite_1";
+
+									if (execStat) {
+										runStat.updateStatOnConnection(iterateId, 1, 1, "avantage_fact");
+									}
 
 //////////
 
 // for output
-								row1 = new row1Struct();
+									row1 = new row1Struct();
 
-								row1.ligne_id = avantage_fact.ligne_id;
-								row1.entreprise_id = avantage_fact.entreprise_id;
-								row1.beneficiaire_id = avantage_fact.beneficiaire_id;
-								row1.categorie_beneficiaire_id = avantage_fact.categorie_beneficiaire_id;
-								row1.qualite_beneficiaire_id = avantage_fact.qualite_beneficiaire_id;
-								row1.titre_beneficiaire_id = avantage_fact.titre_beneficiaire_id;
-								row1.adresse_beneficiaire_id = avantage_fact.adresse_beneficiaire_id;
-								row1.adresse_entreprise_id = avantage_fact.adresse_entreprise_id;
-								row1.specialite_beneficiaire_id = avantage_fact.specialite_beneficiaire_id;
-								row1.secteur_activite_entreprise_id = avantage_fact.secteur_activite_entreprise_id;
-								row1.type_avantage_id = avantage_fact.type_avantage_id;
-								row1.date_id = avantage_fact.date_id;
-								row1.is_avantage = avantage_fact.is_avantage;
-								row1.montant_ttc = avantage_fact.montant_ttc;
+									row1.ligne_id = avantage_fact.ligne_id;
+									row1.entreprise_id = avantage_fact.entreprise_id;
+									row1.beneficiaire_id = avantage_fact.beneficiaire_id;
+									row1.categorie_beneficiaire_id = avantage_fact.categorie_beneficiaire_id;
+									row1.qualite_beneficiaire_id = avantage_fact.qualite_beneficiaire_id;
+									row1.titre_beneficiaire_id = avantage_fact.titre_beneficiaire_id;
+									row1.adresse_beneficiaire_id = avantage_fact.adresse_beneficiaire_id;
+									row1.adresse_entreprise_id = avantage_fact.adresse_entreprise_id;
+									row1.specialite_beneficiaire_id = avantage_fact.specialite_beneficiaire_id;
+									row1.secteur_activite_entreprise_id = avantage_fact.secteur_activite_entreprise_id;
+									row1.type_avantage_id = avantage_fact.type_avantage_id;
+									row1.date_id = avantage_fact.date_id;
+									row1.is_avantage = avantage_fact.is_avantage;
+									row1.montant_ttc = avantage_fact.montant_ttc;
 
-								nb_line_tUnite_1++;
+									nb_line_tUnite_1++;
 
 //////////
 
-								tos_count_tUnite_1++;
+									tos_count_tUnite_1++;
 
-								/**
-								 * [tUnite_1 main ] stop
-								 */
+									/**
+									 * [tUnite_1 main ] stop
+									 */
 
-								/**
-								 * [tUnite_1 process_data_begin ] start
-								 */
+									/**
+									 * [tUnite_1 process_data_begin ] start
+									 */
 
-								currentComponent = "tUnite_1";
+									currentComponent = "tUnite_1";
 
-								/**
-								 * [tUnite_1 process_data_begin ] stop
-								 */
+									/**
+									 * [tUnite_1 process_data_begin ] stop
+									 */
 
-								/**
-								 * [tDBOutput_1 main ] start
-								 */
+									/**
+									 * [tDBOutput_1 main ] start
+									 */
 
-								currentComponent = "tDBOutput_1";
+									currentComponent = "tDBOutput_1";
 
-								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1, "row1");
-								}
+									if (execStat) {
+										runStat.updateStatOnConnection(iterateId, 1, 1, "row1");
+									}
 
-								whetherReject_tDBOutput_1 = false;
-								if (row1.ligne_id == null) {
-									pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(1, row1.ligne_id);
-								}
-
-								if (row1.entreprise_id == null) {
-									pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(2, row1.entreprise_id);
-								}
-
-								if (row1.beneficiaire_id == null) {
-									pstmt_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(3, row1.beneficiaire_id);
-								}
-
-								if (row1.categorie_beneficiaire_id == null) {
-									pstmt_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(4, row1.categorie_beneficiaire_id);
-								}
-
-								if (row1.qualite_beneficiaire_id == null) {
-									pstmt_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(5, row1.qualite_beneficiaire_id);
-								}
-
-								if (row1.titre_beneficiaire_id == null) {
-									pstmt_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(6, row1.titre_beneficiaire_id);
-								}
-
-								if (row1.adresse_beneficiaire_id == null) {
-									pstmt_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(7, row1.adresse_beneficiaire_id);
-								}
-
-								if (row1.adresse_entreprise_id == null) {
-									pstmt_tDBOutput_1.setNull(8, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(8, row1.adresse_entreprise_id);
-								}
-
-								if (row1.specialite_beneficiaire_id == null) {
-									pstmt_tDBOutput_1.setNull(9, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(9, row1.specialite_beneficiaire_id);
-								}
-
-								if (row1.secteur_activite_entreprise_id == null) {
-									pstmt_tDBOutput_1.setNull(10, java.sql.Types.VARCHAR);
-								} else {
-									pstmt_tDBOutput_1.setString(10, row1.secteur_activite_entreprise_id);
-								}
-
-								pstmt_tDBOutput_1.setInt(11, row1.type_avantage_id);
-
-								if (row1.date_id != null) {
-									date_tDBOutput_1 = row1.date_id.getTime();
-									if (date_tDBOutput_1 < year1_tDBOutput_1
-											|| date_tDBOutput_1 >= year10000_tDBOutput_1) {
-										pstmt_tDBOutput_1.setString(12, "0000-00-00 00:00:00");
+									row6 = null;
+									whetherReject_tDBOutput_1 = false;
+									if (row1.ligne_id == null) {
+										pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
 									} else {
-										pstmt_tDBOutput_1.setTimestamp(12, new java.sql.Timestamp(date_tDBOutput_1));
-									}
-								} else {
-									pstmt_tDBOutput_1.setNull(12, java.sql.Types.DATE);
-								}
-
-								pstmt_tDBOutput_1.setBoolean(13, row1.is_avantage);
-
-								pstmt_tDBOutput_1.setBigDecimal(14, row1.montant_ttc);
-
-								pstmt_tDBOutput_1.addBatch();
-								nb_line_tDBOutput_1++;
-
-								batchSizeCounter_tDBOutput_1++;
-								if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
-									try {
-										int countSum_tDBOutput_1 = 0;
-										for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
-											countSum_tDBOutput_1 += (countEach_tDBOutput_1 == java.sql.Statement.EXECUTE_FAILED
-													? 0
-													: 1);
-										}
-										insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
-									} catch (java.sql.BatchUpdateException e) {
-										int countSum_tDBOutput_1 = 0;
-										for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
-											countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
-													: countEach_tDBOutput_1);
-										}
-										insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
-										System.err.println(e.getMessage());
+										pstmt_tDBOutput_1.setString(1, row1.ligne_id);
 									}
 
-									batchSizeCounter_tDBOutput_1 = 0;
-								}
-								commitCounter_tDBOutput_1++;
+									if (row1.entreprise_id == null) {
+										pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(2, row1.entreprise_id);
+									}
 
-								if (commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
+									if (row1.beneficiaire_id == null) {
+										pstmt_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(3, row1.beneficiaire_id);
+									}
 
-									try {
-										int countSum_tDBOutput_1 = 0;
-										for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
-											countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : 1);
+									if (row1.categorie_beneficiaire_id == null) {
+										pstmt_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(4, row1.categorie_beneficiaire_id);
+									}
+
+									if (row1.qualite_beneficiaire_id == null) {
+										pstmt_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(5, row1.qualite_beneficiaire_id);
+									}
+
+									if (row1.titre_beneficiaire_id == null) {
+										pstmt_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(6, row1.titre_beneficiaire_id);
+									}
+
+									if (row1.adresse_beneficiaire_id == null) {
+										pstmt_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(7, row1.adresse_beneficiaire_id);
+									}
+
+									if (row1.adresse_entreprise_id == null) {
+										pstmt_tDBOutput_1.setNull(8, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(8, row1.adresse_entreprise_id);
+									}
+
+									if (row1.specialite_beneficiaire_id == null) {
+										pstmt_tDBOutput_1.setNull(9, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(9, row1.specialite_beneficiaire_id);
+									}
+
+									if (row1.secteur_activite_entreprise_id == null) {
+										pstmt_tDBOutput_1.setNull(10, java.sql.Types.VARCHAR);
+									} else {
+										pstmt_tDBOutput_1.setString(10, row1.secteur_activite_entreprise_id);
+									}
+
+									pstmt_tDBOutput_1.setInt(11, row1.type_avantage_id);
+
+									if (row1.date_id != null) {
+										date_tDBOutput_1 = row1.date_id.getTime();
+										if (date_tDBOutput_1 < year1_tDBOutput_1
+												|| date_tDBOutput_1 >= year10000_tDBOutput_1) {
+											pstmt_tDBOutput_1.setString(12, "0000-00-00 00:00:00");
+										} else {
+											pstmt_tDBOutput_1.setTimestamp(12,
+													new java.sql.Timestamp(date_tDBOutput_1));
 										}
-										insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
-									} catch (java.sql.BatchUpdateException e) {
-										int countSum_tDBOutput_1 = 0;
-										for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
-											countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
-													: countEach_tDBOutput_1);
+									} else {
+										pstmt_tDBOutput_1.setNull(12, java.sql.Types.DATE);
+									}
+
+									pstmt_tDBOutput_1.setBoolean(13, row1.is_avantage);
+
+									pstmt_tDBOutput_1.setBigDecimal(14, row1.montant_ttc);
+
+									pstmt_tDBOutput_1.addBatch();
+									nb_line_tDBOutput_1++;
+
+									batchSizeCounter_tDBOutput_1++;
+									if (!whetherReject_tDBOutput_1) {
+										row6 = new row6Struct();
+										row6.ligne_id = row1.ligne_id;
+										row6.entreprise_id = row1.entreprise_id;
+										row6.beneficiaire_id = row1.beneficiaire_id;
+										row6.categorie_beneficiaire_id = row1.categorie_beneficiaire_id;
+										row6.qualite_beneficiaire_id = row1.qualite_beneficiaire_id;
+										row6.titre_beneficiaire_id = row1.titre_beneficiaire_id;
+										row6.adresse_beneficiaire_id = row1.adresse_beneficiaire_id;
+										row6.adresse_entreprise_id = row1.adresse_entreprise_id;
+										row6.specialite_beneficiaire_id = row1.specialite_beneficiaire_id;
+										row6.secteur_activite_entreprise_id = row1.secteur_activite_entreprise_id;
+										row6.type_avantage_id = row1.type_avantage_id;
+										row6.date_id = row1.date_id;
+										row6.is_avantage = row1.is_avantage;
+										row6.montant_ttc = row1.montant_ttc;
+									}
+									if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
+										try {
+											int countSum_tDBOutput_1 = 0;
+											for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+												countSum_tDBOutput_1 += (countEach_tDBOutput_1 == java.sql.Statement.EXECUTE_FAILED
+														? 0
+														: 1);
+											}
+											insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+										} catch (java.sql.BatchUpdateException e) {
+											int countSum_tDBOutput_1 = 0;
+											for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+												countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
+														: countEach_tDBOutput_1);
+											}
+											insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+											System.err.println(e.getMessage());
 										}
-										insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
-										System.err.println(e.getMessage());
+
+										batchSizeCounter_tDBOutput_1 = 0;
+									}
+									commitCounter_tDBOutput_1++;
+
+									if (commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
+
+										try {
+											int countSum_tDBOutput_1 = 0;
+											for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+												countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : 1);
+											}
+											insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+										} catch (java.sql.BatchUpdateException e) {
+											int countSum_tDBOutput_1 = 0;
+											for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+												countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
+														: countEach_tDBOutput_1);
+											}
+											insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+											System.err.println(e.getMessage());
+
+										}
+										conn_tDBOutput_1.commit();
+										commitCounter_tDBOutput_1 = 0;
 
 									}
-									conn_tDBOutput_1.commit();
-									commitCounter_tDBOutput_1 = 0;
 
-								}
+									tos_count_tDBOutput_1++;
 
-								tos_count_tDBOutput_1++;
+									/**
+									 * [tDBOutput_1 main ] stop
+									 */
+
+									/**
+									 * [tDBOutput_1 process_data_begin ] start
+									 */
+
+									currentComponent = "tDBOutput_1";
+
+									/**
+									 * [tDBOutput_1 process_data_begin ] stop
+									 */
+// Start of branch "row6"
+									if (row6 != null) {
+
+										/**
+										 * [tLogRow_1 main ] start
+										 */
+
+										currentComponent = "tLogRow_1";
+
+										if (execStat) {
+											runStat.updateStatOnConnection(iterateId, 1, 1, "row6");
+										}
+
+///////////////////////		
+
+										strBuffer_tLogRow_1 = new StringBuilder();
+
+										if (row6.ligne_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.ligne_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.entreprise_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.entreprise_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.beneficiaire_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.beneficiaire_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.categorie_beneficiaire_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.categorie_beneficiaire_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.qualite_beneficiaire_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.qualite_beneficiaire_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.titre_beneficiaire_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.titre_beneficiaire_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.adresse_beneficiaire_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.adresse_beneficiaire_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.adresse_entreprise_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.adresse_entreprise_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.specialite_beneficiaire_id != null) { //
+
+											strBuffer_tLogRow_1.append(String.valueOf(row6.specialite_beneficiaire_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.secteur_activite_entreprise_id != null) { //
+
+											strBuffer_tLogRow_1
+													.append(String.valueOf(row6.secteur_activite_entreprise_id));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										strBuffer_tLogRow_1.append(String.valueOf(row6.type_avantage_id));
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.date_id != null) { //
+
+											strBuffer_tLogRow_1
+													.append(FormatterUtils.format_Date(row6.date_id, "dd-MM-yyyy"));
+
+										} //
+
+										strBuffer_tLogRow_1.append("|");
+
+										strBuffer_tLogRow_1.append(String.valueOf(row6.is_avantage));
+
+										strBuffer_tLogRow_1.append("|");
+
+										if (row6.montant_ttc != null) { //
+
+											strBuffer_tLogRow_1.append(row6.montant_ttc
+													.setScale(0, java.math.RoundingMode.HALF_UP).toPlainString());
+
+										} //
+
+										if (globalMap.get("tLogRow_CONSOLE") != null) {
+											consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap
+													.get("tLogRow_CONSOLE");
+										} else {
+											consoleOut_tLogRow_1 = new java.io.PrintStream(
+													new java.io.BufferedOutputStream(System.out));
+											globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_1);
+										}
+										consoleOut_tLogRow_1.println(strBuffer_tLogRow_1.toString());
+										consoleOut_tLogRow_1.flush();
+										nb_line_tLogRow_1++;
+//////
+
+//////                    
+
+///////////////////////    			
+
+										tos_count_tLogRow_1++;
+
+										/**
+										 * [tLogRow_1 main ] stop
+										 */
+
+										/**
+										 * [tLogRow_1 process_data_begin ] start
+										 */
+
+										currentComponent = "tLogRow_1";
+
+										/**
+										 * [tLogRow_1 process_data_begin ] stop
+										 */
+
+										/**
+										 * [tLogRow_1 process_data_end ] start
+										 */
+
+										currentComponent = "tLogRow_1";
+
+										/**
+										 * [tLogRow_1 process_data_end ] stop
+										 */
+
+									} // End of branch "row6"
+
+									/**
+									 * [tDBOutput_1 process_data_end ] start
+									 */
+
+									currentComponent = "tDBOutput_1";
+
+									/**
+									 * [tDBOutput_1 process_data_end ] stop
+									 */
+
+									/**
+									 * [tUnite_1 process_data_end ] start
+									 */
+
+									currentComponent = "tUnite_1";
+
+									/**
+									 * [tUnite_1 process_data_end ] stop
+									 */
+
+								} // End of branch "avantage_fact"
 
 								/**
-								 * [tDBOutput_1 main ] stop
+								 * [tMap_1 process_data_end ] start
 								 */
+
+								currentComponent = "tMap_1";
 
 								/**
-								 * [tDBOutput_1 process_data_begin ] start
+								 * [tMap_1 process_data_end ] stop
 								 */
 
-								currentComponent = "tDBOutput_1";
-
-								/**
-								 * [tDBOutput_1 process_data_begin ] stop
-								 */
-
-								/**
-								 * [tDBOutput_1 process_data_end ] start
-								 */
-
-								currentComponent = "tDBOutput_1";
-
-								/**
-								 * [tDBOutput_1 process_data_end ] stop
-								 */
-
-								/**
-								 * [tUnite_1 process_data_end ] start
-								 */
-
-								currentComponent = "tUnite_1";
-
-								/**
-								 * [tUnite_1 process_data_end ] stop
-								 */
-
-							} // End of branch "avantage_fact"
+							} // End of branch "avantages"
 
 							/**
-							 * [tMap_1 process_data_end ] start
+							 * [tFilterRow_4 process_data_end ] start
 							 */
 
-							currentComponent = "tMap_1";
+							currentComponent = "tFilterRow_4";
 
 							/**
-							 * [tMap_1 process_data_end ] stop
+							 * [tFilterRow_4 process_data_end ] stop
 							 */
 
-						} // End of branch "avantages"
+						} // End of branch "row5"
 
 						/**
 						 * [tFileInputDelimited_1 process_data_end ] start
@@ -7462,6 +10313,27 @@ public class avantage_remuneration_fact implements TalendJob {
 
 				/**
 				 * [tFileInputDelimited_1 end ] stop
+				 */
+
+				/**
+				 * [tFilterRow_4 end ] start
+				 */
+
+				currentComponent = "tFilterRow_4";
+
+				globalMap.put("tFilterRow_4_NB_LINE", nb_line_tFilterRow_4);
+				globalMap.put("tFilterRow_4_NB_LINE_OK", nb_line_ok_tFilterRow_4);
+				globalMap.put("tFilterRow_4_NB_LINE_REJECT", nb_line_reject_tFilterRow_4);
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row5");
+				}
+
+				ok_Hash.put("tFilterRow_4", true);
+				end_Hash.put("tFilterRow_4", System.currentTimeMillis());
+
+				/**
+				 * [tFilterRow_4 end ] stop
 				 */
 
 				/**
@@ -7581,6 +10453,29 @@ public class avantage_remuneration_fact implements TalendJob {
 				 * [tDBOutput_1 end ] stop
 				 */
 
+				/**
+				 * [tLogRow_1 end ] start
+				 */
+
+				currentComponent = "tLogRow_1";
+
+//////
+//////
+				globalMap.put("tLogRow_1_NB_LINE", nb_line_tLogRow_1);
+
+///////////////////////    			
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row6");
+				}
+
+				ok_Hash.put("tLogRow_1", true);
+				end_Hash.put("tLogRow_1", System.currentTimeMillis());
+
+				/**
+				 * [tLogRow_1 end ] stop
+				 */
+
 			} // end the resume
 
 		} catch (java.lang.Exception e) {
@@ -7614,6 +10509,16 @@ public class avantage_remuneration_fact implements TalendJob {
 				 */
 
 				/**
+				 * [tFilterRow_3 finally ] start
+				 */
+
+				currentComponent = "tFilterRow_3";
+
+				/**
+				 * [tFilterRow_3 finally ] stop
+				 */
+
+				/**
 				 * [tMap_2 finally ] start
 				 */
 
@@ -7631,6 +10536,16 @@ public class avantage_remuneration_fact implements TalendJob {
 
 				/**
 				 * [tFileInputDelimited_1 finally ] stop
+				 */
+
+				/**
+				 * [tFilterRow_4 finally ] start
+				 */
+
+				currentComponent = "tFilterRow_4";
+
+				/**
+				 * [tFilterRow_4 finally ] stop
 				 */
 
 				/**
@@ -7684,6 +10599,16 @@ public class avantage_remuneration_fact implements TalendJob {
 
 				/**
 				 * [tDBOutput_1 finally ] stop
+				 */
+
+				/**
+				 * [tLogRow_1 finally ] start
+				 */
+
+				currentComponent = "tLogRow_1";
+
+				/**
+				 * [tLogRow_1 finally ] stop
 				 */
 
 			} catch (java.lang.Exception e) {
@@ -8056,6 +10981,266 @@ public class avantage_remuneration_fact implements TalendJob {
 
 	}
 
+	public static class row2Struct implements routines.system.IPersistableRow<row2Struct> {
+		final static byte[] commonByteArrayLock_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[0];
+		static byte[] commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[0];
+
+		public String identifiant;
+
+		public String getIdentifiant() {
+			return this.identifiant;
+		}
+
+		public String pays_code;
+
+		public String getPays_code() {
+			return this.pays_code;
+		}
+
+		public String pays;
+
+		public String getPays() {
+			return this.pays;
+		}
+
+		public String secteur_activite_code;
+
+		public String getSecteur_activite_code() {
+			return this.secteur_activite_code;
+		}
+
+		public String secteur;
+
+		public String getSecteur() {
+			return this.secteur;
+		}
+
+		public String denomination_sociale;
+
+		public String getDenomination_sociale() {
+			return this.denomination_sociale;
+		}
+
+		public String adresse_1;
+
+		public String getAdresse_1() {
+			return this.adresse_1;
+		}
+
+		public String adresse_2;
+
+		public String getAdresse_2() {
+			return this.adresse_2;
+		}
+
+		public String adresse_3;
+
+		public String getAdresse_3() {
+			return this.adresse_3;
+		}
+
+		public String adresse_4;
+
+		public String getAdresse_4() {
+			return this.adresse_4;
+		}
+
+		public String code_postal;
+
+		public String getCode_postal() {
+			return this.code_postal;
+		}
+
+		public String ville;
+
+		public String getVille() {
+			return this.ville;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact.length) {
+					if (length < 1024 && commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact.length == 0) {
+						commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[1024];
+					} else {
+						commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact, 0, length);
+				strReturn = new String(commonByteArray_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact, 0, length,
+						utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TRANSPARENCE_SANTE_BI_avantage_remuneration_fact) {
+
+				try {
+
+					int length = 0;
+
+					this.identifiant = readString(dis);
+
+					this.pays_code = readString(dis);
+
+					this.pays = readString(dis);
+
+					this.secteur_activite_code = readString(dis);
+
+					this.secteur = readString(dis);
+
+					this.denomination_sociale = readString(dis);
+
+					this.adresse_1 = readString(dis);
+
+					this.adresse_2 = readString(dis);
+
+					this.adresse_3 = readString(dis);
+
+					this.adresse_4 = readString(dis);
+
+					this.code_postal = readString(dis);
+
+					this.ville = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.identifiant, dos);
+
+				// String
+
+				writeString(this.pays_code, dos);
+
+				// String
+
+				writeString(this.pays, dos);
+
+				// String
+
+				writeString(this.secteur_activite_code, dos);
+
+				// String
+
+				writeString(this.secteur, dos);
+
+				// String
+
+				writeString(this.denomination_sociale, dos);
+
+				// String
+
+				writeString(this.adresse_1, dos);
+
+				// String
+
+				writeString(this.adresse_2, dos);
+
+				// String
+
+				writeString(this.adresse_3, dos);
+
+				// String
+
+				writeString(this.adresse_4, dos);
+
+				// String
+
+				writeString(this.code_postal, dos);
+
+				// String
+
+				writeString(this.ville, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("identifiant=" + identifiant);
+			sb.append(",pays_code=" + pays_code);
+			sb.append(",pays=" + pays);
+			sb.append(",secteur_activite_code=" + secteur_activite_code);
+			sb.append(",secteur=" + secteur);
+			sb.append(",denomination_sociale=" + denomination_sociale);
+			sb.append(",adresse_1=" + adresse_1);
+			sb.append(",adresse_2=" + adresse_2);
+			sb.append(",adresse_3=" + adresse_3);
+			sb.append(",adresse_4=" + adresse_4);
+			sb.append(",code_postal=" + code_postal);
+			sb.append(",ville=" + ville);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row2Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
 	public void tFileInputDelimited_4Process(final java.util.Map<String, Object> globalMap) throws TalendException {
 		globalMap.put("tFileInputDelimited_4_SUBPROCESS_STATE", 0);
 
@@ -8076,6 +11261,7 @@ public class avantage_remuneration_fact implements TalendJob {
 			if (resumeIt || globalResumeTicket) { // start the resume
 				globalResumeTicket = true;
 
+				row2Struct row2 = new row2Struct();
 				entreprises_2Struct entreprises_2 = new entreprises_2Struct();
 
 				/**
@@ -8094,13 +11280,13 @@ public class avantage_remuneration_fact implements TalendJob {
 				int tos_count_tAdvancedHash_entreprises_2 = 0;
 
 				// connection name:entreprises_2
-				// source node:tFileInputDelimited_4 - inputs:(after_tFileInputDelimited_3)
+				// source node:tFilterRow_1 - inputs:(row2)
 				// outputs:(entreprises_2,entreprises_2) | target
 				// node:tAdvancedHash_entreprises_2 - inputs:(entreprises_2) outputs:()
 				// linked node: tMap_2 - inputs:(remunerations,entreprises_2)
 				// outputs:(remuneration_fact)
 
-				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_entreprises_2 = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.FIRST_MATCH;
+				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_entreprises_2 = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
 
 				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<entreprises_2Struct> tHash_Lookup_entreprises_2 = org.talend.designer.components.lookup.memory.AdvancedMemoryLookup
 						.<entreprises_2Struct>getLookup(matchingModeEnum_entreprises_2);
@@ -8109,6 +11295,67 @@ public class avantage_remuneration_fact implements TalendJob {
 
 				/**
 				 * [tAdvancedHash_entreprises_2 begin ] stop
+				 */
+
+				/**
+				 * [tFilterRow_1 begin ] start
+				 */
+
+				ok_Hash.put("tFilterRow_1", false);
+				start_Hash.put("tFilterRow_1", System.currentTimeMillis());
+
+				currentComponent = "tFilterRow_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row2");
+				}
+
+				int tos_count_tFilterRow_1 = 0;
+
+				int nb_line_tFilterRow_1 = 0;
+				int nb_line_ok_tFilterRow_1 = 0;
+				int nb_line_reject_tFilterRow_1 = 0;
+
+				class Operator_tFilterRow_1 {
+					private String sErrorMsg = "";
+					private boolean bMatchFlag = true;
+					private String sUnionFlag = "&&";
+
+					public Operator_tFilterRow_1(String unionFlag) {
+						sUnionFlag = unionFlag;
+						bMatchFlag = "||".equals(unionFlag) ? false : true;
+					}
+
+					public String getErrorMsg() {
+						if (sErrorMsg != null && sErrorMsg.length() > 1)
+							return sErrorMsg.substring(1);
+						else
+							return null;
+					}
+
+					public boolean getMatchFlag() {
+						return bMatchFlag;
+					}
+
+					public void matches(boolean partMatched, String reason) {
+						// no need to care about the next judgement
+						if ("||".equals(sUnionFlag) && bMatchFlag) {
+							return;
+						}
+
+						if (!partMatched) {
+							sErrorMsg += "|" + reason;
+						}
+
+						if ("||".equals(sUnionFlag))
+							bMatchFlag = bMatchFlag || partMatched;
+						else
+							bMatchFlag = bMatchFlag && partMatched;
+					}
+				}
+
+				/**
+				 * [tFilterRow_1 begin ] stop
 				 */
 
 				/**
@@ -8269,12 +11516,10 @@ public class avantage_remuneration_fact implements TalendJob {
 							break;
 						}
 
-						entreprises_2 = null;
-
-						entreprises_2 = null;
+						row2 = null;
 
 						boolean whetherReject_tFileInputDelimited_4 = false;
-						entreprises_2 = new entreprises_2Struct();
+						row2 = new row2Struct();
 						try {
 
 							char fieldSeparator_tFileInputDelimited_4_ListType[] = null;
@@ -8293,29 +11538,29 @@ public class avantage_remuneration_fact implements TalendJob {
 																														// is
 																														// '\n'
 
-								entreprises_2.identifiant = null;
+								row2.identifiant = null;
 
-								entreprises_2.pays_code = null;
+								row2.pays_code = null;
 
-								entreprises_2.pays = null;
+								row2.pays = null;
 
-								entreprises_2.secteur_activite_code = null;
+								row2.secteur_activite_code = null;
 
-								entreprises_2.secteur = null;
+								row2.secteur = null;
 
-								entreprises_2.denomination_sociale = null;
+								row2.denomination_sociale = null;
 
-								entreprises_2.adresse_1 = null;
+								row2.adresse_1 = null;
 
-								entreprises_2.adresse_2 = null;
+								row2.adresse_2 = null;
 
-								entreprises_2.adresse_3 = null;
+								row2.adresse_3 = null;
 
-								entreprises_2.adresse_4 = null;
+								row2.adresse_4 = null;
 
-								entreprises_2.code_postal = null;
+								row2.code_postal = null;
 
-								entreprises_2.ville = null;
+								row2.ville = null;
 
 							} else {
 
@@ -8325,11 +11570,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length) {
 
-									entreprises_2.identifiant = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									row2.identifiant = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
 
 								} else {
 
-									entreprises_2.identifiant = null;
+									row2.identifiant = null;
 
 								}
 
@@ -8337,11 +11582,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length) {
 
-									entreprises_2.pays_code = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									row2.pays_code = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
 
 								} else {
 
-									entreprises_2.pays_code = null;
+									row2.pays_code = null;
 
 								}
 
@@ -8349,11 +11594,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length) {
 
-									entreprises_2.pays = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									row2.pays = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
 
 								} else {
 
-									entreprises_2.pays = null;
+									row2.pays = null;
 
 								}
 
@@ -8361,11 +11606,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length) {
 
-									entreprises_2.secteur_activite_code = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									row2.secteur_activite_code = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
 
 								} else {
 
-									entreprises_2.secteur_activite_code = null;
+									row2.secteur_activite_code = null;
 
 								}
 
@@ -8373,11 +11618,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length) {
 
-									entreprises_2.secteur = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									row2.secteur = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
 
 								} else {
 
-									entreprises_2.secteur = null;
+									row2.secteur = null;
 
 								}
 
@@ -8385,11 +11630,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length) {
 
-									entreprises_2.denomination_sociale = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									row2.denomination_sociale = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
 
 								} else {
 
-									entreprises_2.denomination_sociale = null;
+									row2.denomination_sociale = null;
 
 								}
 
@@ -8397,11 +11642,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length) {
 
-									entreprises_2.adresse_1 = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									row2.adresse_1 = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
 
 								} else {
 
-									entreprises_2.adresse_1 = null;
+									row2.adresse_1 = null;
 
 								}
 
@@ -8409,11 +11654,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length) {
 
-									entreprises_2.adresse_2 = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									row2.adresse_2 = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
 
 								} else {
 
-									entreprises_2.adresse_2 = null;
+									row2.adresse_2 = null;
 
 								}
 
@@ -8421,11 +11666,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length) {
 
-									entreprises_2.adresse_3 = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									row2.adresse_3 = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
 
 								} else {
 
-									entreprises_2.adresse_3 = null;
+									row2.adresse_3 = null;
 
 								}
 
@@ -8433,11 +11678,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length) {
 
-									entreprises_2.adresse_4 = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									row2.adresse_4 = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
 
 								} else {
 
-									entreprises_2.adresse_4 = null;
+									row2.adresse_4 = null;
 
 								}
 
@@ -8445,11 +11690,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length) {
 
-									entreprises_2.code_postal = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									row2.code_postal = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
 
 								} else {
 
-									entreprises_2.code_postal = null;
+									row2.code_postal = null;
 
 								}
 
@@ -8457,11 +11702,11 @@ public class avantage_remuneration_fact implements TalendJob {
 
 								if (columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length) {
 
-									entreprises_2.ville = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									row2.ville = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
 
 								} else {
 
-									entreprises_2.ville = null;
+									row2.ville = null;
 
 								}
 
@@ -8475,7 +11720,7 @@ public class avantage_remuneration_fact implements TalendJob {
 							whetherReject_tFileInputDelimited_4 = true;
 
 							System.err.println(e.getMessage());
-							entreprises_2 = null;
+							row2 = null;
 
 						}
 
@@ -8504,74 +11749,164 @@ public class avantage_remuneration_fact implements TalendJob {
 						/**
 						 * [tFileInputDelimited_4 process_data_begin ] stop
 						 */
-// Start of branch "entreprises_2"
-						if (entreprises_2 != null) {
+// Start of branch "row2"
+						if (row2 != null) {
 
 							/**
-							 * [tAdvancedHash_entreprises_2 main ] start
+							 * [tFilterRow_1 main ] start
 							 */
 
-							currentComponent = "tAdvancedHash_entreprises_2";
+							currentComponent = "tFilterRow_1";
 
 							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1, "entreprises_2");
+								runStat.updateStatOnConnection(iterateId, 1, 1, "row2");
 							}
 
-							entreprises_2Struct entreprises_2_HashRow = new entreprises_2Struct();
+							entreprises_2 = null;
+							entreprises_2 = null;
+							Operator_tFilterRow_1 ope_tFilterRow_1 = new Operator_tFilterRow_1("&&");
+							ope_tFilterRow_1.matches((// code sample : use row2 to define the condition.
+// row2.columnName1.equals("foo") ||!(row2.columnName2.equals("bar"))
+// replace the following expression by your own filter condition 
 
-							entreprises_2_HashRow.identifiant = entreprises_2.identifiant;
+							!row2.pays_code.replaceAll("[^A-Za-z0-9]", "").equals("") && row2.pays_code != null
+									&& row2.code_postal != null
+									&& !row2.code_postal.replaceAll("[^A-Za-z0-9]", "").equals("")),
+									"advanced condition failed");
 
-							entreprises_2_HashRow.pays_code = entreprises_2.pays_code;
+							if (ope_tFilterRow_1.getMatchFlag()) {
+								if (entreprises_2 == null) {
+									entreprises_2 = new entreprises_2Struct();
+								}
+								entreprises_2.identifiant = row2.identifiant;
+								entreprises_2.pays_code = row2.pays_code;
+								entreprises_2.pays = row2.pays;
+								entreprises_2.secteur_activite_code = row2.secteur_activite_code;
+								entreprises_2.secteur = row2.secteur;
+								entreprises_2.denomination_sociale = row2.denomination_sociale;
+								entreprises_2.adresse_1 = row2.adresse_1;
+								entreprises_2.adresse_2 = row2.adresse_2;
+								entreprises_2.adresse_3 = row2.adresse_3;
+								entreprises_2.adresse_4 = row2.adresse_4;
+								entreprises_2.code_postal = row2.code_postal;
+								entreprises_2.ville = row2.ville;
+								if (entreprises_2 == null) {
+									entreprises_2 = new entreprises_2Struct();
+								}
+								entreprises_2.identifiant = row2.identifiant;
+								entreprises_2.pays_code = row2.pays_code;
+								entreprises_2.pays = row2.pays;
+								entreprises_2.secteur_activite_code = row2.secteur_activite_code;
+								entreprises_2.secteur = row2.secteur;
+								entreprises_2.denomination_sociale = row2.denomination_sociale;
+								entreprises_2.adresse_1 = row2.adresse_1;
+								entreprises_2.adresse_2 = row2.adresse_2;
+								entreprises_2.adresse_3 = row2.adresse_3;
+								entreprises_2.adresse_4 = row2.adresse_4;
+								entreprises_2.code_postal = row2.code_postal;
+								entreprises_2.ville = row2.ville;
+								nb_line_ok_tFilterRow_1++;
+							} else {
+								nb_line_reject_tFilterRow_1++;
+							}
 
-							entreprises_2_HashRow.pays = entreprises_2.pays;
+							nb_line_tFilterRow_1++;
 
-							entreprises_2_HashRow.secteur_activite_code = entreprises_2.secteur_activite_code;
-
-							entreprises_2_HashRow.secteur = entreprises_2.secteur;
-
-							entreprises_2_HashRow.denomination_sociale = entreprises_2.denomination_sociale;
-
-							entreprises_2_HashRow.adresse_1 = entreprises_2.adresse_1;
-
-							entreprises_2_HashRow.adresse_2 = entreprises_2.adresse_2;
-
-							entreprises_2_HashRow.adresse_3 = entreprises_2.adresse_3;
-
-							entreprises_2_HashRow.adresse_4 = entreprises_2.adresse_4;
-
-							entreprises_2_HashRow.code_postal = entreprises_2.code_postal;
-
-							entreprises_2_HashRow.ville = entreprises_2.ville;
-
-							tHash_Lookup_entreprises_2.put(entreprises_2_HashRow);
-
-							tos_count_tAdvancedHash_entreprises_2++;
+							tos_count_tFilterRow_1++;
 
 							/**
-							 * [tAdvancedHash_entreprises_2 main ] stop
+							 * [tFilterRow_1 main ] stop
 							 */
 
 							/**
-							 * [tAdvancedHash_entreprises_2 process_data_begin ] start
+							 * [tFilterRow_1 process_data_begin ] start
 							 */
 
-							currentComponent = "tAdvancedHash_entreprises_2";
+							currentComponent = "tFilterRow_1";
 
 							/**
-							 * [tAdvancedHash_entreprises_2 process_data_begin ] stop
+							 * [tFilterRow_1 process_data_begin ] stop
 							 */
+// Start of branch "entreprises_2"
+							if (entreprises_2 != null) {
+
+								/**
+								 * [tAdvancedHash_entreprises_2 main ] start
+								 */
+
+								currentComponent = "tAdvancedHash_entreprises_2";
+
+								if (execStat) {
+									runStat.updateStatOnConnection(iterateId, 1, 1, "entreprises_2");
+								}
+
+								entreprises_2Struct entreprises_2_HashRow = new entreprises_2Struct();
+
+								entreprises_2_HashRow.identifiant = entreprises_2.identifiant;
+
+								entreprises_2_HashRow.pays_code = entreprises_2.pays_code;
+
+								entreprises_2_HashRow.pays = entreprises_2.pays;
+
+								entreprises_2_HashRow.secteur_activite_code = entreprises_2.secteur_activite_code;
+
+								entreprises_2_HashRow.secteur = entreprises_2.secteur;
+
+								entreprises_2_HashRow.denomination_sociale = entreprises_2.denomination_sociale;
+
+								entreprises_2_HashRow.adresse_1 = entreprises_2.adresse_1;
+
+								entreprises_2_HashRow.adresse_2 = entreprises_2.adresse_2;
+
+								entreprises_2_HashRow.adresse_3 = entreprises_2.adresse_3;
+
+								entreprises_2_HashRow.adresse_4 = entreprises_2.adresse_4;
+
+								entreprises_2_HashRow.code_postal = entreprises_2.code_postal;
+
+								entreprises_2_HashRow.ville = entreprises_2.ville;
+
+								tHash_Lookup_entreprises_2.put(entreprises_2_HashRow);
+
+								tos_count_tAdvancedHash_entreprises_2++;
+
+								/**
+								 * [tAdvancedHash_entreprises_2 main ] stop
+								 */
+
+								/**
+								 * [tAdvancedHash_entreprises_2 process_data_begin ] start
+								 */
+
+								currentComponent = "tAdvancedHash_entreprises_2";
+
+								/**
+								 * [tAdvancedHash_entreprises_2 process_data_begin ] stop
+								 */
+
+								/**
+								 * [tAdvancedHash_entreprises_2 process_data_end ] start
+								 */
+
+								currentComponent = "tAdvancedHash_entreprises_2";
+
+								/**
+								 * [tAdvancedHash_entreprises_2 process_data_end ] stop
+								 */
+
+							} // End of branch "entreprises_2"
 
 							/**
-							 * [tAdvancedHash_entreprises_2 process_data_end ] start
+							 * [tFilterRow_1 process_data_end ] start
 							 */
 
-							currentComponent = "tAdvancedHash_entreprises_2";
+							currentComponent = "tFilterRow_1";
 
 							/**
-							 * [tAdvancedHash_entreprises_2 process_data_end ] stop
+							 * [tFilterRow_1 process_data_end ] stop
 							 */
 
-						} // End of branch "entreprises_2"
+						} // End of branch "row2"
 
 						/**
 						 * [tFileInputDelimited_4 process_data_end ] start
@@ -8609,6 +11944,27 @@ public class avantage_remuneration_fact implements TalendJob {
 
 				/**
 				 * [tFileInputDelimited_4 end ] stop
+				 */
+
+				/**
+				 * [tFilterRow_1 end ] start
+				 */
+
+				currentComponent = "tFilterRow_1";
+
+				globalMap.put("tFilterRow_1_NB_LINE", nb_line_tFilterRow_1);
+				globalMap.put("tFilterRow_1_NB_LINE_OK", nb_line_ok_tFilterRow_1);
+				globalMap.put("tFilterRow_1_NB_LINE_REJECT", nb_line_reject_tFilterRow_1);
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row2");
+				}
+
+				ok_Hash.put("tFilterRow_1", true);
+				end_Hash.put("tFilterRow_1", System.currentTimeMillis());
+
+				/**
+				 * [tFilterRow_1 end ] stop
 				 */
 
 				/**
@@ -8654,6 +12010,16 @@ public class avantage_remuneration_fact implements TalendJob {
 
 				/**
 				 * [tFileInputDelimited_4 finally ] stop
+				 */
+
+				/**
+				 * [tFilterRow_1 finally ] start
+				 */
+
+				currentComponent = "tFilterRow_1";
+
+				/**
+				 * [tFilterRow_1 finally ] stop
 				 */
 
 				/**
@@ -9033,6 +12399,6 @@ public class avantage_remuneration_fact implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 281004 characters generated by Talend Open Studio for Data Integration on the
- * 26 janvier 2021 15:22:48 CET
+ * 376086 characters generated by Talend Open Studio for Data Integration on the
+ * 31 janvier 2021 18:36:12 CET
  ************************************************************************************************/
