@@ -204,4 +204,4 @@ Nous gérons aussi nos tâches via un formalisme simple via Trello, un outil en 
 ![Trello](doc/img/trello.png)
 _Figure 5 : Organisation des tâches._
 
-[Il est accessible ici (click me)](https://trello.com/invite/b/9vA5ZWl4/24dd09091eb9ce0a5cb0113a4f49f19e/projet-bi).
+[Il est accessible ici (click me)](https://trello.com/b/9vA5ZWl4/projet-bi).
