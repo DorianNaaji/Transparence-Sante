@@ -205,3 +205,15 @@ Nous gérons aussi nos tâches via un formalisme simple via Trello, un outil en 
 _Figure 5 : Organisation des tâches._
 
 [Il est accessible ici (click me)](https://trello.com/b/9vA5ZWl4/projet-bi).
+
+
+### Lancement de l'application Shiny
+
+- Lancer le script app.R du dossier "data-analytics" sur R Studio.
+- L'application Shiny s'ouvre
+- Descendre en bas de la page et cliquer sur le bouton "Visualisation des fichiers"
+- Une première pop up souvre : cliquer sur "Ok"
+- Au bout de 2 minutes, une deuxième pop up s'ouvre : cliquer sur "Ok"
+- Une troisième pop up s'ouvre : cliquer sur "Ok"
+
+==> Vous pouvez à présent naviguer sur tous les onglets de l'application.
