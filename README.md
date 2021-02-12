@@ -1,5 +1,7 @@
 # Projet Business Intelligence
 
+_Readme is wrote exclusively in French as it concerns french data..._ 
+
 ## Équipe Transparence Santé :
 
 * BENALI Myriam
@@ -8,7 +10,13 @@
 * NAAJI Dorian
 * VIRARAGAVANE Smaïline
 
-## Exécution et installation du projet
+Le repos contient :
+
+- Un dossier de data analytics avec une Application R Studio Shiny et un Jupyter Notebook.
+- Un dossier talend permettant l'ETL des données de transparence santé.
+- Un dossier de reporting contenant un fichier Power BI pour l'analyse de KPIs.
+
+## Exécution et installation du projet TALEND
 
 Le repository github doit **impérativement** être cloné dans le dossier **"C:\BI\transparence-sante"**, à la racine du disque dur. L'ensemble des instructions concernent uniquement un projet **TALEND** sous Windows.
 
