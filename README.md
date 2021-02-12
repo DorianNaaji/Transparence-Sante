@@ -217,3 +217,15 @@ _Figure 5 : Organisation des tâches._
 - Une troisième pop up s'ouvre : cliquer sur "Ok"
 
 ==> Vous pouvez à présent naviguer sur tous les onglets de l'application.
+
+
+### Reporting
+
+Reporting réalisé sous Power BI, voir le dossier "data-reporting"
+
+
+![Reporting-1](doc/img/reporting_1.png)
+
+***
+
+![Reporting-2](doc/img/reporting_2.png)
