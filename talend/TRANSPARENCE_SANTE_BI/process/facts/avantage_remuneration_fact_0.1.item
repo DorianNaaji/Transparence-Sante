@@ -42,7 +42,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:91C1/GZkdlY12jMXc3lOz94AJKzpLKMisAD5ZQrO" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:VusBo6bqKiv4d8XWHIe8LbqIwlFl1oPO4019XKXn" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -77,7 +77,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:4oxRrd0AQ3HqJnWdQ49qCrDe/K3KdYrT6FFfu1T4" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:EQ0f+oi0tEZU9i92O2ovnbos6V9T4/fZBiPFKRZq" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -318,7 +318,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="date" expression="avantages.avant_date_signature != null &amp;&amp; &#xD;&#xA;MyStringRoutine.isDate(avantages.avant_date_signature.replaceAll(&quot;[^0-9\\/\\-]&quot;, &quot;&quot;)) ? &#xA;&#xA;TalendDate.parseDate(&quot;dd-MM-yyyy&quot;, (avantages.avant_date_signature.replaceAll(&quot;[^0-9\\/\\-]&quot;, &quot;&quot;)).replace(&quot;/&quot;, &quot;-&quot;)) &#xA;: &#xD;&#xA;// if date string is null or empty, default date&#xD;&#xA;TalendDate.parseDate(&quot;dd-MM-yyyy&quot;, &quot;01-01-2000&quot;) " type="id_Date"/>
         <mapperTableEntries name="normalizedNatureAvantage" expression="NatureAvantageIdGenerator.normalizeNatureAvantage(avantages.avant_nature) " type="id_String"/>
@@ -513,7 +513,7 @@
     <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;"/>
     <elementParameter field="TEXT" name="DBNAME" value="&quot;transparence_sante_bi&quot;"/>
     <elementParameter field="TEXT" name="USER" value="&quot;root&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:0XUtO32MSlgk8PPNyHv3fPb7V/mZRSNEfW4m5Id6"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:CfyrE8vPxgR23DQ/CR/COph62246v3VdPubwU/Au"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;avantage_remuneration_fact&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CLEAR"/>
     <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
@@ -525,12 +525,12 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;"/>
     <elementParameter field="CHECK" name="EXTENDINSERT" value="true"/>
     <elementParameter field="LABEL" name="NOTE" value="(Not compatible with reject links)"/>
-    <elementParameter field="TEXT" name="NB_ROWS_PER_INSERT" value="100"/>
+    <elementParameter field="TEXT" name="NB_ROWS_PER_INSERT" value="10"/>
     <elementParameter field="CHECK" name="USE_BATCH_SIZE" value="true" show="false"/>
     <elementParameter field="TEXT" name="BATCH_SIZE" value="10000" show="false"/>
     <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000"/>
+    <elementParameter field="TEXT" name="COMMIT_EVERY" value="10"/>
     <elementParameter field="TABLE" name="ADD_COLS"/>
     <elementParameter field="CHECK" name="USE_FIELD_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="FIELD_OPTIONS" show="false">
@@ -766,7 +766,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="date" expression="remunerations.remu_date != null &amp;&amp; &#xD;&#xA;MyStringRoutine.isDate(remunerations.remu_date.replaceAll(&quot;[^0-9\\-\\/]&quot;, &quot;&quot;))?  &#xD;&#xA;&#xD;&#xA;TalendDate.parseDate(&quot;dd-MM-yyyy&quot;, (remunerations.remu_date.replaceAll(&quot;[^0-9\\-\\/]&quot;, &quot;&quot;)).replace(&quot;/&quot;, &quot;-&quot;)) &#xD;&#xA;:&#xD;&#xA;// if date string is null or empty, default date&#xD;&#xA;TalendDate.parseDate(&quot;dd-MM-yyyy&quot;, &quot;01-01-2000&quot;) " type="id_Date"/>
       </varTables>
