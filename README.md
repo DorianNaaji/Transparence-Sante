@@ -1,6 +1,6 @@
 # Projet Business Intelligence
 
-_Readme is wrote exclusively in French as it concerns french data..._ 
+_Readme is wrote exclusively in French as it concerns french data..._   
 
 ## Équipe Transparence Santé :
 
