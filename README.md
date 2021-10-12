@@ -24,6 +24,8 @@ Le repository github doit **impérativement** être cloné dans le dossier **"C:
 
 Après avoir cloné le projet, il est possible de télécharger et de dézipper automatiquement les données les plus volumineuses grâce au script PowerShell :
 
+# Update 12-10-2021 : Les données ne sont plus disponibles ici. Vous pouvez les télécharger sur la base de données transparence santé officielle en ligne. (https://www.data.gouv.fr/fr/datasets/transparence-sante-1/ ou autre lien)
+
 > download-data.ps1
 
 Pour exécuter ce script, il faut :
